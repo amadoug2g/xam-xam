@@ -2,14 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Dark mode defaults */
+  --bg-app: #0a0a0a;
+  --bg-body: #050505;
+  --bg-card: #111111;
+  --border-card: #1e1e1e;
+  --border-divider: #141414;
+  --text-primary: #f5f5f5;
+  --text-muted: #6b7280;
+  --text-wolof: #4ade80;
+  --accent-btn: #4ade80;
+  --accent-btn-text: #0a0a0a;
+  --shadow-color: rgba(0, 0, 0, 0.9);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.5);
+  
+  --badge-bg: #152d1d;
+  --badge-text: #4ade80;
+  --badge-border: rgba(30, 92, 50, 0.3);
+  
+  --stats-bg: rgba(22, 22, 22, 0.5);
+  --preview-bg: rgba(17, 17, 17, 0.6);
+  --border-item: #1e1e1e;
+  
+  --btn-secondary-bg: #1a1a1a;
+  --btn-secondary-border: #2b2b2b;
+  --btn-secondary-text: #6b7280;
+  --btn-secondary-hover-bg: #222222;
+}
+
+html.light {
+  /* Light mode overrides */
+  --bg-app: #fdfdfd;
+  --bg-body: #f5f5f7;
+  --bg-card: #ffffff;
+  --border-card: #e5e5e7;
+  --border-divider: #eaeaea;
+  --text-primary: #1a1a1e;
+  --text-muted: #73737c;
+  --text-wolof: #059669;
+  --accent-btn: #059669;
+  --accent-btn-text: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.03);
+  
+  --badge-bg: #ecfdf5;
+  --badge-text: #047857;
+  --badge-border: rgba(4, 120, 87, 0.2);
+  
+  --stats-bg: rgba(245, 245, 247, 0.85);
+  --preview-bg: rgba(255, 255, 255, 0.95);
+  --border-item: #e5e5e7;
+  
+  --btn-secondary-bg: #f4f4f5;
+  --btn-secondary-border: #e4e4e7;
+  --btn-secondary-text: #71717a;
+  --btn-secondary-hover-bg: #e4e4e7;
+}
+
 @layer base {
   html {
-    background-color: #050505;
+    background-color: var(--bg-body);
+    transition: background-color 0.3s ease;
   }
   
   body {
-    background-color: #050505;
-    color: #f5f5f5;
+    background-color: var(--bg-body);
+    color: var(--text-primary);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     min-height: 100vh;
     display: flex;
@@ -18,19 +77,21 @@
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   #root {
     width: 100%;
     max-width: 420px;
-    background-color: #0a0a0a;
+    background-color: var(--bg-app);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0 50px var(--shadow-color);
     position: relative;
-    border-left: 1px solid #141414;
-    border-right: 1px solid #141414;
+    border-left: 1px solid var(--border-divider);
+    border-right: 1px solid var(--border-divider);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
 }
 
@@ -81,6 +142,11 @@
   animation: pulseSubtle 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }
 
+/* Custom transitions helper */
+.transition-theme {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
 /* 
  * Exclusive CSS enhancements for Session.jsx (which has no classes).
  * This formats the unstyled Session page wrapper and its progress counter.
@@ -90,25 +156,88 @@
   flex-direction: column;
   min-height: 100vh;
   padding: 1.5rem 1.25rem;
-  background-color: #0a0a0a;
+  background-color: var(--bg-app);
   justify-content: space-between;
   box-sizing: border-box;
+  transition: background-color 0.3s ease;
 }
 
 #root > div:not([class]) > p {
   text-align: center;
   font-size: 0.7rem;
-  color: #8b8b8b;
+  color: var(--text-muted);
   font-weight: 700;
   letter-spacing: 0.15em;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  background-color: #111111;
+  background-color: var(--bg-card);
   padding: 0.35rem 0.9rem;
   border-radius: 9999px;
-  border: 1px solid #1e1e1e;
+  border: 1px solid var(--border-card);
   margin: 0 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-card);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Custom GradeBar Button Themes */
+.grade-btn-red {
+  background-color: #1c0d0d;
+  border-color: #4e1616;
+  color: #f87171;
+  transition: all 0.2s ease;
+}
+.grade-btn-red:hover {
+  background-color: #271212;
+  border-color: #ef4444;
+}
+html.light .grade-btn-red {
+  background-color: #fef2f2;
+  border-color: #fca5a5;
+  color: #dc2626;
+}
+html.light .grade-btn-red:hover {
+  background-color: #fee2e2;
+  border-color: #ef4444;
+}
+
+.grade-btn-amber {
+  background-color: #1c140d;
+  border-color: #4e3416;
+  color: #fbbf24;
+  transition: all 0.2s ease;
+}
+.grade-btn-amber:hover {
+  background-color: #271b12;
+  border-color: #f59e0b;
+}
+html.light .grade-btn-amber {
+  background-color: #fffbeb;
+  border-color: #fde68a;
+  color: #b45309;
+}
+html.light .grade-btn-amber:hover {
+  background-color: #fef3c7;
+  border-color: #f59e0b;
+}
+
+.grade-btn-green {
+  background-color: #0d1c12;
+  border-color: #164e26;
+  color: #34d399;
+  transition: all 0.2s ease;
+}
+.grade-btn-green:hover {
+  background-color: #122718;
+  border-color: #10b981;
+}
+html.light .grade-btn-green {
+  background-color: #f0fdf4;
+  border-color: #a7f3d0;
+  color: #15803d;
+}
+html.light .grade-btn-green:hover {
+  background-color: #dcfce7;
+  border-color: #10b981;
 }

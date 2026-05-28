@@ -1,8 +1,20 @@
+import { useState, useEffect } from 'react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
-import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight } from 'lucide-react'
+import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon } from 'lucide-react'
 
 export default function LessonList({ onSelect }) {
+  // Theme state hook with document sync on mount & update
+  const [theme, setTheme] = useState(() => {
+    const t = localStorage.getItem('xam-xam-theme') || 'dark'
+    if (t === 'light') {
+      document.documentElement.classList.add('light')
+    } else {
+      document.documentElement.classList.remove('light')
+    }
+    return t
+  })
+
   // Aggregate global statistics across all lessons
   const allCards = LESSONS.flatMap(l => l.cards || [])
   const totalCards = allCards.length
@@ -12,54 +24,81 @@ export default function LessonList({ onSelect }) {
   const dueCount = srsStates.filter(s => !s.mastered && s.nextDue <= Date.now()).length
   const progressPercent = totalCards > 0 ? Math.round(((masteredCount + (srsStates.filter(s => s.attempts > 0 && !s.mastered).length * 0.5)) / totalCards) * 100) : 0
 
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark'
+    localStorage.setItem('xam-xam-theme', nextTheme)
+    if (nextTheme === 'light') {
+      document.documentElement.classList.add('light')
+    } else {
+      document.documentElement.classList.remove('light')
+    }
+    setTheme(nextTheme)
+  }
+
   return (
-    <div className="flex flex-col min-h-screen px-5 py-6 bg-[#0a0a0a] text-[#f5f5f5] animate-fade-in-up">
-      {/* Premium Header */}
-      <header className="mb-6 flex flex-col">
+    <div className="flex flex-col min-h-screen px-5 py-6 bg-[var(--bg-app)] text-[var(--text-primary)] transition-colors duration-300 animate-fade-in-up">
+      {/* Premium Header with Theme Toggle */}
+      <header className="mb-6 flex flex-col relative">
         <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-            Xam-Xam<span className="text-[#4ade80]">.</span>
+          <h1 className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-[var(--text-primary)] to-[var(--text-muted)] bg-clip-text text-transparent">
+            Xam-Xam<span className="text-[var(--text-wolof)]">.</span>
           </h1>
-          <span className="text-xs px-2.5 py-1 bg-[#152d1d] text-[#4ade80] rounded-full border border-[#1e5c32]/30 font-medium">
-            Wolof
-          </span>
+          
+          <div className="flex items-center gap-3">
+            {/* Elegant Luxury Theme Toggler */}
+            <button 
+              onClick={toggleTheme}
+              className="p-2 bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-wolof)] rounded-full transition-all duration-200 hover:scale-105 active:scale-95 flex items-center justify-center shadow-sm"
+              title={theme === 'dark' ? 'Passer au mode clair' : 'Passer au mode sombre'}
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-4 h-4 text-[#fbbf24]" />
+              ) : (
+                <Moon className="w-4 h-4 text-[#0f766e]" />
+              )}
+            </button>
+
+            <span className="text-xs px-2.5 py-1 bg-[var(--badge-bg)] text-[var(--badge-text)] rounded-full border border-[var(--badge-border)] font-medium transition-colors duration-300">
+              Wolof
+            </span>
+          </div>
         </div>
-        <p className="text-xs text-[#6b7280] mt-1 font-mono uppercase tracking-widest">
+        <p className="text-xs text-[var(--text-muted)] mt-1 font-mono uppercase tracking-widest transition-colors duration-300">
           Salaam aleekum 👋
         </p>
       </header>
 
       {/* Global Progress Dashboard Card */}
-      <div className="mb-8 p-5 bg-gradient-to-br from-[#111111] to-[#0d0d0d] rounded-2xl border border-[#1e1e1e] shadow-xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-[#4ade80]/5 rounded-full blur-2xl -mr-8 -mt-8" />
-        <h3 className="text-sm font-semibold text-gray-400 mb-3 flex items-center gap-1.5">
-          <Sparkles className="w-4 h-4 text-[#4ade80]" /> Votre Progression
+      <div className="mb-8 p-5 bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-app)] rounded-2xl border border-[var(--border-card)] shadow-xl relative overflow-hidden transition-all duration-300">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--text-wolof)]/5 rounded-full blur-2xl -mr-8 -mt-8" />
+        <h3 className="text-sm font-semibold text-[var(--text-muted)] mb-3 flex items-center gap-1.5 transition-colors duration-300">
+          <Sparkles className="w-4 h-4 text-[var(--text-wolof)]" /> Votre Progression
         </h3>
         
         {/* Progress bar */}
-        <div className="w-full bg-[#1c1c1c] h-2 rounded-full mb-5 overflow-hidden">
+        <div className="w-full bg-[var(--stats-bg)] h-2 rounded-full mb-5 overflow-hidden transition-colors duration-300">
           <div 
-            className="bg-[#4ade80] h-full rounded-full transition-all duration-500 ease-out shadow-[0_0_8px_rgba(74,222,128,0.5)]"
+            className="bg-[var(--text-wolof)] h-full rounded-full transition-all duration-500 ease-out shadow-[0_0_8px_var(--text-wolof)]"
             style={{ width: `${Math.max(4, progressPercent)}%` }}
           />
         </div>
 
         {/* Quick Stats Grid */}
         <div className="grid grid-cols-3 gap-2.5 text-center">
-          <div className="flex flex-col p-2 bg-[#161616]/50 rounded-xl border border-[#1f1f1f]">
-            <span className="text-xs text-[#6b7280] font-medium flex justify-center items-center gap-1">
+          <div className="flex flex-col p-2 bg-[var(--stats-bg)] rounded-xl border border-[var(--border-card)] transition-colors duration-300">
+            <span className="text-xs text-[var(--text-muted)] font-medium flex justify-center items-center gap-1 transition-colors duration-300">
               <BookOpen className="w-3.5 h-3.5" /> Total
             </span>
-            <span className="text-lg font-bold mt-0.5 text-white">{totalCards}</span>
+            <span className="text-lg font-bold mt-0.5 text-[var(--text-primary)] transition-colors duration-300">{totalCards}</span>
           </div>
-          <div className="flex flex-col p-2 bg-[#161616]/50 rounded-xl border border-[#1f1f1f]">
-            <span className="text-xs text-[#6b7280] font-medium flex justify-center items-center gap-1">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#4ade80]" /> Acquis
+          <div className="flex flex-col p-2 bg-[var(--stats-bg)] rounded-xl border border-[var(--border-card)] transition-colors duration-300">
+            <span className="text-xs text-[var(--text-muted)] font-medium flex justify-center items-center gap-1 transition-colors duration-300">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[var(--text-wolof)]" /> Acquis
             </span>
-            <span className="text-lg font-bold mt-0.5 text-[#4ade80]">{masteredCount}</span>
+            <span className="text-lg font-bold mt-0.5 text-[var(--text-wolof)] transition-colors duration-300">{masteredCount}</span>
           </div>
-          <div className="flex flex-col p-2 bg-[#161616]/50 rounded-xl border border-[#1f1f1f]">
-            <span className="text-xs text-[#6b7280] font-medium flex justify-center items-center gap-1">
+          <div className="flex flex-col p-2 bg-[var(--stats-bg)] rounded-xl border border-[var(--border-card)] transition-colors duration-300">
+            <span className="text-xs text-[var(--text-muted)] font-medium flex justify-center items-center gap-1 transition-colors duration-300">
               <Clock className="w-3.5 h-3.5 text-[#ef4444]" /> Dûs
             </span>
             <span className="text-lg font-bold mt-0.5 text-[#ef4444]">{dueCount}</span>
@@ -69,7 +108,7 @@ export default function LessonList({ onSelect }) {
 
       {/* Scrollable Lesson List */}
       <div className="flex-1 flex flex-col gap-4">
-        <h2 className="text-sm font-semibold tracking-wider text-[#6b7280] uppercase px-1">
+        <h2 className="text-sm font-semibold tracking-wider text-[var(--text-muted)] uppercase px-1 transition-colors duration-300">
           Vos Leçons
         </h2>
         
@@ -84,7 +123,7 @@ export default function LessonList({ onSelect }) {
               <button
                 key={lesson.id}
                 onClick={() => onSelect(lesson.id)}
-                className="w-full flex items-center justify-between p-4 bg-[#111111] rounded-2xl border border-[#1e1e1e] hover:border-[#4ade80]/40 active:scale-[0.98] active:bg-[#141414] transition-all duration-200 text-left group relative overflow-hidden shadow-md"
+                className="w-full flex items-center justify-between p-4 bg-[var(--bg-card)] rounded-2xl border border-[var(--border-card)] hover:border-[var(--text-wolof)]/40 active:scale-[0.98] active:opacity-95 transition-all duration-200 text-left group relative overflow-hidden shadow-md"
                 style={{ 
                   animationDelay: `${index * 80}ms`,
                   animation: 'fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both'
@@ -92,35 +131,35 @@ export default function LessonList({ onSelect }) {
               >
                 <div className="flex-1 pr-4">
                   <div className="flex items-center gap-2 mb-1.5">
-                    <h3 className="font-bold text-white text-base group-hover:text-[#4ade80] transition-colors duration-150">
+                    <h3 className="font-bold text-[var(--text-primary)] text-base group-hover:text-[var(--text-wolof)] transition-colors duration-150">
                       {lesson.title}
                     </h3>
                     {lessonDueCount > 0 && (
                       <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4ade80] opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4ade80]"></span>
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--text-wolof)] opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--text-wolof)]"></span>
                       </span>
                     )}
                   </div>
                   
-                  <p className="text-xs text-[#6b7280] line-clamp-1 mb-2.5">
+                  <p className="text-xs text-[var(--text-muted)] line-clamp-1 mb-2.5 transition-colors duration-300">
                     {lesson.description}
                   </p>
 
                   <div className="flex items-center gap-3">
-                    <span className="text-[10px] tracking-wider px-2 py-0.5 bg-[#1a1a1a] text-[#a3a3a3] rounded-md font-medium border border-[#262626]">
+                    <span className="text-[10px] tracking-wider px-2 py-0.5 bg-[var(--btn-secondary-bg)] text-[var(--text-muted)] rounded-md font-medium border border-[var(--btn-secondary-border)] transition-colors duration-300">
                       {lesson.cards.length} cartes
                     </span>
                     {lessonDueCount > 0 && (
-                      <span className="text-[10px] font-bold text-[#4ade80] flex items-center gap-1 animate-pulse-subtle">
+                      <span className="text-[10px] font-bold text-[var(--text-wolof)] flex items-center gap-1 animate-pulse-subtle">
                         {lessonDueCount} à réviser
                       </span>
                     )}
                   </div>
                 </div>
 
-                <div className="p-2 bg-[#1a1a1a] rounded-xl border border-[#262626] group-hover:bg-[#4ade80]/10 group-hover:border-[#4ade80]/30 transition-all duration-200">
-                  <ChevronRight className="w-4 h-4 text-gray-500 group-hover:text-[#4ade80] transition-colors duration-150" />
+                <div className="p-2 bg-[var(--btn-secondary-bg)] rounded-xl border border-[var(--btn-secondary-border)] group-hover:bg-[var(--text-wolof)]/10 group-hover:border-[var(--text-wolof)]/30 transition-all duration-200">
+                  <ChevronRight className="w-4 h-4 text-gray-500 group-hover:text-[var(--text-wolof)] transition-colors duration-150" />
                 </div>
               </button>
             )

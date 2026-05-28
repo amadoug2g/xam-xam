@@ -1,8 +1,20 @@
+import { useState } from 'react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
-import { ArrowLeft, Play, BookOpen, CheckCircle2, Clock, Sparkles, Volume2 } from 'lucide-react'
+import { ArrowLeft, Play, BookOpen, CheckCircle2, Clock, Volume2, Sun, Moon } from 'lucide-react'
 
 export default function LessonDetail({ lessonId, onStart, onBack }) {
+  // Local state theme sync
+  const [theme, setTheme] = useState(() => {
+    const t = localStorage.getItem('xam-xam-theme') || 'dark'
+    if (t === 'light') {
+      document.documentElement.classList.add('light')
+    } else {
+      document.documentElement.classList.remove('light')
+    }
+    return t
+  })
+
   const lesson = LESSONS.find(l => l.id === lessonId)
   if (!lesson) return null
 
@@ -14,7 +26,6 @@ export default function LessonDetail({ lessonId, onStart, onBack }) {
   const mastered = cardSrsStates.filter(s => s.mastered).length
   const due = cardSrsStates.filter(s => !s.mastered && s.nextDue <= Date.now()).length
   const studied = cardSrsStates.filter(s => s.attempts > 0).length
-  const isComplete = studied === total && due === 0 && mastered === total
 
   // Function to simulate listening to pronunciation on word preview
   const playPreviewAudio = (card, e) => {
@@ -24,73 +35,95 @@ export default function LessonDetail({ lessonId, onStart, onBack }) {
     }
   }
 
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark'
+    localStorage.setItem('xam-xam-theme', nextTheme)
+    if (nextTheme === 'light') {
+      document.documentElement.classList.add('light')
+    } else {
+      document.documentElement.classList.remove('light')
+    }
+    setTheme(nextTheme)
+  }
+
   return (
-    <div className="flex flex-col min-h-screen bg-[#0a0a0a] text-[#f5f5f5] px-5 py-6 animate-fade-in-up justify-between">
+    <div className="flex flex-col min-h-screen bg-[var(--bg-app)] text-[var(--text-primary)] px-5 py-6 animate-fade-in-up justify-between transition-colors duration-300">
       <div>
         {/* Navigation Header */}
         <div className="mb-5 flex items-center justify-between">
           <button 
             onClick={onBack}
-            className="p-2.5 bg-[#111111] hover:bg-[#161616] active:scale-90 border border-[#1e1e1e] rounded-full transition-all duration-150 flex items-center justify-center text-gray-400 hover:text-white"
+            className="p-2.5 bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover-bg)] active:scale-90 border border-[var(--btn-secondary-border)] rounded-full transition-all duration-150 flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--text-primary)] shadow-sm"
             aria-label="Retour"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
           
-          <span className="text-xs uppercase tracking-widest font-mono text-[#6b7280] font-medium">
+          <span className="text-xs uppercase tracking-widest font-mono text-[var(--text-muted)] font-semibold transition-colors duration-300">
             Détail de la leçon
           </span>
 
-          <div className="w-10 h-10" /> {/* Balancer */}
+          {/* Theme Toggler in details screen */}
+          <button 
+            onClick={toggleTheme}
+            className="p-2.5 bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-wolof)] rounded-full transition-all duration-150 hover:scale-105 active:scale-95 flex items-center justify-center shadow-sm"
+            title={theme === 'dark' ? 'Passer au mode clair' : 'Passer au mode sombre'}
+          >
+            {theme === 'dark' ? (
+              <Sun className="w-4 h-4 text-[#fbbf24]" />
+            ) : (
+              <Moon className="w-4 h-4 text-[#0f766e]" />
+            )}
+          </button>
         </div>
 
         {/* Hero Card */}
-        <div className="mb-6 p-5 bg-[#111111] border border-[#1e1e1e] rounded-2xl relative overflow-hidden shadow-lg">
-          <div className="absolute top-0 left-0 w-1.5 h-full bg-[#4ade80]" />
-          <h1 className="text-2xl font-bold text-white mb-2 leading-snug pl-1.5">
+        <div className="mb-6 p-5 bg-[var(--bg-card)] border border-[var(--border-card)] rounded-2xl relative overflow-hidden shadow-lg transition-all duration-300">
+          <div className="absolute top-0 left-0 w-1.5 h-full bg-[var(--text-wolof)]" />
+          <h1 className="text-2xl font-bold text-[var(--text-primary)] mb-2 leading-snug pl-1.5 transition-colors duration-300">
             {lesson.title}
           </h1>
-          <p className="text-sm text-gray-400 pl-1.5 leading-relaxed">
+          <p className="text-sm text-[var(--text-muted)] pl-1.5 leading-relaxed transition-colors duration-300">
             {lesson.description}
           </p>
         </div>
 
         {/* Stats Grid */}
         <section className="mb-8">
-          <h2 className="text-xs font-semibold tracking-wider text-[#6b7280] uppercase mb-3 px-1">
+          <h2 className="text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase mb-3 px-1 transition-colors duration-300">
             Statistiques de Révision
           </h2>
           
           <div className="grid grid-cols-3 gap-3">
             {/* Total cards */}
-            <div className="bg-[#111111] border border-[#1e1e1e] rounded-2xl p-3.5 flex flex-col text-center">
-              <span className="text-xs text-[#6b7280] font-medium flex items-center justify-center gap-1 mb-1">
+            <div className="bg-[var(--bg-card)] border border-[var(--border-card)] rounded-2xl p-3.5 flex flex-col text-center transition-all duration-300">
+              <span className="text-xs text-[var(--text-muted)] font-medium flex items-center justify-center gap-1 mb-1 transition-colors duration-300">
                 <BookOpen className="w-3.5 h-3.5" /> Cartes
               </span>
-              <span className="text-xl font-bold text-white mt-1">{total}</span>
+              <span className="text-xl font-bold text-[var(--text-primary)] mt-1 transition-colors duration-300">{total}</span>
             </div>
 
             {/* Mastered cards */}
-            <div className="bg-[#111111] border border-[#1e1e1e] rounded-2xl p-3.5 flex flex-col text-center">
-              <span className="text-xs text-[#6b7280] font-medium flex items-center justify-center gap-1 mb-1">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#4ade80]" /> Acquis
+            <div className="bg-[var(--bg-card)] border border-[var(--border-card)] rounded-2xl p-3.5 flex flex-col text-center transition-all duration-300">
+              <span className="text-xs text-[var(--text-muted)] font-medium flex items-center justify-center gap-1 mb-1 transition-colors duration-300">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[var(--text-wolof)]" /> Acquis
               </span>
-              <span className="text-xl font-bold text-[#4ade80] mt-1">{mastered}</span>
+              <span className="text-xl font-bold text-[var(--text-wolof)] mt-1 transition-colors duration-300">{mastered}</span>
             </div>
 
             {/* Due today */}
-            <div className="bg-[#111111] border border-[#1e1e1e] rounded-2xl p-3.5 flex flex-col text-center">
-              <span className="text-xs text-[#6b7280] font-medium flex items-center justify-center gap-1 mb-1">
+            <div className="bg-[var(--bg-card)] border border-[var(--border-card)] rounded-2xl p-3.5 flex flex-col text-center transition-all duration-300">
+              <span className="text-xs text-[var(--text-muted)] font-medium flex items-center justify-center gap-1 mb-1 transition-colors duration-300">
                 <Clock className="w-3.5 h-3.5 text-[#ef4444]" /> Dûs
               </span>
-              <span className="text-xl font-bold text-[#ef4444] mt-1">{due}</span>
+              <span className="text-xl font-bold text-[#ef4444] mt-1 transition-colors duration-300">{due}</span>
             </div>
           </div>
         </section>
 
         {/* Vocab preview list */}
         <section className="mb-6 flex-1">
-          <h2 className="text-xs font-semibold tracking-wider text-[#6b7280] uppercase mb-3 px-1">
+          <h2 className="text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase mb-3 px-1 transition-colors duration-300">
             Aperçu du vocabulaire
           </h2>
           
@@ -100,13 +133,13 @@ export default function LessonDetail({ lessonId, onStart, onBack }) {
               return (
                 <div 
                   key={c.id} 
-                  className="flex items-center justify-between p-3 bg-[#111111]/60 rounded-xl border border-[#1e1e1e] hover:bg-[#161616] transition-colors duration-150"
+                  className="flex items-center justify-between p-3 bg-[var(--preview-bg)] rounded-xl border border-[var(--border-card)] hover:bg-[var(--btn-secondary-bg)] transition-all duration-150 shadow-sm"
                 >
                   <div className="flex-1 pr-3">
-                    <p className="text-sm font-semibold text-[#4ade80] tracking-wide">
+                    <p className="text-sm font-semibold text-[var(--text-wolof)] tracking-wide transition-colors duration-300">
                       {c.wo}
                     </p>
-                    <p className="text-xs text-gray-400 mt-0.5">
+                    <p className="text-xs text-[var(--text-muted)] mt-0.5 transition-colors duration-300">
                       {c.fr}
                     </p>
                   </div>
@@ -114,7 +147,7 @@ export default function LessonDetail({ lessonId, onStart, onBack }) {
                   {c.audioWo && (
                     <button 
                       onClick={(e) => playPreviewAudio(c, e)}
-                      className="p-2 bg-[#1a1a1a] hover:bg-[#222222] border border-[#2b2b2b] rounded-lg text-[#6b7280] hover:text-[#4ade80] transition-all duration-150 active:scale-90 flex items-center justify-center"
+                      className="p-2 bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover-bg)] border border-[var(--btn-secondary-border)] rounded-lg text-[var(--text-muted)] hover:text-[var(--text-wolof)] transition-all duration-150 active:scale-90 flex items-center justify-center shadow-sm"
                       title="Écouter la prononciation"
                     >
                       <Volume2 className="w-3.5 h-3.5" />
@@ -122,7 +155,7 @@ export default function LessonDetail({ lessonId, onStart, onBack }) {
                   )}
                   
                   {!c.audioWo && cardSrs.attempts > 0 && (
-                    <span className="w-1.5 h-1.5 bg-[#4ade80] rounded-full" title="Déjà révisé" />
+                    <span className="w-1.5 h-1.5 bg-[var(--text-wolof)] rounded-full transition-colors duration-300" title="Déjà révisé" />
                   )}
                 </div>
               )
@@ -132,12 +165,12 @@ export default function LessonDetail({ lessonId, onStart, onBack }) {
       </div>
 
       {/* Footer Start Button */}
-      <div className="mt-4 pt-4 border-t border-[#161616]">
+      <div className="mt-4 pt-4 border-t border-[var(--border-divider)] transition-colors duration-300">
         <button
           onClick={onStart}
-          className="w-full py-4 px-6 bg-[#4ade80] text-[#0a0a0a] rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-[#5aee90] active:scale-[0.98] transition-all duration-150 shadow-[0_0_15px_rgba(74,222,128,0.2)] hover:shadow-[0_0_20px_rgba(74,222,128,0.4)] relative overflow-hidden group"
+          className="w-full py-4 px-6 bg-[var(--text-wolof)] text-[var(--accent-btn-text)] rounded-2xl font-bold flex items-center justify-center gap-2 active:scale-[0.98] transition-all duration-150 shadow-md hover:opacity-90 relative overflow-hidden group"
         >
-          <Play className="w-5 h-5 fill-current text-[#0a0a0a]" />
+          <Play className="w-5 h-5 fill-current text-[var(--accent-btn-text)]" />
           <span>
             {due > 0 ? 'Réviser maintenant' : studied > 0 ? 'Reprendre la session' : 'Commencer la leçon'}
           </span>

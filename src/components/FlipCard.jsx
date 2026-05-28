@@ -21,19 +21,19 @@ export default function FlipCard({ card, flipped, onFlip }) {
         style={{ transitionTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)' }}
       >
         {/* FRONT FACE */}
-        <div className="absolute inset-0 w-full h-full backface-hidden rounded-3xl border border-[#1e1e1e] bg-gradient-to-br from-[#121212] to-[#0a0a0a] flex flex-col justify-between p-6 shadow-2xl overflow-hidden">
+        <div className="absolute inset-0 w-full h-full backface-hidden rounded-3xl border border-[var(--border-card)] bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-app)] flex flex-col justify-between p-6 shadow-2xl overflow-hidden transition-all duration-300">
           {/* Subtle green ambient glow on top */}
-          <div className="absolute -top-16 -left-16 w-36 h-36 bg-[#4ade80]/5 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute -top-16 -left-16 w-36 h-36 bg-[var(--text-wolof)]/5 rounded-full blur-2xl pointer-events-none" />
           
           {/* Top Bar */}
           <div className="flex items-center justify-between z-10">
-            <span className="text-[10px] tracking-wider uppercase text-[#6b7280] font-mono flex items-center gap-1.5 bg-[#161616] px-2.5 py-1 rounded-full border border-[#222222]">
-              <Sparkles className="w-3 h-3 text-[#4ade80]" /> Écoutez & Répétez
+            <span className="text-[10px] tracking-wider uppercase text-[var(--text-muted)] font-mono flex items-center gap-1.5 bg-[var(--btn-secondary-bg)] px-2.5 py-1 rounded-full border border-[var(--btn-secondary-border)] transition-colors duration-300">
+              <Sparkles className="w-3 h-3 text-[var(--text-wolof)]" /> Écoutez & Répétez
             </span>
             {card.audioWo && (
               <button 
                 onClick={replayAudio}
-                className="p-2 bg-[#161616] hover:bg-[#222222] border border-[#222222] rounded-full text-[#4ade80] active:scale-95 transition-all duration-150 flex items-center justify-center"
+                className="p-2 bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-wolof)] active:scale-95 transition-all duration-150 flex items-center justify-center rounded-full shadow-sm"
                 title="Réécouter le Wolof"
               >
                 <Volume2 className="w-4 h-4" />
@@ -43,33 +43,33 @@ export default function FlipCard({ card, flipped, onFlip }) {
 
           {/* Center Wolof Text */}
           <div className="flex flex-col items-center justify-center text-center px-4 flex-1">
-            <h2 className="text-3xl font-bold text-[#4ade80] tracking-wide leading-snug drop-shadow-md select-text selection:bg-[#4ade80]/20">
+            <h2 className="text-3xl font-bold text-[var(--text-wolof)] tracking-wide leading-snug drop-shadow-md select-text selection:bg-[var(--text-wolof)]/20 transition-colors duration-300">
               {card.wo}
             </h2>
-            <p className="text-xs text-[#6b7280] mt-3 uppercase tracking-widest font-mono">
+            <p className="text-xs text-[var(--text-muted)] mt-3 uppercase tracking-widest font-mono transition-colors duration-300">
               Wolof
             </p>
           </div>
 
           {/* Bottom Prompt */}
-          <div className="flex justify-center items-center gap-2 text-xs text-[#6b7280] font-medium z-10 py-1 bg-[#111111]/30 rounded-xl border border-[#1e1e1e]/20 backdrop-blur-sm">
-            <Eye className="w-4 h-4 text-[#4ade80] animate-pulse" />
+          <div className="flex justify-center items-center gap-2 text-xs text-[var(--text-muted)] font-medium z-10 py-1 bg-[var(--btn-secondary-bg)]/30 rounded-xl border border-[var(--btn-secondary-border)]/20 backdrop-blur-sm transition-colors duration-300">
+            <Eye className="w-4 h-4 text-[var(--text-wolof)] animate-pulse" />
             <span className="animate-pulse-subtle">Appuyez pour révéler la traduction</span>
           </div>
         </div>
 
         {/* BACK FACE */}
-        <div className="absolute inset-0 w-full h-full backface-hidden rounded-3xl border border-[#1e1e1e] bg-gradient-to-br from-[#141414] to-[#0e0e0e] rotate-y-180 flex flex-col justify-between p-6 shadow-2xl overflow-hidden">
-          {/* Subtle gold ambient glow on top */}
-          <div className="absolute -top-16 -right-16 w-36 h-36 bg-[#f59e0b]/5 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute inset-0 w-full h-full backface-hidden rounded-3xl border border-[var(--border-card)] bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-app)] rotate-y-180 flex flex-col justify-between p-6 shadow-2xl overflow-hidden transition-all duration-300">
+          {/* Subtle gold/green ambient glow on top */}
+          <div className="absolute -top-16 -right-16 w-36 h-36 bg-[var(--text-wolof)]/5 rounded-full blur-2xl pointer-events-none" />
 
           {/* Top Bar */}
           <div className="flex items-center justify-between z-10">
-            <span className="text-[10px] tracking-wider uppercase text-[#6b7280] font-mono flex items-center gap-1.5 bg-[#1a1a1a] px-2.5 py-1 rounded-full border border-[#262626]">
+            <span className="text-[10px] tracking-wider uppercase text-[var(--text-muted)] font-mono flex items-center gap-1.5 bg-[var(--btn-secondary-bg)] px-2.5 py-1 rounded-full border border-[var(--btn-secondary-border)] transition-colors duration-300">
               <Languages className="w-3 h-3 text-[#f59e0b]" /> Traduction Révélée
             </span>
             {card.audioFr && (
-              <span className="text-[9px] text-[#6b7280] bg-[#1a1a1a] px-2 py-0.5 rounded border border-[#262626]">
+              <span className="text-[9px] text-[var(--text-muted)] bg-[var(--btn-secondary-bg)] px-2 py-0.5 rounded border border-[var(--btn-secondary-border)] transition-colors duration-300">
                 Audio FR joué
               </span>
             )}
@@ -78,21 +78,21 @@ export default function FlipCard({ card, flipped, onFlip }) {
           {/* Center Translation Text */}
           <div className="flex flex-col items-center justify-center text-center px-4 flex-1">
             {/* Wolof Reference above */}
-            <span className="text-sm font-semibold text-[#4ade80]/60 mb-3 select-text selection:bg-[#4ade80]/10">
+            <span className="text-sm font-semibold text-[var(--text-wolof)]/60 mb-3 select-text selection:bg-[var(--text-wolof)]/10 transition-colors duration-300">
               {card.wo}
             </span>
             
             {/* French translation */}
-            <h2 className="text-2xl font-bold text-[#f5f5f5] tracking-wide leading-snug drop-shadow-md select-text selection:bg-white/10">
+            <h2 className="text-2xl font-bold text-[var(--text-primary)] tracking-wide leading-snug drop-shadow-md select-text selection:bg-white/10 transition-colors duration-300">
               {card.fr}
             </h2>
-            <p className="text-xs text-[#6b7280] mt-3 uppercase tracking-widest font-mono">
+            <p className="text-xs text-[var(--text-muted)] mt-3 uppercase tracking-widest font-mono transition-colors duration-300">
               Français
             </p>
           </div>
 
           {/* Bottom Prompt */}
-          <div className="flex justify-center items-center gap-1.5 text-[10px] text-[#6b7280] font-semibold py-1 bg-[#1a1a1a]/40 rounded-xl border border-[#262626]/20 z-10">
+          <div className="flex justify-center items-center gap-1.5 text-[10px] text-[var(--text-muted)] font-semibold py-1 bg-[var(--btn-secondary-bg)]/40 rounded-xl border border-[var(--btn-secondary-border)]/20 z-10 transition-colors duration-300">
             <span className="w-1.5 h-1.5 bg-[#f59e0b] rounded-full animate-ping" />
             <span>Notez votre niveau de mémorisation ci-dessous</span>
           </div>
