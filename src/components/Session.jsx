@@ -15,6 +15,7 @@ import { useState, useEffect } from 'react'
 import { X } from 'lucide-react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
+import { applyOverrides } from '../core/cardOverrides'
 import FlipCard from './FlipCard'
 import GradeBar from './GradeBar'
 
@@ -24,7 +25,7 @@ export default function Session({ lessonId, onDone }) {
   const [flipped, setFlipped] = useState(false)
   const [grades, setGrades] = useState([])
 
-  const cards = lesson?.cards || []
+  const cards = applyOverrides(lesson?.cards || [])
   const card = cards[idx]
 
   useEffect(() => {

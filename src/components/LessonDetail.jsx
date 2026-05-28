@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
-import { ArrowLeft, Play, BookOpen, CheckCircle2, Clock, Volume2, Sun, Moon } from 'lucide-react'
+import { cardOverrides } from '../core/cardOverrides'
+import { ArrowLeft, Play, BookOpen, CheckCircle2, Clock, Volume2, Sun, Moon, Pencil, Check, X } from 'lucide-react'
 
 export default function LessonDetail({ lessonId, onStart, onBack }) {
   // Local state theme sync
@@ -18,8 +19,23 @@ export default function LessonDetail({ lessonId, onStart, onBack }) {
   const lesson = LESSONS.find(l => l.id === lessonId)
   if (!lesson) return null
 
-  const cards = lesson.cards || []
+  const [overrides, setOverrides] = useState(() => cardOverrides.getAll())
+  const [editing, setEditing] = useState(null)
+  const [editForm, setEditForm] = useState({ wo: '', fr: '' })
+
+  const cards = (lesson.cards || []).map(c => overrides[c.id] ? { ...c, ...overrides[c.id] } : c)
   const total = cards.length
+
+  function startEdit(card) {
+    setEditing(card.id)
+    setEditForm({ wo: card.wo, fr: card.fr })
+  }
+
+  function saveEdit(cardId) {
+    cardOverrides.set(cardId, editForm)
+    setOverrides(cardOverrides.getAll())
+    setEditing(null)
+  }
 
   // Calculate precise stats specifically for this lesson's card set
   const cardSrsStates = cards.map(c => srs.get(c.id))
@@ -124,38 +140,74 @@ export default function LessonDetail({ lessonId, onStart, onBack }) {
         {/* Vocab preview list */}
         <section className="mb-6 flex-1">
           <h2 className="text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase mb-3 px-1 transition-colors duration-300">
-            Aperçu du vocabulaire
+            Cartes ({total})
           </h2>
-          
-          <div className="flex flex-col gap-2 max-h-[220px] overflow-y-auto pr-1 custom-scrollbar">
-            {cards.map((c, i) => {
-              const cardSrs = srs.get(c.id)
+
+          <div className="flex flex-col gap-2 max-h-[260px] overflow-y-auto pr-1 custom-scrollbar">
+            {cards.map((c) => {
+              const isEditing = editing === c.id
               return (
-                <div 
-                  key={c.id} 
-                  className="flex items-center justify-between p-3 bg-[var(--preview-bg)] rounded-xl border border-[var(--border-card)] hover:bg-[var(--btn-secondary-bg)] transition-all duration-150 shadow-sm"
+                <div
+                  key={c.id}
+                  className="p-3 bg-[var(--preview-bg)] rounded-xl border border-[var(--border-card)] transition-all duration-150 shadow-sm"
                 >
-                  <div className="flex-1 pr-3">
-                    <p className="text-sm font-semibold text-[var(--text-wolof)] tracking-wide transition-colors duration-300">
-                      {c.wo}
-                    </p>
-                    <p className="text-xs text-[var(--text-muted)] mt-0.5 transition-colors duration-300">
-                      {c.fr}
-                    </p>
-                  </div>
-                  
-                  {c.audioWo && (
-                    <button 
-                      onClick={(e) => playPreviewAudio(c, e)}
-                      className="p-2 bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover-bg)] border border-[var(--btn-secondary-border)] rounded-lg text-[var(--text-muted)] hover:text-[var(--text-wolof)] transition-all duration-150 active:scale-90 flex items-center justify-center shadow-sm"
-                      title="Écouter la prononciation"
-                    >
-                      <Volume2 className="w-3.5 h-3.5" />
-                    </button>
-                  )}
-                  
-                  {!c.audioWo && cardSrs.attempts > 0 && (
-                    <span className="w-1.5 h-1.5 bg-[var(--text-wolof)] rounded-full transition-colors duration-300" title="Déjà révisé" />
+                  {isEditing ? (
+                    <div className="flex flex-col gap-2">
+                      <input
+                        className="w-full text-sm font-semibold bg-[var(--bg-app)] border border-[var(--text-wolof)]/40 rounded-lg px-2 py-1 text-[var(--text-wolof)] focus:outline-none focus:border-[var(--text-wolof)]"
+                        placeholder="Wolof"
+                        value={editForm.wo}
+                        onChange={e => setEditForm(f => ({ ...f, wo: e.target.value }))}
+                      />
+                      <input
+                        className="w-full text-sm bg-[var(--bg-app)] border border-[var(--border-card)] rounded-lg px-2 py-1 text-[var(--text-primary)] focus:outline-none focus:border-[var(--text-wolof)]"
+                        placeholder="Français"
+                        value={editForm.fr}
+                        onChange={e => setEditForm(f => ({ ...f, fr: e.target.value }))}
+                      />
+                      <div className="flex gap-2 justify-end">
+                        <button
+                          onClick={() => setEditing(null)}
+                          className="p-1.5 rounded-lg bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-muted)] active:scale-90 transition-all"
+                        >
+                          <X className="w-3.5 h-3.5" />
+                        </button>
+                        <button
+                          onClick={() => saveEdit(c.id)}
+                          className="p-1.5 rounded-lg bg-[var(--text-wolof)]/20 border border-[var(--text-wolof)]/40 text-[var(--text-wolof)] active:scale-90 transition-all"
+                        >
+                          <Check className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1 pr-2 flex items-center gap-2">
+                        <p className="text-sm font-semibold text-[var(--text-wolof)] tracking-wide transition-colors duration-300">
+                          {c.wo}
+                        </p>
+                        {overrides[c.id] && (
+                          <span className="text-[9px] text-[var(--text-muted)] bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] px-1.5 rounded">modifié</span>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        {c.audioWo && (
+                          <button
+                            onClick={(e) => playPreviewAudio(c, e)}
+                            className="p-1.5 bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover-bg)] border border-[var(--btn-secondary-border)] rounded-lg text-[var(--text-muted)] hover:text-[var(--text-wolof)] transition-all duration-150 active:scale-90"
+                          >
+                            <Volume2 className="w-3.5 h-3.5" />
+                          </button>
+                        )}
+                        <button
+                          onClick={() => startEdit(c)}
+                          className="p-1.5 bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover-bg)] border border-[var(--btn-secondary-border)] rounded-lg text-[var(--text-muted)] hover:text-[var(--text-wolof)] transition-all duration-150 active:scale-90"
+                          title="Modifier"
+                        >
+                          <Pencil className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </div>
                   )}
                 </div>
               )

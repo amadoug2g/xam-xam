@@ -108,8 +108,9 @@ export default function LessonList({ onSelect }) {
 
       {/* Scrollable Lesson List */}
       <div className="flex-1 flex flex-col gap-4">
-        <h2 className="text-sm font-semibold tracking-wider text-[var(--text-muted)] uppercase px-1 transition-colors duration-300">
-          Vos Leçons
+        <h2 className="text-sm font-semibold tracking-wider text-[var(--text-muted)] uppercase px-1 transition-colors duration-300 flex items-center justify-between">
+          <span>Vos Leçons</span>
+          <span className="text-xs font-mono normal-case bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] px-2 py-0.5 rounded-full">{LESSONS.length} leçons</span>
         </h2>
         
         <div className="flex flex-col gap-3.5 pb-8">
