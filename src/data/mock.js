@@ -1,10 +1,9 @@
 /**
- * mock.js — Données fictives pour valider l'UI avant intégration des vrais audios Assimil
- *
- * Structure réelle attendue :
- *   Lesson { id, title, description, cards[] }
- *   Card   { id, lessonId, position, wo, fr, audioWo, audioFr }
+ * mock.js — Données leçon "espace" + leçons mock
+ * Audios extraits depuis Assimil "Guide de conversation Wolof"
  */
+
+const BASE = import.meta.env.BASE_URL
 
 export const LESSONS = [
   {
@@ -18,8 +17,8 @@ export const LESSONS = [
         position: 1,
         wo: 'Fan ? Fan la jóge ?',
         fr: 'Où ? D\'où ?',
-        audioWo: `${import.meta.env.BASE_URL}audio/espace/01_wo.mp3`,
-        audioFr: `${import.meta.env.BASE_URL}audio/espace/00_fr.mp3`,
+        audioWo: `${BASE}audio/espace/01_wo.mp3`,
+        audioFr: `${BASE}audio/espace/00_fr.mp3`,
       },
       {
         id: 'espace_02',
@@ -27,17 +26,80 @@ export const LESSONS = [
         position: 2,
         wo: 'Ñaata suuf la ?',
         fr: 'À quelle distance ?',
-        audioWo: `${import.meta.env.BASE_URL}audio/espace/03_wo.mp3`,
-        audioFr: `${import.meta.env.BASE_URL}audio/espace/02_fr.mp3`,
+        audioWo: `${BASE}audio/espace/03_wo.mp3`,
+        audioFr: `${BASE}audio/espace/02_fr.mp3`,
       },
       {
         id: 'espace_03',
         lessonId: 'espace',
         position: 3,
         wo: 'Ci kanam, ci ginnaaw',
-        fr: 'À gauche, à droite',
-        audioWo: `${import.meta.env.BASE_URL}audio/espace/05_wo.mp3`,
-        audioFr: `${import.meta.env.BASE_URL}audio/espace/04_fr.mp3`,
+        fr: 'Devant, derrière',
+        audioWo: `${BASE}audio/espace/05_wo.mp3`,
+        audioFr: `${BASE}audio/espace/04_fr.mp3`,
+      },
+      {
+        id: 'espace_04',
+        lessonId: 'espace',
+        position: 4,
+        wo: '...',
+        fr: '...',
+        audioWo: `${BASE}audio/espace/07_wo.mp3`,
+        audioFr: `${BASE}audio/espace/06_fr.mp3`,
+      },
+      {
+        id: 'espace_05',
+        lessonId: 'espace',
+        position: 5,
+        wo: '...',
+        fr: '...',
+        audioWo: `${BASE}audio/espace/09_wo.mp3`,
+        audioFr: `${BASE}audio/espace/08_fr.mp3`,
+      },
+      {
+        id: 'espace_06',
+        lessonId: 'espace',
+        position: 6,
+        wo: '...',
+        fr: '...',
+        audioWo: `${BASE}audio/espace/11_wo.mp3`,
+        audioFr: `${BASE}audio/espace/10_fr.mp3`,
+      },
+      {
+        id: 'espace_07',
+        lessonId: 'espace',
+        position: 7,
+        wo: '...',
+        fr: '...',
+        audioWo: `${BASE}audio/espace/13_wo.mp3`,
+        audioFr: `${BASE}audio/espace/12_fr.mp3`,
+      },
+      {
+        id: 'espace_08',
+        lessonId: 'espace',
+        position: 8,
+        wo: '...',
+        fr: '...',
+        audioWo: `${BASE}audio/espace/15_wo.mp3`,
+        audioFr: `${BASE}audio/espace/14_fr.mp3`,
+      },
+      {
+        id: 'espace_09',
+        lessonId: 'espace',
+        position: 9,
+        wo: '...',
+        fr: '...',
+        audioWo: `${BASE}audio/espace/17_wo.mp3`,
+        audioFr: `${BASE}audio/espace/16_fr.mp3`,
+      },
+      {
+        id: 'espace_10',
+        lessonId: 'espace',
+        position: 10,
+        wo: '...',
+        fr: '...',
+        audioWo: `${BASE}audio/espace/19_wo.mp3`,
+        audioFr: `${BASE}audio/espace/18_fr.mp3`,
       },
     ],
   },
