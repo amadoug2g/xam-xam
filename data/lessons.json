@@ -1,0 +1,37 @@
+[
+  {
+    "id": "espace",
+    "title": "Pour se reperer dans l'espace",
+    "description": "Directions, distances, localisation",
+    "published": true,
+    "cards": [
+      {
+        "id": "espace_01",
+        "lessonId": "espace",
+        "position": 1,
+        "wo": "Fan ? Fan la joge ?",
+        "fr": "Ou ? D'ou ?",
+        "audioWo": "/audio/espace/01_wo.mp3",
+        "audioFr": "/audio/espace/00_fr.mp3"
+      },
+      {
+        "id": "espace_02",
+        "lessonId": "espace",
+        "position": 2,
+        "wo": "Njaata suuf la ?",
+        "fr": "A quelle distance ?",
+        "audioWo": "/audio/espace/03_wo.mp3",
+        "audioFr": "/audio/espace/02_fr.mp3"
+      },
+      {
+        "id": "espace_03",
+        "lessonId": "espace",
+        "position": 3,
+        "wo": "Ci kanam, ci ginnaaw",
+        "fr": "A gauche, a droite",
+        "audioWo": "/audio/espace/05_wo.mp3",
+        "audioFr": "/audio/espace/04_fr.mp3"
+      }
+    ]
+  }
+]
