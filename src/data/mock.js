@@ -1,14 +1,22 @@
 /**
- * mock.js — Données leçons Assimil "Guide de conversation Wolof"
- * Ordre : correspond à l'ordre du livre Assimil
+ * mock.js — Leçons Assimil "Guide de conversation Wolof"
+ * Ordre et numérotation correspondent au livre.
+ * cards: [] = leçon stub (non cliquable dans l'UI)
  */
 
 const BASE = import.meta.env.BASE_URL
 
 export const LESSONS = [
-  // Leçon 2 du livre
+  {
+    id: 'compter',
+    position: 1,
+    title: 'Compter en wolof',
+    description: 'Les chiffres et les nombres',
+    cards: [],
+  },
   {
     id: 'temps',
+    position: 2,
     title: 'Pour se repérer dans le temps',
     description: 'Jours, heures, dates, durées',
     cards: [
@@ -28,43 +36,68 @@ export const LESSONS = [
       { id: 'temps_14', lessonId: 'temps', position: 14, wo: 'Léegi léegi',     fr: 'Tout de suite',         audioWo: `${BASE}audio/temps/29_wo.mp3`, audioFr: `${BASE}audio/temps/28_fr.mp3` },
     ],
   },
-  // Leçon 3 du livre (audio en attente — fichier espace wolof non encore reçu)
   {
     id: 'espace',
-    title: 'Pour se repérer dans l\'espace',
+    position: 3,
+    title: "Pour se repérer dans l'espace",
     description: 'Directions, distances, localisation',
     cards: [
-      { id: 'espace_01', lessonId: 'espace', position: 1,  wo: 'Fan ? Fan la jóge ?',  fr: 'Où ? D\'où ?',        audioWo: null, audioFr: null },
+      { id: 'espace_01', lessonId: 'espace', position: 1,  wo: 'Fan ? Fan la jóge ?',  fr: "Où ? D'où ?",         audioWo: null, audioFr: null },
       { id: 'espace_02', lessonId: 'espace', position: 2,  wo: 'Ñaata suuf la ?',      fr: 'À quelle distance ?', audioWo: null, audioFr: null },
       { id: 'espace_03', lessonId: 'espace', position: 3,  wo: 'Ci kanam, ci ginnaaw', fr: 'Devant, derrière',    audioWo: null, audioFr: null },
-      { id: 'espace_04', lessonId: 'espace', position: 4,  wo: '...',                  fr: '...',                 audioWo: null, audioFr: null },
-      { id: 'espace_05', lessonId: 'espace', position: 5,  wo: '...',                  fr: '...',                 audioWo: null, audioFr: null },
-      { id: 'espace_06', lessonId: 'espace', position: 6,  wo: '...',                  fr: '...',                 audioWo: null, audioFr: null },
-      { id: 'espace_07', lessonId: 'espace', position: 7,  wo: '...',                  fr: '...',                 audioWo: null, audioFr: null },
-      { id: 'espace_08', lessonId: 'espace', position: 8,  wo: '...',                  fr: '...',                 audioWo: null, audioFr: null },
-      { id: 'espace_09', lessonId: 'espace', position: 9,  wo: '...',                  fr: '...',                 audioWo: null, audioFr: null },
-      { id: 'espace_10', lessonId: 'espace', position: 10, wo: '...',                  fr: '...',                 audioWo: null, audioFr: null },
+      { id: 'espace_04', lessonId: 'espace', position: 4,  wo: '...', fr: '...', audioWo: null, audioFr: null },
+      { id: 'espace_05', lessonId: 'espace', position: 5,  wo: '...', fr: '...', audioWo: null, audioFr: null },
+      { id: 'espace_06', lessonId: 'espace', position: 6,  wo: '...', fr: '...', audioWo: null, audioFr: null },
+      { id: 'espace_07', lessonId: 'espace', position: 7,  wo: '...', fr: '...', audioWo: null, audioFr: null },
+      { id: 'espace_08', lessonId: 'espace', position: 8,  wo: '...', fr: '...', audioWo: null, audioFr: null },
+      { id: 'espace_09', lessonId: 'espace', position: 9,  wo: '...', fr: '...', audioWo: null, audioFr: null },
+      { id: 'espace_10', lessonId: 'espace', position: 10, wo: '...', fr: '...', audioWo: null, audioFr: null },
     ],
   },
-  // --- Leçons mock (à remplacer par vrais audios Assimil) ---
-  {
-    id: 'salutations',
-    title: 'Salutations',
-    description: 'Bonjour, au revoir, comment ça va',
-    cards: [
-      { id: 'sal_01', lessonId: 'salutations', position: 1, wo: 'Salaam aleekum', fr: 'Bonjour (salut)', audioWo: null, audioFr: null },
-      { id: 'sal_02', lessonId: 'salutations', position: 2, wo: 'Maangi fi', fr: 'Je vais bien', audioWo: null, audioFr: null },
-      { id: 'sal_03', lessonId: 'salutations', position: 3, wo: 'Jërejëf', fr: 'Merci', audioWo: null, audioFr: null },
-    ],
-  },
-  {
-    id: 'nombres',
-    title: 'Les nombres',
-    description: 'Compter de 1 à 10',
-    cards: [
-      { id: 'nb_01', lessonId: 'nombres', position: 1, wo: 'Benn', fr: 'Un', audioWo: null, audioFr: null },
-      { id: 'nb_02', lessonId: 'nombres', position: 2, wo: 'Ñaar', fr: 'Deux', audioWo: null, audioFr: null },
-      { id: 'nb_03', lessonId: 'nombres', position: 3, wo: 'Ñett', fr: 'Trois', audioWo: null, audioFr: null },
-    ],
-  },
+  { id: 'questions',       position: 4,  title: 'Pour poser des questions',                       description: '',  cards: [] },
+  { id: 'mots-quotidiens', position: 5,  title: 'Des mots pour tous les jours',                   description: '',  cards: [] },
+  { id: 'contacts',        position: 6,  title: 'Premiers contacts',                              description: '',  cards: [] },
+  { id: 'langues',         position: 7,  title: 'Langues et compréhension',                       description: '',  cards: [] },
+  { id: 'rencontre',       position: 8,  title: 'Rencontre et présentation',                      description: '',  cards: [] },
+  { id: 'famille',         position: 9,  title: 'Famille',                                        description: '',  cards: [] },
+  { id: 'emploi',          position: 10, title: 'Emploi, études',                                 description: '',  cards: [] },
+  { id: 'religion',        position: 11, title: 'Religion et traditions',                         description: '',  cards: [] },
+  { id: 'proverbes',       position: 12, title: 'Proverbes',                                      description: '',  cards: [] },
+  { id: 'meteo',           position: 13, title: 'Le temps qu\'il fait',                           description: '',  cards: [] },
+  { id: 'sentiments',      position: 14, title: 'Sentiments et opinions',                         description: '',  cards: [] },
+  { id: 'invitation',      position: 15, title: 'Invitation, visite',                             description: '',  cards: [] },
+  { id: 'amour',           position: 16, title: "La drague et l'amour",                           description: '',  cards: [] },
+  { id: 'fetes',           position: 17, title: 'Temps, dates et fêtes',                          description: '',  cards: [] },
+  { id: 'aide',            position: 18, title: "Appel à l'aide",                                 description: '',  cards: [] },
+  { id: 'voyager',         position: 19, title: 'Voyager',                                        description: '',  cards: [] },
+  { id: 'change',          position: 20, title: 'Au bureau de change',                            description: '',  cards: [] },
+  { id: 'avion',           position: 21, title: 'En avion',                                       description: '',  cards: [] },
+  { id: 'train',           position: 22, title: 'En train',                                       description: '',  cards: [] },
+  { id: 'bateau',          position: 23, title: 'En bateau',                                      description: '',  cards: [] },
+  { id: 'taxi',            position: 24, title: 'En taxi',                                        description: '',  cards: [] },
+  { id: 'voiture',         position: 25, title: 'Location de voiture',                            description: '',  cards: [] },
+  { id: 'ville',           position: 26, title: 'En ville',                                       description: '',  cards: [] },
+  { id: 'musees',          position: 27, title: "Visite d'expositions, de musées et de sites touristiques", description: '', cards: [] },
+  { id: 'poste',           position: 28, title: 'À la poste',                                     description: '',  cards: [] },
+  { id: 'telephone',       position: 29, title: 'Au téléphone',                                   description: '',  cards: [] },
+  { id: 'internet',        position: 30, title: 'Internet',                                       description: '',  cards: [] },
+  { id: 'administration',  position: 31, title: "L'administration",                               description: '',  cards: [] },
+  { id: 'banque',          position: 32, title: 'À la banque',                                    description: '',  cards: [] },
+  { id: 'spectacles',      position: 33, title: 'Sorties au cinéma, théâtre et concerts',         description: '',  cards: [] },
+  { id: 'coiffeur',        position: 34, title: 'Chez le coiffeur',                               description: '',  cards: [] },
+  { id: 'campagne',        position: 35, title: 'À la campagne, à la plage, à la montagne',       description: '',  cards: [] },
+  { id: 'camping',         position: 36, title: 'Camper et camping',                              description: '',  cards: [] },
+  { id: 'animaux',         position: 37, title: 'Animaux',                                        description: '',  cards: [] },
+  { id: 'hebergement',     position: 38, title: 'Hébergement',                                    description: '',  cards: [] },
+  { id: 'restaurant',      position: 39, title: 'Au restaurant',                                  description: '',  cards: [] },
+  { id: 'mets',            position: 40, title: 'Vocabulaire des mets et produits',               description: '',  cards: [] },
+  { id: 'alcool',          position: 41, title: 'Boissons alcoolisées',                           description: '',  cards: [] },
+  { id: 'boissons',        position: 42, title: 'Autres boissons',                                description: '',  cards: [] },
+  { id: 'magasins',        position: 43, title: 'Magasins et services',                           description: '',  cards: [] },
+  { id: 'vetements',       position: 44, title: 'Vêtements et chaussures',                        description: '',  cards: [] },
+  { id: 'tabac',           position: 45, title: 'Bureau de tabac',                                description: '',  cards: [] },
+  { id: 'photo',           position: 46, title: 'Photo',                                          description: '',  cards: [] },
+  { id: 'provisions',      position: 47, title: 'Provisions',                                     description: '',  cards: [] },
+  { id: 'souvenirs',       position: 48, title: 'Souvenirs',                                      description: '',  cards: [] },
+  { id: 'rdv-pro',         position: 49, title: 'Rendez-vous professionnels',                     description: '',  cards: [] },
 ]

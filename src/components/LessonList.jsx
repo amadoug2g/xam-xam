@@ -115,53 +115,64 @@ export default function LessonList({ onSelect }) {
         
         <div className="flex flex-col gap-3.5 pb-8">
           {LESSONS.map((lesson, index) => {
-            const lessonDueCount = lesson.cards.filter(c => {
+            const available = lesson.cards.length > 0 && lesson.cards.some(c => c.wo !== '...')
+            const lessonDueCount = available ? lesson.cards.filter(c => {
               const s = srs.get(c.id)
               return !s.mastered && s.nextDue <= Date.now()
-            }).length
+            }).length : 0
 
             return (
               <button
                 key={lesson.id}
-                onClick={() => onSelect(lesson.id)}
-                className="w-full flex items-center justify-between p-4 bg-[var(--bg-card)] rounded-2xl border border-[var(--border-card)] hover:border-[var(--text-wolof)]/40 active:scale-[0.98] active:opacity-95 transition-all duration-200 text-left group relative overflow-hidden shadow-md"
-                style={{ 
-                  animationDelay: `${index * 80}ms`,
+                onClick={() => available && onSelect(lesson.id)}
+                disabled={!available}
+                className={`w-full flex items-center justify-between p-4 rounded-2xl border transition-all duration-200 text-left group relative overflow-hidden shadow-md
+                  ${available
+                    ? 'bg-[var(--bg-card)] border-[var(--border-card)] hover:border-[var(--text-wolof)]/40 active:scale-[0.98] active:opacity-95 cursor-pointer'
+                    : 'bg-[var(--bg-card)]/40 border-[var(--border-card)]/30 cursor-not-allowed opacity-40'
+                  }`}
+                style={{
+                  animationDelay: `${index * 40}ms`,
                   animation: 'fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both'
                 }}
               >
-                <div className="flex-1 pr-4">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <h3 className="font-bold text-[var(--text-primary)] text-base group-hover:text-[var(--text-wolof)] transition-colors duration-150">
+                {/* Position number */}
+                <span className="text-[11px] font-mono text-[var(--text-muted)] w-6 shrink-0 text-right mr-3 opacity-60">
+                  {lesson.position}
+                </span>
+
+                <div className="flex-1 pr-4 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className={`font-bold text-base truncate transition-colors duration-150 ${available ? 'text-[var(--text-primary)] group-hover:text-[var(--text-wolof)]' : 'text-[var(--text-muted)]'}`}>
                       {lesson.title}
                     </h3>
                     {lessonDueCount > 0 && (
-                      <span className="relative flex h-2 w-2">
+                      <span className="relative flex h-2 w-2 shrink-0">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--text-wolof)] opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--text-wolof)]"></span>
                       </span>
                     )}
                   </div>
-                  
-                  <p className="text-xs text-[var(--text-muted)] line-clamp-1 mb-2.5 transition-colors duration-300">
-                    {lesson.description}
-                  </p>
 
-                  <div className="flex items-center gap-3">
-                    <span className="text-[10px] tracking-wider px-2 py-0.5 bg-[var(--btn-secondary-bg)] text-[var(--text-muted)] rounded-md font-medium border border-[var(--btn-secondary-border)] transition-colors duration-300">
-                      {lesson.cards.length} cartes
-                    </span>
-                    {lessonDueCount > 0 && (
-                      <span className="text-[10px] font-bold text-[var(--text-wolof)] flex items-center gap-1 animate-pulse-subtle">
-                        {lessonDueCount} à réviser
+                  {available && (
+                    <div className="flex items-center gap-3">
+                      <span className="text-[10px] tracking-wider px-2 py-0.5 bg-[var(--btn-secondary-bg)] text-[var(--text-muted)] rounded-md font-medium border border-[var(--btn-secondary-border)] transition-colors duration-300">
+                        {lesson.cards.length} cartes
                       </span>
-                    )}
-                  </div>
+                      {lessonDueCount > 0 && (
+                        <span className="text-[10px] font-bold text-[var(--text-wolof)] flex items-center gap-1 animate-pulse-subtle">
+                          {lessonDueCount} à réviser
+                        </span>
+                      )}
+                    </div>
+                  )}
                 </div>
 
-                <div className="p-2 bg-[var(--btn-secondary-bg)] rounded-xl border border-[var(--btn-secondary-border)] group-hover:bg-[var(--text-wolof)]/10 group-hover:border-[var(--text-wolof)]/30 transition-all duration-200">
-                  <ChevronRight className="w-4 h-4 text-gray-500 group-hover:text-[var(--text-wolof)] transition-colors duration-150" />
-                </div>
+                {available && (
+                  <div className="p-2 bg-[var(--btn-secondary-bg)] rounded-xl border border-[var(--btn-secondary-border)] group-hover:bg-[var(--text-wolof)]/10 group-hover:border-[var(--text-wolof)]/30 transition-all duration-200 shrink-0">
+                    <ChevronRight className="w-4 h-4 text-gray-500 group-hover:text-[var(--text-wolof)] transition-colors duration-150" />
+                  </div>
+                )}
               </button>
             )
           })}
