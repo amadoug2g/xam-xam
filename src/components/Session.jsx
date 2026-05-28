@@ -16,16 +16,17 @@ import { X } from 'lucide-react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
 import { applyOverrides } from '../core/cardOverrides'
+import { streak } from '../core/streak'
 import FlipCard from './FlipCard'
 import GradeBar from './GradeBar'
 
-export default function Session({ lessonId, onDone }) {
-  const lesson = LESSONS.find(l => l.id === lessonId)
+export default function Session({ lessonId, cards: cardsProp, onDone }) {
+  const lesson = lessonId ? LESSONS.find(l => l.id === lessonId) : null
   const [idx, setIdx] = useState(0)
   const [flipped, setFlipped] = useState(false)
   const [grades, setGrades] = useState([])
 
-  const cards = applyOverrides(lesson?.cards || [])
+  const cards = applyOverrides(cardsProp || lesson?.cards || [])
   const card = cards[idx]
 
   useEffect(() => {
@@ -41,6 +42,7 @@ export default function Session({ lessonId, onDone }) {
 
   function handleGrade(g) {
     srs.update(card.id, g)
+    streak.touch()
     setGrades(prev => [...prev, g])
     if (idx + 1 >= cards.length) onDone()
     else setIdx(i => i + 1)

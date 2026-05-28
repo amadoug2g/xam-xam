@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
-import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon } from 'lucide-react'
+import { streak as streakStore } from '../core/streak'
+import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon, Flame, Zap } from 'lucide-react'
 
-export default function LessonList({ onSelect }) {
+export default function LessonList({ onSelect, onReviewAll }) {
   // Theme state hook with document sync on mount & update
   const [theme, setTheme] = useState(() => {
     const t = localStorage.getItem('xam-xam-theme') || 'dark'
@@ -15,13 +16,17 @@ export default function LessonList({ onSelect }) {
     return t
   })
 
+  // Streak
+  const streakData = streakStore.get()
+
   // Aggregate global statistics across all lessons
-  const allCards = LESSONS.flatMap(l => l.cards || [])
+  const allCards = LESSONS.flatMap(l => l.cards || []).filter(c => c.wo !== '...')
   const totalCards = allCards.length
-  
+
   const srsStates = allCards.map(c => srs.get(c.id))
   const masteredCount = srsStates.filter(s => s.mastered).length
   const dueCount = srsStates.filter(s => !s.mastered && s.nextDue <= Date.now()).length
+  const dueCards = allCards.filter(c => { const s = srs.get(c.id); return !s.mastered && s.nextDue <= Date.now() })
   const progressPercent = totalCards > 0 ? Math.round(((masteredCount + (srsStates.filter(s => s.attempts > 0 && !s.mastered).length * 0.5)) / totalCards) * 100) : 0
 
   const toggleTheme = () => {
@@ -45,8 +50,13 @@ export default function LessonList({ onSelect }) {
           </h1>
           
           <div className="flex items-center gap-3">
-            {/* Elegant Luxury Theme Toggler */}
-            <button 
+            {/* Streak */}
+            <div className={`flex items-center gap-1 px-2.5 py-1 rounded-full border font-bold text-sm transition-colors duration-300 ${streakData.count > 0 ? 'bg-orange-500/10 border-orange-500/30 text-orange-400' : 'bg-[var(--btn-secondary-bg)] border-[var(--btn-secondary-border)] text-[var(--text-muted)]'}`}>
+              <Flame className={`w-4 h-4 ${streakData.count > 0 ? 'text-orange-400' : 'text-[var(--text-muted)]'}`} />
+              <span>{streakData.count}</span>
+            </div>
+
+            <button
               onClick={toggleTheme}
               className="p-2 bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-wolof)] rounded-full transition-all duration-200 hover:scale-105 active:scale-95 flex items-center justify-center shadow-sm"
               title={theme === 'dark' ? 'Passer au mode clair' : 'Passer au mode sombre'}
@@ -57,10 +67,6 @@ export default function LessonList({ onSelect }) {
                 <Moon className="w-4 h-4 text-[#0f766e]" />
               )}
             </button>
-
-            <span className="text-xs px-2.5 py-1 bg-[var(--badge-bg)] text-[var(--badge-text)] rounded-full border border-[var(--badge-border)] font-medium transition-colors duration-300">
-              Wolof
-            </span>
           </div>
         </div>
         <p className="text-xs text-[var(--text-muted)] mt-1 font-mono uppercase tracking-widest transition-colors duration-300">
@@ -105,6 +111,19 @@ export default function LessonList({ onSelect }) {
           </div>
         </div>
       </div>
+
+      {/* Global review CTA */}
+      {dueCards.length > 0 && (
+        <button
+          onClick={() => onReviewAll(dueCards)}
+          className="w-full py-4 px-5 mb-2 rounded-2xl bg-[var(--text-wolof)] text-[var(--accent-btn-text)] font-bold flex items-center justify-center gap-2 active:scale-[0.98] transition-all duration-150 shadow-lg hover:opacity-90 relative overflow-hidden group"
+        >
+          <Zap className="w-5 h-5 fill-current" />
+          <span>Réviser maintenant</span>
+          <span className="ml-1 px-2 py-0.5 bg-white/20 rounded-full text-sm font-mono">{dueCards.length}</span>
+          <span className="absolute right-4 w-8 h-8 rounded-full bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-300 opacity-20" />
+        </button>
+      )}
 
       {/* Scrollable Lesson List */}
       <div className="flex-1 flex flex-col gap-4">

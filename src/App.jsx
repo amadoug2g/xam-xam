@@ -15,9 +15,10 @@ import Session from './components/Session'
 export default function App() {
   const [route, setRoute] = useState({ page: 'home', lessonId: null })
 
-  const go = (page, lessonId = null) => setRoute({ page, lessonId })
+  const go = (page, lessonId = null, cards = null) => setRoute({ page, lessonId, cards })
 
-  if (route.page === 'lesson')   return <LessonDetail lessonId={route.lessonId} onStart={() => go('session', route.lessonId)} onBack={() => go('home')} />
-  if (route.page === 'session')  return <Session lessonId={route.lessonId} onDone={() => go('home')} />
-  return <LessonList onSelect={id => go('lesson', id)} />
+  if (route.page === 'lesson')      return <LessonDetail lessonId={route.lessonId} onStart={() => go('session', route.lessonId)} onBack={() => go('home')} />
+  if (route.page === 'session')     return <Session lessonId={route.lessonId} onDone={() => go('home')} />
+  if (route.page === 'review-all')  return <Session cards={route.cards} onDone={() => go('home')} />
+  return <LessonList onSelect={id => go('lesson', id)} onReviewAll={cards => go('review-all', null, cards)} />
 }
