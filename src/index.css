@@ -1,3 +1,114 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    background-color: #050505;
+  }
+  
+  body {
+    background-color: #050505;
+    color: #f5f5f5;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 420px;
+    background-color: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+    position: relative;
+    border-left: 1px solid #141414;
+    border-right: 1px solid #141414;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Custom premium transitions & animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulseSubtle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* 
+ * Exclusive CSS enhancements for Session.jsx (which has no classes).
+ * This formats the unstyled Session page wrapper and its progress counter.
+ */
+#root > div:not([class]) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1.5rem 1.25rem;
+  background-color: #0a0a0a;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+#root > div:not([class]) > p {
+  text-align: center;
+  font-size: 0.7rem;
+  color: #8b8b8b;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  background-color: #111111;
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  border: 1px solid #1e1e1e;
+  margin: 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
