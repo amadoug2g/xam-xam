@@ -8,7 +8,7 @@
 
 ## Fonctionnalites
 
-- 50 lecons Assimil (2 actuellement actives avec audio)
+- 50 lecons Assimil (5 actives avec audio : compter, temps, espace, questions, mots quotidiens)
 - Algorithme SRS SM-2 pour la planification des revisions
 - Audio Wolof et Francais pour chaque carte
 - Suivi du streak quotidien
