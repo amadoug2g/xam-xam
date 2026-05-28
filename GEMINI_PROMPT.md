@@ -1,4 +1,4 @@
-# Prompt Gemini — Xam-Xam UI
+# Prompt Gemini — Xam-Xam UI (v2)
 
 ---
 
@@ -15,67 +15,161 @@ You have access to a project at `/home/claudeuser/xam-xam/` (or the path provide
 - `src/core/srs.js` — SM-2 spaced repetition algorithm, complete, working
 - `src/data/mock.js` — mock data (lessons + cards), complete
 - `src/App.jsx` — routing logic (home → lesson → session), complete
-- `src/components/Session.jsx` — session logic (audio, flipping, grading, SRS), complete
 
 ## What you must build — replace the stubs
 
-Replace the UI in these 4 components:
+Replace the UI in these **5 components**:
+
+---
 
 ### 1. `src/components/LessonList.jsx`
-Home screen. Shows a scrollable list of lessons. Each lesson card shows:
-- Title (prominent)
-- Description (muted)
-- Number of cards
-- A small badge if there are cards due for review
+
+Home screen. Replace the stub entirely.
+
+**Elements to include:**
+- App name "Xam‑Xam" in the header (left), with a **streak badge** on the right showing a flame icon + number (hardcode `7` for now — visual only)
+- Subtitle: `Wolof · apprentissage par l'audio`
+- **Global progress card**: a progress bar showing `mastered / total` cards across all lessons (use `srs.getStats()`)
+- If `due > 0`, show a green line below the bar: `X carte(s) à réviser aujourd'hui`
+- Section label `LEÇONS` (muted, small caps)
+- Scrollable list of lesson cards. Each card:
+  - **Icon**: headphones (emerald) if the lesson has at least one audio card, book (muted) otherwise — check `lesson.cards.some(c => c.audioWo)`
+  - **Title** + **due badge** (emerald pill with count) if due > 0
+  - **Description** (muted)
+  - **Mini progress bar** (mastered / total for this lesson)
+  - Card count (muted, right)
+  - Chevron right (muted)
+- Tap on a lesson → `onSelect(lessonId)`
+
+**Per-lesson stats** — compute like this:
+```js
+const due = lesson.cards.filter(c => { const r = srs.get(c.id); return !r.mastered && r.nextDue <= Date.now() }).length
+const mastered = lesson.cards.filter(c => srs.get(c.id).mastered).length
+```
+
+---
 
 ### 2. `src/components/LessonDetail.jsx`
-Lesson detail screen. Shows:
-- Lesson title (large)
-- Description
-- Stats: total cards / mastered / due today
-- A prominent "Commencer" (Start) button
-- A back arrow to return to the list
+
+Lesson detail screen. Replace the stub entirely.
+
+**Elements to include:**
+- Back arrow button (top left) → `onBack()`
+- Icon (headphones emerald or book muted, same logic as above)
+- Large lesson title + description
+- **3-column stat grid**:
+  - Total cards (white)
+  - Maîtrisées (emerald, `srs.get(c.id).mastered`)
+  - À réviser (orange if > 0, muted if 0)
+- **Progress bar** for this lesson with percentage label
+- **"Commencer" button** (full-width, emerald, black text). If `due > 0`, label becomes `Réviser · X carte(s)`.
+- Button → `onStart()`
+
+---
 
 ### 3. `src/components/FlipCard.jsx`
-The core flashcard component:
-- **Front**: large Wolof text, centered. A subtle "tap to reveal" hint.
-- **Back**: French translation revealed. Wolof text stays visible above it.
-- **Animation**: smooth 3D CSS flip (rotateY 180°) on tap
-- Note: audio playback is handled by Session.jsx — FlipCard only handles the visual flip
+
+The core flashcard component.
+
+**Front face:**
+- Label `WOLOF` (small, emerald, uppercase tracking) with a pulsing dot
+- **Audio waveform** — a row of 15 vertical bars with varying heights, emerald color, static (no real animation needed — just a visual representation)
+- Large Wolof text (emerald, centered, bold)
+- Hint at the bottom: `Appuie pour révéler` (very muted)
+- Cursor pointer, clicking calls `onFlip()`
+
+**Back face:**
+- Wolof text at the top (small, emerald, muted opacity)
+- Separator line
+- Label `TRADUCTION` (small, muted)
+- Large French text (white, centered, bold)
+- 3 small dots at the bottom (emerald, as a "done" indicator)
+- Border: `border-[#4ade80]/20` (subtle emerald tint)
+
+**Animation:**
+- CSS 3D flip: `rotateY(180deg)` on flip, `perspective: 1200px`, `transformStyle: preserve-3d`
+- Transition: `0.55s cubic-bezier(0.4, 0, 0.2, 1)`
+- Both faces: `backfaceVisibility: hidden`
+- Card height: `300px`
+
+Note: audio playback is handled by `Session.jsx` — FlipCard only handles the visual.
+
+---
 
 ### 4. `src/components/GradeBar.jsx`
-Grading bar that appears after the card is flipped:
-- 6 buttons: 0 Raté / 1 Vague / 2 Hésitant / 3 OK / 4 Bien / 5 Parfait
-- Color-coded: red (0-1), amber (2-3), green (4-5)
-- Full-width row, touch-friendly
+
+Grading bar that appears after the card is flipped.
+
+**Elements:**
+- Label above: `Comment tu t'en es sorti ?` (muted, centered, xs)
+- 6 buttons in a `grid-cols-6`:
+  - 0 Raté / 1 Vague → `bg-red-950`, `border-red-900/60`, `text-red-400`
+  - 2 Hésitant / 3 OK → `bg-amber-950`, `border-amber-900/60`, `text-amber-400`
+  - 4 Bien / 5 Parfait → `bg-emerald-950`, `border-emerald-900/60`, `text-emerald-400`
+- Each button: number (large, bold) + label (tiny, below)
+- Touch-friendly: `py-3`, `rounded-xl`, `active:scale-95`
+
+---
+
+### 5. `src/components/Session.jsx`
+
+The session screen that wraps FlipCard and GradeBar. **Keep all existing logic exactly as-is** — only replace the visual wrapper (the `return` block with the TODO comment).
+
+**What to build:**
+- Dark background, `maxWidth: 420px`, `margin: 0 auto`
+- **Top bar**: back arrow (→ `onDone()`) on the left, progress counter `X / N` centered, lesson title muted on the right
+- **Progress bar**: thin bar below the top bar showing session progress (`idx / cards.length`)
+- **Card area**: centered FlipCard with padding
+- **Grade bar**: slides up from the bottom when `flipped === true` (CSS `translate-y` transition)
+- **Session complete screen**: when `idx + 1 >= cards.length` after grading, instead of calling `onDone()` immediately, show a "Terminé !" screen for 1.5s then call `onDone()`. Show:
+  - Large checkmark or star (lucide icon)
+  - `Leçon terminée !`
+  - Summary: number of cards, average grade (compute from `grades` array), emoji based on performance
+  - Button "Retour" → `onDone()`
+
+**Important**: do NOT change `handleFlip`, `handleGrade`, `useEffect`, or any other logic. Only replace the `return` block and adjust imports if needed.
+
+---
 
 ## Important notes
 
-- **Audio will NOT work** — there are no real MP3 files. The UI must handle missing audio gracefully (no errors, no broken states). The audio logic is already in Session.jsx with `.catch(() => {})` error handling.
-- **Fake data only** — `src/data/mock.js` has placeholder cards. Some have `audioWo: null` and `audioFr: null`. This is expected.
-- Do NOT modify `src/core/srs.js`, `src/data/mock.js`, `src/App.jsx`, or `src/components/Session.jsx`
+- **Audio will NOT work** — there are no real MP3 files. The UI must handle this gracefully. Error handling is already in place in `Session.jsx` with `.catch(() => {})`.
+- **Fake/mock data** — `src/data/mock.js` has placeholder cards. Some have `audioWo: null` and `audioFr: null`. This is expected.
+- **Streak counter** — hardcode `7` on the home screen (no backend yet)
+- Do NOT modify `src/core/srs.js`, `src/data/mock.js`, or `src/App.jsx`
+
+---
 
 ## Visual direction
 
-- **Background**: deep black `#0a0a0a`
-- **Surface cards**: `#111111` with a subtle border `#1e1e1e`
-- **Wolof text**: large, elegant, accented in emerald green `#4ade80`
-- **French text**: white `#f5f5f5`
-- **Muted text**: `#6b7280`
-- **Accent/CTA**: emerald `#4ade80` buttons with black text
-- **Typography**: system-ui sans-serif for UI, slightly larger weight for Wolof text
-- **Mobile-first**: max-width 420px, centered on desktop, designed for thumb navigation
-- **Subtle animations**: fade+slide on screen transitions, scale on button press
-- **Overall feel**: premium, minimal, calm — like a luxury language app
+| Token | Value |
+|---|---|
+| Background | `#0a0a0a` |
+| Surface | `#111111` |
+| Border | `#1e1e1e` |
+| Wolof accent | `#4ade80` (emerald green) |
+| French text | `#f5f5f5` (white) |
+| Muted | `#6b7280` |
+| CTA button | `bg-[#4ade80]` text-black |
+| Orange (due) | `text-orange-400` |
+
+- **Mobile-first**: `maxWidth: 420px`, centered on desktop, designed for thumb navigation
+- **Animations**: `active:scale-[0.98]` on lesson cards, `active:scale-95` on grade buttons, `active:scale-[0.97]` on CTA
+- **Feel**: premium, minimal, calm — like a luxury language app. No gradients, no glow effects. Pure dark + emerald.
+
+---
 
 ## Tech constraints
 
 - React 18 + Tailwind CSS (already configured)
-- lucide-react available for icons
+- `lucide-react` available for icons
 - No external UI libraries (no shadcn, no MUI, etc.)
 - No TypeScript — plain JSX only
-- Keep it as a SPA (no React Router needed — routing is already handled in App.jsx via state)
+- SPA — no React Router (routing handled in `App.jsx` via state)
+- Inline styles for 3D transforms (Tailwind doesn't support `transformStyle` / `backfaceVisibility` natively)
+
+---
 
 ## Deliverable
 
-Replace the 4 stub components with pixel-perfect implementations. The app should feel complete and polished even though the audio files don't exist yet.
+Replace the 5 stub components. The app must feel complete, polished, and real — even though audio files and real data don't exist yet.
