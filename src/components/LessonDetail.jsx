@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
 import { cardOverrides } from '../core/cardOverrides'
-import { ArrowLeft, Play, BookOpen, CheckCircle2, Clock, Volume2, Sun, Moon, Pencil, Check, X } from 'lucide-react'
+import { ArrowLeft, Play, BookOpen, CheckCircle2, Clock, Volume2, Sun, Moon, Pencil, Check, X, Eye, EyeOff } from 'lucide-react'
 
 export default function LessonDetail({ lessonId, onStart, onBack }) {
   // Local state theme sync
@@ -22,6 +22,7 @@ export default function LessonDetail({ lessonId, onStart, onBack }) {
   const [overrides, setOverrides] = useState(() => cardOverrides.getAll())
   const [editing, setEditing] = useState(null)
   const [editForm, setEditForm] = useState({ wo: '', fr: '' })
+  const [showTranslation, setShowTranslation] = useState(false)
 
   const cards = (lesson.cards || []).map(c => overrides[c.id] ? { ...c, ...overrides[c.id] } : c)
   const total = cards.length
@@ -139,11 +140,20 @@ export default function LessonDetail({ lessonId, onStart, onBack }) {
 
         {/* Vocab preview list */}
         <section className="mb-6 flex-1">
-          <h2 className="text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase mb-3 px-1 transition-colors duration-300">
-            Cartes ({total})
-          </h2>
+          <div className="flex items-center justify-between mb-3 px-1">
+            <h2 className="text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase transition-colors duration-300">
+              Cartes ({total})
+            </h2>
+            <button
+              onClick={() => setShowTranslation(v => !v)}
+              className="flex items-center gap-1.5 text-[10px] text-[var(--text-muted)] bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] px-2.5 py-1 rounded-full hover:text-[var(--text-wolof)] transition-colors duration-150"
+            >
+              {showTranslation ? <EyeOff className="w-3 h-3" /> : <Eye className="w-3 h-3" />}
+              {showTranslation ? 'Masquer trad.' : 'Voir trad.'}
+            </button>
+          </div>
 
-          <div className="flex flex-col gap-2 max-h-[260px] overflow-y-auto pr-1 custom-scrollbar">
+          <div className="flex flex-col gap-2 overflow-y-auto pr-1 custom-scrollbar">
             {cards.map((c) => {
               const isEditing = editing === c.id
               return (
@@ -182,12 +192,19 @@ export default function LessonDetail({ lessonId, onStart, onBack }) {
                     </div>
                   ) : (
                     <div className="flex items-center justify-between">
-                      <div className="flex-1 pr-2 flex items-center gap-2">
-                        <p className="text-sm font-semibold text-[var(--text-wolof)] tracking-wide transition-colors duration-300">
-                          {c.wo}
-                        </p>
-                        {overrides[c.id] && (
-                          <span className="text-[9px] text-[var(--text-muted)] bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] px-1.5 rounded">modifié</span>
+                      <div className="flex-1 pr-2 min-w-0">
+                        <div className="flex items-center gap-2">
+                          <p className="text-sm font-semibold text-[var(--text-wolof)] tracking-wide transition-colors duration-300 truncate">
+                            {c.wo}
+                          </p>
+                          {overrides[c.id] && (
+                            <span className="text-[9px] text-[var(--text-muted)] bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] px-1.5 rounded shrink-0">modifié</span>
+                          )}
+                        </div>
+                        {showTranslation && (
+                          <p className="text-xs text-[var(--text-muted)] mt-0.5 transition-colors duration-300">
+                            {c.fr}
+                          </p>
                         )}
                       </div>
                       <div className="flex items-center gap-1.5 shrink-0">
