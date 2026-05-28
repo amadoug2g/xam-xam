@@ -11,7 +11,8 @@
  * Props : lessonId, onDone()
  */
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
+import { X } from 'lucide-react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
 import FlipCard from './FlipCard'
@@ -46,11 +47,33 @@ export default function Session({ lessonId, onDone }) {
 
   if (!card) return null
 
-  // TODO: Gemini remplace ce composant avec l'UI finale
   return (
-    <div>
-      <p>{idx + 1} / {cards.length}</p>
-      <FlipCard card={card} flipped={flipped} onFlip={handleFlip} />
+    <div className="flex flex-col min-h-screen bg-[var(--bg-app)] px-5 py-6">
+      {/* Top bar */}
+      <div className="flex items-center justify-between mb-4">
+        <button onClick={onDone} className="p-2 rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] text-[var(--text-muted)] active:scale-95 transition-transform">
+          <X className="w-4 h-4" />
+        </button>
+        <span className="text-xs font-mono text-[var(--text-muted)] bg-[var(--bg-card)] border border-[var(--border-card)] px-3 py-1 rounded-full">
+          {idx + 1} / {cards.length}
+        </span>
+        <div className="w-10" />
+      </div>
+
+      {/* Progress bar */}
+      <div className="h-1 bg-[var(--border-card)] rounded-full overflow-hidden mb-2">
+        <div
+          className="h-full bg-[var(--text-wolof)] rounded-full transition-all duration-500"
+          style={{ width: `${((idx) / cards.length) * 100}%` }}
+        />
+      </div>
+
+      {/* Card */}
+      <div className="flex-1 flex flex-col justify-center">
+        <FlipCard card={card} flipped={flipped} onFlip={handleFlip} />
+      </div>
+
+      {/* Grade bar */}
       {flipped && <GradeBar onGrade={handleGrade} />}
     </div>
   )
