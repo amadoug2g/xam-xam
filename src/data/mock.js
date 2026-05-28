@@ -100,4 +100,5 @@ export const LESSONS = [
   { id: 'provisions',      position: 47, title: 'Provisions',                                     description: '',  cards: [] },
   { id: 'souvenirs',       position: 48, title: 'Souvenirs',                                      description: '',  cards: [] },
   { id: 'rdv-pro',         position: 49, title: 'Rendez-vous professionnels',                     description: '',  cards: [] },
+  { id: 'sante',           position: 50, title: 'Santé',                                          description: '',  cards: [] },
 ]
