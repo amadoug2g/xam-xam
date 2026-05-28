@@ -26,7 +26,15 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
   const [flipped, setFlipped] = useState(false)
   const [grades, setGrades] = useState([])
 
-  const cards = applyOverrides(cardsProp || lesson?.cards || [])
+  const cards = (() => {
+    const base = applyOverrides(cardsProp || lesson?.cards || [])
+    const arr = [...base]
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]]
+    }
+    return arr
+  })()
   const card = cards[idx]
 
   useEffect(() => {
