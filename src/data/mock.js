@@ -103,6 +103,27 @@ export const LESSONS = [
       },
     ],
   },
+  {
+    id: 'temps',
+    title: 'Pour se repérer dans le temps',
+    description: 'Jours, heures, dates, durées',
+    cards: [
+      { id: 'temps_01', lessonId: 'temps', position: 1,  wo: '...', fr: '...', audioWo: `${BASE}audio/temps/01_wo.mp3`, audioFr: `${BASE}audio/temps/00_fr.mp3` },
+      { id: 'temps_02', lessonId: 'temps', position: 2,  wo: '...', fr: '...', audioWo: `${BASE}audio/temps/03_wo.mp3`, audioFr: `${BASE}audio/temps/02_fr.mp3` },
+      { id: 'temps_03', lessonId: 'temps', position: 3,  wo: '...', fr: '...', audioWo: `${BASE}audio/temps/05_wo.mp3`, audioFr: `${BASE}audio/temps/04_fr.mp3` },
+      { id: 'temps_04', lessonId: 'temps', position: 4,  wo: '...', fr: '...', audioWo: `${BASE}audio/temps/07_wo.mp3`, audioFr: `${BASE}audio/temps/06_fr.mp3` },
+      { id: 'temps_05', lessonId: 'temps', position: 5,  wo: '...', fr: '...', audioWo: `${BASE}audio/temps/09_wo.mp3`, audioFr: `${BASE}audio/temps/08_fr.mp3` },
+      { id: 'temps_06', lessonId: 'temps', position: 6,  wo: '...', fr: '...', audioWo: `${BASE}audio/temps/11_wo.mp3`, audioFr: `${BASE}audio/temps/10_fr.mp3` },
+      { id: 'temps_07', lessonId: 'temps', position: 7,  wo: '...', fr: '...', audioWo: `${BASE}audio/temps/13_wo.mp3`, audioFr: `${BASE}audio/temps/12_fr.mp3` },
+      { id: 'temps_08', lessonId: 'temps', position: 8,  wo: '...', fr: '...', audioWo: `${BASE}audio/temps/15_wo.mp3`, audioFr: `${BASE}audio/temps/14_fr.mp3` },
+      { id: 'temps_09', lessonId: 'temps', position: 9,  wo: '...', fr: '...', audioWo: `${BASE}audio/temps/17_wo.mp3`, audioFr: `${BASE}audio/temps/16_fr.mp3` },
+      { id: 'temps_10', lessonId: 'temps', position: 10, wo: '...', fr: '...', audioWo: `${BASE}audio/temps/19_wo.mp3`, audioFr: `${BASE}audio/temps/18_fr.mp3` },
+      { id: 'temps_11', lessonId: 'temps', position: 11, wo: '...', fr: '...', audioWo: `${BASE}audio/temps/21_wo.mp3`, audioFr: `${BASE}audio/temps/20_fr.mp3` },
+      { id: 'temps_12', lessonId: 'temps', position: 12, wo: '...', fr: '...', audioWo: `${BASE}audio/temps/23_wo.mp3`, audioFr: `${BASE}audio/temps/22_fr.mp3` },
+      { id: 'temps_13', lessonId: 'temps', position: 13, wo: '...', fr: '...', audioWo: `${BASE}audio/temps/25_wo.mp3`, audioFr: `${BASE}audio/temps/24_fr.mp3` },
+      { id: 'temps_14', lessonId: 'temps', position: 14, wo: '...', fr: '...', audioWo: `${BASE}audio/temps/27_wo.mp3`, audioFr: `${BASE}audio/temps/26_fr.mp3` },
+    ],
+  },
   // --- MOCK LESSONS (à remplacer par vrais audios Assimil) ---
   {
     id: 'salutations',
