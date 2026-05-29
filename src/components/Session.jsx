@@ -8,7 +8,7 @@ import { useTheme } from '../core/useTheme'
 import FlipCard from './FlipCard'
 import GradeBar from './GradeBar'
 
-export default function Session({ lessonId, cards: cardsProp, onDone, onRepeat }) {
+export default function Session({ lessonId, cards: cardsProp, onDone, onRepeat, onRepeatFailed }) {
   const lesson = lessonId ? LESSONS.find(l => l.id === lessonId) : null
   const [flipped, setFlipped] = useState(false)
   const [grades, setGrades] = useState([])
@@ -106,16 +106,20 @@ export default function Session({ lessonId, cards: cardsProp, onDone, onRepeat }
 
   // Summary screen
   if (done) {
-    const correct = grades.filter(g => g >= 4).length
-    const total = grades.length
-    const pct = Math.round((correct / total) * 100)
     const uniqueFailedCards = [...new Map(failedCards.map(c => [c.id, c])).values()]
+    const uniqueCount = cards.length
+    const uniqueKnown = uniqueCount - uniqueFailedCards.length
+    const pct = uniqueCount > 0 ? Math.round((uniqueKnown / uniqueCount) * 100) : 0
+    const repeats = grades.length - uniqueCount
     return (
       <div className="flex flex-col min-h-screen bg-[var(--bg-app)] px-5 py-10 items-center justify-center gap-8 animate-fade-in-up">
         <div className="text-center">
           <div className="text-5xl mb-3">{pct >= 80 ? '🎉' : pct >= 50 ? '💪' : '📚'}</div>
           <h1 className="text-2xl font-bold text-[var(--text-primary)]">Session terminée</h1>
-          <p className="text-sm text-[var(--text-muted)] mt-1">{total} cartes révisées</p>
+          <p className="text-sm text-[var(--text-muted)] mt-1">
+            {uniqueCount} carte{uniqueCount > 1 ? 's' : ''}
+            {repeats > 0 && <span className="text-[var(--text-muted)]/60"> · {repeats} répétition{repeats > 1 ? 's' : ''}</span>}
+          </p>
         </div>
 
         <div className="w-full max-w-xs bg-[var(--bg-card)] border border-[var(--border-card)] rounded-3xl p-6 flex flex-col gap-4">
@@ -129,12 +133,12 @@ export default function Session({ lessonId, cards: cardsProp, onDone, onRepeat }
           <div className="grid grid-cols-2 gap-3">
             <div className="flex flex-col items-center p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl">
               <CheckCircle2 className="w-5 h-5 text-emerald-400 mb-1" />
-              <span className="text-xl font-bold text-emerald-400">{correct}</span>
+              <span className="text-xl font-bold text-emerald-400">{uniqueKnown}</span>
               <span className="text-[10px] text-[var(--text-muted)] uppercase tracking-wide">Je savais</span>
             </div>
             <div className="flex flex-col items-center p-3 bg-red-500/10 border border-red-500/20 rounded-2xl">
               <XCircle className="w-5 h-5 text-red-400 mb-1" />
-              <span className="text-xl font-bold text-red-400">{total - correct}</span>
+              <span className="text-xl font-bold text-red-400">{uniqueFailedCards.length}</span>
               <span className="text-[10px] text-[var(--text-muted)] uppercase tracking-wide">À revoir</span>
             </div>
           </div>
@@ -156,19 +160,28 @@ export default function Session({ lessonId, cards: cardsProp, onDone, onRepeat }
           </div>
         )}
 
+        {uniqueFailedCards.length > 0 && onRepeatFailed && (
+          <button
+            onClick={() => onRepeatFailed(uniqueFailedCards)}
+            className="w-full max-w-xs py-4 rounded-2xl bg-[var(--text-wolof)] text-[var(--accent-btn-text)] font-bold text-base flex items-center justify-center gap-2 active:scale-[0.98] transition-all shadow-lg"
+          >
+            <Zap className="w-5 h-5 fill-current" />
+            Revoir ces {uniqueFailedCards.length} cartes
+          </button>
+        )}
+
         {onRepeat && (
           <button
             onClick={onRepeat}
-            className={`w-full max-w-xs py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 active:scale-[0.98] transition-all shadow-lg ${uniqueFailedCards.length > 0 ? 'bg-[var(--text-wolof)] text-[var(--accent-btn-text)]' : 'bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-primary)]'}`}
+            className="w-full max-w-xs py-4 rounded-2xl bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-primary)] font-bold text-base flex items-center justify-center gap-2 active:scale-[0.98] transition-all"
           >
-            <Zap className="w-5 h-5 fill-current" />
-            Répéter la session
+            Répéter toute la session
           </button>
         )}
 
         <button
           onClick={onDone}
-          className={`w-full max-w-xs py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 active:scale-[0.98] transition-all shadow-lg ${uniqueFailedCards.length > 0 || !onRepeat ? 'bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-primary)]' : 'bg-[var(--text-wolof)] text-[var(--accent-btn-text)]'}`}
+          className="w-full max-w-xs py-4 rounded-2xl bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-primary)] font-bold text-base flex items-center justify-center gap-2 active:scale-[0.98] transition-all"
         >
           Terminer
         </button>
@@ -191,8 +204,8 @@ export default function Session({ lessonId, cards: cardsProp, onDone, onRepeat }
         <div className="flex items-center gap-2">
           <button
             onClick={() => { setAudioOnly(a => !a); setFlipped(false); setQueue([...cards]) }}
-            className={`p-2 rounded-xl border transition-all active:scale-95 ${audioOnly ? 'bg-[var(--text-wolof)]/20 border-[var(--text-wolof)]/40 text-[var(--text-wolof)]' : 'bg-[var(--bg-card)] border-[var(--border-card)] text-[var(--text-muted)]'}`}
-            title={audioOnly ? 'Mode audio uniquement (actif)' : 'Activer le mode audio uniquement'}
+            className={`p-2 rounded-xl border transition-all active:scale-95 ${audioOnly ? 'bg-[var(--text-wolof)]/20 border-[var(--text-wolof)]/40 text-[var(--text-wolof)] ring-2 ring-[var(--text-wolof)]/30' : 'bg-[var(--bg-card)] border-[var(--border-card)] text-[var(--text-muted)]'}`}
+            title={audioOnly ? 'Mode sans texte (actif) — cliquer pour désactiver' : 'Mode sans texte — entraîne l\'oreille sans lire'}
           >
             <Headphones className="w-4 h-4" />
           </button>
