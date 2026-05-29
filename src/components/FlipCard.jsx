@@ -10,7 +10,7 @@ export default function FlipCard({ card, flipped, onFlip }) {
     <div
       onClick={onFlip}
       className="w-full cursor-pointer select-none my-6"
-      style={{ perspective: '1000px', height: '380px' }}
+      style={{ perspective: '1000px', height: '380px', isolation: 'isolate' }}
     >
       <div
         style={{
@@ -20,11 +20,16 @@ export default function FlipCard({ card, flipped, onFlip }) {
           transformStyle: 'preserve-3d',
           transition: 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
           transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+          willChange: 'transform',
         }}
       >
         {/* FRONT FACE */}
         <div
-          style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+          style={{
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
+            transform: 'translateZ(0)',
+          }}
           className="absolute inset-0 rounded-3xl border border-[var(--border-card)] bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-app)] flex flex-col justify-between p-6 shadow-2xl overflow-hidden"
         >
           <div className="absolute -top-16 -left-16 w-36 h-36 bg-[var(--text-wolof)]/5 rounded-full blur-2xl pointer-events-none" />
@@ -63,7 +68,7 @@ export default function FlipCard({ card, flipped, onFlip }) {
           style={{
             backfaceVisibility: 'hidden',
             WebkitBackfaceVisibility: 'hidden',
-            transform: 'rotateY(180deg)',
+            transform: 'rotateY(180deg) translateZ(1px)',
           }}
           className="absolute inset-0 rounded-3xl border border-[var(--border-card)] bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-app)] flex flex-col justify-between p-6 shadow-2xl overflow-hidden"
         >

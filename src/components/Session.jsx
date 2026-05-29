@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { X, CheckCircle2, XCircle, Zap } from 'lucide-react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
@@ -16,7 +16,7 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
   const [swipeHint, setSwipeHint] = useState(null) // 'left' | 'right' | null
   const touchStart = useRef(null)
 
-  const cards = (() => {
+  const cards = useMemo(() => {
     const base = applyOverrides(cardsProp || lesson?.cards || [])
     const arr = [...base]
     for (let i = arr.length - 1; i > 0; i--) {
@@ -24,7 +24,8 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
       [arr[i], arr[j]] = [arr[j], arr[i]]
     }
     return arr
-  })()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   const card = cards[idx]
 
   useEffect(() => {
