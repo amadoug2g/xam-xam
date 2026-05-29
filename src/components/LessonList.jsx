@@ -4,7 +4,7 @@ import { srs } from '../core/srs'
 import { streak as streakStore } from '../core/streak'
 import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon, Flame, Zap, Settings } from 'lucide-react'
 
-export default function LessonList({ onSelect, onReviewAll }) {
+export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
   // Theme state hook with document sync on mount & update
   const [theme, setTheme] = useState(() => {
     const t = localStorage.getItem('xam-xam-theme') || 'dark'
@@ -57,7 +57,7 @@ export default function LessonList({ onSelect, onReviewAll }) {
             </div>
 
             <button
-              onClick={() => window.open('/xam-xam/editor.html', '_blank')}
+              onClick={onAdmin}
               className="p-2 bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-muted)] rounded-full transition-all duration-200 hover:scale-105 active:scale-95 flex items-center justify-center shadow-sm"
               title="Éditeur de cartes"
             >
