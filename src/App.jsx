@@ -19,7 +19,7 @@ export default function App() {
   const go = (page, lessonId = null, cards = null) => setRoute({ page, lessonId, cards })
 
   if (route.page === 'admin')       return <AdminEditor onBack={() => go('home')} />
-  if (route.page === 'lesson')      return <LessonDetail lessonId={route.lessonId} onStart={() => go('session', route.lessonId)} onBack={() => go('home')} />
+  if (route.page === 'lesson')      return <LessonDetail lessonId={route.lessonId} onStart={() => go('session', route.lessonId)} onBack={() => go('home')} onAdmin={() => go('admin')} />
   if (route.page === 'session')     return <Session lessonId={route.lessonId} onDone={() => go('home')} />
   if (route.page === 'review-all')  return <Session cards={route.cards} onDone={() => go('home')} />
   return <LessonList onSelect={id => go('lesson', id)} onReviewAll={cards => go('review-all', null, cards)} onAdmin={() => go('admin')} />

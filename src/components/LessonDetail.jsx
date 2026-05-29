@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
 import { cardOverrides } from '../core/cardOverrides'
-import { ArrowLeft, Play, BookOpen, CheckCircle2, Clock, Volume2, Sun, Moon, Pencil, Check, X, Eye, EyeOff } from 'lucide-react'
+import { ArrowLeft, Play, BookOpen, CheckCircle2, Clock, Volume2, Sun, Moon, Pencil, Check, X, Eye, EyeOff, Settings } from 'lucide-react'
 
-export default function LessonDetail({ lessonId, onStart, onBack }) {
+export default function LessonDetail({ lessonId, onStart, onBack, onAdmin }) {
   // Local state theme sync
   const [theme, setTheme] = useState(() => {
     const t = localStorage.getItem('xam-xam-theme') || 'dark'
@@ -80,9 +80,19 @@ export default function LessonDetail({ lessonId, onStart, onBack }) {
             Détail de la leçon
           </span>
 
-          {/* Theme Toggler in details screen */}
-          <button 
-            onClick={toggleTheme}
+          <div className="flex items-center gap-2">
+            {/* Admin editor button */}
+            <button
+              onClick={onAdmin}
+              className="p-2.5 bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-muted)] rounded-full transition-all duration-150 hover:scale-105 active:scale-95 flex items-center justify-center shadow-sm"
+              title="Éditeur de cartes"
+            >
+              <Settings className="w-4 h-4" />
+            </button>
+
+            {/* Theme Toggler in details screen */}
+            <button
+              onClick={toggleTheme}
             className="p-2.5 bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-wolof)] rounded-full transition-all duration-150 hover:scale-105 active:scale-95 flex items-center justify-center shadow-sm"
             title={theme === 'dark' ? 'Passer au mode clair' : 'Passer au mode sombre'}
           >
@@ -92,6 +102,7 @@ export default function LessonDetail({ lessonId, onStart, onBack }) {
               <Moon className="w-4 h-4 text-[#0f766e]" />
             )}
           </button>
+          </div>
         </div>
 
         {/* Hero Card */}
