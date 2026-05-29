@@ -1,0 +1,349 @@
+{
+  "id": "animaux",
+  "title": "Leçon : animaux",
+  "description": "TODO",
+  "cards": [
+    {
+      "id": "animaux_01",
+      "lessonId": "animaux",
+      "position": 1,
+      "wo": "Mala.",
+      "fr": "Animo.",
+      "audioWo": "/audio/animaux/01_wo.mp3",
+      "audioFr": "/audio/animaux/00_fr.mp3"
+    },
+    {
+      "id": "animaux_02",
+      "lessonId": "animaux",
+      "position": 2,
+      "wo": "Mbaam-xuux.",
+      "fr": "Anne.",
+      "audioWo": "/audio/animaux/03_wo.mp3",
+      "audioFr": "/audio/animaux/02_fr.mp3"
+    },
+    {
+      "id": "animaux_03",
+      "lessonId": "animaux",
+      "position": 3,
+      "wo": "Rab.",
+      "fr": "Ca dans...",
+      "audioWo": "/audio/animaux/05_wo.mp3",
+      "audioFr": "/audio/animaux/04_fr.mp3"
+    },
+    {
+      "id": "animaux_04",
+      "lessonId": "animaux",
+      "position": 4,
+      "wo": "Teel.",
+      "fr": "Chacal.",
+      "audioWo": "/audio/animaux/07_wo.mp3",
+      "audioFr": "/audio/animaux/06_fr.mp3"
+    },
+    {
+      "id": "animaux_05",
+      "lessonId": "animaux",
+      "position": 5,
+      "wo": "Golo.",
+      "fr": "...Sah.",
+      "audioWo": "/audio/animaux/09_wo.mp3",
+      "audioFr": "/audio/animaux/08_fr.mp3"
+    },
+    {
+      "id": "animaux_06",
+      "lessonId": "animaux",
+      "position": 6,
+      "wo": "Njamala.",
+      "fr": "SCH restrict",
+      "audioWo": "/audio/animaux/11_wo.mp3",
+      "audioFr": "/audio/animaux/10_fr.mp3"
+    },
+    {
+      "id": "animaux_07",
+      "lessonId": "animaux",
+      "position": 7,
+      "wo": "Jaan.",
+      "fr": "Coule oeuvre.",
+      "audioWo": "/audio/animaux/13_wo.mp3",
+      "audioFr": "/audio/animaux/12_fr.mp3"
+    },
+    {
+      "id": "animaux_08",
+      "lessonId": "animaux",
+      "position": 8,
+      "wo": "Jaar.",
+      "fr": "et cureuil.",
+      "audioWo": "/audio/animaux/15_wo.mp3",
+      "audioFr": "/audio/animaux/14_fr.mp3"
+    },
+    {
+      "id": "animaux_09",
+      "lessonId": "animaux",
+      "position": 9,
+      "wo": "Gaseel.",
+      "fr": "Gazelle.",
+      "audioWo": "/audio/animaux/17_wo.mp3",
+      "audioFr": "/audio/animaux/16_fr.mp3"
+    },
+    {
+      "id": "animaux_10",
+      "lessonId": "animaux",
+      "position": 10,
+      "wo": "Jibee.",
+      "fr": "Jibié.",
+      "audioWo": "/audio/animaux/19_wo.mp3",
+      "audioFr": "/audio/animaux/18_fr.mp3"
+    },
+    {
+      "id": "animaux_11",
+      "lessonId": "animaux",
+      "position": 11,
+      "wo": "Mbott.",
+      "fr": "Grenouille.",
+      "audioWo": "/audio/animaux/21_wo.mp3",
+      "audioFr": "/audio/animaux/20_fr.mp3"
+    },
+    {
+      "id": "animaux_12",
+      "lessonId": "animaux",
+      "position": 12,
+      "wo": "Yéen.",
+      "fr": "YEN",
+      "audioWo": "/audio/animaux/23_wo.mp3",
+      "audioFr": "/audio/animaux/22_fr.mp3"
+    },
+    {
+      "id": "animaux_13",
+      "lessonId": "animaux",
+      "position": 13,
+      "wo": "Lëk.",
+      "fr": "Lapin",
+      "audioWo": "/audio/animaux/25_wo.mp3",
+      "audioFr": "/audio/animaux/24_fr.mp3"
+    },
+    {
+      "id": "animaux_14",
+      "lessonId": "animaux",
+      "position": 14,
+      "wo": "Séq.",
+      "fr": "Les arts",
+      "audioWo": "/audio/animaux/27_wo.mp3",
+      "audioFr": "/audio/animaux/26_fr.mp3"
+    },
+    {
+      "id": "animaux_15",
+      "lessonId": "animaux",
+      "position": 15,
+      "wo": "Lëwër.",
+      "fr": "Lievre.",
+      "audioWo": "/audio/animaux/29_wo.mp3",
+      "audioFr": "/audio/animaux/28_fr.mp3"
+    },
+    {
+      "id": "animaux_16",
+      "lessonId": "animaux",
+      "position": 16,
+      "wo": "Peedar.",
+      "fr": "Pêdrée !",
+      "audioWo": "/audio/animaux/31_wo.mp3",
+      "audioFr": "/audio/animaux/30_fr.mp3"
+    },
+    {
+      "id": "animaux_17",
+      "lessonId": "animaux",
+      "position": 17,
+      "wo": "Mbaam-àll.",
+      "fr": "FACOCHER",
+      "audioWo": "/audio/animaux/33_wo.mp3",
+      "audioFr": "/audio/animaux/32_fr.mp3"
+    },
+    {
+      "id": "animaux_18",
+      "lessonId": "animaux",
+      "position": 18,
+      "wo": "Pisoŋ.",
+      "fr": "Pigeon.",
+      "audioWo": "/audio/animaux/35_wo.mp3",
+      "audioFr": "/audio/animaux/34_fr.mp3"
+    },
+    {
+      "id": "animaux_19",
+      "lessonId": "animaux",
+      "position": 19,
+      "wo": "Jaalo.",
+      "fr": "Pantade.",
+      "audioWo": "/audio/animaux/37_wo.mp3",
+      "audioFr": "/audio/animaux/36_fr.mp3"
+    },
+    {
+      "id": "animaux_20",
+      "lessonId": "animaux",
+      "position": 20,
+      "wo": "Raat.",
+      "fr": "Râ.",
+      "audioWo": "/audio/animaux/39_wo.mp3",
+      "audioFr": "/audio/animaux/38_fr.mp3"
+    },
+    {
+      "id": "animaux_21",
+      "lessonId": "animaux",
+      "position": 21,
+      "wo": "Jëdd.",
+      "fr": "5.",
+      "audioWo": "/audio/animaux/41_wo.mp3",
+      "audioFr": "/audio/animaux/40_fr.mp3"
+    },
+    {
+      "id": "animaux_22",
+      "lessonId": "animaux",
+      "position": 22,
+      "wo": "Janax.",
+      "fr": "souris",
+      "audioWo": "/audio/animaux/43_wo.mp3",
+      "audioFr": "/audio/animaux/42_fr.mp3"
+    },
+    {
+      "id": "animaux_23",
+      "lessonId": "animaux",
+      "position": 23,
+      "wo": "Jaan bu ñàkk.",
+      "fr": "Vipère.",
+      "audioWo": "/audio/animaux/45_wo.mp3",
+      "audioFr": "/audio/animaux/44_fr.mp3"
+    },
+    {
+      "id": "animaux_24",
+      "lessonId": "animaux",
+      "position": 24,
+      "wo": "Gunóor.",
+      "fr": "insecte.",
+      "audioWo": "/audio/animaux/47_wo.mp3",
+      "audioFr": "/audio/animaux/46_fr.mp3"
+    },
+    {
+      "id": "animaux_25",
+      "lessonId": "animaux",
+      "position": 25,
+      "wo": "Yamb.",
+      "fr": "A beille !",
+      "audioWo": "/audio/animaux/49_wo.mp3",
+      "audioFr": "/audio/animaux/48_fr.mp3"
+    },
+    {
+      "id": "animaux_26",
+      "lessonId": "animaux",
+      "position": 26,
+      "wo": "Jargoñ.",
+      "fr": "Arrignée",
+      "audioWo": "/audio/animaux/51_wo.mp3",
+      "audioFr": "/audio/animaux/50_fr.mp3"
+    },
+    {
+      "id": "animaux_27",
+      "lessonId": "animaux",
+      "position": 27,
+      "wo": "Kafar.",
+      "fr": "Gaffer",
+      "audioWo": "/audio/animaux/53_wo.mp3",
+      "audioFr": "/audio/animaux/52_fr.mp3"
+    },
+    {
+      "id": "animaux_28",
+      "lessonId": "animaux",
+      "position": 28,
+      "wo": "Sëf.",
+      "fr": "Chenille",
+      "audioWo": "/audio/animaux/55_wo.mp3",
+      "audioFr": "/audio/animaux/54_fr.mp3"
+    },
+    {
+      "id": "animaux_29",
+      "lessonId": "animaux",
+      "position": 29,
+      "wo": "Jipp.",
+      "fr": "Gip.",
+      "audioWo": "/audio/animaux/57_wo.mp3",
+      "audioFr": "/audio/animaux/56_fr.mp3"
+    },
+    {
+      "id": "animaux_30",
+      "lessonId": "animaux",
+      "position": 30,
+      "wo": "Wutt.",
+      "fr": "Mouche.",
+      "audioWo": "/audio/animaux/59_wo.mp3",
+      "audioFr": "/audio/animaux/58_fr.mp3"
+    },
+    {
+      "id": "animaux_31",
+      "lessonId": "animaux",
+      "position": 31,
+      "wo": "Yéeféef.",
+      "fr": "moustique",
+      "audioWo": "/audio/animaux/61_wo.mp3",
+      "audioFr": "/audio/animaux/60_fr.mp3"
+    },
+    {
+      "id": "animaux_32",
+      "lessonId": "animaux",
+      "position": 32,
+      "wo": "Sgorpiyoŋ.",
+      "fr": "Scorpion.",
+      "audioWo": "/audio/animaux/63_wo.mp3",
+      "audioFr": "/audio/animaux/62_fr.mp3"
+    },
+    {
+      "id": "animaux_33",
+      "lessonId": "animaux",
+      "position": 33,
+      "wo": "Tiik.",
+      "fr": "Tic !",
+      "audioWo": "/audio/animaux/65_wo.mp3",
+      "audioFr": "/audio/animaux/64_fr.mp3"
+    },
+    {
+      "id": "animaux_34",
+      "lessonId": "animaux",
+      "position": 34,
+      "wo": "Sgorpiyoŋ la ma topp.",
+      "fr": "J'ai été piqué par un scorpion.",
+      "audioWo": "/audio/animaux/67_wo.mp3",
+      "audioFr": "/audio/animaux/66_fr.mp3"
+    },
+    {
+      "id": "animaux_35",
+      "lessonId": "animaux",
+      "position": 35,
+      "wo": "Dama soxla aŋtiweneŋ ngir doom ju jaan.",
+      "fr": "J'ai besoin d'un antivenin contre les morsures de vipère.",
+      "audioWo": "/audio/animaux/69_wo.mp3",
+      "audioFr": "/audio/animaux/68_fr.mp3"
+    },
+    {
+      "id": "animaux_36",
+      "lessonId": "animaux",
+      "position": 36,
+      "wo": "Dama bëgg ab repilsif ngir yéeféef yi.",
+      "fr": "Je voudrais un répulsif contre les moustiques.",
+      "audioWo": "/audio/animaux/71_wo.mp3",
+      "audioFr": "/audio/animaux/70_fr.mp3"
+    },
+    {
+      "id": "animaux_37",
+      "lessonId": "animaux",
+      "position": 37,
+      "wo": "Ndax am ngeen mustikeer?",
+      "fr": "Vous avez des moustiquaires ?",
+      "audioWo": "/audio/animaux/73_wo.mp3",
+      "audioFr": "/audio/animaux/72_fr.mp3"
+    },
+    {
+      "id": "animaux_38",
+      "lessonId": "animaux",
+      "position": 38,
+      "wo": "Dama am alersi.",
+      "fr": "Je suis allergique.",
+      "audioWo": "/audio/animaux/75_wo.mp3",
+      "audioFr": "/audio/animaux/74_fr.mp3"
+    }
+  ]
+}

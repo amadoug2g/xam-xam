@@ -1,0 +1,196 @@
+{
+  "id": "proverbes",
+  "title": "Leçon : proverbes",
+  "description": "TODO",
+  "cards": [
+    {
+      "id": "proverbes_01",
+      "lessonId": "proverbes",
+      "position": 1,
+      "wo": "...",
+      "fr": "Dic...",
+      "audioWo": "/audio/proverbes/01_wo.mp3",
+      "audioFr": "/audio/proverbes/00_fr.mp3"
+    },
+    {
+      "id": "proverbes_02",
+      "lessonId": "proverbes",
+      "position": 2,
+      "wo": "...",
+      "fr": "La promesse est une dette.",
+      "audioWo": "/audio/proverbes/03_wo.mp3",
+      "audioFr": "/audio/proverbes/02_fr.mp3"
+    },
+    {
+      "id": "proverbes_03",
+      "lessonId": "proverbes",
+      "position": 3,
+      "wo": "...",
+      "fr": "Le sage prend ses précautions.",
+      "audioWo": "/audio/proverbes/05_wo.mp3",
+      "audioFr": "/audio/proverbes/04_fr.mp3"
+    },
+    {
+      "id": "proverbes_04",
+      "lessonId": "proverbes",
+      "position": 4,
+      "wo": "...",
+      "fr": "Le saint n'est pas lait, il ressemble à son père.",
+      "audioWo": "/audio/proverbes/07_wo.mp3",
+      "audioFr": "/audio/proverbes/06_fr.mp3"
+    },
+    {
+      "id": "proverbes_05",
+      "lessonId": "proverbes",
+      "position": 5,
+      "wo": "...",
+      "fr": "Celui qui a parlé n'a pas dit, c'est celui qui a transmis qui a dit.",
+      "audioWo": "/audio/proverbes/09_wo.mp3",
+      "audioFr": "/audio/proverbes/08_fr.mp3"
+    },
+    {
+      "id": "proverbes_06",
+      "lessonId": "proverbes",
+      "position": 6,
+      "wo": "...",
+      "fr": "Une seule main ne suffit pas pour applaudir.",
+      "audioWo": "/audio/proverbes/11_wo.mp3",
+      "audioFr": "/audio/proverbes/10_fr.mp3"
+    },
+    {
+      "id": "proverbes_07",
+      "lessonId": "proverbes",
+      "position": 7,
+      "wo": "...",
+      "fr": "Ce qu'une personne seule peut faire, à deux, on le fait encore mieux qu'elle.",
+      "audioWo": "/audio/proverbes/13_wo.mp3",
+      "audioFr": "/audio/proverbes/12_fr.mp3"
+    },
+    {
+      "id": "proverbes_08",
+      "lessonId": "proverbes",
+      "position": 8,
+      "wo": "...",
+      "fr": "L'œil ne porte pas, mais il sait ce que la tête peut supporter.",
+      "audioWo": "/audio/proverbes/15_wo.mp3",
+      "audioFr": "/audio/proverbes/14_fr.mp3"
+    },
+    {
+      "id": "proverbes_09",
+      "lessonId": "proverbes",
+      "position": 9,
+      "wo": "...",
+      "fr": "Le morceau de bois aura eu beau rester dans le marégo.",
+      "audioWo": "/audio/proverbes/17_wo.mp3",
+      "audioFr": "/audio/proverbes/16_fr.mp3"
+    },
+    {
+      "id": "proverbes_10",
+      "lessonId": "proverbes",
+      "position": 10,
+      "wo": "...",
+      "fr": "Le paralytique prend parti pour l'anier.",
+      "audioWo": "/audio/proverbes/19_wo.mp3",
+      "audioFr": "/audio/proverbes/18_fr.mp3"
+    },
+    {
+      "id": "proverbes_11",
+      "lessonId": "proverbes",
+      "position": 11,
+      "wo": "...",
+      "fr": "la chèvre quand elle ne va pas avec les autres chèvres.",
+      "audioWo": "/audio/proverbes/21_wo.mp3",
+      "audioFr": "/audio/proverbes/20_fr.mp3"
+    },
+    {
+      "id": "proverbes_12",
+      "lessonId": "proverbes",
+      "position": 12,
+      "wo": "...",
+      "fr": "Les paroles des anciens restaurants tard en Bruce.",
+      "audioWo": "/audio/proverbes/23_wo.mp3",
+      "audioFr": "/audio/proverbes/22_fr.mp3"
+    },
+    {
+      "id": "proverbes_13",
+      "lessonId": "proverbes",
+      "position": 13,
+      "wo": "...",
+      "fr": "Si je dois mourir dans la brousse.",
+      "audioWo": "/audio/proverbes/25_wo.mp3",
+      "audioFr": "/audio/proverbes/24_fr.mp3"
+    },
+    {
+      "id": "proverbes_14",
+      "lessonId": "proverbes",
+      "position": 14,
+      "wo": "...",
+      "fr": "Quand on cohabite.",
+      "audioWo": "/audio/proverbes/27_wo.mp3",
+      "audioFr": "/audio/proverbes/26_fr.mp3"
+    },
+    {
+      "id": "proverbes_15",
+      "lessonId": "proverbes",
+      "position": 15,
+      "wo": "...",
+      "fr": "Des porteurs de feuilles sèches de Ronnier doivent causer entre eux avant de porter leur charge sur leur tête.",
+      "audioWo": "/audio/proverbes/29_wo.mp3",
+      "audioFr": "/audio/proverbes/28_fr.mp3"
+    },
+    {
+      "id": "proverbes_16",
+      "lessonId": "proverbes",
+      "position": 16,
+      "wo": "...",
+      "fr": "Vouloir partir ne signifie pas pouvoir partir.",
+      "audioWo": "/audio/proverbes/31_wo.mp3",
+      "audioFr": "/audio/proverbes/30_fr.mp3"
+    },
+    {
+      "id": "proverbes_17",
+      "lessonId": "proverbes",
+      "position": 17,
+      "wo": "...",
+      "fr": "Il ne sait pas et mal.",
+      "audioWo": "/audio/proverbes/33_wo.mp3",
+      "audioFr": "/audio/proverbes/32_fr.mp3"
+    },
+    {
+      "id": "proverbes_18",
+      "lessonId": "proverbes",
+      "position": 18,
+      "wo": "...",
+      "fr": "avant que tu ne sois instruit.",
+      "audioWo": "/audio/proverbes/35_wo.mp3",
+      "audioFr": "/audio/proverbes/34_fr.mp3"
+    },
+    {
+      "id": "proverbes_19",
+      "lessonId": "proverbes",
+      "position": 19,
+      "wo": "...",
+      "fr": "dans une vie qui n'est pas encore finie.",
+      "audioWo": "/audio/proverbes/37_wo.mp3",
+      "audioFr": "/audio/proverbes/36_fr.mp3"
+    },
+    {
+      "id": "proverbes_20",
+      "lessonId": "proverbes",
+      "position": 20,
+      "wo": "...",
+      "fr": "Voler un tambour, c'est facile.",
+      "audioWo": "/audio/proverbes/39_wo.mp3",
+      "audioFr": "/audio/proverbes/38_fr.mp3"
+    },
+    {
+      "id": "proverbes_21",
+      "lessonId": "proverbes",
+      "position": 21,
+      "wo": "...",
+      "fr": "Les nouvelles n'ont pas de jambes, mais elles franchissent la mer.",
+      "audioWo": "/audio/proverbes/41_wo.mp3",
+      "audioFr": "/audio/proverbes/40_fr.mp3"
+    }
+  ]
+}

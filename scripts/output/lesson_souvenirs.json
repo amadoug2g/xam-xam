@@ -1,0 +1,97 @@
+{
+  "id": "souvenirs",
+  "title": "Leçon : souvenirs",
+  "description": "TODO",
+  "cards": [
+    {
+      "id": "souvenirs_01",
+      "lessonId": "souvenirs",
+      "position": 1,
+      "wo": "Xéwël.",
+      "fr": "Souvenirs.",
+      "audioWo": "/audio/souvenirs/01_wo.mp3",
+      "audioFr": "/audio/souvenirs/00_fr.mp3"
+    },
+    {
+      "id": "souvenirs_02",
+      "lessonId": "souvenirs",
+      "position": 2,
+      "wo": "Dama bëgg a yóbbu ab xéwël bu Senegaal ngir ay xarit.",
+      "fr": "Je voudrais ramener un souvenir du Sénégal à des amis.",
+      "audioWo": "/audio/souvenirs/03_wo.mp3",
+      "audioFr": "/audio/souvenirs/02_fr.mp3"
+    },
+    {
+      "id": "souvenirs_03",
+      "lessonId": "souvenirs",
+      "position": 3,
+      "wo": "Dama bëgg a jënd ab mask afrikeŋ.",
+      "fr": "Je voudrais acheter un masque africain.",
+      "audioWo": "/audio/souvenirs/05_wo.mp3",
+      "audioFr": "/audio/souvenirs/04_fr.mp3"
+    },
+    {
+      "id": "souvenirs_04",
+      "lessonId": "souvenirs",
+      "position": 4,
+      "wo": "Ndax man naa xool bisu yi?",
+      "fr": "Je peux voir les bijoux ?",
+      "audioWo": "/audio/souvenirs/07_wo.mp3",
+      "audioFr": "/audio/souvenirs/06_fr.mp3"
+    },
+    {
+      "id": "souvenirs_05",
+      "lessonId": "souvenirs",
+      "position": 5,
+      "wo": "Dinaa jël...",
+      "fr": "Je vais prendre.",
+      "audioWo": "/audio/souvenirs/09_wo.mp3",
+      "audioFr": "/audio/souvenirs/08_fr.mp3"
+    },
+    {
+      "id": "souvenirs_06",
+      "lessonId": "souvenirs",
+      "position": 6,
+      "wo": "Bërse bii.",
+      "fr": "Se brasser les.",
+      "audioWo": "/audio/souvenirs/11_wo.mp3",
+      "audioFr": "/audio/souvenirs/10_fr.mp3"
+    },
+    {
+      "id": "souvenirs_07",
+      "lessonId": "souvenirs",
+      "position": 7,
+      "wo": "Kuliyee bii.",
+      "fr": "se collier.",
+      "audioWo": "/audio/souvenirs/13_wo.mp3",
+      "audioFr": "/audio/souvenirs/12_fr.mp3"
+    },
+    {
+      "id": "souvenirs_08",
+      "lessonId": "souvenirs",
+      "position": 8,
+      "wo": "Ak koŋtoŋ bii.",
+      "fr": "Et ça te montre.",
+      "audioWo": "/audio/souvenirs/15_wo.mp3",
+      "audioFr": "/audio/souvenirs/14_fr.mp3"
+    },
+    {
+      "id": "souvenirs_09",
+      "lessonId": "souvenirs",
+      "position": 9,
+      "wo": "Ñaata la?",
+      "fr": "C'est combien ?",
+      "audioWo": "/audio/souvenirs/17_wo.mp3",
+      "audioFr": "/audio/souvenirs/16_fr.mp3"
+    },
+    {
+      "id": "souvenirs_10",
+      "lessonId": "souvenirs",
+      "position": 10,
+      "wo": "Kaado la. Ndax man nga ko buulte ma?",
+      "fr": "C'est pour un cadeau. Tu pourrais me l'envelopper ?",
+      "audioWo": "/audio/souvenirs/19_wo.mp3",
+      "audioFr": "/audio/souvenirs/18_fr.mp3"
+    }
+  ]
+}

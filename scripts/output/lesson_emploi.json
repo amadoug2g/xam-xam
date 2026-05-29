@@ -1,0 +1,376 @@
+{
+  "id": "emploi",
+  "title": "Leçon : emploi",
+  "description": "TODO",
+  "cards": [
+    {
+      "id": "emploi_01",
+      "lessonId": "emploi",
+      "position": 1,
+      "wo": "...",
+      "fr": "Quel est ta profession ?",
+      "audioWo": "/audio/emploi/01_wo.mp3",
+      "audioFr": "/audio/emploi/00_fr.mp3"
+    },
+    {
+      "id": "emploi_02",
+      "lessonId": "emploi",
+      "position": 2,
+      "wo": "...",
+      "fr": "Je suis...",
+      "audioWo": "/audio/emploi/03_wo.mp3",
+      "audioFr": "/audio/emploi/02_fr.mp3"
+    },
+    {
+      "id": "emploi_03",
+      "lessonId": "emploi",
+      "position": 3,
+      "wo": "...",
+      "fr": "agriculture",
+      "audioWo": "/audio/emploi/05_wo.mp3",
+      "audioFr": "/audio/emploi/04_fr.mp3"
+    },
+    {
+      "id": "emploi_04",
+      "lessonId": "emploi",
+      "position": 4,
+      "wo": "...",
+      "fr": "Artisan",
+      "audioWo": "/audio/emploi/07_wo.mp3",
+      "audioFr": "/audio/emploi/06_fr.mp3"
+    },
+    {
+      "id": "emploi_05",
+      "lessonId": "emploi",
+      "position": 5,
+      "wo": "...",
+      "fr": "Avocat.",
+      "audioWo": "/audio/emploi/09_wo.mp3",
+      "audioFr": "/audio/emploi/08_fr.mp3"
+    },
+    {
+      "id": "emploi_06",
+      "lessonId": "emploi",
+      "position": 6,
+      "wo": "...",
+      "fr": "commercial",
+      "audioWo": "/audio/emploi/11_wo.mp3",
+      "audioFr": "/audio/emploi/10_fr.mp3"
+    },
+    {
+      "id": "emploi_07",
+      "lessonId": "emploi",
+      "position": 7,
+      "wo": "...",
+      "fr": "Comptable.",
+      "audioWo": "/audio/emploi/13_wo.mp3",
+      "audioFr": "/audio/emploi/12_fr.mp3"
+    },
+    {
+      "id": "emploi_08",
+      "lessonId": "emploi",
+      "position": 8,
+      "wo": "...",
+      "fr": "Affirmiez.",
+      "audioWo": "/audio/emploi/15_wo.mp3",
+      "audioFr": "/audio/emploi/14_fr.mp3"
+    },
+    {
+      "id": "emploi_09",
+      "lessonId": "emploi",
+      "position": 9,
+      "wo": "...",
+      "fr": "informaticien, informaticienne.",
+      "audioWo": "/audio/emploi/17_wo.mp3",
+      "audioFr": "/audio/emploi/16_fr.mp3"
+    },
+    {
+      "id": "emploi_10",
+      "lessonId": "emploi",
+      "position": 10,
+      "wo": "...",
+      "fr": "Journaliste.",
+      "audioWo": "/audio/emploi/19_wo.mp3",
+      "audioFr": "/audio/emploi/18_fr.mp3"
+    },
+    {
+      "id": "emploi_11",
+      "lessonId": "emploi",
+      "position": 11,
+      "wo": "...",
+      "fr": "médecin.",
+      "audioWo": "/audio/emploi/21_wo.mp3",
+      "audioFr": "/audio/emploi/20_fr.mp3"
+    },
+    {
+      "id": "emploi_12",
+      "lessonId": "emploi",
+      "position": 12,
+      "wo": "...",
+      "fr": "Ouvriez.",
+      "audioWo": "/audio/emploi/23_wo.mp3",
+      "audioFr": "/audio/emploi/22_fr.mp3"
+    },
+    {
+      "id": "emploi_13",
+      "lessonId": "emploi",
+      "position": 13,
+      "wo": "...",
+      "fr": "Pompier.",
+      "audioWo": "/audio/emploi/25_wo.mp3",
+      "audioFr": "/audio/emploi/24_fr.mp3"
+    },
+    {
+      "id": "emploi_14",
+      "lessonId": "emploi",
+      "position": 14,
+      "wo": "...",
+      "fr": "Professeur.",
+      "audioWo": "/audio/emploi/27_wo.mp3",
+      "audioFr": "/audio/emploi/26_fr.mp3"
+    },
+    {
+      "id": "emploi_15",
+      "lessonId": "emploi",
+      "position": 15,
+      "wo": "...",
+      "fr": "Restaurateur, restauratrice.",
+      "audioWo": "/audio/emploi/29_wo.mp3",
+      "audioFr": "/audio/emploi/28_fr.mp3"
+    },
+    {
+      "id": "emploi_16",
+      "lessonId": "emploi",
+      "position": 16,
+      "wo": "...",
+      "fr": "Technicien.",
+      "audioWo": "/audio/emploi/31_wo.mp3",
+      "audioFr": "/audio/emploi/30_fr.mp3"
+    },
+    {
+      "id": "emploi_17",
+      "lessonId": "emploi",
+      "position": 17,
+      "wo": "...",
+      "fr": "Vendeur, vendeuse.",
+      "audioWo": "/audio/emploi/33_wo.mp3",
+      "audioFr": "/audio/emploi/32_fr.mp3"
+    },
+    {
+      "id": "emploi_18",
+      "lessonId": "emploi",
+      "position": 18,
+      "wo": "...",
+      "fr": "Je travaille dans...",
+      "audioWo": "/audio/emploi/35_wo.mp3",
+      "audioFr": "/audio/emploi/34_fr.mp3"
+    },
+    {
+      "id": "emploi_19",
+      "lessonId": "emploi",
+      "position": 19,
+      "wo": "...",
+      "fr": "Le bâtiment.",
+      "audioWo": "/audio/emploi/37_wo.mp3",
+      "audioFr": "/audio/emploi/36_fr.mp3"
+    },
+    {
+      "id": "emploi_20",
+      "lessonId": "emploi",
+      "position": 20,
+      "wo": "...",
+      "fr": "Lisa Fair",
+      "audioWo": "/audio/emploi/39_wo.mp3",
+      "audioFr": "/audio/emploi/38_fr.mp3"
+    },
+    {
+      "id": "emploi_21",
+      "lessonId": "emploi",
+      "position": 21,
+      "wo": "...",
+      "fr": "L'Enseignement",
+      "audioWo": "/audio/emploi/41_wo.mp3",
+      "audioFr": "/audio/emploi/40_fr.mp3"
+    },
+    {
+      "id": "emploi_22",
+      "lessonId": "emploi",
+      "position": 22,
+      "wo": "...",
+      "fr": "La fonction publique.",
+      "audioWo": "/audio/emploi/43_wo.mp3",
+      "audioFr": "/audio/emploi/42_fr.mp3"
+    },
+    {
+      "id": "emploi_23",
+      "lessonId": "emploi",
+      "position": 23,
+      "wo": "...",
+      "fr": "La police.",
+      "audioWo": "/audio/emploi/45_wo.mp3",
+      "audioFr": "/audio/emploi/44_fr.mp3"
+    },
+    {
+      "id": "emploi_24",
+      "lessonId": "emploi",
+      "position": 24,
+      "wo": "...",
+      "fr": "La recherche.",
+      "audioWo": "/audio/emploi/47_wo.mp3",
+      "audioFr": "/audio/emploi/46_fr.mp3"
+    },
+    {
+      "id": "emploi_25",
+      "lessonId": "emploi",
+      "position": 25,
+      "wo": "...",
+      "fr": "Tu es étudiant ou tu travailles ?",
+      "audioWo": "/audio/emploi/49_wo.mp3",
+      "audioFr": "/audio/emploi/48_fr.mp3"
+    },
+    {
+      "id": "emploi_26",
+      "lessonId": "emploi",
+      "position": 26,
+      "wo": "...",
+      "fr": "Je suis étudiant.",
+      "audioWo": "/audio/emploi/51_wo.mp3",
+      "audioFr": "/audio/emploi/50_fr.mp3"
+    },
+    {
+      "id": "emploi_27",
+      "lessonId": "emploi",
+      "position": 27,
+      "wo": "...",
+      "fr": "Je travaille.",
+      "audioWo": "/audio/emploi/53_wo.mp3",
+      "audioFr": "/audio/emploi/52_fr.mp3"
+    },
+    {
+      "id": "emploi_28",
+      "lessonId": "emploi",
+      "position": 28,
+      "wo": "...",
+      "fr": "Je ne travaille pas.",
+      "audioWo": "/audio/emploi/55_wo.mp3",
+      "audioFr": "/audio/emploi/54_fr.mp3"
+    },
+    {
+      "id": "emploi_29",
+      "lessonId": "emploi",
+      "position": 29,
+      "wo": "...",
+      "fr": "Je cherche du travail.",
+      "audioWo": "/audio/emploi/57_wo.mp3",
+      "audioFr": "/audio/emploi/56_fr.mp3"
+    },
+    {
+      "id": "emploi_30",
+      "lessonId": "emploi",
+      "position": 30,
+      "wo": "...",
+      "fr": "Je suis en stage.",
+      "audioWo": "/audio/emploi/59_wo.mp3",
+      "audioFr": "/audio/emploi/58_fr.mp3"
+    },
+    {
+      "id": "emploi_31",
+      "lessonId": "emploi",
+      "position": 31,
+      "wo": "...",
+      "fr": "Je suis en formation dans une entreprise.",
+      "audioWo": "/audio/emploi/61_wo.mp3",
+      "audioFr": "/audio/emploi/60_fr.mp3"
+    },
+    {
+      "id": "emploi_32",
+      "lessonId": "emploi",
+      "position": 32,
+      "wo": "...",
+      "fr": "Qu'est-ce que tu fais comme étude ?",
+      "audioWo": "/audio/emploi/63_wo.mp3",
+      "audioFr": "/audio/emploi/62_fr.mp3"
+    },
+    {
+      "id": "emploi_33",
+      "lessonId": "emploi",
+      "position": 33,
+      "wo": "...",
+      "fr": "Je fais des études de...",
+      "audioWo": "/audio/emploi/65_wo.mp3",
+      "audioFr": "/audio/emploi/64_fr.mp3"
+    },
+    {
+      "id": "emploi_34",
+      "lessonId": "emploi",
+      "position": 34,
+      "wo": "...",
+      "fr": "uerdo-d yeast att Guru Khuryyat Weird Augg光",
+      "audioWo": "/audio/emploi/67_wo.mp3",
+      "audioFr": "/audio/emploi/66_fr.mp3"
+    },
+    {
+      "id": "emploi_35",
+      "lessonId": "emploi",
+      "position": 35,
+      "wo": "...",
+      "fr": "de commerce.",
+      "audioWo": "/audio/emploi/69_wo.mp3",
+      "audioFr": "/audio/emploi/68_fr.mp3"
+    },
+    {
+      "id": "emploi_36",
+      "lessonId": "emploi",
+      "position": 36,
+      "wo": "...",
+      "fr": "de droit.",
+      "audioWo": "/audio/emploi/71_wo.mp3",
+      "audioFr": "/audio/emploi/70_fr.mp3"
+    },
+    {
+      "id": "emploi_37",
+      "lessonId": "emploi",
+      "position": 37,
+      "wo": "...",
+      "fr": "de langue.",
+      "audioWo": "/audio/emploi/73_wo.mp3",
+      "audioFr": "/audio/emploi/72_fr.mp3"
+    },
+    {
+      "id": "emploi_38",
+      "lessonId": "emploi",
+      "position": 38,
+      "wo": "...",
+      "fr": "de Lettre.",
+      "audioWo": "/audio/emploi/75_wo.mp3",
+      "audioFr": "/audio/emploi/74_fr.mp3"
+    },
+    {
+      "id": "emploi_39",
+      "lessonId": "emploi",
+      "position": 39,
+      "wo": "...",
+      "fr": "de médecine.",
+      "audioWo": "/audio/emploi/77_wo.mp3",
+      "audioFr": "/audio/emploi/76_fr.mp3"
+    },
+    {
+      "id": "emploi_40",
+      "lessonId": "emploi",
+      "position": 40,
+      "wo": "...",
+      "fr": "de SciencePolitique.",
+      "audioWo": "/audio/emploi/79_wo.mp3",
+      "audioFr": "/audio/emploi/78_fr.mp3"
+    },
+    {
+      "id": "emploi_41",
+      "lessonId": "emploi",
+      "position": 41,
+      "wo": "...",
+      "fr": "Je suis en deuxième année d'école de commerce.",
+      "audioWo": "/audio/emploi/81_wo.mp3",
+      "audioFr": "/audio/emploi/80_fr.mp3"
+    }
+  ]
+}

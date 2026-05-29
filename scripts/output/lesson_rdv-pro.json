@@ -1,0 +1,70 @@
+{
+  "id": "rdv-pro",
+  "title": "Leçon : rdv-pro",
+  "description": "TODO",
+  "cards": [
+    {
+      "id": "rdv-pro_01",
+      "lessonId": "rdv-pro",
+      "position": 1,
+      "wo": "Rande-wu profesiyonel.",
+      "fr": "Rendez-vous professionnel.",
+      "audioWo": "/audio/rdv-pro/01_wo.mp3",
+      "audioFr": "/audio/rdv-pro/00_fr.mp3"
+    },
+    {
+      "id": "rdv-pro_02",
+      "lessonId": "rdv-pro",
+      "position": 2,
+      "wo": "Ndax man ngeen a jox ma ab rande-wu ak Maam Jóob?",
+      "fr": "Pourriez-vous me donner un rendez-vous avec Mme Diop ?",
+      "audioWo": "/audio/rdv-pro/03_wo.mp3",
+      "audioFr": "/audio/rdv-pro/02_fr.mp3"
+    },
+    {
+      "id": "rdv-pro_03",
+      "lessonId": "rdv-pro",
+      "position": 3,
+      "wo": "Aarba ci juróom waxtu.",
+      "fr": "Mardi à 5h.",
+      "audioWo": "/audio/rdv-pro/05_wo.mp3",
+      "audioFr": "/audio/rdv-pro/04_fr.mp3"
+    },
+    {
+      "id": "rdv-pro_04",
+      "lessonId": "rdv-pro",
+      "position": 4,
+      "wo": "Baax na, nu defal noonu.",
+      "fr": "Parfait, faisons comme ça.",
+      "audioWo": "/audio/rdv-pro/07_wo.mp3",
+      "audioFr": "/audio/rdv-pro/06_fr.mp3"
+    },
+    {
+      "id": "rdv-pro_05",
+      "lessonId": "rdv-pro",
+      "position": 5,
+      "wo": "Xool àntëpriis bi.",
+      "fr": "Visitez l'entreprise.",
+      "audioWo": "/audio/rdv-pro/09_wo.mp3",
+      "audioFr": "/audio/rdv-pro/08_fr.mp3"
+    },
+    {
+      "id": "rdv-pro_06",
+      "lessonId": "rdv-pro",
+      "position": 6,
+      "wo": "Aatële bi.",
+      "fr": "A te lier.",
+      "audioWo": "/audio/rdv-pro/11_wo.mp3",
+      "audioFr": "/audio/rdv-pro/10_fr.mp3"
+    },
+    {
+      "id": "rdv-pro_07",
+      "lessonId": "rdv-pro",
+      "position": 7,
+      "wo": "Dama leen di bàyyi sama kart du wizit.",
+      "fr": "Je vous laisse ma carte de visie.",
+      "audioWo": "/audio/rdv-pro/13_wo.mp3",
+      "audioFr": "/audio/rdv-pro/12_fr.mp3"
+    }
+  ]
+}

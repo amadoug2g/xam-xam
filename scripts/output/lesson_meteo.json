@@ -1,0 +1,97 @@
+{
+  "id": "meteo",
+  "title": "Leçon : meteo",
+  "description": "TODO",
+  "cards": [
+    {
+      "id": "meteo_01",
+      "lessonId": "meteo",
+      "position": 1,
+      "wo": "...",
+      "fr": "Quelles sont les prévisions météo pour demain ?",
+      "audioWo": "/audio/meteo/01_wo.mp3",
+      "audioFr": "/audio/meteo/00_fr.mp3"
+    },
+    {
+      "id": "meteo_02",
+      "lessonId": "meteo",
+      "position": 2,
+      "wo": "...",
+      "fr": "Il va faire...",
+      "audioWo": "/audio/meteo/03_wo.mp3",
+      "audioFr": "/audio/meteo/02_fr.mp3"
+    },
+    {
+      "id": "meteo_03",
+      "lessonId": "meteo",
+      "position": 3,
+      "wo": "...",
+      "fr": "Bouh !",
+      "audioWo": "/audio/meteo/05_wo.mp3",
+      "audioFr": "/audio/meteo/04_fr.mp3"
+    },
+    {
+      "id": "meteo_04",
+      "lessonId": "meteo",
+      "position": 4,
+      "wo": "...",
+      "fr": "Mauvais temps.",
+      "audioWo": "/audio/meteo/07_wo.mp3",
+      "audioFr": "/audio/meteo/06_fr.mp3"
+    },
+    {
+      "id": "meteo_05",
+      "lessonId": "meteo",
+      "position": 5,
+      "wo": "...",
+      "fr": "Schoooo",
+      "audioWo": "/audio/meteo/09_wo.mp3",
+      "audioFr": "/audio/meteo/08_fr.mp3"
+    },
+    {
+      "id": "meteo_06",
+      "lessonId": "meteo",
+      "position": 6,
+      "wo": "...",
+      "fr": "Foir.",
+      "audioWo": "/audio/meteo/11_wo.mp3",
+      "audioFr": "/audio/meteo/10_fr.mp3"
+    },
+    {
+      "id": "meteo_07",
+      "lessonId": "meteo",
+      "position": 7,
+      "wo": "...",
+      "fr": "Il va pleuvoir.",
+      "audioWo": "/audio/meteo/13_wo.mp3",
+      "audioFr": "/audio/meteo/12_fr.mp3"
+    },
+    {
+      "id": "meteo_08",
+      "lessonId": "meteo",
+      "position": 8,
+      "wo": "...",
+      "fr": "Il va y avoir du vent.",
+      "audioWo": "/audio/meteo/15_wo.mp3",
+      "audioFr": "/audio/meteo/14_fr.mp3"
+    },
+    {
+      "id": "meteo_09",
+      "lessonId": "meteo",
+      "position": 9,
+      "wo": "...",
+      "fr": "Il va faire très chaud.",
+      "audioWo": "/audio/meteo/17_wo.mp3",
+      "audioFr": "/audio/meteo/16_fr.mp3"
+    },
+    {
+      "id": "meteo_10",
+      "lessonId": "meteo",
+      "position": 10,
+      "wo": "...",
+      "fr": "Il fait beau ici.",
+      "audioWo": "/audio/meteo/19_wo.mp3",
+      "audioFr": "/audio/meteo/18_fr.mp3"
+    }
+  ]
+}

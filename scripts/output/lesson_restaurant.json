@@ -1,0 +1,160 @@
+{
+  "id": "restaurant",
+  "title": "Leçon : restaurant",
+  "description": "TODO",
+  "cards": [
+    {
+      "id": "restaurant_01",
+      "lessonId": "restaurant",
+      "position": 1,
+      "wo": "Ci restoraa bi.",
+      "fr": "au restaurant.",
+      "audioWo": "/audio/restaurant/01_wo.mp3",
+      "audioFr": "/audio/restaurant/00_fr.mp3"
+    },
+    {
+      "id": "restaurant_02",
+      "lessonId": "restaurant",
+      "position": 2,
+      "wo": "Jàmm ak jàmm, dama rëzerwe ab taabël.",
+      "fr": "Bonsoir, j'ai réservé une table.",
+      "audioWo": "/audio/restaurant/03_wo.mp3",
+      "audioFr": "/audio/restaurant/02_fr.mp3"
+    },
+    {
+      "id": "restaurant_03",
+      "lessonId": "restaurant",
+      "position": 3,
+      "wo": "Dama bëgg a rëzerwe ab taabël ngir tey ci ngoon.",
+      "fr": "Je voudrais réserver une table pour ce soir.",
+      "audioWo": "/audio/restaurant/05_wo.mp3",
+      "audioFr": "/audio/restaurant/04_fr.mp3"
+    },
+    {
+      "id": "restaurant_04",
+      "lessonId": "restaurant",
+      "position": 4,
+      "wo": "ngir 22 waxtu, ngir ñeenti nit ci tur bu Umar Gay.",
+      "fr": "pour 22 heures, pour 4 personnes au nom d'Homarn Gai.",
+      "audioWo": "/audio/restaurant/07_wo.mp3",
+      "audioFr": "/audio/restaurant/06_fr.mp3"
+    },
+    {
+      "id": "restaurant_05",
+      "lessonId": "restaurant",
+      "position": 5,
+      "wo": "Ndax am ngeen ab taabël ngir juróom benni nit?",
+      "fr": "Auriez-vous une table pour 6 personnes ?",
+      "audioWo": "/audio/restaurant/09_wo.mp3",
+      "audioFr": "/audio/restaurant/08_fr.mp3"
+    },
+    {
+      "id": "restaurant_06",
+      "lessonId": "restaurant",
+      "position": 6,
+      "wo": "Ndax rëzerwe ngeen?",
+      "fr": "avez-vous réservé?",
+      "audioWo": "/audio/restaurant/11_wo.mp3",
+      "audioFr": "/audio/restaurant/10_fr.mp3"
+    },
+    {
+      "id": "restaurant_07",
+      "lessonId": "restaurant",
+      "position": 7,
+      "wo": "Ndax am ngeen ab menü?",
+      "fr": "Avez-vous un menu ?",
+      "audioWo": "/audio/restaurant/13_wo.mp3",
+      "audioFr": "/audio/restaurant/12_fr.mp3"
+    },
+    {
+      "id": "restaurant_08",
+      "lessonId": "restaurant",
+      "position": 8,
+      "wo": "Tànnal ngeen?",
+      "fr": "Vous avez choisi.",
+      "audioWo": "/audio/restaurant/15_wo.mp3",
+      "audioFr": "/audio/restaurant/14_fr.mp3"
+    },
+    {
+      "id": "restaurant_09",
+      "lessonId": "restaurant",
+      "position": 9,
+      "wo": "Soppi ngeen ko firi walla grill?",
+      "fr": "Vous le préférez frit ou grillé.",
+      "audioWo": "/audio/restaurant/17_wo.mp3",
+      "audioFr": "/audio/restaurant/16_fr.mp3"
+    },
+    {
+      "id": "restaurant_10",
+      "lessonId": "restaurant",
+      "position": 10,
+      "wo": "Lan mooy garnitir bi?",
+      "fr": "Quelle est la garniture ?",
+      "audioWo": "/audio/restaurant/19_wo.mp3",
+      "audioFr": "/audio/restaurant/18_fr.mp3"
+    },
+    {
+      "id": "restaurant_11",
+      "lessonId": "restaurant",
+      "position": 11,
+      "wo": "Ble.",
+      "fr": "bleu.",
+      "audioWo": "/audio/restaurant/21_wo.mp3",
+      "audioFr": "/audio/restaurant/20_fr.mp3"
+    },
+    {
+      "id": "restaurant_12",
+      "lessonId": "restaurant",
+      "position": 12,
+      "wo": "ab yeneen paka.",
+      "fr": "un autre couteau.",
+      "audioWo": "/audio/restaurant/23_wo.mp3",
+      "audioFr": "/audio/restaurant/22_fr.mp3"
+    },
+    {
+      "id": "restaurant_13",
+      "lessonId": "restaurant",
+      "position": 13,
+      "wo": "Ab serwiyeet.",
+      "fr": "Une serviette.",
+      "audioWo": "/audio/restaurant/25_wo.mp3",
+      "audioFr": "/audio/restaurant/24_fr.mp3"
+    },
+    {
+      "id": "restaurant_14",
+      "lessonId": "restaurant",
+      "position": 14,
+      "wo": "mburu.",
+      "fr": "du pain.",
+      "audioWo": "/audio/restaurant/27_wo.mp3",
+      "audioFr": "/audio/restaurant/26_fr.mp3"
+    },
+    {
+      "id": "restaurant_15",
+      "lessonId": "restaurant",
+      "position": 15,
+      "wo": "Lan ngeen am ci galaas?",
+      "fr": "Qu'est-ce que vous avez comme glace ?",
+      "audioWo": "/audio/restaurant/29_wo.mp3",
+      "audioFr": "/audio/restaurant/28_fr.mp3"
+    },
+    {
+      "id": "restaurant_16",
+      "lessonId": "restaurant",
+      "position": 16,
+      "wo": "Fan la wen yi nekk, baal ma?",
+      "fr": "Où sont les toilettes, s'il vous plaît ?",
+      "audioWo": "/audio/restaurant/31_wo.mp3",
+      "audioFr": "/audio/restaurant/30_fr.mp3"
+    },
+    {
+      "id": "restaurant_17",
+      "lessonId": "restaurant",
+      "position": 17,
+      "wo": "Spesiyalite ak pala tradisiyonel.",
+      "fr": "spécialité et plein traditionnel.",
+      "audioWo": "/audio/restaurant/33_wo.mp3",
+      "audioFr": "/audio/restaurant/32_fr.mp3"
+    }
+  ]
+}

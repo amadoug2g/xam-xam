@@ -1,0 +1,268 @@
+{
+  "id": "hebergement",
+  "title": "Leçon : hebergement",
+  "description": "TODO",
+  "cards": [
+    {
+      "id": "hebergement_01",
+      "lessonId": "hebergement",
+      "position": 1,
+      "wo": "Toog.",
+      "fr": "hébergement.",
+      "audioWo": "/audio/hebergement/01_wo.mp3",
+      "audioFr": "/audio/hebergement/00_fr.mp3"
+    },
+    {
+      "id": "hebergement_02",
+      "lessonId": "hebergement",
+      "position": 2,
+      "wo": "Rëzerwasiyoŋ otel.",
+      "fr": "Réservation d'hôtels.",
+      "audioWo": "/audio/hebergement/03_wo.mp3",
+      "audioFr": "/audio/hebergement/02_fr.mp3"
+    },
+    {
+      "id": "hebergement_03",
+      "lessonId": "hebergement",
+      "position": 3,
+      "wo": "Dama soxla...",
+      "fr": "J'aurais besoin.",
+      "audioWo": "/audio/hebergement/05_wo.mp3",
+      "audioFr": "/audio/hebergement/04_fr.mp3"
+    },
+    {
+      "id": "hebergement_04",
+      "lessonId": "hebergement",
+      "position": 4,
+      "wo": "ab nege ak lal bu ñaar.",
+      "fr": "d'une chambre avec un lit double.",
+      "audioWo": "/audio/hebergement/07_wo.mp3",
+      "audioFr": "/audio/hebergement/06_fr.mp3"
+    },
+    {
+      "id": "hebergement_05",
+      "lessonId": "hebergement",
+      "position": 5,
+      "wo": "ab nege bu ñaari lal ak ab lal bu cosaan.",
+      "fr": "d'une chambre double avec un lit d'appoint.",
+      "audioWo": "/audio/hebergement/09_wo.mp3",
+      "audioFr": "/audio/hebergement/08_fr.mp3"
+    },
+    {
+      "id": "hebergement_06",
+      "lessonId": "hebergement",
+      "position": 6,
+      "wo": "Ñaar nañu mag ak ñaari xale.",
+      "fr": "Nous sommes deux adultes et deux enfants.",
+      "audioWo": "/audio/hebergement/11_wo.mp3",
+      "audioFr": "/audio/hebergement/10_fr.mp3"
+    },
+    {
+      "id": "hebergement_07",
+      "lessonId": "hebergement",
+      "position": 7,
+      "wo": "Danuy toog dale ci 10 ba 17 awril.",
+      "fr": "Nous resterons du 10 au 17 avril.",
+      "audioWo": "/audio/hebergement/13_wo.mp3",
+      "audioFr": "/audio/hebergement/12_fr.mp3"
+    },
+    {
+      "id": "hebergement_08",
+      "lessonId": "hebergement",
+      "position": 8,
+      "wo": "War ngeen a bàyyi ab kosiyoŋ ci rëzerwasiyoŋ bi.",
+      "fr": "Vous devez laisser une caution à la réservation.",
+      "audioWo": "/audio/hebergement/15_wo.mp3",
+      "audioFr": "/audio/hebergement/14_fr.mp3"
+    },
+    {
+      "id": "hebergement_09",
+      "lessonId": "hebergement",
+      "position": 9,
+      "wo": "Ndax priig bi ab ndeki la bokk?",
+      "fr": "Est-ce que le prix comprend le petit déjeuner ?",
+      "audioWo": "/audio/hebergement/17_wo.mp3",
+      "audioFr": "/audio/hebergement/16_fr.mp3"
+    },
+    {
+      "id": "hebergement_10",
+      "lessonId": "hebergement",
+      "position": 10,
+      "wo": "Ndax am na klimatizasiyoŋ ci nege yi?",
+      "fr": "Est-ce qu'il y a la climatisation dans les chambres ?",
+      "audioWo": "/audio/hebergement/19_wo.mp3",
+      "audioFr": "/audio/hebergement/18_fr.mp3"
+    },
+    {
+      "id": "hebergement_11",
+      "lessonId": "hebergement",
+      "position": 11,
+      "wo": "Ci resepsiyoŋ bi.",
+      "fr": "à la réception.",
+      "audioWo": "/audio/hebergement/21_wo.mp3",
+      "audioFr": "/audio/hebergement/20_fr.mp3"
+    },
+    {
+      "id": "hebergement_12",
+      "lessonId": "hebergement",
+      "position": 12,
+      "wo": "Dama rëzerwe ab nege ci tur bu...",
+      "fr": "J'ai réservé une chambre au nom de...",
+      "audioWo": "/audio/hebergement/23_wo.mp3",
+      "audioFr": "/audio/hebergement/22_fr.mp3"
+    },
+    {
+      "id": "hebergement_13",
+      "lessonId": "hebergement",
+      "position": 13,
+      "wo": "Ñaata guddi?",
+      "fr": "Pour combien de nuits ?",
+      "audioWo": "/audio/hebergement/25_wo.mp3",
+      "audioFr": "/audio/hebergement/24_fr.mp3"
+    },
+    {
+      "id": "hebergement_14",
+      "lessonId": "hebergement",
+      "position": 14,
+      "wo": "Ndax man ngeen a fenk ma ëllëg ci 6 waxtu?",
+      "fr": "Pouvez-vous me réveiller demain à 6h?",
+      "audioWo": "/audio/hebergement/27_wo.mp3",
+      "audioFr": "/audio/hebergement/26_fr.mp3"
+    },
+    {
+      "id": "hebergement_15",
+      "lessonId": "hebergement",
+      "position": 15,
+      "wo": "Ban waxtu lanu war a delloo caabi bi?",
+      "fr": "A quelle heure devons-nous rendre la clé ?",
+      "audioWo": "/audio/hebergement/29_wo.mp3",
+      "audioFr": "/audio/hebergement/28_fr.mp3"
+    },
+    {
+      "id": "hebergement_16",
+      "lessonId": "hebergement",
+      "position": 16,
+      "wo": "Wokabileer bu serwis yi.",
+      "fr": "Vocabulaire des services.",
+      "audioWo": "/audio/hebergement/31_wo.mp3",
+      "audioFr": "/audio/hebergement/30_fr.mp3"
+    },
+    {
+      "id": "hebergement_17",
+      "lessonId": "hebergement",
+      "position": 17,
+      "wo": "Ndax am ngeen koŋsiñ bu bagaas?",
+      "fr": "Vous avez des consignes à bagages.",
+      "audioWo": "/audio/hebergement/33_wo.mp3",
+      "audioFr": "/audio/hebergement/32_fr.mp3"
+    },
+    {
+      "id": "hebergement_18",
+      "lessonId": "hebergement",
+      "position": 18,
+      "wo": "Ndax man ngeen a sàmm sunu bagaas ba tey ci ngoon?",
+      "fr": "Pouvez-vous garder nos bagages jusqu'à ce soir ?",
+      "audioWo": "/audio/hebergement/35_wo.mp3",
+      "audioFr": "/audio/hebergement/34_fr.mp3"
+    },
+    {
+      "id": "hebergement_19",
+      "lessonId": "hebergement",
+      "position": 19,
+      "wo": "Ndax am na wifi ci nege yi?",
+      "fr": "Est-ce qu'il y a le wifi dans les chambres ?",
+      "audioWo": "/audio/hebergement/37_wo.mp3",
+      "audioFr": "/audio/hebergement/36_fr.mp3"
+    },
+    {
+      "id": "hebergement_20",
+      "lessonId": "hebergement",
+      "position": 20,
+      "wo": "Ndax man ngeen a def ma...?",
+      "fr": "pouvez-vous me faire ?",
+      "audioWo": "/audio/hebergement/39_wo.mp3",
+      "audioFr": "/audio/hebergement/38_fr.mp3"
+    },
+    {
+      "id": "hebergement_21",
+      "lessonId": "hebergement",
+      "position": 21,
+      "wo": "ab kafe bu ñuul.",
+      "fr": "un café noir.",
+      "audioWo": "/audio/hebergement/41_wo.mp3",
+      "audioFr": "/audio/hebergement/40_fr.mp3"
+    },
+    {
+      "id": "hebergement_22",
+      "lessonId": "hebergement",
+      "position": 22,
+      "wo": "Endika.",
+      "fr": "Indicat.",
+      "audioWo": "/audio/hebergement/43_wo.mp3",
+      "audioFr": "/audio/hebergement/42_fr.mp3"
+    },
+    {
+      "id": "hebergement_23",
+      "lessonId": "hebergement",
+      "position": 23,
+      "wo": "Ab tartin jaamboŋ ak tamaate.",
+      "fr": "Une tartine jambon de tomates.",
+      "audioWo": "/audio/hebergement/45_wo.mp3",
+      "audioFr": "/audio/hebergement/44_fr.mp3"
+    },
+    {
+      "id": "hebergement_24",
+      "lessonId": "hebergement",
+      "position": 24,
+      "wo": "Ab tartin ak bëer.",
+      "fr": "Une tartine beurrée.",
+      "audioWo": "/audio/hebergement/47_wo.mp3",
+      "audioFr": "/audio/hebergement/46_fr.mp3"
+    },
+    {
+      "id": "hebergement_25",
+      "lessonId": "hebergement",
+      "position": 25,
+      "wo": "Su am na ay ndaw yu ndaw.",
+      "fr": "en cas de petits problèmes.",
+      "audioWo": "/audio/hebergement/49_wo.mp3",
+      "audioFr": "/audio/hebergement/48_fr.mp3"
+    },
+    {
+      "id": "hebergement_26",
+      "lessonId": "hebergement",
+      "position": 26,
+      "wo": "Robine bi di dagg.",
+      "fr": "Le robinet fuit.",
+      "audioWo": "/audio/hebergement/51_wo.mp3",
+      "audioFr": "/audio/hebergement/50_fr.mp3"
+    },
+    {
+      "id": "hebergement_27",
+      "lessonId": "hebergement",
+      "position": 27,
+      "wo": "Ab ampul dafa ngi sori.",
+      "fr": "Une ampoule à griller.",
+      "audioWo": "/audio/hebergement/53_wo.mp3",
+      "audioFr": "/audio/hebergement/52_fr.mp3"
+    },
+    {
+      "id": "hebergement_28",
+      "lessonId": "hebergement",
+      "position": 28,
+      "wo": "Fay not bi.",
+      "fr": "Réglez la note.",
+      "audioWo": "/audio/hebergement/55_wo.mp3",
+      "audioFr": "/audio/hebergement/54_fr.mp3"
+    },
+    {
+      "id": "hebergement_29",
+      "lessonId": "hebergement",
+      "position": 29,
+      "wo": "Man naa fay...",
+      "fr": "Je peux payer.",
+      "audioWo": "/audio/hebergement/57_wo.mp3",
+      "audioFr": "/audio/hebergement/56_fr.mp3"
+    }
+  ]
+}

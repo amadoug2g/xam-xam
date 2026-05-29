@@ -1,0 +1,205 @@
+{
+  "id": "sentiments",
+  "title": "Leçon : sentiments",
+  "description": "TODO",
+  "cards": [
+    {
+      "id": "sentiments_01",
+      "lessonId": "sentiments",
+      "position": 1,
+      "wo": "...",
+      "fr": "Tu aimes la lutte ?",
+      "audioWo": "/audio/sentiments/01_wo.mp3",
+      "audioFr": "/audio/sentiments/00_fr.mp3"
+    },
+    {
+      "id": "sentiments_02",
+      "lessonId": "sentiments",
+      "position": 2,
+      "wo": "...",
+      "fr": "Oui, j'adore.",
+      "audioWo": "/audio/sentiments/03_wo.mp3",
+      "audioFr": "/audio/sentiments/02_fr.mp3"
+    },
+    {
+      "id": "sentiments_03",
+      "lessonId": "sentiments",
+      "position": 3,
+      "wo": "...",
+      "fr": "Moi aussi.",
+      "audioWo": "/audio/sentiments/05_wo.mp3",
+      "audioFr": "/audio/sentiments/04_fr.mp3"
+    },
+    {
+      "id": "sentiments_04",
+      "lessonId": "sentiments",
+      "position": 4,
+      "wo": "...",
+      "fr": "Non, je n'aime pas la lutte.",
+      "audioWo": "/audio/sentiments/07_wo.mp3",
+      "audioFr": "/audio/sentiments/06_fr.mp3"
+    },
+    {
+      "id": "sentiments_05",
+      "lessonId": "sentiments",
+      "position": 5,
+      "wo": "...",
+      "fr": "Moi non plus.",
+      "audioWo": "/audio/sentiments/09_wo.mp3",
+      "audioFr": "/audio/sentiments/08_fr.mp3"
+    },
+    {
+      "id": "sentiments_06",
+      "lessonId": "sentiments",
+      "position": 6,
+      "wo": "...",
+      "fr": "Est-ce que ça t'a plu ?",
+      "audioWo": "/audio/sentiments/11_wo.mp3",
+      "audioFr": "/audio/sentiments/10_fr.mp3"
+    },
+    {
+      "id": "sentiments_07",
+      "lessonId": "sentiments",
+      "position": 7,
+      "wo": "...",
+      "fr": "J'ai adoré.",
+      "audioWo": "/audio/sentiments/13_wo.mp3",
+      "audioFr": "/audio/sentiments/12_fr.mp3"
+    },
+    {
+      "id": "sentiments_08",
+      "lessonId": "sentiments",
+      "position": 8,
+      "wo": "...",
+      "fr": "Ça ne m'a pas plu.",
+      "audioWo": "/audio/sentiments/15_wo.mp3",
+      "audioFr": "/audio/sentiments/14_fr.mp3"
+    },
+    {
+      "id": "sentiments_09",
+      "lessonId": "sentiments",
+      "position": 9,
+      "wo": "...",
+      "fr": "C'est amusant.",
+      "audioWo": "/audio/sentiments/17_wo.mp3",
+      "audioFr": "/audio/sentiments/16_fr.mp3"
+    },
+    {
+      "id": "sentiments_10",
+      "lessonId": "sentiments",
+      "position": 10,
+      "wo": "...",
+      "fr": "C'est beau !",
+      "audioWo": "/audio/sentiments/19_wo.mp3",
+      "audioFr": "/audio/sentiments/18_fr.mp3"
+    },
+    {
+      "id": "sentiments_11",
+      "lessonId": "sentiments",
+      "position": 11,
+      "wo": "...",
+      "fr": "C'est bon !",
+      "audioWo": "/audio/sentiments/21_wo.mp3",
+      "audioFr": "/audio/sentiments/20_fr.mp3"
+    },
+    {
+      "id": "sentiments_12",
+      "lessonId": "sentiments",
+      "position": 12,
+      "wo": "...",
+      "fr": "C'est intéressant.",
+      "audioWo": "/audio/sentiments/23_wo.mp3",
+      "audioFr": "/audio/sentiments/22_fr.mp3"
+    },
+    {
+      "id": "sentiments_13",
+      "lessonId": "sentiments",
+      "position": 13,
+      "wo": "...",
+      "fr": "C'est... surprenant.",
+      "audioWo": "/audio/sentiments/25_wo.mp3",
+      "audioFr": "/audio/sentiments/24_fr.mp3"
+    },
+    {
+      "id": "sentiments_14",
+      "lessonId": "sentiments",
+      "position": 14,
+      "wo": "...",
+      "fr": "C'est magnifique.",
+      "audioWo": "/audio/sentiments/27_wo.mp3",
+      "audioFr": "/audio/sentiments/26_fr.mp3"
+    },
+    {
+      "id": "sentiments_15",
+      "lessonId": "sentiments",
+      "position": 15,
+      "wo": "...",
+      "fr": "C'est succulent !",
+      "audioWo": "/audio/sentiments/29_wo.mp3",
+      "audioFr": "/audio/sentiments/28_fr.mp3"
+    },
+    {
+      "id": "sentiments_16",
+      "lessonId": "sentiments",
+      "position": 16,
+      "wo": "...",
+      "fr": "C'est désagréable.",
+      "audioWo": "/audio/sentiments/31_wo.mp3",
+      "audioFr": "/audio/sentiments/30_fr.mp3"
+    },
+    {
+      "id": "sentiments_17",
+      "lessonId": "sentiments",
+      "position": 17,
+      "wo": "...",
+      "fr": "C'était frillant.",
+      "audioWo": "/audio/sentiments/33_wo.mp3",
+      "audioFr": "/audio/sentiments/32_fr.mp3"
+    },
+    {
+      "id": "sentiments_18",
+      "lessonId": "sentiments",
+      "position": 18,
+      "wo": "...",
+      "fr": "C'est ennuyeux.",
+      "audioWo": "/audio/sentiments/35_wo.mp3",
+      "audioFr": "/audio/sentiments/34_fr.mp3"
+    },
+    {
+      "id": "sentiments_19",
+      "lessonId": "sentiments",
+      "position": 19,
+      "wo": "...",
+      "fr": "C'est mauvais.",
+      "audioWo": "/audio/sentiments/37_wo.mp3",
+      "audioFr": "/audio/sentiments/36_fr.mp3"
+    },
+    {
+      "id": "sentiments_20",
+      "lessonId": "sentiments",
+      "position": 20,
+      "wo": "...",
+      "fr": "Je pense que...",
+      "audioWo": "/audio/sentiments/39_wo.mp3",
+      "audioFr": "/audio/sentiments/38_fr.mp3"
+    },
+    {
+      "id": "sentiments_21",
+      "lessonId": "sentiments",
+      "position": 21,
+      "wo": "...",
+      "fr": "Je crois que...",
+      "audioWo": "/audio/sentiments/41_wo.mp3",
+      "audioFr": "/audio/sentiments/40_fr.mp3"
+    },
+    {
+      "id": "sentiments_22",
+      "lessonId": "sentiments",
+      "position": 22,
+      "wo": "...",
+      "fr": "J'ai l'impression que...",
+      "audioWo": "/audio/sentiments/43_wo.mp3",
+      "audioFr": "/audio/sentiments/42_fr.mp3"
+    }
+  ]
+}

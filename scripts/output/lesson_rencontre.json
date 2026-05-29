@@ -1,0 +1,151 @@
+{
+  "id": "rencontre",
+  "title": "Leçon : rencontre",
+  "description": "TODO",
+  "cards": [
+    {
+      "id": "rencontre_01",
+      "lessonId": "rencontre",
+      "position": 1,
+      "wo": "...",
+      "fr": "se rencontrer.",
+      "audioWo": "/audio/rencontre/01_wo.mp3",
+      "audioFr": "/audio/rencontre/00_fr.mp3"
+    },
+    {
+      "id": "rencontre_02",
+      "lessonId": "rencontre",
+      "position": 2,
+      "wo": "...",
+      "fr": "Bien !",
+      "audioWo": "/audio/rencontre/03_wo.mp3",
+      "audioFr": "/audio/rencontre/02_fr.mp3"
+    },
+    {
+      "id": "rencontre_03",
+      "lessonId": "rencontre",
+      "position": 3,
+      "wo": "...",
+      "fr": "Pas si mal.",
+      "audioWo": "/audio/rencontre/05_wo.mp3",
+      "audioFr": "/audio/rencontre/04_fr.mp3"
+    },
+    {
+      "id": "rencontre_04",
+      "lessonId": "rencontre",
+      "position": 4,
+      "wo": "...",
+      "fr": "Ça faisait longtemps.",
+      "audioWo": "/audio/rencontre/07_wo.mp3",
+      "audioFr": "/audio/rencontre/06_fr.mp3"
+    },
+    {
+      "id": "rencontre_05",
+      "lessonId": "rencontre",
+      "position": 5,
+      "wo": "...",
+      "fr": "Tu m'as manqué.",
+      "audioWo": "/audio/rencontre/09_wo.mp3",
+      "audioFr": "/audio/rencontre/08_fr.mp3"
+    },
+    {
+      "id": "rencontre_06",
+      "lessonId": "rencontre",
+      "position": 6,
+      "wo": "...",
+      "fr": "se présenter ou présenter quelqu'un.",
+      "audioWo": "/audio/rencontre/11_wo.mp3",
+      "audioFr": "/audio/rencontre/10_fr.mp3"
+    },
+    {
+      "id": "rencontre_07",
+      "lessonId": "rencontre",
+      "position": 7,
+      "wo": "...",
+      "fr": "Ça va ?",
+      "audioWo": "/audio/rencontre/13_wo.mp3",
+      "audioFr": "/audio/rencontre/12_fr.mp3"
+    },
+    {
+      "id": "rencontre_08",
+      "lessonId": "rencontre",
+      "position": 8,
+      "wo": "...",
+      "fr": "Moi, c'est Fama.",
+      "audioWo": "/audio/rencontre/15_wo.mp3",
+      "audioFr": "/audio/rencontre/14_fr.mp3"
+    },
+    {
+      "id": "rencontre_09",
+      "lessonId": "rencontre",
+      "position": 9,
+      "wo": "...",
+      "fr": "Taffa, comment vas-tu ?",
+      "audioWo": "/audio/rencontre/17_wo.mp3",
+      "audioFr": "/audio/rencontre/16_fr.mp3"
+    },
+    {
+      "id": "rencontre_10",
+      "lessonId": "rencontre",
+      "position": 10,
+      "wo": "...",
+      "fr": "Enchanté de faire votre connaissance.",
+      "audioWo": "/audio/rencontre/19_wo.mp3",
+      "audioFr": "/audio/rencontre/18_fr.mp3"
+    },
+    {
+      "id": "rencontre_11",
+      "lessonId": "rencontre",
+      "position": 11,
+      "wo": "...",
+      "fr": "Pareillement.",
+      "audioWo": "/audio/rencontre/21_wo.mp3",
+      "audioFr": "/audio/rencontre/20_fr.mp3"
+    },
+    {
+      "id": "rencontre_12",
+      "lessonId": "rencontre",
+      "position": 12,
+      "wo": "...",
+      "fr": "Dire doulons fier.",
+      "audioWo": "/audio/rencontre/23_wo.mp3",
+      "audioFr": "/audio/rencontre/22_fr.mp3"
+    },
+    {
+      "id": "rencontre_13",
+      "lessonId": "rencontre",
+      "position": 13,
+      "wo": "...",
+      "fr": "Je suis...",
+      "audioWo": "/audio/rencontre/25_wo.mp3",
+      "audioFr": "/audio/rencontre/24_fr.mp3"
+    },
+    {
+      "id": "rencontre_14",
+      "lessonId": "rencontre",
+      "position": 14,
+      "wo": "...",
+      "fr": "J'habite à...",
+      "audioWo": "/audio/rencontre/27_wo.mp3",
+      "audioFr": "/audio/rencontre/26_fr.mp3"
+    },
+    {
+      "id": "rencontre_15",
+      "lessonId": "rencontre",
+      "position": 15,
+      "wo": "...",
+      "fr": "Dire son âge",
+      "audioWo": "/audio/rencontre/29_wo.mp3",
+      "audioFr": "/audio/rencontre/28_fr.mp3"
+    },
+    {
+      "id": "rencontre_16",
+      "lessonId": "rencontre",
+      "position": 16,
+      "wo": "...",
+      "fr": "Je suis né en 1988.",
+      "audioWo": "/audio/rencontre/31_wo.mp3",
+      "audioFr": "/audio/rencontre/30_fr.mp3"
+    }
+  ]
+}

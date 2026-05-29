@@ -1,0 +1,106 @@
+{
+  "id": "ville",
+  "title": "Leçon : ville",
+  "description": "TODO",
+  "cards": [
+    {
+      "id": "ville_01",
+      "lessonId": "ville",
+      "position": 1,
+      "wo": "Ci biir dëkk bi.",
+      "fr": "En ville.",
+      "audioWo": "/audio/ville/01_wo.mp3",
+      "audioFr": "/audio/ville/00_fr.mp3"
+    },
+    {
+      "id": "ville_02",
+      "lessonId": "ville",
+      "position": 2,
+      "wo": "ngir gis sa yoon.",
+      "fr": "pour trouver son chemin.",
+      "audioWo": "/audio/ville/03_wo.mp3",
+      "audioFr": "/audio/ville/02_fr.mp3"
+    },
+    {
+      "id": "ville_03",
+      "lessonId": "ville",
+      "position": 3,
+      "wo": "Fan laa man a gis wen, baal ma?",
+      "fr": "Où puis-je trouver des toilettes, s'il vous plaît ?",
+      "audioWo": "/audio/ville/05_wo.mp3",
+      "audioFr": "/audio/ville/04_fr.mp3"
+    },
+    {
+      "id": "ville_04",
+      "lessonId": "ville",
+      "position": 4,
+      "wo": "Baal ma, fan la Mise bu jigéen bi nekk?",
+      "fr": "Pardon, où se trouve le Musée de la femme ?",
+      "audioWo": "/audio/ville/07_wo.mp3",
+      "audioFr": "/audio/ville/06_fr.mp3"
+    },
+    {
+      "id": "ville_05",
+      "lessonId": "ville",
+      "position": 5,
+      "wo": "Dem sa kanam ba ci rond-point bi.",
+      "fr": "Va tout droit jusqu'au rond-point.",
+      "audioWo": "/audio/ville/09_wo.mp3",
+      "audioFr": "/audio/ville/08_fr.mp3"
+    },
+    {
+      "id": "ville_06",
+      "lessonId": "ville",
+      "position": 6,
+      "wo": "Miy làmmiñ wu njël wi ci càmmoñ.",
+      "fr": "C'est la première rue à gauche.",
+      "audioWo": "/audio/ville/11_wo.mp3",
+      "audioFr": "/audio/ville/10_fr.mp3"
+    },
+    {
+      "id": "ville_07",
+      "lessonId": "ville",
+      "position": 7,
+      "wo": "Dafa war nga dellu ci ginnaaw te wocc ci ndijoor ci stasiyoŋ esaas bi.",
+      "fr": "Il faut revenir en arrière et tourner à droite à la station service.",
+      "audioWo": "/audio/ville/13_wo.mp3",
+      "audioFr": "/audio/ville/12_fr.mp3"
+    },
+    {
+      "id": "ville_08",
+      "lessonId": "ville",
+      "position": 8,
+      "wo": "Kaar bi.",
+      "fr": "Le bus.",
+      "audioWo": "/audio/ville/15_wo.mp3",
+      "audioFr": "/audio/ville/14_fr.mp3"
+    },
+    {
+      "id": "ville_09",
+      "lessonId": "ville",
+      "position": 9,
+      "wo": "Fan la tëralug P9 bi nekk?",
+      "fr": "ou se trouve l'arrêt du P9.",
+      "audioWo": "/audio/ville/17_wo.mp3",
+      "audioFr": "/audio/ville/16_fr.mp3"
+    },
+    {
+      "id": "ville_10",
+      "lessonId": "ville",
+      "position": 10,
+      "wo": "Lan mooy kaar bi ñu dem ci...?",
+      "fr": "Quel est le bus qui va à...",
+      "audioWo": "/audio/ville/19_wo.mp3",
+      "audioFr": "/audio/ville/18_fr.mp3"
+    },
+    {
+      "id": "ville_11",
+      "lessonId": "ville",
+      "position": 11,
+      "wo": "Fan laa war a wàcc ngir...?",
+      "fr": "ou dois-je descendre pour...",
+      "audioWo": "/audio/ville/21_wo.mp3",
+      "audioFr": "/audio/ville/20_fr.mp3"
+    }
+  ]
+}

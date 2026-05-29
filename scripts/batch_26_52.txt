@@ -1,0 +1,29 @@
+# Leçons 26-52 — batch_extract.py
+# Format: filepath lesson_id
+/home/claudeuser/.claude/channels/discord/inbox/1780077198853-1509977922734395584.mp3 ville
+/home/claudeuser/.claude/channels/discord/inbox/1780077199172-1509977923032186960.mp3 musees
+/home/claudeuser/.claude/channels/discord/inbox/1780077199464-1509977923329720530.mp3 poste
+/home/claudeuser/.claude/channels/discord/inbox/1780077199715-1509977923719925902.mp3 telephone
+/home/claudeuser/.claude/channels/discord/inbox/1780077199982-1509977924001071195.mp3 internet
+/home/claudeuser/.claude/channels/discord/inbox/1780077200331-1509977924277899314.mp3 administration
+/home/claudeuser/.claude/channels/discord/inbox/1780077200703-1509977924567302225.mp3 banque
+/home/claudeuser/.claude/channels/discord/inbox/1780077201000-1509977924894195783.mp3 spectacles
+/home/claudeuser/.claude/channels/discord/inbox/1780077201299-1509977925351636992.mp3 coiffeur
+/home/claudeuser/.claude/channels/discord/inbox/1780077201781-1509977925653631191.mp3 campagne
+/home/claudeuser/.claude/channels/discord/inbox/1780077269846-1509977961921515571.mp3 camping
+/home/claudeuser/.claude/channels/discord/inbox/1780077270244-1509977962244608091.mp3 animaux
+/home/claudeuser/.claude/channels/discord/inbox/1780077270831-1509977962538205225.mp3 hebergement
+/home/claudeuser/.claude/channels/discord/inbox/1780077271458-1509977962869424422.mp3 restaurant
+/home/claudeuser/.claude/channels/discord/inbox/1780077271914-1509977963272343706.mp3 mets
+/home/claudeuser/.claude/channels/discord/inbox/1780077272208-1509977963523866764.mp3 alcool
+/home/claudeuser/.claude/channels/discord/inbox/1780077272703-1509977963838574804.mp3 boissons
+/home/claudeuser/.claude/channels/discord/inbox/1780077273052-1509977964089970736.mp3 magasins
+/home/claudeuser/.claude/channels/discord/inbox/1780077273732-1509977964329042042.mp3 vetements
+/home/claudeuser/.claude/channels/discord/inbox/1780077274053-1509977964585160704.mp3 tabac
+/home/claudeuser/.claude/channels/discord/inbox/1780077284086-1509977978795331776.mp3 photo
+/home/claudeuser/.claude/channels/discord/inbox/1780077284435-1509977979072286780.mp3 provisions
+/home/claudeuser/.claude/channels/discord/inbox/1780077284782-1509977979365621780.mp3 souvenirs
+/home/claudeuser/.claude/channels/discord/inbox/1780077285117-1509977979856490587.mp3 rdv-pro
+/home/claudeuser/.claude/channels/discord/inbox/1780077285419-1509977980229648525.mp3 sante
+/home/claudeuser/.claude/channels/discord/inbox/1780077285788-1509977980548546671.mp3 lecon51
+/home/claudeuser/.claude/channels/discord/inbox/1780077286023-1509977980880031784.mp3 lecon52

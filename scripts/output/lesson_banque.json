@@ -1,0 +1,97 @@
+{
+  "id": "banque",
+  "title": "Leçon : banque",
+  "description": "TODO",
+  "cards": [
+    {
+      "id": "banque_01",
+      "lessonId": "banque",
+      "position": 1,
+      "wo": "Ci baŋk bi.",
+      "fr": "à la banque.",
+      "audioWo": "/audio/banque/01_wo.mp3",
+      "audioFr": "/audio/banque/00_fr.mp3"
+    },
+    {
+      "id": "banque_02",
+      "lessonId": "banque",
+      "position": 2,
+      "wo": "Fan laa man a gis?",
+      "fr": "Où puis-je trouver ?",
+      "audioWo": "/audio/banque/03_wo.mp3",
+      "audioFr": "/audio/banque/02_fr.mp3"
+    },
+    {
+      "id": "banque_03",
+      "lessonId": "banque",
+      "position": 3,
+      "wo": "ab baŋk.",
+      "fr": "une banque.",
+      "audioWo": "/audio/banque/05_wo.mp3",
+      "audioFr": "/audio/banque/04_fr.mp3"
+    },
+    {
+      "id": "banque_04",
+      "lessonId": "banque",
+      "position": 4,
+      "wo": "Ab distribitëer otomatik.",
+      "fr": "Un distributeur automatique.",
+      "audioWo": "/audio/banque/07_wo.mp3",
+      "audioFr": "/audio/banque/06_fr.mp3"
+    },
+    {
+      "id": "banque_05",
+      "lessonId": "banque",
+      "position": 5,
+      "wo": "Dama bëgg a...",
+      "fr": "Je voudrais.",
+      "audioWo": "/audio/banque/09_wo.mp3",
+      "audioFr": "/audio/banque/08_fr.mp3"
+    },
+    {
+      "id": "banque_06",
+      "lessonId": "banque",
+      "position": 6,
+      "wo": "soppi seek du waayas.",
+      "fr": "Changer des chèques de voyage.",
+      "audioWo": "/audio/banque/11_wo.mp3",
+      "audioFr": "/audio/banque/10_fr.mp3"
+    },
+    {
+      "id": "banque_07",
+      "lessonId": "banque",
+      "position": 7,
+      "wo": "ankeese ab seek.",
+      "fr": "En caissir un chèque.",
+      "audioWo": "/audio/banque/13_wo.mp3",
+      "audioFr": "/audio/banque/12_fr.mp3"
+    },
+    {
+      "id": "banque_08",
+      "lessonId": "banque",
+      "position": 8,
+      "wo": "def ab depo ci ab koŋt.",
+      "fr": "faire un dépôt sur un compte.",
+      "audioWo": "/audio/banque/15_wo.mp3",
+      "audioFr": "/audio/banque/14_fr.mp3"
+    },
+    {
+      "id": "banque_09",
+      "lessonId": "banque",
+      "position": 9,
+      "wo": "def ab wiremaa.",
+      "fr": "faire environnement.",
+      "audioWo": "/audio/banque/17_wo.mp3",
+      "audioFr": "/audio/banque/16_fr.mp3"
+    },
+    {
+      "id": "banque_10",
+      "lessonId": "banque",
+      "position": 10,
+      "wo": "Jël xaalis.",
+      "fr": "Retirez de l'argent.",
+      "audioWo": "/audio/banque/19_wo.mp3",
+      "audioFr": "/audio/banque/18_fr.mp3"
+    }
+  ]
+}
