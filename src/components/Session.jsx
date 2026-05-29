@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
-import { X, CheckCircle2, XCircle, Zap, Sun, Moon } from 'lucide-react'
+import { X, CheckCircle2, XCircle, Zap, Sun, Moon, Languages } from 'lucide-react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
 import { applyOverrides } from '../core/cardOverrides'
@@ -49,19 +49,21 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
   useEffect(() => {
     setFlipped(false)
     if (audioRef.current) { audioRef.current.pause(); audioRef.current = null }
-    if (card?.audioWo) {
-      const a = new Audio(card.audioWo)
+    const src = reversed ? card?.audioFr : card?.audioWo
+    if (src) {
+      const a = new Audio(src)
       audioRef.current = a
       a.play().catch(() => {})
     }
-  }, [idx])
+  }, [idx, reversed])
 
   function handleFlip() {
     if (flipped) return
     setFlipped(true)
     if (audioRef.current) { audioRef.current.pause(); audioRef.current = null }
-    if (card?.audioFr) {
-      const a = new Audio(card.audioFr)
+    const src = reversed ? card?.audioWo : card?.audioFr
+    if (src) {
+      const a = new Audio(src)
       audioRef.current = a
       a.play().catch(() => {})
     }
@@ -134,12 +136,21 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
         <span className="text-xs font-mono text-[var(--text-muted)] bg-[var(--bg-card)] border border-[var(--border-card)] px-3 py-1 rounded-full">
           {idx + 1} / {cards.length}
         </span>
-        <button
-          onClick={toggleTheme}
-          className="p-2 rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] text-[var(--text-wolof)] active:scale-95 transition-transform"
-        >
-          {theme === 'dark' ? <Sun className="w-4 h-4 text-[#fbbf24]" /> : <Moon className="w-4 h-4 text-[#0f766e]" />}
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => { setReversed(r => !r); setIdx(0); setFlipped(false) }}
+            className={`p-2 rounded-xl border transition-all active:scale-95 ${reversed ? 'bg-[var(--text-wolof)]/20 border-[var(--text-wolof)]/40 text-[var(--text-wolof)]' : 'bg-[var(--bg-card)] border-[var(--border-card)] text-[var(--text-muted)]'}`}
+            title={reversed ? 'Mode FR→Wolof (actif)' : 'Mode Wolof→FR (actif)'}
+          >
+            <Languages className="w-4 h-4" />
+          </button>
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] text-[var(--text-wolof)] active:scale-95 transition-transform"
+          >
+            {theme === 'dark' ? <Sun className="w-4 h-4 text-[#fbbf24]" /> : <Moon className="w-4 h-4 text-[#0f766e]" />}
+          </button>
+        </div>
       </div>
 
       {/* Progress bar */}

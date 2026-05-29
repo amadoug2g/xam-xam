@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
 import { streak as streakStore } from '../core/streak'
