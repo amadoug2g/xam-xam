@@ -245,6 +245,8 @@ export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
           v{__APP_VERSION__}
         </span>
       </div>
+        </>
+      )}
     </div>
   )
 }
