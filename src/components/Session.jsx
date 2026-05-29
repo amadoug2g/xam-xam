@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
-import { X, CheckCircle2, XCircle, Zap, Sun, Moon, Languages } from 'lucide-react'
+import { X, CheckCircle2, XCircle, Zap, Sun, Moon, Languages, Headphones } from 'lucide-react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
 import { applyOverrides } from '../core/cardOverrides'
@@ -10,11 +10,12 @@ import GradeBar from './GradeBar'
 
 export default function Session({ lessonId, cards: cardsProp, onDone }) {
   const lesson = lessonId ? LESSONS.find(l => l.id === lessonId) : null
-  const [idx, setIdx] = useState(0)
   const [flipped, setFlipped] = useState(false)
   const [grades, setGrades] = useState([])
   const [done, setDone] = useState(false)
   const [reversed, setReversed] = useState(false)
+  const [audioOnly, setAudioOnly] = useState(false)
+  const [queue, setQueue] = useState([])
   const audioRef = useRef(null)
   const { theme, toggleTheme } = useTheme()
 
@@ -28,6 +29,28 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
     return arr
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  // Initialize queue from shuffled cards (once, on mount)
+  useEffect(() => {
+    setQueue([...cards])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  // Reset flip + play audio whenever the front card changes or mode switches
+  const currentCardId = queue[0]?.id
+  useEffect(() => {
+    if (!currentCardId) return
+    setFlipped(false)
+    if (audioRef.current) { audioRef.current.pause(); audioRef.current = null }
+    const frontCard = queue[0]
+    const src = reversed ? frontCard?.audioFr : frontCard?.audioWo
+    if (src) {
+      const a = new Audio(src)
+      audioRef.current = a
+      a.play().catch(() => {})
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentCardId, reversed])
 
   // Fix 4: early return for empty cards
   if (cards.length === 0) {
@@ -44,18 +67,7 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
     )
   }
 
-  const card = cards[idx]
-
-  useEffect(() => {
-    setFlipped(false)
-    if (audioRef.current) { audioRef.current.pause(); audioRef.current = null }
-    const src = reversed ? card?.audioFr : card?.audioWo
-    if (src) {
-      const a = new Audio(src)
-      audioRef.current = a
-      a.play().catch(() => {})
-    }
-  }, [idx, reversed])
+  const card = queue[0]
 
   function handleFlip() {
     if (flipped) return
@@ -72,10 +84,22 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
   function handleGrade(g) {
     srs.update(card.id, g)
     streak.touch()
-    const next = [...grades, g]
-    setGrades(next)
-    if (idx + 1 >= cards.length) setDone(true)
-    else setIdx(i => i + 1)
+    setGrades(prev => [...prev, g])
+    setQueue(q => {
+      const [current, ...rest] = q
+      if (g < 3) {
+        // Failed — re-queue at the end
+        const next = [...rest, current]
+        if (next.length === 0) setDone(true)
+        return next
+      } else {
+        // Passed — remove from queue
+        if (rest.length === 0) setDone(true)
+        return rest
+      }
+    })
+    setFlipped(false)
+    if (audioRef.current) { audioRef.current.pause(); audioRef.current = null }
   }
 
   // Summary screen
@@ -134,11 +158,18 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
           <X className="w-4 h-4" />
         </button>
         <span className="text-xs font-mono text-[var(--text-muted)] bg-[var(--bg-card)] border border-[var(--border-card)] px-3 py-1 rounded-full">
-          {idx + 1} / {cards.length}
+          {grades.length + 1} / {grades.length + queue.length}
         </span>
         <div className="flex items-center gap-2">
           <button
-            onClick={() => { setReversed(r => !r); setIdx(0); setFlipped(false) }}
+            onClick={() => { setAudioOnly(a => !a); setFlipped(false); setQueue([...cards]) }}
+            className={`p-2 rounded-xl border transition-all active:scale-95 ${audioOnly ? 'bg-[var(--text-wolof)]/20 border-[var(--text-wolof)]/40 text-[var(--text-wolof)]' : 'bg-[var(--bg-card)] border-[var(--border-card)] text-[var(--text-muted)]'}`}
+            title={audioOnly ? 'Mode audio uniquement (actif)' : 'Activer le mode audio uniquement'}
+          >
+            <Headphones className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => { setReversed(r => !r); setFlipped(false); setQueue([...cards]) }}
             className={`p-2 rounded-xl border transition-all active:scale-95 ${reversed ? 'bg-[var(--text-wolof)]/20 border-[var(--text-wolof)]/40 text-[var(--text-wolof)]' : 'bg-[var(--bg-card)] border-[var(--border-card)] text-[var(--text-muted)]'}`}
             title={reversed ? 'Mode FR→Wolof (actif)' : 'Mode Wolof→FR (actif)'}
           >
@@ -157,13 +188,13 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
       <div className="h-1 bg-[var(--border-card)] rounded-full overflow-hidden mb-2">
         <div
           className="h-full bg-[var(--text-wolof)] rounded-full transition-all duration-500"
-          style={{ width: `${(idx / cards.length) * 100}%` }}
+          style={{ width: `${(grades.length / (grades.length + queue.length)) * 100}%` }}
         />
       </div>
 
       {/* Card */}
       <div className="flex-1 flex flex-col justify-center">
-        <FlipCard card={card} flipped={flipped} onFlip={handleFlip} reversed={reversed} />
+        <FlipCard card={card} flipped={flipped} onFlip={handleFlip} reversed={reversed} audioOnly={audioOnly} />
       </div>
 
       {/* Grade bar */}

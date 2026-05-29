@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { Volume2, Sparkles, Languages, Eye } from 'lucide-react'
 
-export default function FlipCard({ card, flipped, onFlip, reversed = false }) {
+export default function FlipCard({ card, flipped, onFlip, reversed = false, audioOnly = false }) {
   const audioRef = useRef(null)
   const replayAudio = (e) => {
     e.stopPropagation()
@@ -59,12 +59,26 @@ export default function FlipCard({ card, flipped, onFlip, reversed = false }) {
           </div>
 
           <div className="flex flex-col items-center justify-center text-center px-4 flex-1">
-            <h2 className="text-3xl font-bold text-[var(--text-wolof)] tracking-wide leading-snug drop-shadow-md">
-              {reversed ? card.fr : card.wo}
-            </h2>
-            <p className="text-xs text-[var(--text-muted)] mt-3 uppercase tracking-widest font-mono">
-              {reversed ? 'FRANÇAIS' : 'WOLOF'}
-            </p>
+            {audioOnly ? (
+              <>
+                <button
+                  onClick={replayAudio}
+                  className="p-4 bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-wolof)] active:scale-95 transition-all duration-150 flex items-center justify-center rounded-full shadow-md"
+                >
+                  <Volume2 className="w-12 h-12" />
+                </button>
+                <p className="text-sm text-[var(--text-muted)] mt-4 font-medium">Qu'avez-vous entendu ?</p>
+              </>
+            ) : (
+              <>
+                <h2 className="text-3xl font-bold text-[var(--text-wolof)] tracking-wide leading-snug drop-shadow-md">
+                  {reversed ? card.fr : card.wo}
+                </h2>
+                <p className="text-xs text-[var(--text-muted)] mt-3 uppercase tracking-widest font-mono">
+                  {reversed ? 'FRANÇAIS' : 'WOLOF'}
+                </p>
+              </>
+            )}
           </div>
 
           <div className="flex justify-center items-center gap-2 text-xs text-[var(--text-muted)] font-medium z-10 py-1 bg-[var(--btn-secondary-bg)]/30 rounded-xl border border-[var(--btn-secondary-border)]/20">
@@ -90,10 +104,13 @@ export default function FlipCard({ card, flipped, onFlip, reversed = false }) {
             <span className="text-[10px] tracking-wider uppercase text-[var(--text-muted)] font-mono flex items-center gap-1.5 bg-[var(--btn-secondary-bg)] px-2.5 py-1 rounded-full border border-[var(--btn-secondary-border)]">
               <Languages className="w-3 h-3 text-[#f59e0b]" /> Traduction Révélée
             </span>
-            {card.audioFr && (
-              <span className="text-[9px] text-[var(--text-muted)] bg-[var(--btn-secondary-bg)] px-2 py-0.5 rounded border border-[var(--btn-secondary-border)]">
-                Audio FR joué
-              </span>
+            {card.audioWo && (
+              <button
+                onClick={(e) => { e.stopPropagation(); replayAudio(e) }}
+                className="p-2 bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-wolof)] active:scale-95 transition-all duration-150 flex items-center justify-center rounded-full shadow-sm"
+              >
+                <Volume2 className="w-4 h-4" />
+              </button>
             )}
           </div>
 
