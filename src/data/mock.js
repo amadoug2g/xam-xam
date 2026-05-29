@@ -555,4 +555,6 @@ export const LESSONS = [
   { id: 'souvenirs',       position: 48, title: 'Souvenirs',                                      description: '',  cards: [] },
   { id: 'rdv-pro',         position: 49, title: 'Rendez-vous professionnels',                     description: '',  cards: [] },
   { id: 'sante',           position: 50, title: 'Santé',                                          description: '',  cards: [] },
+  { id: 'lecon51',         position: 51, title: 'Leçon 51',                                        description: '',  cards: [] },
+  { id: 'lecon52',         position: 52, title: 'Leçon 52',                                        description: '',  cards: [] },
 ]

@@ -3,10 +3,12 @@ import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
 import { streak as streakStore } from '../core/streak'
 import { lessonVerified } from '../core/lessonVerified'
+import { failedStore } from '../core/failedStore'
 import { useTheme } from '../core/useTheme'
-import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon, Flame, Zap, Settings, ShieldCheck, Search, X, ListChecks } from 'lucide-react'
+import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon, Flame, Zap, Settings, ShieldCheck, Search, X, ListChecks, Headphones, RefreshCw } from 'lucide-react'
 
-export default function LessonList({ onSelect, onReviewAll, onAdmin, onSelectLessons }) {
+export default function LessonList({ onSelect, onReviewAll, onAdmin, onSelectLessons, onRetryFailed }) {
+  const lastFailed = failedStore.get()
   const { theme, toggleTheme } = useTheme()
   const [search, setSearch] = useState('')
   const [searchOpen, setSearchOpen] = useState(false)
@@ -188,6 +190,35 @@ export default function LessonList({ onSelect, onReviewAll, onAdmin, onSelectLes
         <ListChecks className="w-4 h-4" />
         <span>Choisir les leçons</span>
       </button>
+
+      {/* Last failed cards — persistent review */}
+      {lastFailed.length > 0 && (
+        <div className="mb-2 p-4 bg-amber-400/5 border border-amber-400/20 rounded-2xl flex flex-col gap-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <RefreshCw className="w-4 h-4 text-amber-400" />
+              <span className="text-sm font-semibold text-[var(--text-primary)]">À retravailler</span>
+              <span className="text-xs text-amber-400 font-bold bg-amber-400/10 px-1.5 py-0.5 rounded-full">{lastFailed.length}</span>
+            </div>
+          </div>
+          <div className="flex gap-2">
+            <button
+              onClick={() => onRetryFailed(lastFailed, false)}
+              className="flex-1 py-2 rounded-xl bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-muted)] text-xs font-semibold flex items-center justify-center gap-1.5 active:scale-[0.98] transition-all"
+            >
+              <BookOpen className="w-3.5 h-3.5" />
+              Avec texte
+            </button>
+            <button
+              onClick={() => onRetryFailed(lastFailed, true)}
+              className="flex-1 py-2 rounded-xl bg-amber-400/10 border border-amber-400/30 text-amber-400 text-xs font-semibold flex items-center justify-center gap-1.5 active:scale-[0.98] transition-all"
+            >
+              <Headphones className="w-3.5 h-3.5" />
+              Sans texte
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Scrollable Lesson List */}
       <div className="flex-1 flex flex-col gap-4">
