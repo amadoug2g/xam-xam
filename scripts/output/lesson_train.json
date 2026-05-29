@@ -1,0 +1,88 @@
+{
+  "id": "train",
+  "title": "Leçon : train",
+  "description": "TODO",
+  "cards": [
+    {
+      "id": "train_01",
+      "lessonId": "train",
+      "position": 1,
+      "wo": "...",
+      "fr": "Où se trouve la gare-autière de Mbours ?",
+      "audioWo": "/audio/train/01_wo.mp3",
+      "audioFr": "/audio/train/00_fr.mp3"
+    },
+    {
+      "id": "train_02",
+      "lessonId": "train",
+      "position": 2,
+      "wo": "...",
+      "fr": "Je voudrais un billet pour Bamako.",
+      "audioWo": "/audio/train/03_wo.mp3",
+      "audioFr": "/audio/train/02_fr.mp3"
+    },
+    {
+      "id": "train_03",
+      "lessonId": "train",
+      "position": 3,
+      "wo": "...",
+      "fr": "Le train met combien de temps pour aller à Ties ?",
+      "audioWo": "/audio/train/05_wo.mp3",
+      "audioFr": "/audio/train/04_fr.mp3"
+    },
+    {
+      "id": "train_04",
+      "lessonId": "train",
+      "position": 4,
+      "wo": "...",
+      "fr": "Où sont indiqués les horaires ?",
+      "audioWo": "/audio/train/07_wo.mp3",
+      "audioFr": "/audio/train/06_fr.mp3"
+    },
+    {
+      "id": "train_05",
+      "lessonId": "train",
+      "position": 5,
+      "wo": "...",
+      "fr": "Vous partez dans combien de temps ?",
+      "audioWo": "/audio/train/09_wo.mp3",
+      "audioFr": "/audio/train/08_fr.mp3"
+    },
+    {
+      "id": "train_06",
+      "lessonId": "train",
+      "position": 6,
+      "wo": "...",
+      "fr": "Il faut attendre que le cas soit plein.",
+      "audioWo": "/audio/train/11_wo.mp3",
+      "audioFr": "/audio/train/10_fr.mp3"
+    },
+    {
+      "id": "train_07",
+      "lessonId": "train",
+      "position": 7,
+      "wo": "...",
+      "fr": "Est-ce que vous vous arrêtez à...",
+      "audioWo": "/audio/train/13_wo.mp3",
+      "audioFr": "/audio/train/12_fr.mp3"
+    },
+    {
+      "id": "train_08",
+      "lessonId": "train",
+      "position": 8,
+      "wo": "...",
+      "fr": "Il faut payer un supplément pour les bagages ?",
+      "audioWo": "/audio/train/15_wo.mp3",
+      "audioFr": "/audio/train/14_fr.mp3"
+    },
+    {
+      "id": "train_09",
+      "lessonId": "train",
+      "position": 9,
+      "wo": "...",
+      "fr": "Quel est le prix du billet ?",
+      "audioWo": "/audio/train/17_wo.mp3",
+      "audioFr": "/audio/train/16_fr.mp3"
+    }
+  ]
+}

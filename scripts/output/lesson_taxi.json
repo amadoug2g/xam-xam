@@ -1,0 +1,25 @@
+{
+  "id": "taxi",
+  "title": "Leçon : taxi",
+  "description": "TODO",
+  "cards": [
+    {
+      "id": "taxi_01",
+      "lessonId": "taxi",
+      "position": 1,
+      "wo": "...",
+      "fr": "Chauffeur, je voudrais me rendre au village artisanal.",
+      "audioWo": "/audio/taxi/01_wo.mp3",
+      "audioFr": "/audio/taxi/00_fr.mp3"
+    },
+    {
+      "id": "taxi_02",
+      "lessonId": "taxi",
+      "position": 2,
+      "wo": "...",
+      "fr": "Conduisez-moi à l'hôtel.",
+      "audioWo": "/audio/taxi/03_wo.mp3",
+      "audioFr": "/audio/taxi/02_fr.mp3"
+    }
+  ]
+}

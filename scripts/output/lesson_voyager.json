@@ -1,0 +1,79 @@
+{
+  "id": "voyager",
+  "title": "Leçon : voyager",
+  "description": "TODO",
+  "cards": [
+    {
+      "id": "voyager_01",
+      "lessonId": "voyager",
+      "position": 1,
+      "wo": "...",
+      "fr": "Contrôle de passeport.",
+      "audioWo": "/audio/voyager/01_wo.mp3",
+      "audioFr": "/audio/voyager/00_fr.mp3"
+    },
+    {
+      "id": "voyager_02",
+      "lessonId": "voyager",
+      "position": 2,
+      "wo": "...",
+      "fr": "Avez-vous quelque chose à déclarer ?",
+      "audioWo": "/audio/voyager/03_wo.mp3",
+      "audioFr": "/audio/voyager/02_fr.mp3"
+    },
+    {
+      "id": "voyager_03",
+      "lessonId": "voyager",
+      "position": 3,
+      "wo": "...",
+      "fr": "Pouvez-vous ouvrir votre valise s'il vous plaît ?",
+      "audioWo": "/audio/voyager/05_wo.mp3",
+      "audioFr": "/audio/voyager/04_fr.mp3"
+    },
+    {
+      "id": "voyager_04",
+      "lessonId": "voyager",
+      "position": 4,
+      "wo": "...",
+      "fr": "Combien de temps allez-vous rester au Sénégal ?",
+      "audioWo": "/audio/voyager/07_wo.mp3",
+      "audioFr": "/audio/voyager/06_fr.mp3"
+    },
+    {
+      "id": "voyager_05",
+      "lessonId": "voyager",
+      "position": 5,
+      "wo": "...",
+      "fr": "Je vais...",
+      "audioWo": "/audio/voyager/09_wo.mp3",
+      "audioFr": "/audio/voyager/08_fr.mp3"
+    },
+    {
+      "id": "voyager_06",
+      "lessonId": "voyager",
+      "position": 6,
+      "wo": "...",
+      "fr": "Résidère ici pendant un an.",
+      "audioWo": "/audio/voyager/11_wo.mp3",
+      "audioFr": "/audio/voyager/10_fr.mp3"
+    },
+    {
+      "id": "voyager_07",
+      "lessonId": "voyager",
+      "position": 7,
+      "wo": "...",
+      "fr": "Je viens.",
+      "audioWo": "/audio/voyager/13_wo.mp3",
+      "audioFr": "/audio/voyager/12_fr.mp3"
+    },
+    {
+      "id": "voyager_08",
+      "lessonId": "voyager",
+      "position": 8,
+      "wo": "...",
+      "fr": "en tant que touriste.",
+      "audioWo": "/audio/voyager/15_wo.mp3",
+      "audioFr": "/audio/voyager/14_fr.mp3"
+    }
+  ]
+}
