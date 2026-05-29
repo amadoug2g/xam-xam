@@ -9,9 +9,11 @@ import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon, Flame
 export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
   const { theme, toggleTheme } = useTheme()
   const [search, setSearch] = useState('')
+  const [searchOpen, setSearchOpen] = useState(false)
 
   // Streak
   const streakData = streakStore.get()
+  const hasFreeze = streakStore.hasFreeze()
   const verifiedMap = lessonVerified.getAll()
 
   // Aggregate global statistics across all lessons
@@ -44,10 +46,22 @@ export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
           
           <div className="flex items-center gap-3">
             {/* Streak */}
-            <div className={`flex items-center gap-1 px-2.5 py-1 rounded-full border font-bold text-sm transition-colors duration-300 ${streakData.count > 0 ? 'bg-orange-500/10 border-orange-500/30 text-orange-400' : 'bg-[var(--btn-secondary-bg)] border-[var(--btn-secondary-border)] text-[var(--text-muted)]'}`}>
+            <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full border font-bold text-sm transition-colors duration-300 ${streakData.count > 0 ? 'bg-orange-500/10 border-orange-500/30 text-orange-400' : 'bg-[var(--btn-secondary-bg)] border-[var(--btn-secondary-border)] text-[var(--text-muted)]'}`}>
               <Flame className={`w-4 h-4 ${streakData.count > 0 ? 'text-orange-400' : 'text-[var(--text-muted)]'}`} />
               <span>{streakData.count}</span>
+              {hasFreeze && (
+                <ShieldCheck className="w-3.5 h-3.5 text-blue-400" title="Freeze disponible" />
+              )}
             </div>
+
+            {/* Search toggle */}
+            <button
+              onClick={() => setSearchOpen(v => !v)}
+              className="p-2 bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-muted)] rounded-full transition-all duration-200 hover:scale-105 active:scale-95 flex items-center justify-center shadow-sm"
+              title="Rechercher"
+            >
+              <Search className="w-4 h-4" />
+            </button>
 
             <button
               onClick={onAdmin}
@@ -75,21 +89,25 @@ export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
         </p>
       </header>
 
-      {/* Search bar */}
-      <div className="relative mb-4">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--text-muted)]" />
-        <input
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-          placeholder="Rechercher un mot..."
-          className="w-full pl-9 pr-4 py-2.5 bg-[var(--bg-card)] border border-[var(--border-card)] rounded-2xl text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--text-wolof)]/50 transition-colors"
-        />
-        {search && (
-          <button onClick={() => setSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)]">
+      {/* Search bar — shown only when toggled open */}
+      {searchOpen && (
+        <div className="relative mb-4">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--text-muted)]" />
+          <input
+            autoFocus
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            placeholder="Rechercher un mot..."
+            className="w-full pl-9 pr-9 py-2.5 bg-[var(--bg-card)] border border-[var(--border-card)] rounded-2xl text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--text-wolof)]/50 transition-colors"
+          />
+          <button
+            onClick={() => { setSearch(''); setSearchOpen(false) }}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+          >
             <X className="w-3.5 h-3.5" />
           </button>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* Search results */}
       {search.trim().length > 0 ? (
@@ -216,14 +234,9 @@ export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
 
                   {available && (
                     <div className="flex items-center gap-3">
-                      <span className="text-[10px] tracking-wider px-2 py-0.5 bg-[var(--btn-secondary-bg)] text-[var(--text-muted)] rounded-md font-medium border border-[var(--btn-secondary-border)] transition-colors duration-300">
+                      <span className="text-[9px] tracking-wider px-2 py-0.5 bg-[var(--btn-secondary-bg)] text-[var(--text-muted)] rounded-md font-medium border border-[var(--btn-secondary-border)] transition-colors duration-300">
                         {lesson.cards.length} cartes
                       </span>
-                      {lessonDueCount > 0 && (
-                        <span className="text-[10px] font-bold text-[var(--text-wolof)] flex items-center gap-1 animate-pulse-subtle">
-                          {lessonDueCount} à réviser
-                        </span>
-                      )}
                     </div>
                   )}
                 </div>
