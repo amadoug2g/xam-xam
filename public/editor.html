@@ -2,144 +2,284 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Xam-Xam — Éditeur de cartes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Xam-Xam — Éditeur</title>
   <style>
-    body { font-family: system-ui, sans-serif; background: #0f172a; color: #e2e8f0; max-width: 700px; margin: 0 auto; padding: 24px 16px; }
-    h1 { font-size: 1.4rem; margin-bottom: 4px; color: #10b981; }
-    p  { font-size: .85rem; color: #94a3b8; margin-bottom: 24px; }
-    select { background: #1e293b; color: #e2e8f0; border: 1px solid #334155; border-radius: 8px; padding: 8px 12px; font-size: .9rem; margin-bottom: 24px; cursor: pointer; }
-    table { width: 100%; border-collapse: collapse; }
-    th { text-align: left; font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: #64748b; padding: 8px 6px; border-bottom: 1px solid #1e293b; }
-    td { padding: 8px 6px; border-bottom: 1px solid #1e293b; vertical-align: middle; }
-    td:first-child { color: #475569; font-size: .8rem; font-family: monospace; width: 36px; }
-    button.play { background: #1e293b; border: 1px solid #334155; color: #10b981; border-radius: 6px; padding: 5px 10px; cursor: pointer; font-size: .85rem; white-space: nowrap; }
-    button.play:hover { background: #0d9488; color: white; border-color: #0d9488; }
-    input { background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 6px 10px; color: #e2e8f0; font-size: .9rem; width: 100%; box-sizing: border-box; }
-    input:focus { outline: none; border-color: #10b981; }
-    .actions { margin-top: 24px; display: flex; gap: 12px; }
-    .btn-export { background: #10b981; color: #0f172a; border: none; border-radius: 8px; padding: 10px 20px; font-size: .9rem; font-weight: 700; cursor: pointer; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f172a; --card: #1e293b; --border: #334155;
+      --text: #f1f5f9; --muted: #94a3b8; --accent: #10b981;
+      --radius: 14px;
+    }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100dvh; display: flex; flex-direction: column; }
+
+    /* ── Header ── */
+    header { padding: 16px 20px 12px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+    header h1 { font-size: 1rem; font-weight: 700; color: var(--accent); }
+    select#lesson { background: var(--card); color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; font-size: .85rem; }
+
+    /* ── Progress ── */
+    .progress-bar { height: 3px; background: var(--border); }
+    .progress-fill { height: 100%; background: var(--accent); transition: width .3s; }
+
+    /* ── Main card area ── */
+    main { flex: 1; padding: 20px 16px; display: flex; flex-direction: column; gap: 14px; max-width: 500px; margin: 0 auto; width: 100%; }
+
+    .card-counter { text-align: center; font-size: .8rem; color: var(--muted); }
+
+    .field-block { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .field-label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); padding: 10px 14px 6px; }
+
+    .audio-row { display: flex; align-items: center; gap: 8px; padding: 0 14px 12px; }
+    .current-audio { flex: 1; font-size: .82rem; color: var(--accent); font-family: monospace; background: #0f172a; border: 1px solid var(--border); border-radius: 8px; padding: 7px 10px; min-height: 36px; display: flex; align-items: center; }
+    .current-audio.empty { color: var(--muted); font-style: italic; }
+    .btn-play { background: var(--accent); color: #0f172a; border: none; border-radius: 8px; width: 36px; height: 36px; font-size: 1rem; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .btn-play:disabled { background: var(--border); color: var(--muted); cursor: default; }
+    .btn-pick { background: #1e3a5f; color: #93c5fd; border: 1px solid #1d4ed8; border-radius: 8px; padding: 7px 12px; font-size: .78rem; font-weight: 600; cursor: pointer; flex-shrink: 0; white-space: nowrap; }
+    .btn-pick:hover { background: #1d4ed8; color: white; }
+
+    input.text-input { width: 100%; background: transparent; border: none; color: var(--text); font-size: .95rem; padding: 10px 14px 14px; outline: none; font-family: inherit; }
+    input.text-input::placeholder { color: var(--muted); }
+
+    /* ── Nav ── */
+    .nav { display: flex; gap: 10px; }
+    .btn-nav { flex: 1; padding: 13px; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius); font-size: .9rem; font-weight: 600; cursor: pointer; }
+    .btn-nav:disabled { opacity: .3; cursor: default; }
+    .btn-nav.primary { background: var(--accent); color: #0f172a; border-color: var(--accent); }
+
+    /* ── Export button ── */
+    .btn-export { width: 100%; padding: 14px; background: var(--accent); color: #0f172a; border: none; border-radius: var(--radius); font-size: 1rem; font-weight: 700; cursor: pointer; margin-top: 4px; }
     .btn-export:hover { opacity: .88; }
-    pre { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; font-size: .78rem; overflow: auto; max-height: 300px; margin-top: 16px; color: #a5f3fc; }
+
+    /* ── Bottom sheet (audio picker) ── */
+    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 100; opacity: 0; pointer-events: none; transition: opacity .25s; }
+    .overlay.open { opacity: 1; pointer-events: all; }
+    .sheet { position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; border-radius: 20px 20px 0 0; z-index: 101; transform: translateY(100%); transition: transform .3s cubic-bezier(.16,1,.3,1); max-height: 75dvh; display: flex; flex-direction: column; padding-bottom: env(safe-area-inset-bottom); }
+    .sheet.open { transform: translateY(0); }
+    .sheet-handle { width: 40px; height: 4px; background: var(--border); border-radius: 99px; margin: 12px auto 0; flex-shrink: 0; }
+    .sheet-title { padding: 12px 20px 10px; font-size: .9rem; font-weight: 700; color: var(--muted); flex-shrink: 0; border-bottom: 1px solid var(--border); }
+    .sheet-list { overflow-y: auto; flex: 1; padding: 8px 0; }
+    .audio-item { display: flex; align-items: center; gap: 12px; padding: 10px 20px; cursor: pointer; transition: background .15s; }
+    .audio-item:hover, .audio-item.selected { background: rgba(16,185,129,.1); }
+    .audio-item.selected .audio-name { color: var(--accent); font-weight: 700; }
+    .audio-name { flex: 1; font-size: .88rem; font-family: monospace; }
+    .btn-item-play { background: #334155; border: none; color: var(--accent); border-radius: 6px; width: 32px; height: 32px; font-size: .85rem; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .btn-confirm { margin: 12px 20px 8px; padding: 12px; background: var(--accent); color: #0f172a; border: none; border-radius: 10px; font-size: .9rem; font-weight: 700; cursor: pointer; }
   </style>
 </head>
 <body>
-  <h1>Xam-Xam — Éditeur de cartes</h1>
-  <p>Écoute chaque segment audio et tape le texte Wolof + la traduction française. Clique "Exporter JSON" quand c'est fini.</p>
 
-  <select id="lesson-select">
-    <option value="temps">Leçon 2 — Temps (14 cartes)</option>
-    <option value="espace">Leçon 3 — Espace (11 cartes)</option>
-    <option value="questions">Leçon 4 — Questions (17 cartes)</option>
-    <option value="mots-quotidiens">Leçon 5 — Mots quotidiens (18 cartes)</option>
-    <option value="compter">Leçon 1 — Compter (32 cartes, WO seulement)</option>
+<header>
+  <h1>Xam-Xam — Éditeur</h1>
+  <select id="lesson">
+    <option value="temps">Leçon 2 — Temps</option>
+    <option value="espace">Leçon 3 — Espace</option>
+    <option value="questions">Leçon 4 — Questions</option>
+    <option value="mots-quotidiens">Leçon 5 — Mots quotidiens</option>
+    <option value="compter">Leçon 1 — Compter</option>
   </select>
+</header>
 
-  <table id="table">
-    <thead><tr><th>#</th><th>Audio FR</th><th>Audio WO</th><th>Texte Wolof</th><th>Traduction FR</th></tr></thead>
-    <tbody id="rows"></tbody>
-  </table>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 
-  <div class="actions">
-    <button class="btn-export" onclick="exportJSON()">Exporter JSON</button>
+<main>
+  <div class="card-counter" id="counter"></div>
+
+  <!-- Audio FR -->
+  <div class="field-block" id="block-fr">
+    <div class="field-label">Audio Français</div>
+    <div class="audio-row">
+      <div class="current-audio empty" id="fr-display">— aucun —</div>
+      <button class="btn-play" id="fr-play" disabled onclick="playSelected('fr')">▶</button>
+      <button class="btn-pick" onclick="openPicker('fr')">Choisir</button>
+    </div>
   </div>
-  <pre id="output" style="display:none"></pre>
 
-  <script>
-    const BASE = '/xam-xam/audio/'
-    const LESSONS = {
-      temps:           { pairs: 14, fr: (i) => `${i*2+2}_fr`, wo: (i) => `${i*2+3}_wo` },
-      espace:          { pairs: 11, fr: (i) => `${String(i).padStart(2,'0')}_fr`, wo: (i) => `${String(i).padStart(2,'0')}_wo` },
-      questions:       { pairs: 17, fr: (i) => `${String(i).padStart(2,'0')}_fr`, wo: (i) => `${String(i).padStart(2,'0')}_wo` },
-      'mots-quotidiens':{ pairs: 18, fr: (i) => { const idx = i < 10 ? i : i+1; return `${String(idx).padStart(2,'0')}_fr` }, wo: (i) => { const idx = i < 10 ? i : i+1; return `${String(idx).padStart(2,'0')}_wo` } },
-      compter:         { pairs: 32, fr: null, wo: (i) => `${String(i).padStart(2,'0')}_wo` },
+  <!-- Audio WO -->
+  <div class="field-block">
+    <div class="field-label">Audio Wolof</div>
+    <div class="audio-row">
+      <div class="current-audio empty" id="wo-display">— aucun —</div>
+      <button class="btn-play" id="wo-play" disabled onclick="playSelected('wo')">▶</button>
+      <button class="btn-pick" onclick="openPicker('wo')">Choisir</button>
+    </div>
+  </div>
+
+  <!-- Text FR -->
+  <div class="field-block">
+    <div class="field-label">Texte Français</div>
+    <input class="text-input" id="fr-text" placeholder="Traduction française…" />
+  </div>
+
+  <!-- Text WO -->
+  <div class="field-block">
+    <div class="field-label">Texte Wolof</div>
+    <input class="text-input" id="wo-text" placeholder="Mot / phrase en Wolof…" />
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav">
+    <button class="btn-nav" id="btn-prev" onclick="navigate(-1)">← Préc.</button>
+    <button class="btn-nav primary" id="btn-next" onclick="navigate(1)">Suiv. →</button>
+  </div>
+
+  <button class="btn-export" onclick="exportJSON()">Exporter JSON</button>
+</main>
+
+<!-- Overlay + bottom sheet -->
+<div class="overlay" id="overlay" onclick="closePicker()"></div>
+<div class="sheet" id="sheet">
+  <div class="sheet-handle"></div>
+  <div class="sheet-title" id="sheet-title">Sélectionner un audio</div>
+  <div class="sheet-list" id="sheet-list"></div>
+  <button class="btn-confirm" onclick="confirmPick()">Confirmer</button>
+</div>
+
+<script>
+const BASE = '/xam-xam/audio/'
+
+const AUDIO_FILES = {
+  temps:           [...Array(14)].flatMap((_,i) => [`${i*2+2}_fr.mp3`, `${i*2+3}_wo.mp3`]),
+  espace:          [...Array(11)].flatMap((_,i) => [`${String(i).padStart(2,'0')}_fr.mp3`, `${String(i).padStart(2,'0')}_wo.mp3`]),
+  questions:       [...Array(17)].flatMap((_,i) => [`${String(i).padStart(2,'0')}_fr.mp3`, `${String(i).padStart(2,'0')}_wo.mp3`]),
+  'mots-quotidiens':[...Array(19)].flatMap((_,i) => [`${String(i).padStart(2,'0')}_fr.mp3`, `${String(i).padStart(2,'0')}_wo.mp3`]),
+  compter:         [...Array(32)].map((_,i) => `${String(i).padStart(2,'0')}_wo.mp3`),
+}
+
+let lesson = 'temps'
+let cardCount = 14
+let idx = 0
+let cards = []
+let pickerField = 'fr'
+let pickerSelected = null
+
+function initLesson(l) {
+  lesson = l
+  const files = AUDIO_FILES[l]
+  // default card count based on audio files
+  const counts = { temps:14, espace:11, questions:17, 'mots-quotidiens':18, compter:32 }
+  cardCount = counts[l]
+  // init empty cards
+  cards = Array.from({length: cardCount}, (_, i) => ({
+    fr_audio: null, wo_audio: null, fr_text: '', wo_text: '',
+  }))
+  idx = 0
+  renderCard()
+}
+
+function renderCard() {
+  const c = cards[idx]
+  document.getElementById('counter').textContent = `Carte ${idx+1} / ${cardCount}`
+  document.getElementById('progress').style.width = `${((idx+1)/cardCount)*100}%`
+
+  const frD = document.getElementById('fr-display')
+  frD.textContent = c.fr_audio || '— aucun —'
+  frD.className = 'current-audio' + (c.fr_audio ? '' : ' empty')
+  document.getElementById('fr-play').disabled = !c.fr_audio
+
+  const woD = document.getElementById('wo-display')
+  woD.textContent = c.wo_audio || '— aucun —'
+  woD.className = 'current-audio' + (c.wo_audio ? '' : ' empty')
+  document.getElementById('wo-play').disabled = !c.wo_audio
+
+  document.getElementById('fr-text').value = c.fr_text
+  document.getElementById('wo-text').value = c.wo_text
+
+  // hide FR audio block for compter
+  document.getElementById('block-fr').style.display = lesson === 'compter' ? 'none' : ''
+
+  document.getElementById('btn-prev').disabled = idx === 0
+  document.getElementById('btn-next').textContent = idx === cardCount-1 ? 'Terminé ✓' : 'Suiv. →'
+}
+
+function saveCard() {
+  cards[idx].fr_text = document.getElementById('fr-text').value
+  cards[idx].wo_text = document.getElementById('wo-text').value
+}
+
+function navigate(dir) {
+  saveCard()
+  const next = idx + dir
+  if (next >= 0 && next < cardCount) { idx = next; renderCard() }
+}
+
+function playSelected(field) {
+  const file = field === 'fr' ? cards[idx].fr_audio : cards[idx].wo_audio
+  if (file) new Audio(BASE + lesson + '/' + file).play().catch(() => {})
+}
+
+// ── Picker ──────────────────────────────────────────────────────────────
+function openPicker(field) {
+  pickerField = field
+  pickerSelected = field === 'fr' ? cards[idx].fr_audio : cards[idx].wo_audio
+  document.getElementById('sheet-title').textContent = field === 'fr' ? 'Choisir l\'audio Français' : 'Choisir l\'audio Wolof'
+
+  const files = AUDIO_FILES[lesson]
+  const list = document.getElementById('sheet-list')
+  list.innerHTML = ''
+  files.forEach(f => {
+    const item = document.createElement('div')
+    item.className = 'audio-item' + (f === pickerSelected ? ' selected' : '')
+    item.dataset.file = f
+    item.innerHTML = `
+      <button class="btn-item-play" onclick="event.stopPropagation(); new Audio('${BASE+lesson+'/'+f}').play().catch(()=>{})">▶</button>
+      <span class="audio-name">${f}</span>
+    `
+    item.onclick = () => {
+      list.querySelectorAll('.audio-item').forEach(i => i.classList.remove('selected'))
+      item.classList.add('selected')
+      pickerSelected = f
     }
+    list.appendChild(item)
+  })
 
-    const defaults = {
-      temps: [
-        ['Belki démb','Avant-hier'],['Démb','Hier'],['Tey',"Aujourd'hui"],['Ëllëg','Demain'],
-        ['Gannaaw ëllëg','Après-demain'],['Ci suba ak suba','Au petit matin'],['Suba','Le matin'],
-        ['Ci diggante','À la mi-journée'],['Ngoon',"L'après-midi, le soir"],['Guddi','La nuit'],
-        ['Bala','Avant'],['Gannaaw','Après'],['Léegi','Bientôt'],['Léegi léegi','Tout de suite'],
-      ],
-      espace: [
-        ['Ci kaw / ci suuf','En haut / en bas'],['Ci wet','À côté'],['Ci kanam / ci ginnaaw','Devant / derrière'],
-        ['Ci digg','Au milieu'],['Ci ndajoor / ci cëmm','À droite / à gauche'],['Ci biir',"À l'intérieur"],
-        ['Ci diggante','Entre'],['Fi','Ici'],['Fale','Là-bas'],['Sore','Loin'],['Jege','Près'],
-      ],
-      questions: [
-        ['Kañ ?','Quand ?'],['Fan ?','Où ?'],['Naka ?','Comment ?'],['Lutax ?','Pourquoi ?'],
-        ['Kan ?','Qui ?'],['Ñaata ?','Combien ?'],['Ñaata léér ?','Combien ça coûte ?'],
-        ['Ci ñaata waxtu ?','Dans combien de temps ?'],['Am nga ?','Avez-vous ?'],
-        ['Lan la ?',"Qu'est-ce que c'est ?"],['Lan la def ?','Que signifie… ?'],
-        ['Fan mën naa gëna ?','Où puis-je trouver ?'],['Faransi wax nga ?','Parlez-vous français ?'],
-        ['Waxal ndank ndank','Parlez plus lentement'],['Fan la tualett bi nekk ?','Où sont les toilettes ?'],
-        ['Ci ñaata yoon ?','À quelle heure ?'],['Mën nga may dëggël ?','Pouvez-vous me montrer ?'],
-      ],
-      'mots-quotidiens': [
-        ['Jam nga am','Bonjour'],['Ba beneen','Au revoir'],['Waaw','Oui'],['Deedeet','Non'],
-        ['Soo lañicc',"S'il vous plaît"],['Jërëjëf','Merci'],['Xamuma','Je ne sais pas'],
-        ["Maa ngi tudd...",'Je m\'appelle...'],['Nanga def ?','Comment ça va ?'],['Bàllëm','Désolé / Pardon'],
-        ['Bàllëm','Excusez-moi'],['Duma xam','Je ne comprends pas'],['Dem na ma seex','Je suis perdu'],
-        ['Dina ma dem','Je cherche'],['Dama xiif','J\'ai faim'],['Dama mar','J\'ai soif'],
-        ['Dinaa jënd','Je vais prendre'],['Dama bëgg','Je voudrais'],
-      ],
-      compter: [
-        ['Benn','1 — un'],['Ñaar','2 — deux'],['Ñett','3 — trois'],['Ñeent','4 — quatre'],
-        ['Juróom','5 — cinq'],['Juróom benn','6 — six'],['Juróom ñaar','7 — sept'],
-        ['Juróom ñett','8 — huit'],['Juróom ñeent','9 — neuf'],['Fukk','10 — dix'],
-        ['Fukk ak benn','11 — onze'],['Fukk ak ñaar','12 — douze'],['Fukk ak ñett','13 — treize'],
-        ['Fukk ak ñeent','14 — quatorze'],['Fukk ak juróom','15 — quinze'],
-        ['Fukk ak juróom benn','16 — seize'],['Fukk ak juróom ñaar','17 — dix-sept'],
-        ['Fukk ak juróom ñett','18 — dix-huit'],['Fukk ak juróom ñeent','19 — dix-neuf'],
-        ['Ñaar fukk','20 — vingt'],['Ñaar fukk ak benn','21 — vingt-et-un'],
-        ['Ñett fukk','30 — trente'],['Ñeent fukk','40 — quarante'],['Juróom fukk','50 — cinquante'],
-        ['Juróom benn fukk','60 — soixante'],['Juróom ñaar fukk','70 — soixante-dix'],
-        ['Juróom ñett fukk','80 — quatre-vingts'],['Juróom ñeent fukk','90 — quatre-vingt-dix'],
-        ['Téeméer','100 — cent'],['Téeméer ak benn','101 — cent-et-un'],
-        ['Junni','1000 — mille'],['Junni ak benn','1001 — mille-et-un'],
-      ],
-    }
+  document.getElementById('overlay').classList.add('open')
+  document.getElementById('sheet').classList.add('open')
+}
 
-    let currentLesson = 'temps'
+function closePicker() {
+  document.getElementById('overlay').classList.remove('open')
+  document.getElementById('sheet').classList.remove('open')
+}
 
-    function buildTable(lesson) {
-      currentLesson = lesson
-      const cfg = LESSONS[lesson]
-      const defs = defaults[lesson] || []
-      const tbody = document.getElementById('rows')
-      tbody.innerHTML = ''
-      for (let i = 0; i < cfg.pairs; i++) {
-        const wo_def = defs[i] ? defs[i][0] : ''
-        const fr_def = defs[i] ? defs[i][1] : ''
-        const frFile = cfg.fr ? `${BASE}${lesson}/${cfg.fr(i)}.mp3` : null
-        const woFile = `${BASE}${lesson}/${cfg.wo(i)}.mp3`
-        const fr_btn = frFile ? `<button class="play" onclick="play('${frFile}')">▶ FR</button>` : '<span style="color:#475569">—</span>'
-        tbody.innerHTML += `<tr>
-          <td>${i+1}</td>
-          <td>${fr_btn}</td>
-          <td><button class="play" onclick="play('${woFile}')">▶ WO</button></td>
-          <td><input id="wo_${i}" value="${wo_def}" placeholder="Wolof…" /></td>
-          <td><input id="fr_${i}" value="${fr_def}" placeholder="Français…" /></td>
-        </tr>`
-      }
-      document.getElementById('output').style.display = 'none'
-    }
+function confirmPick() {
+  if (pickerField === 'fr') {
+    cards[idx].fr_audio = pickerSelected
+    const d = document.getElementById('fr-display')
+    d.textContent = pickerSelected || '— aucun —'
+    d.className = 'current-audio' + (pickerSelected ? '' : ' empty')
+    document.getElementById('fr-play').disabled = !pickerSelected
+  } else {
+    cards[idx].wo_audio = pickerSelected
+    const d = document.getElementById('wo-display')
+    d.textContent = pickerSelected || '— aucun —'
+    d.className = 'current-audio' + (pickerSelected ? '' : ' empty')
+    document.getElementById('wo-play').disabled = !pickerSelected
+  }
+  closePicker()
+}
 
-    function play(url) { new Audio(url).play().catch(() => alert('Audio indisponible — assure-toi d\'être sur le site GitHub Pages')) }
+// ── Export ───────────────────────────────────────────────────────────────
+function exportJSON() {
+  saveCard()
+  const result = cards.map((c, i) => ({
+    position: i + 1,
+    fr_audio: c.fr_audio,
+    wo_audio: c.wo_audio,
+    fr: c.fr_text,
+    wo: c.wo_text,
+  }))
+  const json = JSON.stringify(result, null, 2)
+  // Try clipboard
+  navigator.clipboard?.writeText(json).then(() => alert('JSON copié dans le presse-papier !')).catch(() => {})
+  // Also show in new window
+  const w = window.open()
+  w.document.write('<pre style="font-family:monospace;font-size:13px;white-space:pre-wrap;padding:16px">' + json + '</pre>')
+}
 
-    function exportJSON() {
-      const cfg = LESSONS[currentLesson]
-      const cards = []
-      for (let i = 0; i < cfg.pairs; i++) {
-        cards.push({ index: i+1, wo: document.getElementById(`wo_${i}`).value, fr: document.getElementById(`fr_${i}`).value })
-      }
-      const out = document.getElementById('output')
-      out.style.display = 'block'
-      out.textContent = JSON.stringify(cards, null, 2)
-    }
-
-    document.getElementById('lesson-select').addEventListener('change', e => buildTable(e.target.value))
-    buildTable('temps')
-  </script>
+// ── Init ─────────────────────────────────────────────────────────────────
+document.getElementById('lesson').addEventListener('change', e => initLesson(e.target.value))
+initLesson('temps')
+</script>
 </body>
 </html>

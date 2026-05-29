@@ -7,7 +7,7 @@ export const cardOverrides = {
   set(cardId, data) {
     try {
       const all = this.getAll()
-      all[cardId] = data
+      all[cardId] = { ...(all[cardId] || {}), ...data }
       localStorage.setItem(KEY, JSON.stringify(all))
     } catch {}
   },

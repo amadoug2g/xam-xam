@@ -34,10 +34,8 @@ export default function AdminEditor({ onBack }) {
   const current = card ? { ...card, ...ov } : null
 
   function save(cardId, patch) {
-    const all = cardOverrides.getAll()
-    all[cardId] = { ...(all[cardId] || {}), ...patch }
-    localStorage.setItem('xam-xam-card-overrides', JSON.stringify(all))
-    setOverrides({ ...all })
+    cardOverrides.set(cardId, patch)
+    setOverrides(cardOverrides.getAll())
   }
 
   function openSheet(field) {

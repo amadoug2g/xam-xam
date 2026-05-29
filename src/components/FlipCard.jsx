@@ -29,6 +29,8 @@ export default function FlipCard({ card, flipped, onFlip }) {
             backfaceVisibility: 'hidden',
             WebkitBackfaceVisibility: 'hidden',
             transform: 'translateZ(0)',
+            opacity: flipped ? 0 : 1,
+            transition: 'opacity 0s linear 0.25s',
           }}
           className="absolute inset-0 rounded-3xl border border-[var(--border-card)] bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-app)] flex flex-col justify-between p-6 shadow-2xl overflow-hidden"
         >
@@ -69,6 +71,8 @@ export default function FlipCard({ card, flipped, onFlip }) {
             backfaceVisibility: 'hidden',
             WebkitBackfaceVisibility: 'hidden',
             transform: 'rotateY(180deg) translateZ(1px)',
+            opacity: flipped ? 1 : 0,
+            transition: 'opacity 0s linear 0.25s',
           }}
           className="absolute inset-0 rounded-3xl border border-[var(--border-card)] bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-app)] flex flex-col justify-between p-6 shadow-2xl overflow-hidden"
         >
