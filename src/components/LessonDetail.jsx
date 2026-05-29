@@ -138,6 +138,18 @@ export default function LessonDetail({ lessonId, onStart, onBack }) {
           </div>
         </section>
 
+        {/* Top Start Button */}
+        <button
+          onClick={onStart}
+          className="w-full mb-8 py-4 px-6 bg-[var(--text-wolof)] text-[var(--accent-btn-text)] rounded-2xl font-bold flex items-center justify-center gap-2 active:scale-[0.98] transition-all duration-150 shadow-md hover:opacity-90 relative overflow-hidden group"
+        >
+          <Play className="w-5 h-5 fill-current text-[var(--accent-btn-text)]" />
+          <span>
+            {due > 0 ? 'Réviser maintenant' : studied > 0 ? 'Reprendre la session' : 'Commencer la leçon'}
+          </span>
+          <span className="absolute right-4 w-8 h-8 rounded-full bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-300 opacity-20" />
+        </button>
+
         {/* Vocab preview list */}
         <section className="mb-6 flex-1">
           <div className="flex items-center justify-between mb-3 px-1">

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
 import { streak as streakStore } from '../core/streak'
-import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon, Flame, Zap } from 'lucide-react'
+import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon, Flame, Zap, Settings } from 'lucide-react'
 
 export default function LessonList({ onSelect, onReviewAll }) {
   // Theme state hook with document sync on mount & update
@@ -55,6 +55,14 @@ export default function LessonList({ onSelect, onReviewAll }) {
               <Flame className={`w-4 h-4 ${streakData.count > 0 ? 'text-orange-400' : 'text-[var(--text-muted)]'}`} />
               <span>{streakData.count}</span>
             </div>
+
+            <button
+              onClick={() => window.open('/xam-xam/editor.html', '_blank')}
+              className="p-2 bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-muted)] rounded-full transition-all duration-200 hover:scale-105 active:scale-95 flex items-center justify-center shadow-sm"
+              title="Éditeur de cartes"
+            >
+              <Settings className="w-4 h-4" />
+            </button>
 
             <button
               onClick={toggleTheme}
