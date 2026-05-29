@@ -1,4 +1,4 @@
-import { XCircle, MinusCircle, CheckCircle2 } from 'lucide-react'
+import { XCircle, HelpCircle, CheckCircle2 } from 'lucide-react'
 
 export default function GradeBar({ onGrade }) {
   return (
@@ -14,7 +14,7 @@ export default function GradeBar({ onGrade }) {
         onClick={() => onGrade(3)}
         className="flex-1 py-4 rounded-2xl bg-amber-400 text-white font-bold text-sm active:scale-[0.97] active:brightness-90 transition-all duration-150 shadow-md flex flex-col items-center justify-center gap-1.5"
       >
-        <MinusCircle className="w-7 h-7" strokeWidth={1.5} />
+        <HelpCircle className="w-7 h-7" strokeWidth={1.5} />
         <span>Hésitation</span>
       </button>
       <button
