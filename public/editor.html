@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Xam-Xam — Éditeur de cartes</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #0f172a; color: #e2e8f0; max-width: 700px; margin: 0 auto; padding: 24px 16px; }
+    h1 { font-size: 1.4rem; margin-bottom: 4px; color: #10b981; }
+    p  { font-size: .85rem; color: #94a3b8; margin-bottom: 24px; }
+    select { background: #1e293b; color: #e2e8f0; border: 1px solid #334155; border-radius: 8px; padding: 8px 12px; font-size: .9rem; margin-bottom: 24px; cursor: pointer; }
+    table { width: 100%; border-collapse: collapse; }
+    th { text-align: left; font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: #64748b; padding: 8px 6px; border-bottom: 1px solid #1e293b; }
+    td { padding: 8px 6px; border-bottom: 1px solid #1e293b; vertical-align: middle; }
+    td:first-child { color: #475569; font-size: .8rem; font-family: monospace; width: 36px; }
+    button.play { background: #1e293b; border: 1px solid #334155; color: #10b981; border-radius: 6px; padding: 5px 10px; cursor: pointer; font-size: .85rem; white-space: nowrap; }
+    button.play:hover { background: #0d9488; color: white; border-color: #0d9488; }
+    input { background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 6px 10px; color: #e2e8f0; font-size: .9rem; width: 100%; box-sizing: border-box; }
+    input:focus { outline: none; border-color: #10b981; }
+    .actions { margin-top: 24px; display: flex; gap: 12px; }
+    .btn-export { background: #10b981; color: #0f172a; border: none; border-radius: 8px; padding: 10px 20px; font-size: .9rem; font-weight: 700; cursor: pointer; }
+    .btn-export:hover { opacity: .88; }
+    pre { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; font-size: .78rem; overflow: auto; max-height: 300px; margin-top: 16px; color: #a5f3fc; }
+  </style>
+</head>
+<body>
+  <h1>Xam-Xam — Éditeur de cartes</h1>
+  <p>Écoute chaque segment audio et tape le texte Wolof + la traduction française. Clique "Exporter JSON" quand c'est fini.</p>
+
+  <select id="lesson-select">
+    <option value="temps">Leçon 2 — Temps (14 cartes)</option>
+    <option value="espace">Leçon 3 — Espace (11 cartes)</option>
+    <option value="questions">Leçon 4 — Questions (17 cartes)</option>
+    <option value="mots-quotidiens">Leçon 5 — Mots quotidiens (18 cartes)</option>
+    <option value="compter">Leçon 1 — Compter (32 cartes, WO seulement)</option>
+  </select>
+
+  <table id="table">
+    <thead><tr><th>#</th><th>Audio FR</th><th>Audio WO</th><th>Texte Wolof</th><th>Traduction FR</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+
+  <div class="actions">
+    <button class="btn-export" onclick="exportJSON()">Exporter JSON</button>
+  </div>
+  <pre id="output" style="display:none"></pre>
+
+  <script>
+    const BASE = '/xam-xam/audio/'
+    const LESSONS = {
+      temps:           { pairs: 14, fr: (i) => `${i*2+2}_fr`, wo: (i) => `${i*2+3}_wo` },
+      espace:          { pairs: 11, fr: (i) => `${String(i).padStart(2,'0')}_fr`, wo: (i) => `${String(i).padStart(2,'0')}_wo` },
+      questions:       { pairs: 17, fr: (i) => `${String(i).padStart(2,'0')}_fr`, wo: (i) => `${String(i).padStart(2,'0')}_wo` },
+      'mots-quotidiens':{ pairs: 18, fr: (i) => { const idx = i < 10 ? i : i+1; return `${String(idx).padStart(2,'0')}_fr` }, wo: (i) => { const idx = i < 10 ? i : i+1; return `${String(idx).padStart(2,'0')}_wo` } },
+      compter:         { pairs: 32, fr: null, wo: (i) => `${String(i).padStart(2,'0')}_wo` },
+    }
+
+    const defaults = {
+      temps: [
+        ['Belki démb','Avant-hier'],['Démb','Hier'],['Tey',"Aujourd'hui"],['Ëllëg','Demain'],
+        ['Gannaaw ëllëg','Après-demain'],['Ci suba ak suba','Au petit matin'],['Suba','Le matin'],
+        ['Ci diggante','À la mi-journée'],['Ngoon',"L'après-midi, le soir"],['Guddi','La nuit'],
+        ['Bala','Avant'],['Gannaaw','Après'],['Léegi','Bientôt'],['Léegi léegi','Tout de suite'],
+      ],
+      espace: [
+        ['Ci kaw / ci suuf','En haut / en bas'],['Ci wet','À côté'],['Ci kanam / ci ginnaaw','Devant / derrière'],
+        ['Ci digg','Au milieu'],['Ci ndajoor / ci cëmm','À droite / à gauche'],['Ci biir',"À l'intérieur"],
+        ['Ci diggante','Entre'],['Fi','Ici'],['Fale','Là-bas'],['Sore','Loin'],['Jege','Près'],
+      ],
+      questions: [
+        ['Kañ ?','Quand ?'],['Fan ?','Où ?'],['Naka ?','Comment ?'],['Lutax ?','Pourquoi ?'],
+        ['Kan ?','Qui ?'],['Ñaata ?','Combien ?'],['Ñaata léér ?','Combien ça coûte ?'],
+        ['Ci ñaata waxtu ?','Dans combien de temps ?'],['Am nga ?','Avez-vous ?'],
+        ['Lan la ?',"Qu'est-ce que c'est ?"],['Lan la def ?','Que signifie… ?'],
+        ['Fan mën naa gëna ?','Où puis-je trouver ?'],['Faransi wax nga ?','Parlez-vous français ?'],
+        ['Waxal ndank ndank','Parlez plus lentement'],['Fan la tualett bi nekk ?','Où sont les toilettes ?'],
+        ['Ci ñaata yoon ?','À quelle heure ?'],['Mën nga may dëggël ?','Pouvez-vous me montrer ?'],
+      ],
+      'mots-quotidiens': [
+        ['Jam nga am','Bonjour'],['Ba beneen','Au revoir'],['Waaw','Oui'],['Deedeet','Non'],
+        ['Soo lañicc',"S'il vous plaît"],['Jërëjëf','Merci'],['Xamuma','Je ne sais pas'],
+        ["Maa ngi tudd...",'Je m\'appelle...'],['Nanga def ?','Comment ça va ?'],['Bàllëm','Désolé / Pardon'],
+        ['Bàllëm','Excusez-moi'],['Duma xam','Je ne comprends pas'],['Dem na ma seex','Je suis perdu'],
+        ['Dina ma dem','Je cherche'],['Dama xiif','J\'ai faim'],['Dama mar','J\'ai soif'],
+        ['Dinaa jënd','Je vais prendre'],['Dama bëgg','Je voudrais'],
+      ],
+      compter: [
+        ['Benn','1 — un'],['Ñaar','2 — deux'],['Ñett','3 — trois'],['Ñeent','4 — quatre'],
+        ['Juróom','5 — cinq'],['Juróom benn','6 — six'],['Juróom ñaar','7 — sept'],
+        ['Juróom ñett','8 — huit'],['Juróom ñeent','9 — neuf'],['Fukk','10 — dix'],
+        ['Fukk ak benn','11 — onze'],['Fukk ak ñaar','12 — douze'],['Fukk ak ñett','13 — treize'],
+        ['Fukk ak ñeent','14 — quatorze'],['Fukk ak juróom','15 — quinze'],
+        ['Fukk ak juróom benn','16 — seize'],['Fukk ak juróom ñaar','17 — dix-sept'],
+        ['Fukk ak juróom ñett','18 — dix-huit'],['Fukk ak juróom ñeent','19 — dix-neuf'],
+        ['Ñaar fukk','20 — vingt'],['Ñaar fukk ak benn','21 — vingt-et-un'],
+        ['Ñett fukk','30 — trente'],['Ñeent fukk','40 — quarante'],['Juróom fukk','50 — cinquante'],
+        ['Juróom benn fukk','60 — soixante'],['Juróom ñaar fukk','70 — soixante-dix'],
+        ['Juróom ñett fukk','80 — quatre-vingts'],['Juróom ñeent fukk','90 — quatre-vingt-dix'],
+        ['Téeméer','100 — cent'],['Téeméer ak benn','101 — cent-et-un'],
+        ['Junni','1000 — mille'],['Junni ak benn','1001 — mille-et-un'],
+      ],
+    }
+
+    let currentLesson = 'temps'
+
+    function buildTable(lesson) {
+      currentLesson = lesson
+      const cfg = LESSONS[lesson]
+      const defs = defaults[lesson] || []
+      const tbody = document.getElementById('rows')
+      tbody.innerHTML = ''
+      for (let i = 0; i < cfg.pairs; i++) {
+        const wo_def = defs[i] ? defs[i][0] : ''
+        const fr_def = defs[i] ? defs[i][1] : ''
+        const frFile = cfg.fr ? `${BASE}${lesson}/${cfg.fr(i)}.mp3` : null
+        const woFile = `${BASE}${lesson}/${cfg.wo(i)}.mp3`
+        const fr_btn = frFile ? `<button class="play" onclick="play('${frFile}')">▶ FR</button>` : '<span style="color:#475569">—</span>'
+        tbody.innerHTML += `<tr>
+          <td>${i+1}</td>
+          <td>${fr_btn}</td>
+          <td><button class="play" onclick="play('${woFile}')">▶ WO</button></td>
+          <td><input id="wo_${i}" value="${wo_def}" placeholder="Wolof…" /></td>
+          <td><input id="fr_${i}" value="${fr_def}" placeholder="Français…" /></td>
+        </tr>`
+      }
+      document.getElementById('output').style.display = 'none'
+    }
+
+    function play(url) { new Audio(url).play().catch(() => alert('Audio indisponible — assure-toi d\'être sur le site GitHub Pages')) }
+
+    function exportJSON() {
+      const cfg = LESSONS[currentLesson]
+      const cards = []
+      for (let i = 0; i < cfg.pairs; i++) {
+        cards.push({ index: i+1, wo: document.getElementById(`wo_${i}`).value, fr: document.getElementById(`fr_${i}`).value })
+      }
+      const out = document.getElementById('output')
+      out.style.display = 'block'
+      out.textContent = JSON.stringify(cards, null, 2)
+    }
+
+    document.getElementById('lesson-select').addEventListener('change', e => buildTable(e.target.value))
+    buildTable('temps')
+  </script>
+</body>
+</html>
