@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
 import { streak as streakStore } from '../core/streak'
-import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon, Flame, Zap, Settings } from 'lucide-react'
+import { lessonVerified } from '../core/lessonVerified'
+import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon, Flame, Zap, Settings, ShieldCheck } from 'lucide-react'
 
 export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
   // Theme state hook with document sync on mount & update
@@ -18,6 +19,7 @@ export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
 
   // Streak
   const streakData = streakStore.get()
+  const verifiedMap = lessonVerified.getAll()
 
   // Aggregate global statistics across all lessons
   const allCards = LESSONS.flatMap(l => l.cards || []).filter(c => c.wo !== '...')
@@ -143,6 +145,7 @@ export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
         <div className="flex flex-col gap-3.5 pb-8">
           {LESSONS.map((lesson, index) => {
             const available = lesson.cards.length > 0 && lesson.cards.some(c => c.wo !== '...')
+            const isVerified = !!verifiedMap[lesson.id]
             const lessonDueCount = available ? lesson.cards.filter(c => {
               const s = srs.get(c.id)
               return !s.mastered && s.nextDue <= Date.now()
@@ -173,6 +176,9 @@ export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
                     <h3 className={`font-bold text-base truncate transition-colors duration-150 ${available ? 'text-[var(--text-primary)] group-hover:text-[var(--text-wolof)]' : 'text-[var(--text-muted)]'}`}>
                       {lesson.title}
                     </h3>
+                    {isVerified && (
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" title="Leçon vérifiée" />
+                    )}
                     {lessonDueCount > 0 && (
                       <span className="relative flex h-2 w-2 shrink-0">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--text-wolof)] opacity-75"></span>

@@ -1,7 +1,8 @@
 import { useState, useRef } from 'react'
-import { ArrowLeft, ChevronLeft, ChevronRight, Volume2, Check } from 'lucide-react'
+import { ArrowLeft, ChevronLeft, ChevronRight, Volume2, Check, ShieldCheck } from 'lucide-react'
 import { LESSONS } from '../data/mock'
 import { cardOverrides } from '../core/cardOverrides'
+import { lessonVerified } from '../core/lessonVerified'
 
 const BASE = import.meta.env.BASE_URL
 
@@ -11,6 +12,7 @@ const AUDIO_FILES = {
   questions:        [...Array(17)].flatMap((_, i) => [`${String(i).padStart(2, '0')}_fr.mp3`, `${String(i).padStart(2, '0')}_wo.mp3`]),
   'mots-quotidiens':[...Array(19)].flatMap((_, i) => [`${String(i).padStart(2, '0')}_fr.mp3`, `${String(i).padStart(2, '0')}_wo.mp3`]),
   compter:          [...Array(32)].map((_, i) => `${String(i).padStart(2, '0')}_wo.mp3`),
+  langues:          [...Array(10)].flatMap((_, i) => [`${String(i).padStart(2, '0')}_fr.mp3`, `${String(i).padStart(2, '0')}_wo.mp3`]),
 }
 
 export default function AdminEditor({ onBack }) {
@@ -19,6 +21,7 @@ export default function AdminEditor({ onBack }) {
   const [lessonId, setLessonId] = useState(activeLessons[0]?.id || 'compter')
   const [cardIdx, setCardIdx] = useState(0)
   const [overrides, setOverrides] = useState(() => cardOverrides.getAll())
+  const [verified, setVerified] = useState(() => lessonVerified.getAll())
   const [sheet, setSheet] = useState(null) // 'audioFr' | 'audioWo' | null
   const [sheetPick, setSheetPick] = useState(null)
   const audioRef = useRef(null)
@@ -66,6 +69,12 @@ export default function AdminEditor({ onBack }) {
   if (!card || !current) return null
 
   const hasOverride = !!overrides[card.id]
+  const isVerified = !!verified[lessonId]
+
+  function toggleVerified() {
+    lessonVerified.setVerified(lessonId, !isVerified)
+    setVerified(lessonVerified.getAll())
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-[var(--bg-app)] text-[var(--text-primary)] transition-colors duration-300">
@@ -172,6 +181,19 @@ export default function AdminEditor({ onBack }) {
             Suiv. <ChevronRight className="w-4 h-4" />
           </button>
         </div>
+
+        {/* Verify button */}
+        <button
+          onClick={toggleVerified}
+          className={`w-full py-3.5 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition-all border ${
+            isVerified
+              ? 'bg-emerald-500/15 border-emerald-500/40 text-emerald-400'
+              : 'bg-[var(--bg-card)] border-[var(--border-card)] text-[var(--text-muted)]'
+          }`}
+        >
+          <ShieldCheck className="w-4 h-4" />
+          {isVerified ? 'Leçon vérifiée ✓' : 'Marquer comme vérifié'}
+        </button>
       </main>
 
       {/* Bottom sheet */}
