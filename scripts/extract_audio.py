@@ -39,6 +39,19 @@ from pathlib import Path
 from pydub import AudioSegment
 from pydub.silence import detect_nonsilent
 
+try:
+    import numpy as np
+    from sklearn.cluster import KMeans
+    _SKLEARN_OK = True
+except ImportError:
+    _SKLEARN_OK = False
+
+try:
+    from silero_vad import load_silero_vad, get_speech_timestamps, read_audio
+    _SILERO_OK = True
+except ImportError:
+    _SILERO_OK = False
+
 
 # ============================================================
 # 1. AUDIO LOADING
@@ -91,6 +104,100 @@ def detect_segments(
             })
 
     return segments
+
+
+# ============================================================
+# 2b. VAD-BASED SEGMENT DETECTION (Silero)
+# ============================================================
+
+def detect_segments_vad(
+    audio: AudioSegment,
+    padding: int = 150,
+    min_segment_len: int = 300,
+    threshold: float = 0.5,
+) -> list[dict]:
+    """
+    Detect speech segments using Silero VAD (neural, CPU-fast).
+    Falls back to pydub silence detection if silero is not installed.
+
+    Returns same format as detect_segments().
+    """
+    if not _SILERO_OK:
+        print("  [VAD] silero-vad not available, falling back to pydub silence detection")
+        return detect_segments(audio, padding=padding, min_segment_len=min_segment_len)
+
+    import torch
+    import tempfile
+
+    # Silero requires 16kHz mono WAV
+    audio_16k = audio.set_frame_rate(16000).set_channels(1)
+
+    # Write to temp WAV (silero read_audio needs a file path)
+    with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tmp:
+        tmp_path = tmp.name
+    try:
+        audio_16k.export(tmp_path, format="wav")
+        wav = read_audio(tmp_path)
+    finally:
+        os.unlink(tmp_path)
+
+    model = load_silero_vad()
+    speech_ts = get_speech_timestamps(
+        wav,
+        model,
+        threshold=threshold,
+        sampling_rate=16000,
+        min_speech_duration_ms=min_segment_len,
+        min_silence_duration_ms=200,
+        return_seconds=False,  # return samples
+    )
+
+    segments = []
+    for ts in speech_ts:
+        start_ms = int(ts["start"] / 16)   # 16000 samples/s → ms
+        end_ms   = int(ts["end"]   / 16)
+        s = max(0, start_ms - padding)
+        e = min(len(audio), end_ms + padding)
+        seg = audio[s:e]
+        if len(seg) >= min_segment_len:
+            segments.append({
+                "start_ms": s,
+                "end_ms":   e,
+                "duration_ms": len(seg),
+                "segment": seg,
+                "dbfs": seg.dBFS,
+            })
+
+    return segments
+
+
+# ============================================================
+# 2c. ADAPTIVE GAP THRESHOLD (k-means)
+# ============================================================
+
+def classify_gaps_kmeans(gaps: list[int]) -> int:
+    """
+    Use k-means (k=2) to find the natural boundary between
+    intra-card (short) and inter-card (long) gaps.
+
+    Returns the midpoint between the two cluster centers.
+    Falls back to the heuristic if sklearn is not available or
+    no clear bimodal split is found.
+    """
+    if not _SKLEARN_OK or len(gaps) < 4:
+        return suggest_card_gap(gaps) or 1200
+
+    X = np.array(gaps).reshape(-1, 1)
+    km = KMeans(n_clusters=2, n_init=10, random_state=0).fit(X)
+    centers = sorted(km.cluster_centers_.flatten())
+
+    # If the two clusters are too close together, no clear split
+    if centers[1] - centers[0] < 200:
+        return suggest_card_gap(gaps) or 1200
+
+    midpoint = int((centers[0] + centers[1]) / 2)
+    print(f"  [k-means] Gap clusters: {int(centers[0])}ms / {int(centers[1])}ms → threshold: {midpoint}ms")
+    return midpoint
 
 
 # ============================================================
@@ -629,6 +736,16 @@ Examples:
                         choices=["tiny", "base", "small", "medium"],
                         help="Whisper model size (default: base).")
 
+    # -- VAD --
+    grp_vad = parser.add_argument_group("VAD (Silero neural speech detection)")
+    grp_vad.add_argument("--vad", action="store_true", default=_SILERO_OK,
+                         help="Use Silero VAD instead of pydub silence detection (default: auto, on if installed).")
+    grp_vad.add_argument("--no-vad", action="store_true",
+                         help="Force pydub silence detection even if Silero is available.")
+    grp_vad.add_argument("--vad-threshold", type=float, default=0.5,
+                         help="Silero VAD speech probability threshold 0-1 (default: 0.5). "
+                              "Lower = more sensitive, higher = fewer false positives.")
+
     # -- Modes --
     parser.add_argument("--preview", action="store_true",
                         help="Dry-run: detect segments and show card grouping without exporting.")
@@ -658,14 +775,26 @@ Examples:
     print(f"  Duration: {len(audio) / 1000:.1f}s | Channels: {audio.channels} | Rate: {audio.frame_rate}Hz")
 
     # Detect segments
-    print(f"\nDetecting segments (silence_thresh={args.silence_thresh}dB, min_silence={args.min_silence}ms)...")
-    segments = detect_segments(
-        audio,
-        min_silence_len=args.min_silence,
-        silence_thresh=args.silence_thresh,
-        padding=args.padding,
-        min_segment_len=args.min_segment_len,
-    )
+    use_vad = args.vad and not args.no_vad and _SILERO_OK
+    if use_vad:
+        print(f"\nDetecting segments with Silero VAD (threshold={args.vad_threshold})...")
+        segments = detect_segments_vad(
+            audio,
+            padding=args.padding,
+            min_segment_len=args.min_segment_len,
+            threshold=args.vad_threshold,
+        )
+    else:
+        if args.vad and not _SILERO_OK:
+            print("\n  [VAD] silero-vad not installed, using pydub fallback.")
+        print(f"\nDetecting segments (silence_thresh={args.silence_thresh}dB, min_silence={args.min_silence}ms)...")
+        segments = detect_segments(
+            audio,
+            min_silence_len=args.min_silence,
+            silence_thresh=args.silence_thresh,
+            padding=args.padding,
+            min_segment_len=args.min_segment_len,
+        )
     print(f"  Found {len(segments)} raw segments")
 
     if not segments:
@@ -686,9 +815,15 @@ Examples:
 
     # Auto card-gap detection
     if args.auto_card_gap:
-        suggested = suggest_card_gap(segments)
+        gaps = compute_gaps(segments)
+        if _SKLEARN_OK and len(gaps) >= 4:
+            suggested = classify_gaps_kmeans(gaps)
+            print(f"  Auto card-gap (k-means): {suggested}ms")
+        else:
+            suggested = suggest_card_gap(segments)
+            if suggested:
+                print(f"  Auto card-gap (heuristic): {suggested}ms")
         if suggested:
-            print(f"  Auto card-gap: {suggested}ms (from gap distribution)")
             args.card_gap = suggested
         else:
             print(f"  Auto card-gap: no clear split found, using default {args.card_gap}ms")
