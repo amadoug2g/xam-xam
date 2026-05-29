@@ -1,12 +1,14 @@
+import { useState } from 'react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
 import { streak as streakStore } from '../core/streak'
 import { lessonVerified } from '../core/lessonVerified'
 import { useTheme } from '../core/useTheme'
-import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon, Flame, Zap, Settings, ShieldCheck } from 'lucide-react'
+import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon, Flame, Zap, Settings, ShieldCheck, Search, X } from 'lucide-react'
 
 export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
   const { theme, toggleTheme } = useTheme()
+  const [search, setSearch] = useState('')
 
   // Streak
   const streakData = streakStore.get()
@@ -21,6 +23,15 @@ export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
   const dueCount = srsStates.filter(s => !s.mastered && s.nextDue <= Date.now()).length
   const dueCards = allCards.filter(c => { const s = srs.get(c.id); return !s.mastered && s.nextDue <= Date.now() })
   const progressPercent = totalCards > 0 ? Math.round(((masteredCount + (srsStates.filter(s => s.attempts > 0 && !s.mastered).length * 0.5)) / totalCards) * 100) : 0
+
+  const lessonMap = Object.fromEntries(LESSONS.map(l => [l.id, l.title]))
+  const searchResults = search.trim().length > 0
+    ? allCards.filter(c =>
+        c.wo !== '...' &&
+        (c.wo.toLowerCase().includes(search.toLowerCase()) ||
+         c.fr.toLowerCase().includes(search.toLowerCase()))
+      ).slice(0, 30)
+    : []
 
   return (
     <div className="flex flex-col min-h-screen px-5 py-6 bg-[var(--bg-app)] text-[var(--text-primary)] transition-colors duration-300 animate-fade-in-up">
@@ -63,6 +74,42 @@ export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
           Salaam aleekum 👋
         </p>
       </header>
+
+      {/* Search bar */}
+      <div className="relative mb-4">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--text-muted)]" />
+        <input
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          placeholder="Rechercher un mot..."
+          className="w-full pl-9 pr-4 py-2.5 bg-[var(--bg-card)] border border-[var(--border-card)] rounded-2xl text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--text-wolof)]/50 transition-colors"
+        />
+        {search && (
+          <button onClick={() => setSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)]">
+            <X className="w-3.5 h-3.5" />
+          </button>
+        )}
+      </div>
+
+      {/* Search results */}
+      {search.trim().length > 0 ? (
+        <div className="flex flex-col gap-2 pb-8">
+          {searchResults.length > 0 ? searchResults.map(c => (
+            <button
+              key={c.id}
+              onClick={() => onSelect(c.lessonId)}
+              className="w-full text-left p-3.5 bg-[var(--bg-card)] border border-[var(--border-card)] rounded-2xl flex flex-col gap-0.5 active:scale-[0.98] transition-all hover:border-[var(--text-wolof)]/30"
+            >
+              <span className="text-sm font-semibold text-[var(--text-wolof)]">{c.wo}</span>
+              <span className="text-xs text-[var(--text-muted)]">{c.fr}</span>
+              <span className="text-[10px] text-[var(--text-muted)] mt-0.5 font-mono uppercase tracking-wide">{lessonMap[c.lessonId]}</span>
+            </button>
+          )) : (
+            <p className="text-center text-sm text-[var(--text-muted)] py-8">Aucun résultat pour « {search} »</p>
+          )}
+        </div>
+      ) : (
+        <>
 
       {/* Global Progress Dashboard Card */}
       <div className="mb-8 p-5 bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-app)] rounded-2xl border border-[var(--border-card)] shadow-xl relative overflow-hidden transition-all duration-300">

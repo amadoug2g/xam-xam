@@ -163,7 +163,7 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
 
       {/* Card */}
       <div className="flex-1 flex flex-col justify-center">
-        <FlipCard card={card} flipped={flipped} onFlip={handleFlip} />
+        <FlipCard card={card} flipped={flipped} onFlip={handleFlip} reversed={reversed} />
       </div>
 
       {/* Grade bar */}
