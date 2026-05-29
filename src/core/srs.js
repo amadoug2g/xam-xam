@@ -5,13 +5,17 @@
 
 const STORAGE_KEY = 'xam-xam-srs'
 
+let _cache = null
+
 function load() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') }
-  catch { return {} }
+  if (_cache) return _cache
+  try { _cache = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') } catch { _cache = {} }
+  return _cache
 }
 
 function save(data) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+  _cache = data
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)) } catch {}
 }
 
 function defaultEntry() {
@@ -62,6 +66,7 @@ export const srs = {
   },
 
   reset() {
+    _cache = null
     localStorage.removeItem(STORAGE_KEY)
   },
 }

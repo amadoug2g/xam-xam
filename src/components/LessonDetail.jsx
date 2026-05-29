@@ -2,19 +2,11 @@ import { useState } from 'react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
 import { cardOverrides } from '../core/cardOverrides'
+import { useTheme } from '../core/useTheme'
 import { ArrowLeft, Play, BookOpen, CheckCircle2, Clock, Volume2, Sun, Moon, Pencil, Check, X, Eye, EyeOff, Settings } from 'lucide-react'
 
 export default function LessonDetail({ lessonId, onStart, onBack, onAdmin }) {
-  // Local state theme sync
-  const [theme, setTheme] = useState(() => {
-    const t = localStorage.getItem('xam-xam-theme') || 'dark'
-    if (t === 'light') {
-      document.documentElement.classList.add('light')
-    } else {
-      document.documentElement.classList.remove('light')
-    }
-    return t
-  })
+  const { theme, toggleTheme } = useTheme()
 
   const lesson = LESSONS.find(l => l.id === lessonId)
   if (!lesson) return null
@@ -50,17 +42,6 @@ export default function LessonDetail({ lessonId, onStart, onBack, onAdmin }) {
     if (card?.audioWo) {
       new Audio(card.audioWo).play().catch(() => {})
     }
-  }
-
-  const toggleTheme = () => {
-    const nextTheme = theme === 'dark' ? 'light' : 'dark'
-    localStorage.setItem('xam-xam-theme', nextTheme)
-    if (nextTheme === 'light') {
-      document.documentElement.classList.add('light')
-    } else {
-      document.documentElement.classList.remove('light')
-    }
-    setTheme(nextTheme)
   }
 
   return (

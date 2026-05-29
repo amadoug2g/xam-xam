@@ -1,21 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
 import { streak as streakStore } from '../core/streak'
 import { lessonVerified } from '../core/lessonVerified'
+import { useTheme } from '../core/useTheme'
 import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon, Flame, Zap, Settings, ShieldCheck } from 'lucide-react'
 
 export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
-  // Theme state hook with document sync on mount & update
-  const [theme, setTheme] = useState(() => {
-    const t = localStorage.getItem('xam-xam-theme') || 'dark'
-    if (t === 'light') {
-      document.documentElement.classList.add('light')
-    } else {
-      document.documentElement.classList.remove('light')
-    }
-    return t
-  })
+  const { theme, toggleTheme } = useTheme()
 
   // Streak
   const streakData = streakStore.get()
@@ -30,17 +22,6 @@ export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
   const dueCount = srsStates.filter(s => !s.mastered && s.nextDue <= Date.now()).length
   const dueCards = allCards.filter(c => { const s = srs.get(c.id); return !s.mastered && s.nextDue <= Date.now() })
   const progressPercent = totalCards > 0 ? Math.round(((masteredCount + (srsStates.filter(s => s.attempts > 0 && !s.mastered).length * 0.5)) / totalCards) * 100) : 0
-
-  const toggleTheme = () => {
-    const nextTheme = theme === 'dark' ? 'light' : 'dark'
-    localStorage.setItem('xam-xam-theme', nextTheme)
-    if (nextTheme === 'light') {
-      document.documentElement.classList.add('light')
-    } else {
-      document.documentElement.classList.remove('light')
-    }
-    setTheme(nextTheme)
-  }
 
   return (
     <div className="flex flex-col min-h-screen px-5 py-6 bg-[var(--bg-app)] text-[var(--text-primary)] transition-colors duration-300 animate-fade-in-up">
@@ -210,6 +191,13 @@ export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
             )
           })}
         </div>
+      </div>
+
+      {/* Version badge */}
+      <div className="text-center py-4 pb-8">
+        <span className="text-[10px] font-mono text-[var(--text-muted)]/50 bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] px-2.5 py-1 rounded-full">
+          v{__APP_VERSION__}
+        </span>
       </div>
     </div>
   )

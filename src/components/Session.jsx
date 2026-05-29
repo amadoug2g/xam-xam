@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
-import { X, CheckCircle2, XCircle, Zap } from 'lucide-react'
+import { X, CheckCircle2, XCircle, Zap, Sun, Moon } from 'lucide-react'
 import { LESSONS } from '../data/mock'
 import { srs } from '../core/srs'
 import { applyOverrides } from '../core/cardOverrides'
 import { streak } from '../core/streak'
+import { useTheme } from '../core/useTheme'
 import FlipCard from './FlipCard'
 import GradeBar from './GradeBar'
 
@@ -13,8 +14,9 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
   const [flipped, setFlipped] = useState(false)
   const [grades, setGrades] = useState([])
   const [done, setDone] = useState(false)
-  const [swipeHint, setSwipeHint] = useState(null) // 'left' | 'right' | null
-  const touchStart = useRef(null)
+  const [reversed, setReversed] = useState(false)
+  const audioRef = useRef(null)
+  const { theme, toggleTheme } = useTheme()
 
   const cards = useMemo(() => {
     const base = applyOverrides(cardsProp || lesson?.cards || [])
@@ -26,18 +28,43 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
     return arr
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  // Fix 4: early return for empty cards
+  if (cards.length === 0) {
+    return (
+      <div className="flex flex-col min-h-screen bg-[var(--bg-app)] items-center justify-center gap-4">
+        <p className="text-[var(--text-muted)] text-sm">Aucune carte à réviser</p>
+        <button
+          onClick={onDone}
+          className="px-6 py-3 rounded-2xl bg-[var(--text-wolof)] text-[var(--accent-btn-text)] font-bold active:scale-95 transition-transform"
+        >
+          Retour
+        </button>
+      </div>
+    )
+  }
+
   const card = cards[idx]
 
   useEffect(() => {
     setFlipped(false)
-    setSwipeHint(null)
-    if (card?.audioWo) new Audio(card.audioWo).play().catch(() => {})
+    if (audioRef.current) { audioRef.current.pause(); audioRef.current = null }
+    if (card?.audioWo) {
+      const a = new Audio(card.audioWo)
+      audioRef.current = a
+      a.play().catch(() => {})
+    }
   }, [idx])
 
   function handleFlip() {
     if (flipped) return
     setFlipped(true)
-    if (card?.audioFr) new Audio(card.audioFr).play().catch(() => {})
+    if (audioRef.current) { audioRef.current.pause(); audioRef.current = null }
+    if (card?.audioFr) {
+      const a = new Audio(card.audioFr)
+      audioRef.current = a
+      a.play().catch(() => {})
+    }
   }
 
   function handleGrade(g) {
@@ -47,26 +74,6 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
     setGrades(next)
     if (idx + 1 >= cards.length) setDone(true)
     else setIdx(i => i + 1)
-  }
-
-  // Swipe handling
-  function onTouchStart(e) {
-    touchStart.current = e.touches[0].clientX
-  }
-
-  function onTouchMove(e) {
-    if (!flipped || touchStart.current === null) return
-    const dx = e.touches[0].clientX - touchStart.current
-    if (Math.abs(dx) > 30) setSwipeHint(dx < 0 ? 'left' : 'right')
-    else setSwipeHint(null)
-  }
-
-  function onTouchEnd(e) {
-    if (!flipped || touchStart.current === null) return
-    const dx = e.changedTouches[0].clientX - touchStart.current
-    touchStart.current = null
-    setSwipeHint(null)
-    if (Math.abs(dx) > 80) handleGrade(dx < 0 ? 1 : 5)
   }
 
   // Summary screen
@@ -118,12 +125,7 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
   if (!card) return null
 
   return (
-    <div
-      className="flex flex-col min-h-screen bg-[var(--bg-app)] px-5 py-6 select-none"
-      onTouchStart={onTouchStart}
-      onTouchMove={onTouchMove}
-      onTouchEnd={onTouchEnd}
-    >
+    <div className="flex flex-col min-h-screen bg-[var(--bg-app)] px-5 py-6 select-none">
       {/* Top bar */}
       <div className="flex items-center justify-between mb-4">
         <button onClick={onDone} className="p-2 rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] text-[var(--text-muted)] active:scale-95 transition-transform">
@@ -132,7 +134,12 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
         <span className="text-xs font-mono text-[var(--text-muted)] bg-[var(--bg-card)] border border-[var(--border-card)] px-3 py-1 rounded-full">
           {idx + 1} / {cards.length}
         </span>
-        <div className="w-10" />
+        <button
+          onClick={toggleTheme}
+          className="p-2 rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] text-[var(--text-wolof)] active:scale-95 transition-transform"
+        >
+          {theme === 'dark' ? <Sun className="w-4 h-4 text-[#fbbf24]" /> : <Moon className="w-4 h-4 text-[#0f766e]" />}
+        </button>
       </div>
 
       {/* Progress bar */}
@@ -142,22 +149,6 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
           style={{ width: `${(idx / cards.length) * 100}%` }}
         />
       </div>
-
-      {/* Swipe hint overlay */}
-      {flipped && swipeHint && (
-        <div className={`fixed inset-0 pointer-events-none z-20 flex items-center ${swipeHint === 'left' ? 'justify-start pl-8' : 'justify-end pr-8'}`}>
-          <div className={`text-5xl font-black opacity-60 ${swipeHint === 'left' ? 'text-red-400' : 'text-emerald-400'}`}>
-            {swipeHint === 'left' ? '✗' : '✓'}
-          </div>
-        </div>
-      )}
-
-      {/* Swipe hint text (only when flipped) */}
-      {flipped && !swipeHint && (
-        <p className="text-center text-[10px] text-[var(--text-muted)]/50 mb-1 font-mono">
-          ← swipe ou utilise les boutons →
-        </p>
-      )}
 
       {/* Card */}
       <div className="flex-1 flex flex-col justify-center">

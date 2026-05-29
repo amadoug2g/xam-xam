@@ -1,9 +1,17 @@
+import { useRef } from 'react'
 import { Volume2, Sparkles, Languages, Eye } from 'lucide-react'
 
-export default function FlipCard({ card, flipped, onFlip }) {
+export default function FlipCard({ card, flipped, onFlip, reversed = false }) {
+  const audioRef = useRef(null)
   const replayAudio = (e) => {
     e.stopPropagation()
-    if (card?.audioWo) new Audio(card.audioWo).play().catch(() => {})
+    if (audioRef.current) { audioRef.current.pause(); audioRef.current = null }
+    const src = reversed ? card?.audioFr : card?.audioWo
+    if (src) {
+      const a = new Audio(src)
+      audioRef.current = a
+      a.play().catch(() => {})
+    }
   }
 
   return (
@@ -40,7 +48,7 @@ export default function FlipCard({ card, flipped, onFlip }) {
             <span className="text-[10px] tracking-wider uppercase text-[var(--text-muted)] font-mono flex items-center gap-1.5 bg-[var(--btn-secondary-bg)] px-2.5 py-1 rounded-full border border-[var(--btn-secondary-border)]">
               <Sparkles className="w-3 h-3 text-[var(--text-wolof)]" /> Écoutez & Répétez
             </span>
-            {card.audioWo && (
+            {(reversed ? card.audioFr : card.audioWo) && (
               <button
                 onClick={replayAudio}
                 className="p-2 bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-wolof)] active:scale-95 transition-all duration-150 flex items-center justify-center rounded-full shadow-sm"
@@ -52,10 +60,10 @@ export default function FlipCard({ card, flipped, onFlip }) {
 
           <div className="flex flex-col items-center justify-center text-center px-4 flex-1">
             <h2 className="text-3xl font-bold text-[var(--text-wolof)] tracking-wide leading-snug drop-shadow-md">
-              {card.wo}
+              {reversed ? card.fr : card.wo}
             </h2>
             <p className="text-xs text-[var(--text-muted)] mt-3 uppercase tracking-widest font-mono">
-              Wolof
+              {reversed ? 'FRANÇAIS' : 'WOLOF'}
             </p>
           </div>
 
@@ -91,13 +99,13 @@ export default function FlipCard({ card, flipped, onFlip }) {
 
           <div className="flex flex-col items-center justify-center text-center px-4 flex-1">
             <span className="text-sm font-semibold text-[var(--text-wolof)]/60 mb-3">
-              {card.wo}
+              {reversed ? card.fr : card.wo}
             </span>
             <h2 className="text-2xl font-bold text-[var(--text-primary)] tracking-wide leading-snug drop-shadow-md">
-              {card.fr}
+              {reversed ? card.wo : card.fr}
             </h2>
             <p className="text-xs text-[var(--text-muted)] mt-3 uppercase tracking-widest font-mono">
-              Français
+              {reversed ? 'WOLOF' : 'Français'}
             </p>
           </div>
 
