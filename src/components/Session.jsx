@@ -65,7 +65,7 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
     const dx = e.changedTouches[0].clientX - touchStart.current
     touchStart.current = null
     setSwipeHint(null)
-    if (Math.abs(dx) > 80) handleGrade(dx < 0 ? 1 : 4)
+    if (Math.abs(dx) > 80) handleGrade(dx < 0 ? 1 : 5)
   }
 
   // Summary screen
