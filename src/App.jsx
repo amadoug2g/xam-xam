@@ -12,6 +12,7 @@ import LessonList from './components/LessonList'
 import LessonDetail from './components/LessonDetail'
 import Session from './components/Session'
 import AdminEditor from './components/AdminEditor'
+import LessonSelector from './components/LessonSelector'
 
 export default function App() {
   const [route, setRoute] = useState({ page: 'home', lessonId: null })
@@ -20,7 +21,9 @@ export default function App() {
 
   if (route.page === 'admin')       return <AdminEditor onBack={() => go('home')} />
   if (route.page === 'lesson')      return <LessonDetail lessonId={route.lessonId} onStart={() => go('session', route.lessonId)} onBack={() => go('home')} onAdmin={() => go('admin')} />
-  if (route.page === 'session')     return <Session lessonId={route.lessonId} onDone={() => go('home')} />
-  if (route.page === 'review-all')  return <Session cards={route.cards} onDone={() => go('home')} />
-  return <LessonList onSelect={id => go('lesson', id)} onReviewAll={cards => go('review-all', null, cards)} onAdmin={() => go('admin')} />
+  if (route.page === 'session')     return <Session lessonId={route.lessonId} onDone={() => go('home')} onRepeat={() => go('session', route.lessonId)} />
+  if (route.page === 'review-all')  return <Session cards={route.cards} onDone={() => go('home')} onRepeat={() => go('review-all', null, route.cards)} />
+  if (route.page === 'select')      return <LessonSelector onStart={cards => go('multi', null, cards)} onBack={() => go('home')} />
+  if (route.page === 'multi')       return <Session cards={route.cards} onDone={() => go('home')} onRepeat={() => go('multi', null, route.cards)} />
+  return <LessonList onSelect={id => go('lesson', id)} onReviewAll={cards => go('review-all', null, cards)} onAdmin={() => go('admin')} onSelectLessons={() => go('select')} />
 }

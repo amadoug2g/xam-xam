@@ -4,9 +4,9 @@ import { srs } from '../core/srs'
 import { streak as streakStore } from '../core/streak'
 import { lessonVerified } from '../core/lessonVerified'
 import { useTheme } from '../core/useTheme'
-import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon, Flame, Zap, Settings, ShieldCheck, Search, X } from 'lucide-react'
+import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon, Flame, Zap, Settings, ShieldCheck, Search, X, ListChecks } from 'lucide-react'
 
-export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
+export default function LessonList({ onSelect, onReviewAll, onAdmin, onSelectLessons }) {
   const { theme, toggleTheme } = useTheme()
   const [search, setSearch] = useState('')
   const [searchOpen, setSearchOpen] = useState(false)
@@ -179,6 +179,15 @@ export default function LessonList({ onSelect, onReviewAll, onAdmin }) {
           <span className="absolute right-4 w-8 h-8 rounded-full bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-300 opacity-20" />
         </button>
       )}
+
+      {/* Multi-lesson selector */}
+      <button
+        onClick={onSelectLessons}
+        className="w-full py-3 px-5 mb-2 rounded-2xl bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-muted)] font-semibold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition-all duration-150"
+      >
+        <ListChecks className="w-4 h-4" />
+        <span>Choisir les leçons</span>
+      </button>
 
       {/* Scrollable Lesson List */}
       <div className="flex-1 flex flex-col gap-4">

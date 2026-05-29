@@ -8,7 +8,7 @@ import { useTheme } from '../core/useTheme'
 import FlipCard from './FlipCard'
 import GradeBar from './GradeBar'
 
-export default function Session({ lessonId, cards: cardsProp, onDone }) {
+export default function Session({ lessonId, cards: cardsProp, onDone, onRepeat }) {
   const lesson = lessonId ? LESSONS.find(l => l.id === lessonId) : null
   const [flipped, setFlipped] = useState(false)
   const [grades, setGrades] = useState([])
@@ -156,21 +156,21 @@ export default function Session({ lessonId, cards: cardsProp, onDone }) {
           </div>
         )}
 
-        {uniqueFailedCards.length > 0 && (
+        {onRepeat && (
           <button
-            onClick={onDone}
-            className="w-full max-w-xs py-3 rounded-2xl bg-red-500/20 border border-red-500/30 text-red-400 font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition-all"
+            onClick={onRepeat}
+            className={`w-full max-w-xs py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 active:scale-[0.98] transition-all shadow-lg ${uniqueFailedCards.length > 0 ? 'bg-[var(--text-wolof)] text-[var(--accent-btn-text)]' : 'bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-primary)]'}`}
           >
-            Réviser à nouveau
+            <Zap className="w-5 h-5 fill-current" />
+            Répéter la session
           </button>
         )}
 
         <button
           onClick={onDone}
-          className="w-full max-w-xs py-4 rounded-2xl bg-[var(--text-wolof)] text-[var(--accent-btn-text)] font-bold text-base flex items-center justify-center gap-2 active:scale-[0.98] transition-all shadow-lg"
+          className={`w-full max-w-xs py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 active:scale-[0.98] transition-all shadow-lg ${uniqueFailedCards.length > 0 || !onRepeat ? 'bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] text-[var(--text-primary)]' : 'bg-[var(--text-wolof)] text-[var(--accent-btn-text)]'}`}
         >
-          <Zap className="w-5 h-5 fill-current" />
-          Retour à l'accueil
+          Terminer
         </button>
       </div>
     )
