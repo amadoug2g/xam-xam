@@ -137,7 +137,19 @@ def detect_segments_vad(
         tmp_path = tmp.name
     try:
         audio_16k.export(tmp_path, format="wav")
-        wav = read_audio(tmp_path)
+        # Use scipy to load WAV — avoids torchcodec dependency in newer torchaudio
+        try:
+            from scipy.io import wavfile as scipy_wavfile
+            import numpy as _np
+            _sr, _data = scipy_wavfile.read(tmp_path)
+            if _data.dtype != _np.float32:
+                _data = _data.astype(_np.float32) / (_np.iinfo(_data.dtype).max if _np.issubdtype(_data.dtype, _np.integer) else 1.0)
+            if _data.ndim > 1:
+                _data = _data.mean(axis=1)
+            import torch as _torch
+            wav = _torch.FloatTensor(_data)
+        except Exception:
+            wav = read_audio(tmp_path)
     finally:
         os.unlink(tmp_path)
 
@@ -505,16 +517,17 @@ def transcribe_segments(exported: list[dict], output_dir: str, model_size: str =
                                 ("target_file", item["target_lang"])]:
             filename = item[file_key]
             filepath = os.path.join(output_dir, filename)
+
+            # Skip WO segments — Whisper hallucinate on Wolof
+            if lang != "fr":
+                transcriptions[filename] = "..."
+                continue
+
             if not os.path.exists(filepath):
                 continue
 
-            lang_hint = "fr" if lang == "fr" else None
             print(f"  Transcribing {filename}...", end=" ", flush=True)
-            opts = {"fp16": False}
-            if lang_hint:
-                opts["language"] = lang_hint
-
-            result = model.transcribe(filepath, **opts)
+            result = model.transcribe(filepath, fp16=False, language="fr")
             text = result["text"].strip()
             transcriptions[filename] = text
             print(f'-> "{text}"')
