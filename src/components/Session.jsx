@@ -9,14 +9,14 @@ import { failedStore } from '../core/failedStore'
 import FlipCard from './FlipCard'
 import GradeBar from './GradeBar'
 
-export default function Session({ lessonId, cards: cardsProp, onDone, onRepeat, onRepeatFailed, initialAudioOnly = false }) {
+export default function Session({ lessonId, cards: cardsProp, onDone, onRepeat, onRepeatFailed, initialAudioOnly = false, initialReversed = false }) {
   const lesson = lessonId ? LESSONS.find(l => l.id === lessonId) : null
   const [flipped, setFlipped] = useState(false)
   const [grades, setGrades] = useState([])
   const [done, setDone] = useState(false)
   const [failedCards, setFailedCards] = useState([])
   const [lastGradeByCard, setLastGradeByCard] = useState({})
-  const [reversed, setReversed] = useState(false)
+  const [reversed, setReversed] = useState(initialReversed)
   const [audioOnly, setAudioOnly] = useState(initialAudioOnly)
   const [queue, setQueue] = useState([])
   const audioRef = useRef(null)

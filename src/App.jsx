@@ -17,9 +17,9 @@ import SessionModePicker from './components/SessionModePicker'
 import { failedStore } from './core/failedStore'
 
 export default function App() {
-  const [route, setRoute] = useState({ page: 'home', lessonId: null, cards: null, audioOnly: false })
+  const [route, setRoute] = useState({ page: 'home', lessonId: null, cards: null, audioOnly: false, reversed: false })
 
-  const go = (page, lessonId = null, cards = null, audioOnly = false) => setRoute({ page, lessonId, cards, audioOnly })
+  const go = (page, lessonId = null, cards = null, audioOnly = false, reversed = false) => setRoute({ page, lessonId, cards, audioOnly, reversed })
 
   // Before launching any session, go through mode picker
   const startSession = (lessonId, cards = null) => go('mode-pick', lessonId, cards)
@@ -29,19 +29,19 @@ export default function App() {
 
   if (route.page === 'mode-pick')   return (
     <SessionModePicker
-      onSelect={ao => {
-        if (route.lessonId) go('session', route.lessonId, null, ao)
-        else go('multi', null, route.cards, ao)
+      onSelect={({ audioOnly, reversed }) => {
+        if (route.lessonId) go('session', route.lessonId, null, audioOnly, reversed)
+        else go('multi', null, route.cards, audioOnly, reversed)
       }}
       onBack={() => route.lessonId ? go('lesson', route.lessonId) : go('home')}
     />
   )
 
-  if (route.page === 'session')     return <Session lessonId={route.lessonId} initialAudioOnly={route.audioOnly} onDone={() => go('home')} onRepeat={() => startSession(route.lessonId)} onRepeatFailed={fc => go('multi', null, fc)} />
-  if (route.page === 'review-all')  return <Session cards={route.cards} initialAudioOnly={route.audioOnly} onDone={() => go('home')} onRepeat={() => go('mode-pick', null, route.cards)} onRepeatFailed={fc => go('multi', null, fc)} />
+  if (route.page === 'session')     return <Session lessonId={route.lessonId} initialAudioOnly={route.audioOnly} initialReversed={route.reversed} onDone={() => go('home')} onRepeat={() => startSession(route.lessonId)} onRepeatFailed={fc => go('multi', null, fc)} />
+  if (route.page === 'review-all')  return <Session cards={route.cards} initialAudioOnly={route.audioOnly} initialReversed={route.reversed} onDone={() => go('home')} onRepeat={() => go('mode-pick', null, route.cards)} onRepeatFailed={fc => go('multi', null, fc)} />
   if (route.page === 'select')      return <LessonSelector onStart={cards => go('mode-pick', null, cards)} onBack={() => go('home')} />
-  if (route.page === 'multi')       return <Session cards={route.cards} initialAudioOnly={route.audioOnly} onDone={() => go('home')} onRepeat={() => go('mode-pick', null, route.cards)} onRepeatFailed={fc => go('multi', null, fc)} />
-  if (route.page === 'retry-failed') return <Session cards={route.cards} initialAudioOnly={route.audioOnly} onDone={() => go('home')} onRepeatFailed={fc => go('multi', null, fc)} />
+  if (route.page === 'multi')       return <Session cards={route.cards} initialAudioOnly={route.audioOnly} initialReversed={route.reversed} onDone={() => go('home')} onRepeat={() => go('mode-pick', null, route.cards)} onRepeatFailed={fc => go('multi', null, fc)} />
+  if (route.page === 'retry-failed') return <Session cards={route.cards} initialAudioOnly={route.audioOnly} initialReversed={route.reversed} onDone={() => go('home')} onRepeatFailed={fc => go('multi', null, fc)} />
 
   return <LessonList
     onSelect={id => go('lesson', id)}

@@ -1,6 +1,10 @@
-import { Headphones, BookOpen, ArrowLeft } from 'lucide-react'
+import { useState } from 'react'
+import { Headphones, BookOpen, ArrowLeft, ArrowRight } from 'lucide-react'
 
 export default function SessionModePicker({ onSelect, onBack }) {
+  const [reversed, setReversed] = useState(false)
+  const [audioOnly, setAudioOnly] = useState(false)
+
   return (
     <div className="flex flex-col min-h-screen bg-[var(--bg-app)] text-[var(--text-primary)] px-5 py-8 animate-fade-in-up">
       <div className="flex items-center mb-8">
@@ -12,36 +16,58 @@ export default function SessionModePicker({ onSelect, onBack }) {
         </button>
       </div>
 
-      <div className="flex-1 flex flex-col justify-center gap-6">
-        <div className="text-center mb-4">
-          <h1 className="text-2xl font-bold text-[var(--text-primary)]">Mode de révision</h1>
-          <p className="text-sm text-[var(--text-muted)] mt-2">Comment veux-tu réviser ?</p>
+      <div className="flex-1 flex flex-col justify-center gap-8">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-[var(--text-primary)]">Paramètres de session</h1>
+          <p className="text-sm text-[var(--text-muted)] mt-2">Choisis comment tu veux réviser</p>
         </div>
 
-        <button
-          onClick={() => onSelect(false)}
-          className="w-full p-6 bg-[var(--bg-card)] border-2 border-[var(--border-card)] hover:border-[var(--text-wolof)]/40 rounded-3xl flex flex-col items-center gap-3 active:scale-[0.98] transition-all shadow-md"
-        >
-          <div className="p-4 bg-[var(--text-wolof)]/10 rounded-2xl">
-            <BookOpen className="w-8 h-8 text-[var(--text-wolof)]" />
+        {/* Direction */}
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-muted)] mb-3 px-1">Direction</p>
+          <div className="flex gap-3">
+            <button
+              onClick={() => setReversed(false)}
+              className={`flex-1 p-4 rounded-2xl border-2 flex flex-col items-center gap-2 active:scale-[0.97] transition-all ${!reversed ? 'border-[var(--text-wolof)] bg-[var(--text-wolof)]/10 text-[var(--text-wolof)]' : 'border-[var(--border-card)] bg-[var(--bg-card)] text-[var(--text-muted)]'}`}
+            >
+              <span className="text-sm font-semibold">Wolof → FR</span>
+            </button>
+            <button
+              onClick={() => setReversed(true)}
+              className={`flex-1 p-4 rounded-2xl border-2 flex flex-col items-center gap-2 active:scale-[0.97] transition-all ${reversed ? 'border-[var(--text-wolof)] bg-[var(--text-wolof)]/10 text-[var(--text-wolof)]' : 'border-[var(--border-card)] bg-[var(--bg-card)] text-[var(--text-muted)]'}`}
+            >
+              <span className="text-sm font-semibold">FR → Wolof</span>
+            </button>
           </div>
-          <div className="text-center">
-            <p className="font-bold text-lg text-[var(--text-primary)]">Avec le texte</p>
-            <p className="text-sm text-[var(--text-muted)] mt-1">Vois les mots écrits — idéal pour apprendre</p>
-          </div>
-        </button>
+        </div>
 
+        {/* Mode */}
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-muted)] mb-3 px-1">Mode</p>
+          <div className="flex gap-3">
+            <button
+              onClick={() => setAudioOnly(false)}
+              className={`flex-1 p-4 rounded-2xl border-2 flex flex-col items-center gap-2 active:scale-[0.97] transition-all ${!audioOnly ? 'border-[var(--text-wolof)] bg-[var(--text-wolof)]/10 text-[var(--text-wolof)]' : 'border-[var(--border-card)] bg-[var(--bg-card)] text-[var(--text-muted)]'}`}
+            >
+              <BookOpen className="w-5 h-5" />
+              <span className="text-sm font-semibold">Avec texte</span>
+            </button>
+            <button
+              onClick={() => setAudioOnly(true)}
+              className={`flex-1 p-4 rounded-2xl border-2 flex flex-col items-center gap-2 active:scale-[0.97] transition-all ${audioOnly ? 'border-amber-400 bg-amber-400/10 text-amber-400' : 'border-[var(--border-card)] bg-[var(--bg-card)] text-[var(--text-muted)]'}`}
+            >
+              <Headphones className="w-5 h-5" />
+              <span className="text-sm font-semibold">Sans texte</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Start */}
         <button
-          onClick={() => onSelect(true)}
-          className="w-full p-6 bg-[var(--bg-card)] border-2 border-[var(--border-card)] hover:border-amber-400/40 rounded-3xl flex flex-col items-center gap-3 active:scale-[0.98] transition-all shadow-md"
+          onClick={() => onSelect({ audioOnly, reversed })}
+          className="w-full py-4 bg-[var(--text-wolof)] text-white font-bold text-lg rounded-2xl active:scale-[0.98] transition-all shadow-md mt-2"
         >
-          <div className="p-4 bg-amber-400/10 rounded-2xl">
-            <Headphones className="w-8 h-8 text-amber-400" />
-          </div>
-          <div className="text-center">
-            <p className="font-bold text-lg text-[var(--text-primary)]">Sans texte</p>
-            <p className="text-sm text-[var(--text-muted)] mt-1">Entraîne l'oreille — plus difficile, plus efficace</p>
-          </div>
+          Commencer
         </button>
       </div>
     </div>
