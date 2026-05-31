@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Xam-Xam Matcher</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f1117;--surface:#1a1d26;--surface2:#242736;
+  --fr:#3b82f6;--wo:#22c55e;--alt:#f59e0b;--skip:#4b5563;
+  --danger:#ef4444;--text:#e5e7eb;--muted:#9ca3af;--border:#2d3148;
+}
+body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;font-size:14px;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+button{cursor:pointer;border:none;border-radius:6px;font-size:13px;font-weight:500}
+
+/* ── Setup ── */
+#setup{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;gap:24px}
+#setup h1{font-size:1.8rem;font-weight:700}
+.setup-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;width:500px;display:flex;flex-direction:column;gap:18px}
+.sf{display:flex;flex-direction:column;gap:6px}
+.sf label{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.sf input[type=text]{background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:8px 12px;font-size:14px;outline:none;transition:border-color .15s}
+.sf input[type=text]:focus{border-color:var(--fr)}
+.sf input[type=file]{color:var(--muted);font-size:13px;cursor:pointer}
+.fstatus{font-size:12px;color:var(--muted);margin-left:6px}
+.fstatus.ok{color:var(--wo)}
+#start-btn{background:var(--fr);color:#fff;padding:12px;border-radius:8px;font-size:15px;font-weight:700;margin-top:4px;transition:opacity .15s}
+#start-btn:not(:disabled):hover{opacity:.85}
+#start-btn:disabled{opacity:.4;cursor:not-allowed}
+
+/* ── Matcher ── */
+#matcher{display:flex;flex-direction:column;flex:1;overflow:hidden}
+.mhdr{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.mhdr h1{font-size:1rem;font-weight:700}
+.hdr-r{display:flex;align-items:center;gap:12px}
+#stats{font-size:12px;color:var(--muted)}
+#export-btn{background:var(--wo);color:#000;padding:8px 18px;font-weight:700;border-radius:8px;font-size:13px}
+#export-btn:hover{opacity:.85}
+.mbody{display:flex;flex:1;overflow:hidden}
+
+/* ── Segments panel ── */
+.spanel{flex:1;overflow-y:auto;border-right:1px solid var(--border)}
+.spanel-hdr{padding:8px 12px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px}
+.spanel-hdr h2{font-size:13px;font-weight:700;color:var(--muted)}
+.seg-row{display:grid;grid-template-columns:50px 34px 40px 1fr;gap:6px;align-items:start;padding:7px 10px;border-bottom:1px solid var(--border);border-left:3px solid transparent;transition:background .1s}
+.seg-row:hover{background:var(--surface2)}
+.seg-row.l-fr{border-left-color:var(--fr)}
+.seg-row.l-wo{border-left-color:var(--wo)}
+.seg-row.l-alt{border-left-color:var(--alt)}
+.seg-row.l-skip{border-left-color:var(--skip);opacity:.45}
+.seg-row.l-none{border-left-color:var(--danger)}
+.seg-idx{font-family:monospace;font-size:11px;color:var(--muted);padding-top:6px}
+.play-btn{width:28px;height:28px;border-radius:50%;background:var(--surface2);color:var(--text);font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--border);margin-top:2px}
+.play-btn:hover,.play-btn.playing{background:var(--fr);color:#fff;border-color:var(--fr)}
+.seg-dur{font-size:11px;color:var(--muted);text-align:right;padding-top:8px}
+.seg-body{display:flex;flex-direction:column;gap:5px;min-width:0}
+.lang-row{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.lb{padding:3px 9px;border-radius:4px;font-size:11px;font-weight:700;background:var(--surface2);color:var(--muted);border:1px solid var(--border);transition:all .1s}
+.lb:hover{border-color:var(--text);color:var(--text)}
+.lb.a-fr{background:var(--fr)!important;color:#fff!important;border-color:var(--fr)!important}
+.lb.a-wo{background:var(--wo)!important;color:#000!important;border-color:var(--wo)!important}
+.lb.a-alt{background:var(--alt)!important;color:#000!important;border-color:var(--alt)!important}
+.lb.a-skip{background:var(--skip)!important;color:#fff!important;border-color:var(--skip)!important}
+.seg-inp{background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);font-size:13px;padding:2px 0;width:100%;outline:none;font-family:inherit}
+.seg-inp:focus{border-bottom-color:var(--fr)}
+.seg-inp::placeholder{color:var(--skip);font-style:italic;font-size:12px}
+
+/* ── Cards panel ── */
+.cpanel{width:320px;overflow-y:auto;flex-shrink:0;background:var(--surface)}
+.cpanel-hdr{padding:8px 12px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;background:var(--surface)}
+.cpanel-hdr h2{font-size:13px;font-weight:700;color:var(--muted)}
+.card-item{padding:10px 12px;border-bottom:1px solid var(--border)}
+.card-num{font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+.card-row{display:flex;align-items:center;gap:6px;min-height:20px;margin-bottom:2px}
+.ctag{font-size:9px;font-weight:800;width:20px;text-align:center;border-radius:3px;padding:1px 2px;flex-shrink:0;text-transform:uppercase}
+.ctag.fr{background:var(--fr);color:#fff}
+.ctag.wo{background:var(--wo);color:#000}
+.ctext{font-size:12px;flex:1;line-height:1.4;word-break:break-word}
+.ctext.miss{color:var(--danger);font-style:italic}
+.cplay{background:transparent;color:var(--muted);font-size:9px;padding:2px 5px;border-radius:3px;border:1px solid var(--border);flex-shrink:0}
+.cplay:hover{background:var(--surface2);color:var(--text)}
+</style>
+</head>
+<body>
+
+<div id="setup">
+  <h1>Xam-Xam Matcher</h1>
+  <div class="setup-box">
+    <div class="sf">
+      <label>1. Manifest JSON <span class="fstatus" id="ms"></span></label>
+      <input type="file" id="manifest-in" accept=".json">
+    </div>
+    <div class="sf">
+      <label>2. Fichiers audio (selectionner tous les seg_*.mp3) <span class="fstatus" id="as"></span></label>
+      <input type="file" id="audio-in" multiple accept="audio/*,.mp3">
+    </div>
+    <div class="sf">
+      <label>3. ID de lecon</label>
+      <input type="text" id="lid" placeholder="ex: contacts">
+    </div>
+    <div class="sf">
+      <label>4. Titre</label>
+      <input type="text" id="ltitle" placeholder="ex: Les contacts">
+    </div>
+    <button id="start-btn" disabled>Charger les fichiers d'abord</button>
+  </div>
+</div>
+
+<div id="matcher" style="display:none">
+  <div class="mhdr">
+    <h1 id="mhdr-title"></h1>
+    <div class="hdr-r">
+      <span id="stats"></span>
+      <button id="export-btn">Exporter lesson.json</button>
+    </div>
+  </div>
+  <div class="mbody">
+    <div class="spanel">
+      <div class="spanel-hdr">
+        <h2>Segments</h2>
+        <span id="seg-ct" style="font-size:11px;color:var(--muted)"></span>
+      </div>
+      <div id="segs"></div>
+    </div>
+    <div class="cpanel">
+      <div class="cpanel-hdr">
+        <h2>Cartes <span id="card-ct" style="font-weight:400"></span></h2>
+      </div>
+      <div id="cards"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const S = { id:'', title:'', urls:{}, segs:[], audio:null };
+let mOk=false, aOk=false;
+
+// ── Setup ──────────────────────────────────────────────────
+document.getElementById('manifest-in').addEventListener('change', e => {
+  const f = e.target.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = ev => {
+    try {
+      const d = JSON.parse(ev.target.result);
+      S.segs = (d.segments||[]).map(s => ({
+        index: s.index, file: s.file,
+        dur: s.duration_ms, whisper: s.whisper||'',
+        lang: null, text: ''
+      }));
+      const lid = d.lesson_id||'';
+      document.getElementById('lid').value = lid;
+      document.getElementById('ltitle').value = lid;
+      setStatus('ms', `✓ ${S.segs.length} segments`, true);
+      mOk = true; checkReady();
+    } catch(e2) { alert('Erreur manifest: '+e2.message); }
+  };
+  r.readAsText(f);
+});
+
+document.getElementById('audio-in').addEventListener('change', e => {
+  S.urls = {};
+  Array.from(e.target.files).forEach(f => { S.urls[f.name] = URL.createObjectURL(f); });
+  setStatus('as', `✓ ${e.target.files.length} fichiers`, true);
+  aOk = true; checkReady();
+});
+
+function setStatus(id, txt, ok) {
+  const el = document.getElementById(id);
+  el.textContent = txt;
+  el.className = ok ? 'fstatus ok' : 'fstatus';
+}
+
+function checkReady() {
+  const btn = document.getElementById('start-btn');
+  btn.disabled = !(mOk && aOk);
+  btn.textContent = btn.disabled ? 'Charger les fichiers d\'abord' : 'Demarrer →';
+}
+
+document.getElementById('start-btn').addEventListener('click', () => {
+  S.id    = document.getElementById('lid').value.trim() || 'lesson';
+  S.title = document.getElementById('ltitle').value.trim() || S.id;
+  document.getElementById('setup').style.display = 'none';
+  document.getElementById('matcher').style.display = 'flex';
+  document.getElementById('mhdr-title').textContent = `${S.id} — ${S.title}`;
+  renderSegs();
+  refreshRight();
+});
+
+// ── Segments ───────────────────────────────────────────────
+function renderSegs() {
+  const el = document.getElementById('segs');
+  el.innerHTML = S.segs.map((seg,i) => `
+    <div class="seg-row l-none" id="sr${i}">
+      <div class="seg-idx">#${pad3(i)}</div>
+      <button class="play-btn" data-i="${i}">▶</button>
+      <div class="seg-dur">${(seg.dur/1000).toFixed(1)}s</div>
+      <div class="seg-body">
+        <div class="lang-row">
+          <button class="lb" data-i="${i}" data-l="FR">FR</button>
+          <button class="lb" data-i="${i}" data-l="WO">WO</button>
+          <button class="lb" data-i="${i}" data-l="ALT">ALT</button>
+          <button class="lb" data-i="${i}" data-l="SKIP">—</button>
+        </div>
+        <input class="seg-inp" type="text" data-i="${i}"
+          value="${esc(seg.text)}"
+          placeholder="${esc(seg.whisper||'Texte...')}">
+      </div>
+    </div>
+  `).join('');
+
+  el.addEventListener('click', ev => {
+    const pb = ev.target.closest('.play-btn');
+    if (pb) { playAt(+pb.dataset.i); return; }
+    const lb = ev.target.closest('.lb');
+    if (lb) { toggleLang(+lb.dataset.i, lb.dataset.l); return; }
+  });
+  el.addEventListener('input', ev => {
+    const inp = ev.target.closest('.seg-inp');
+    if (inp) { S.segs[+inp.dataset.i].text = inp.value; refreshRight(); }
+  });
+  document.getElementById('seg-ct').textContent = `(${S.segs.length})`;
+}
+
+function toggleLang(i, lang) {
+  const seg = S.segs[i];
+  const prev = seg.lang;
+  seg.lang = seg.lang === lang ? null : lang;
+
+  // Auto-fill text from Whisper when marking FR
+  if (seg.lang === 'FR' && !seg.text && seg.whisper) {
+    seg.text = seg.whisper;
+    const inp = document.querySelector(`#sr${i} .seg-inp`);
+    if (inp) inp.value = seg.text;
+  }
+  // Clear auto-filled text when un-marking FR
+  if (prev === 'FR' && seg.lang !== 'FR' && seg.text === seg.whisper) {
+    seg.text = '';
+    const inp = document.querySelector(`#sr${i} .seg-inp`);
+    if (inp) inp.value = '';
+  }
+
+  updateRow(i);
+  refreshRight();
+}
+
+function updateRow(i) {
+  const seg = S.segs[i];
+  const row = document.getElementById(`sr${i}`);
+  if (!row) return;
+  const lc = seg.lang ? seg.lang.toLowerCase() : 'none';
+  row.className = `seg-row l-${lc}`;
+  row.querySelectorAll('.lb').forEach(b => {
+    b.className = 'lb';
+    if (b.dataset.l === seg.lang) b.classList.add(`a-${lc}`);
+  });
+  const inp = row.querySelector('.seg-inp');
+  if (inp) {
+    if (!seg.lang || seg.lang === 'SKIP') {
+      inp.placeholder = seg.whisper || 'Non assigne...';
+    } else if (seg.lang === 'FR') {
+      inp.placeholder = seg.whisper || 'Texte francais...';
+    } else {
+      inp.placeholder = 'Texte Wolof (CLAD)...';
+    }
+  }
+}
+
+function playAt(i) {
+  const seg = S.segs[i];
+  const url = S.urls[seg.file];
+  if (!url) { alert(`Fichier absent: ${seg.file}`); return; }
+  if (S.audio) { S.audio.pause(); }
+  document.querySelectorAll('.play-btn.playing').forEach(b => b.classList.remove('playing'));
+  S.audio = new Audio(url);
+  const btn = document.querySelector(`#sr${i} .play-btn`);
+  if (btn) btn.classList.add('playing');
+  S.audio.play();
+  S.audio.onended = () => { if(btn) btn.classList.remove('playing'); };
+}
+
+// ── Cards logic ─────────────────────────────────────────────
+function buildCards() {
+  const cards = [];
+  let last = null;
+  for (const seg of S.segs) {
+    if (!seg.lang || seg.lang === 'SKIP') continue;
+    if (seg.lang === 'FR') {
+      last = { fr: seg.text||'', afr: seg.file, wo: null, awo: null };
+      cards.push(last);
+    } else if (seg.lang === 'WO') {
+      if (last && last.awo === null) {
+        last.wo = seg.text||''; last.awo = seg.file;
+      } else {
+        const c = { fr:'', afr:null, wo: seg.text||'', awo: seg.file };
+        cards.push(c); last = c;
+      }
+    } else if (seg.lang === 'ALT') {
+      const src = last;
+      const c = { fr: src?src.fr:'', afr: src?src.afr:null, wo: seg.text||'', awo: seg.file };
+      cards.push(c); last = c;
+    }
+  }
+  return cards;
+}
+
+// ── Render cards + stats ────────────────────────────────────
+function refreshRight() {
+  const cards = buildCards();
+  document.getElementById('card-ct').textContent = `(${cards.length})`;
+
+  const cl = document.getElementById('cards');
+  cl.innerHTML = cards.map((c,i) => {
+    const fpb = c.afr && S.urls[c.afr] ? `<button class="cplay" data-url="${S.urls[c.afr]}">▶</button>` : '';
+    const wpb = c.awo && S.urls[c.awo] ? `<button class="cplay" data-url="${S.urls[c.awo]}">▶</button>` : '';
+    const ft = esc(c.fr) || '<i class="miss">manquant</i>';
+    const wt = esc(c.wo) || '<i class="miss">manquant</i>';
+    return `<div class="card-item">
+      <div class="card-num">Carte ${i+1}</div>
+      <div class="card-row"><span class="ctag fr">FR</span><span class="ctext">${ft}</span>${fpb}</div>
+      <div class="card-row"><span class="ctag wo">WO</span><span class="ctext">${wt}</span>${wpb}</div>
+    </div>`;
+  }).join('');
+
+  cl.querySelectorAll('.cplay').forEach(b => b.addEventListener('click', () => {
+    if(S.audio) S.audio.pause();
+    S.audio = new Audio(b.dataset.url);
+    S.audio.play();
+  }));
+
+  // Stats
+  const tot = S.segs.length;
+  const none = S.segs.filter(s => !s.lang).length;
+  const skip = S.segs.filter(s => s.lang==='SKIP').length;
+  const inc = cards.filter(c => !c.wo || !c.fr).length;
+  const warn = inc > 0 ? ` · ⚠ ${inc} carte(s) incomplete(s)` : ' · ✓ OK';
+  document.getElementById('stats').textContent =
+    `${tot - none - skip} assignes · ${skip} ignores · ${none} restants${warn}`;
+}
+
+// ── Export ──────────────────────────────────────────────────
+document.getElementById('export-btn').addEventListener('click', () => {
+  const cards = buildCards();
+  if (!cards.length) { alert('Aucune carte.'); return; }
+
+  const audioMap = [];
+  let fi = 0;
+  const cardData = cards.map((c,i) => {
+    let afr=null, awo=null;
+    if (c.afr) {
+      const fn = `${pad2(fi)}_fr.mp3`;
+      audioMap.push({from:c.afr, to:fn});
+      afr = `/audio/${S.id}/${fn}`;
+      fi++;
+    }
+    if (c.awo) {
+      const fn = `${pad2(fi)}_wo.mp3`;
+      audioMap.push({from:c.awo, to:fn});
+      awo = `/audio/${S.id}/${fn}`;
+      fi++;
+    }
+    return {
+      id: `${S.id}_${pad2(i+1)}`,
+      lessonId: S.id,
+      position: i+1,
+      fr: c.fr || 'TODO',
+      wo: c.wo || 'TODO',
+      audioFr: afr,
+      audioWo: awo
+    };
+  });
+
+  const out = {
+    id: S.id, title: S.title, description: 'TODO',
+    cards: cardData, _audio_map: audioMap
+  };
+
+  const blob = new Blob([JSON.stringify(out,null,2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href=url; a.download=`lesson_${S.id}.json`; a.click();
+  URL.revokeObjectURL(url);
+});
+
+// ── Utils ───────────────────────────────────────────────────
+function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function pad3(n){ return String(n).padStart(3,'0'); }
+function pad2(n){ return String(n).padStart(2,'0'); }
+</script>
+</body>
+</html>

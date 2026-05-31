@@ -1,3 +1,11 @@
 node_modules/
 dist/
 .DS_Store
+
+# Fichiers Assimil originaux (jamais dans le repo)
+*.m4a
+uploads/
+
+# Segments bruts intermediaires (pipeline de matching, non commites)
+scripts/output/*_raw/
+scripts/output/manifest_*.json
