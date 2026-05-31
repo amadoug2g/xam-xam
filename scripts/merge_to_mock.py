@@ -10,12 +10,14 @@ import re
 MOCK_PATH = os.path.join(os.path.dirname(__file__), '..', 'src', 'data', 'mock.js')
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), 'output')
 
-STUB_LESSONS = [
-    'ville', 'musees', 'poste', 'telephone', 'internet', 'administration', 'banque',
-    'spectacles', 'coiffeur', 'campagne', 'camping', 'animaux', 'hebergement',
-    'restaurant', 'mets', 'alcool', 'boissons', 'magasins', 'vetements', 'tabac',
-    'photo', 'provisions', 'souvenirs', 'rdv-pro', 'sante', 'lecon51', 'lecon52'
-]
+# Auto-scan: tous les lesson_*.json dans scripts/output/ sont traités.
+# Plus besoin de maintenir cette liste manuellement.
+def get_lesson_ids():
+    ids = []
+    for f in sorted(os.listdir(OUTPUT_DIR)):
+        if f.startswith('lesson_') and f.endswith('.json'):
+            ids.append(f[len('lesson_'):-len('.json')])
+    return ids
 
 def escape_js_string(s):
     """Escape a string for JS single-quoted string."""
@@ -65,7 +67,7 @@ def main():
     with open(MOCK_PATH, 'r') as f:
         content = f.read()
 
-    for lid in STUB_LESSONS:
+    for lid in get_lesson_ids():
         # Load the translated JSON
         json_path = os.path.join(OUTPUT_DIR, f'lesson_{lid}.json')
         with open(json_path, 'r') as f:
