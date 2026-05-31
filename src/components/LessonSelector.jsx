@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { LESSONS } from '../data/mock'
+import { lessonStore } from '../core/lessonStore'
 import { srs } from '../core/srs'
-import { applyOverrides } from '../core/cardOverrides'
 import { ArrowLeft, Zap, CheckCircle2 } from 'lucide-react'
 
 export default function LessonSelector({ onStart, onBack }) {
+  const LESSONS = lessonStore.getLessons()
   const activeLessons = LESSONS.filter(l => l.cards.length > 0 && l.cards.some(c => c.wo !== '...'))
 
   const dueByLesson = Object.fromEntries(
@@ -39,7 +39,7 @@ export default function LessonSelector({ onStart, onBack }) {
 
   function handleStart() {
     const selectedLessons = activeLessons.filter(l => selected.has(l.id))
-    const merged = selectedLessons.flatMap(l => applyOverrides(l.cards).filter(c => c.wo !== '...'))
+    const merged = selectedLessons.flatMap(l => l.cards.filter(c => c.wo !== '...'))
     onStart(merged)
   }
 

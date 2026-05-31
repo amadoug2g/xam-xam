@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { LESSONS } from '../data/mock'
+import { lessonStore } from '../core/lessonStore'
 import { srs } from '../core/srs'
 import { streak as streakStore } from '../core/streak'
 import { lessonVerified } from '../core/lessonVerified'
@@ -8,6 +8,7 @@ import { useTheme } from '../core/useTheme'
 import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon, Flame, Zap, Settings, ShieldCheck, Search, X, ListChecks, Headphones, RefreshCw } from 'lucide-react'
 
 export default function LessonList({ onSelect, onReviewAll, onAdmin, onSelectLessons, onRetryFailed }) {
+  const LESSONS = lessonStore.getLessons()
   const lastFailed = failedStore.get()
   const { theme, toggleTheme } = useTheme()
   const [search, setSearch] = useState('')

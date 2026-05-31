@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
 import { X, CheckCircle2, XCircle, HelpCircle, Zap, Sun, Moon, Languages, Headphones } from 'lucide-react'
-import { LESSONS } from '../data/mock'
+import { lessonStore } from '../core/lessonStore'
 import { srs } from '../core/srs'
-import { applyOverrides } from '../core/cardOverrides'
 import { streak } from '../core/streak'
 import { useTheme } from '../core/useTheme'
 import { failedStore } from '../core/failedStore'
@@ -10,6 +9,7 @@ import FlipCard from './FlipCard'
 import GradeBar from './GradeBar'
 
 export default function Session({ lessonId, cards: cardsProp, onDone, onRepeat, onRepeatFailed, initialAudioOnly = false, initialReversed = false }) {
+  const LESSONS = lessonStore.getLessons()
   const lesson = lessonId ? LESSONS.find(l => l.id === lessonId) : null
   const [flipped, setFlipped] = useState(false)
   const [grades, setGrades] = useState([])
@@ -23,7 +23,7 @@ export default function Session({ lessonId, cards: cardsProp, onDone, onRepeat, 
   const { theme, toggleTheme } = useTheme()
 
   const cards = useMemo(() => {
-    const base = applyOverrides(cardsProp || lesson?.cards || [])
+    const base = cardsProp || lesson?.cards || []
     const arr = [...base]
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));

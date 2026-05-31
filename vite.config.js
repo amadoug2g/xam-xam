@@ -4,7 +4,7 @@ import pkg from './package.json'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/xam-xam/',
+  base: '/',
   publicDir: 'public',
   define: {
     __APP_VERSION__: JSON.stringify(pkg.version),
