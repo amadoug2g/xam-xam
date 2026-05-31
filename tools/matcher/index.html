@@ -210,6 +210,11 @@ function renderSegs() {
   `).join('');
 
   el.addEventListener('click', ev => {
+    const row = ev.target.closest('.seg-row');
+    if (row) {
+      const idx = +row.id.replace('sr', '');
+      focusSeg(idx);
+    }
     const pb = ev.target.closest('.play-btn');
     if (pb) { playAt(+pb.dataset.i); return; }
     const lb = ev.target.closest('.lb');
@@ -286,19 +291,23 @@ function buildCards() {
   for (const seg of S.segs) {
     if (!seg.lang || seg.lang === 'SKIP') continue;
     if (seg.lang === 'FR') {
-      last = { fr: seg.text||'', afr: seg.file, wo: null, awo: null };
+      last = { variants: [{ fr: seg.text||'', afr: seg.file, wo: null, awo: null }] };
       cards.push(last);
     } else if (seg.lang === 'WO') {
-      if (last && last.awo === null) {
-        last.wo = seg.text||''; last.awo = seg.file;
+      const lastV = last ? last.variants[last.variants.length - 1] : null;
+      if (lastV && lastV.awo === null) {
+        lastV.wo = seg.text || '';
+        lastV.awo = seg.file;
       } else {
-        const c = { fr:'', afr:null, wo: seg.text||'', awo: seg.file };
-        cards.push(c); last = c;
+        const c = { variants: [{ fr: '', afr: null, wo: seg.text||'', awo: seg.file }] };
+        cards.push(c);
+        last = c;
       }
     } else if (seg.lang === 'ALT') {
-      const src = last;
-      const c = { fr: src?src.fr:'', afr: src?src.afr:null, wo: seg.text||'', awo: seg.file };
-      cards.push(c); last = c;
+      if (last) {
+        const base = last.variants[0];
+        last.variants.push({ fr: base.fr, afr: base.afr, wo: seg.text||'', awo: seg.file });
+      }
     }
   }
   return cards;
@@ -311,15 +320,19 @@ function refreshRight() {
 
   const cl = document.getElementById('cards');
   cl.innerHTML = cards.map((c,i) => {
-    const fpb = c.afr && S.urls[c.afr] ? `<button class="cplay" data-url="${S.urls[c.afr]}">▶</button>` : '';
-    const wpb = c.awo && S.urls[c.awo] ? `<button class="cplay" data-url="${S.urls[c.awo]}">▶</button>` : '';
-    const ft = esc(c.fr) || '<i class="miss">manquant</i>';
-    const wt = esc(c.wo) || '<i class="miss">manquant</i>';
-    return `<div class="card-item">
-      <div class="card-num">Carte ${i+1}</div>
-      <div class="card-row"><span class="ctag fr">FR</span><span class="ctext">${ft}</span>${fpb}</div>
-      <div class="card-row"><span class="ctag wo">WO</span><span class="ctext">${wt}</span>${wpb}</div>
-    </div>`;
+    const varRows = c.variants.map((v, vi) => {
+      const vLabel = c.variants.length > 1 ? `<span class="ctag" style="background:#7c3aed;color:#fff">V${vi+1}</span>` : '';
+      const fpb = v.afr && S.urls[v.afr] ? `<button class="cplay" data-url="${S.urls[v.afr]}">▶</button>` : '';
+      const wpb = v.awo && S.urls[v.awo] ? `<button class="cplay" data-url="${S.urls[v.awo]}">▶</button>` : '';
+      const ft = esc(v.fr) || '<i style="color:#ef4444">manquant</i>';
+      const wt = esc(v.wo) || '<i style="color:#ef4444">manquant</i>';
+      return `
+        ${vi > 0 ? '<div style="border-top:1px solid var(--border);margin:4px 0"></div>' : ''}
+        <div class="card-row">${vLabel}<span class="ctag fr">FR</span><span class="ctext">${ft}</span>${fpb}</div>
+        <div class="card-row">${vLabel}<span class="ctag wo">WO</span><span class="ctext">${wt}</span>${wpb}</div>
+      `;
+    }).join('');
+    return `<div class="card-item"><div class="card-num">Carte ${i+1}</div>${varRows}</div>`;
   }).join('');
 
   cl.querySelectorAll('.cplay').forEach(b => b.addEventListener('click', () => {
@@ -339,53 +352,146 @@ function refreshRight() {
 }
 
 // ── Export ──────────────────────────────────────────────────
-document.getElementById('export-btn').addEventListener('click', () => {
+function exportLesson() {
   const cards = buildCards();
   if (!cards.length) { alert('Aucune carte.'); return; }
 
   const audioMap = [];
   let fi = 0;
-  const cardData = cards.map((c,i) => {
-    let afr=null, awo=null;
-    if (c.afr) {
-      const fn = `${pad2(fi)}_fr.mp3`;
-      audioMap.push({from:c.afr, to:fn});
-      afr = `/audio/${S.id}/${fn}`;
-      fi++;
-    }
-    if (c.awo) {
-      const fn = `${pad2(fi)}_wo.mp3`;
-      audioMap.push({from:c.awo, to:fn});
-      awo = `/audio/${S.id}/${fn}`;
-      fi++;
-    }
+
+  const cardData = cards.map((c, i) => {
+    const pos = i + 1;
+    const id = `${S.id}_${pad2(pos)}`;
+
+    const variants = c.variants.map(v => {
+      let audioFr = null, audioWo = null;
+      if (v.afr) {
+        const fn = `${pad2(fi)}_fr.mp3`;
+        audioMap.push({ from: v.afr, to: fn });
+        audioFr = `/audio/${S.id}/${fn}`;
+        fi++;
+      }
+      if (v.awo) {
+        const fn = `${pad2(fi)}_wo.mp3`;
+        audioMap.push({ from: v.awo, to: fn });
+        audioWo = `/audio/${S.id}/${fn}`;
+        fi++;
+      }
+      return { fr: v.fr || 'TODO', wo: v.wo || 'TODO', audioFr, audioWo };
+    });
+
     return {
-      id: `${S.id}_${pad2(i+1)}`,
+      id,
       lessonId: S.id,
-      position: i+1,
-      fr: c.fr || 'TODO',
-      wo: c.wo || 'TODO',
-      audioFr: afr,
-      audioWo: awo
+      position: pos,
+      fr: variants[0].fr,
+      wo: variants[0].wo,
+      variants,
     };
   });
 
   const out = {
     id: S.id, title: S.title, description: 'TODO',
-    cards: cardData, _audio_map: audioMap
+    cards: cardData, _audio_map: audioMap,
   };
 
-  const blob = new Blob([JSON.stringify(out,null,2)], {type:'application/json'});
+  const blob = new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
-  a.href=url; a.download=`lesson_${S.id}.json`; a.click();
+  a.href = url; a.download = `lesson_${S.id}.json`; a.click();
   URL.revokeObjectURL(url);
-});
+}
+
+document.getElementById('export-btn').addEventListener('click', exportLesson);
 
 // ── Utils ───────────────────────────────────────────────────
 function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function pad3(n){ return String(n).padStart(3,'0'); }
 function pad2(n){ return String(n).padStart(2,'0'); }
+
+// ── Raccourcis clavier ─────────────────────────────────────
+let focusedIdx = -1;
+
+function focusSeg(idx) {
+  if (idx < 0 || idx >= S.segs.length) return;
+  // Retirer focus précédent
+  if (focusedIdx >= 0) {
+    const prev = document.getElementById(`sr${focusedIdx}`);
+    if (prev) prev.style.outline = '';
+  }
+  focusedIdx = idx;
+  const row = document.getElementById(`sr${focusedIdx}`);
+  if (row) {
+    row.style.outline = '2px solid var(--fr)';
+    row.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+}
+
+document.addEventListener('keydown', e => {
+  // Ne pas intercepter si l'utilisateur est dans un champ texte
+  if (e.target.tagName === 'INPUT') {
+    if (e.key === 'Escape') e.target.blur();
+    return;
+  }
+  if (document.getElementById('matcher').style.display === 'none') return;
+
+  switch (e.key) {
+    case 'ArrowDown': e.preventDefault(); focusSeg(focusedIdx + 1); break;
+    case 'ArrowUp':   e.preventDefault(); focusSeg(focusedIdx - 1); break;
+    case 'f': case 'F': if (focusedIdx >= 0) { toggleLang(focusedIdx, 'FR'); } break;
+    case 'w': case 'W': if (focusedIdx >= 0) { toggleLang(focusedIdx, 'WO'); } break;
+    case 'a': case 'A': if (focusedIdx >= 0) { toggleLang(focusedIdx, 'ALT'); } break;
+    case 's': case 'S': if (focusedIdx >= 0) { toggleLang(focusedIdx, 'SKIP'); } break;
+    case ' ':
+      e.preventDefault();
+      if (focusedIdx >= 0) playAt(focusedIdx);
+      break;
+  }
+});
+
+// ── Auto-save localStorage ─────────────────────────────────
+const SAVE_KEY = 'xam_matcher_save';
+
+function autoSave() {
+  if (!S.id) return;
+  const save = { id: S.id, title: S.title, segs: S.segs.map(s => ({ index: s.index, file: s.file, lang: s.lang, text: s.text })) };
+  localStorage.setItem(SAVE_KEY, JSON.stringify(save));
+}
+
+function checkRestore() {
+  const raw = localStorage.getItem(SAVE_KEY);
+  if (!raw) return;
+  try {
+    const save = JSON.parse(raw);
+    if (save.id && confirm(`Session sauvegardée trouvée : ${save.id} (${save.segs.length} segments). Restaurer ?`)) {
+      S.id    = save.id;
+      S.title = save.title;
+      document.getElementById('lid').value = S.id;
+      document.getElementById('ltitle').value = S.title;
+      // Merge saved state into S.segs (si manifest déjà chargé)
+      if (S.segs.length > 0) {
+        save.segs.forEach(sv => {
+          const seg = S.segs.find(s => s.file === sv.file);
+          if (seg) { seg.lang = sv.lang; seg.text = sv.text; }
+        });
+        renderSegs();
+        S.segs.forEach((_, i) => updateRow(i));
+        refreshRight();
+      }
+    }
+  } catch(e) { /* ignore */ }
+}
+
+setInterval(autoSave, 30000); // auto-save toutes les 30s
+
+// Restaurer après le démarrage du matcher
+const origStartClick = document.getElementById('start-btn').onclick;
+document.getElementById('start-btn').addEventListener('click', () => {
+  setTimeout(() => {
+    checkRestore();
+    focusSeg(0);
+  }, 100);
+});
 </script>
 </body>
 </html>

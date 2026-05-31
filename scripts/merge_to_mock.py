@@ -24,19 +24,42 @@ def escape_js_string(s):
     return s
 
 def card_to_js(card, base_var='BASE'):
-    """Convert a card dict to a JS object string."""
+    """Convert a card dict (v1 or v2 format) to a JS object string."""
     cid = card['id']
     lid = card['lessonId']
     pos = card['position']
-    wo = escape_js_string(card['wo'])
-    fr = escape_js_string(card['fr'])
-    awo = card['audioWo']  # e.g. /audio/ville/01_wo.mp3
-    afr = card['audioFr']  # e.g. /audio/ville/00_fr.mp3 or null
 
-    awo_js = f"`${{{base_var}}}{awo.lstrip('/')}`" if awo else 'null'
-    afr_js = f"`${{{base_var}}}{afr.lstrip('/')}`" if afr else 'null'
+    # Support both old format (fr/wo at root) and new format (variants)
+    variants = card.get('variants')
+    if not variants:
+        variants = [{
+            'fr': card.get('fr', ''),
+            'wo': card.get('wo', ''),
+            'audioFr': card.get('audioFr'),
+            'audioWo': card.get('audioWo'),
+        }]
 
-    return f"      {{ id: '{cid}', lessonId: '{lid}', position: {pos}, wo: '{wo}', fr: '{fr}', audioWo: {awo_js}, audioFr: {afr_js} }}"
+    fr_root = escape_js_string(card.get('fr') or variants[0]['fr'])
+    wo_root = escape_js_string(card.get('wo') or variants[0]['wo'])
+
+    variant_parts = []
+    for v in variants:
+        vfr = escape_js_string(v.get('fr', ''))
+        vwo = escape_js_string(v.get('wo', ''))
+        afr = v.get('audioFr')
+        awo = v.get('audioWo')
+        afr_js = f"`${{{base_var}}}{afr.lstrip('/')}`" if afr else 'null'
+        awo_js = f"`${{{base_var}}}{awo.lstrip('/')}`" if awo else 'null'
+        variant_parts.append(
+            f"{{ fr: '{vfr}', wo: '{vwo}', audioFr: {afr_js}, audioWo: {awo_js} }}"
+        )
+
+    variants_js = ', '.join(variant_parts)
+    return (
+        f"      {{ id: '{cid}', lessonId: '{lid}', position: {pos}, "
+        f"fr: '{fr_root}', wo: '{wo_root}', "
+        f"variants: [{variants_js}] }}"
+    )
 
 def main():
     with open(MOCK_PATH, 'r') as f:
