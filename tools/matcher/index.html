@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Xam-Xam Matcher</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f1117;--surface:#1a1d26;--surface2:#242736;
+  --fr:#3b82f6;--wo:#22c55e;--alt:#f59e0b;--skip:#4b5563;
+  --danger:#ef4444;--text:#e5e7eb;--muted:#9ca3af;--border:#2d3148;
+  --done:#22c55e;--todo:#f59e0b;
+}
+body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;font-size:14px;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+button{cursor:pointer;border:none;border-radius:6px;font-size:13px;font-weight:500}
+
+/* ── Screens ── */
+.screen{display:none;flex:1;flex-direction:column;overflow:hidden}
+.screen.active{display:flex}
+
+/* ── Home ── */
+#home{align-items:stretch;overflow-y:auto}
+.home-inner{padding:24px;display:flex;flex-direction:column;gap:20px;max-width:960px;margin:0 auto;width:100%}
+.home-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.home-header h1{font-size:1.6rem;font-weight:700}
+.home-handles{display:flex;gap:10px;flex-wrap:wrap}
+.handle-btn{background:var(--surface);border:1px solid var(--border);color:var(--text);padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;transition:border-color .15s}
+.handle-btn:hover{border-color:var(--fr)}
+.handle-btn.ok{border-color:var(--done);color:var(--done)}
+.lesson-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.lesson-tile{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;cursor:pointer;transition:all .15s;display:flex;flex-direction:column;gap:4px}
+.lesson-tile:hover{border-color:var(--fr);background:var(--surface2)}
+.lesson-tile.done{border-left:3px solid var(--done)}
+.lesson-tile.todo{border-left:3px solid var(--todo)}
+.tile-track{font-size:10px;color:var(--muted);font-weight:700}
+.tile-title{font-size:12px;font-weight:600;line-height:1.3}
+.tile-status{font-size:11px;margin-top:2px}
+.lesson-tile.done .tile-status{color:var(--done)}
+.lesson-tile.todo .tile-status{color:var(--todo)}
+
+/* ── Split ── */
+#split{overflow:hidden}
+.split-hdr{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0}
+.back-btn{background:var(--surface2);color:var(--text);padding:6px 12px;border-radius:6px;font-size:12px;border:1px solid var(--border)}
+.back-btn:hover{border-color:var(--fr)}
+.split-hdr h1{font-size:1rem;font-weight:700}
+.split-body{flex:1;overflow-y:auto;padding:24px;display:flex;flex-direction:column;gap:20px;max-width:720px;margin:0 auto;width:100%}
+.split-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.split-card h2{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.split-filename{font-family:monospace;font-size:14px;color:var(--alt);padding:8px 12px;background:var(--surface2);border-radius:6px}
+.split-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.load-auto-btn{background:var(--fr);color:#fff;padding:8px 16px;border-radius:7px;font-weight:700}
+.load-auto-btn:hover{opacity:.85}
+.load-auto-btn:disabled{opacity:.4;cursor:not-allowed}
+input[type=file].split-file{color:var(--muted);font-size:13px;cursor:pointer}
+.slider-group{display:flex;flex-direction:column;gap:10px}
+.slider-row{display:flex;align-items:center;gap:10px}
+.slider-row label{font-size:12px;color:var(--muted);width:160px;flex-shrink:0}
+.slider-row input[type=range]{flex:1;accent-color:var(--fr)}
+.slider-row .sv{font-size:12px;color:var(--text);width:50px;text-align:right}
+.split-btn{background:var(--wo);color:#000;padding:10px 20px;border-radius:8px;font-weight:700;font-size:14px;align-self:flex-start}
+.split-btn:hover{opacity:.85}
+.split-btn:disabled{opacity:.4;cursor:not-allowed}
+.seg-preview-list{display:flex;flex-direction:column;gap:4px;max-height:300px;overflow-y:auto}
+.seg-preview-item{display:flex;align-items:center;gap:10px;padding:6px 10px;background:var(--surface2);border-radius:6px}
+.seg-preview-num{font-family:monospace;font-size:11px;color:var(--muted);width:40px}
+.seg-preview-dur{font-size:11px;color:var(--muted);width:55px}
+.seg-preview-play{width:26px;height:26px;border-radius:50%;background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.seg-preview-play:hover,.seg-preview-play.playing{background:var(--fr);color:#fff;border-color:var(--fr)}
+.continue-btn{background:var(--fr);color:#fff;padding:12px 24px;border-radius:8px;font-weight:700;font-size:15px;align-self:flex-start}
+.continue-btn:hover{opacity:.85}
+.split-status{font-size:13px;color:var(--muted)}
+.split-status.ok{color:var(--wo)}
+.split-status.err{color:var(--danger)}
+
+/* ── Matcher ── */
+#matcher{overflow:hidden}
+.mhdr{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;gap:10px;flex-wrap:wrap}
+.mhdr-left{display:flex;align-items:center;gap:10px}
+.mhdr h1{font-size:1rem;font-weight:700}
+.hdr-r{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+#stats{font-size:12px;color:var(--muted)}
+#export-btn{background:var(--wo);color:#000;padding:8px 18px;font-weight:700;border-radius:8px;font-size:13px}
+#export-btn:hover{opacity:.85}
+.mbody{display:flex;flex:1;overflow:hidden}
+
+/* ── Segments panel ── */
+.spanel{flex:1;overflow-y:auto;border-right:1px solid var(--border)}
+.spanel-hdr{padding:8px 12px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px}
+.spanel-hdr h2{font-size:13px;font-weight:700;color:var(--muted)}
+.seg-row{display:grid;grid-template-columns:50px 34px 40px 1fr;gap:6px;align-items:start;padding:7px 10px;border-bottom:1px solid var(--border);border-left:3px solid transparent;transition:background .1s}
+.seg-row:hover{background:var(--surface2)}
+.seg-row.l-fr{border-left-color:var(--fr)}
+.seg-row.l-wo{border-left-color:var(--wo)}
+.seg-row.l-alt{border-left-color:var(--alt)}
+.seg-row.l-skip{border-left-color:var(--skip);opacity:.45}
+.seg-row.l-none{border-left-color:var(--danger)}
+.seg-idx{font-family:monospace;font-size:11px;color:var(--muted);padding-top:6px}
+.play-btn{width:28px;height:28px;border-radius:50%;background:var(--surface2);color:var(--text);font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--border);margin-top:2px}
+.play-btn:hover,.play-btn.playing{background:var(--fr);color:#fff;border-color:var(--fr)}
+.seg-dur{font-size:11px;color:var(--muted);text-align:right;padding-top:8px}
+.seg-body{display:flex;flex-direction:column;gap:5px;min-width:0}
+.lang-row{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.lb{padding:3px 9px;border-radius:4px;font-size:11px;font-weight:700;background:var(--surface2);color:var(--muted);border:1px solid var(--border);transition:all .1s}
+.lb:hover{border-color:var(--text);color:var(--text)}
+.lb.a-fr{background:var(--fr)!important;color:#fff!important;border-color:var(--fr)!important}
+.lb.a-wo{background:var(--wo)!important;color:#000!important;border-color:var(--wo)!important}
+.lb.a-alt{background:var(--alt)!important;color:#000!important;border-color:var(--alt)!important}
+.lb.a-skip{background:var(--skip)!important;color:#fff!important;border-color:var(--skip)!important}
+.seg-inp{background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);font-size:13px;padding:2px 0;width:100%;outline:none;font-family:inherit}
+.seg-inp:focus{border-bottom-color:var(--fr)}
+.seg-inp::placeholder{color:var(--skip);font-style:italic;font-size:12px}
+
+/* ── Cards panel ── */
+.cpanel{width:320px;overflow-y:auto;flex-shrink:0;background:var(--surface)}
+.cpanel-hdr{padding:8px 12px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;background:var(--surface)}
+.cpanel-hdr h2{font-size:13px;font-weight:700;color:var(--muted)}
+.card-item{padding:10px 12px;border-bottom:1px solid var(--border)}
+.card-num{font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+.card-row{display:flex;align-items:center;gap:6px;min-height:20px;margin-bottom:2px}
+.ctag{font-size:9px;font-weight:800;width:20px;text-align:center;border-radius:3px;padding:1px 2px;flex-shrink:0;text-transform:uppercase}
+.ctag.fr{background:var(--fr);color:#fff}
+.ctag.wo{background:var(--wo);color:#000}
+.ctext{font-size:12px;flex:1;line-height:1.4;word-break:break-word}
+.ctext.miss{color:var(--danger);font-style:italic}
+.cplay{background:transparent;color:var(--muted);font-size:9px;padding:2px 5px;border-radius:3px;border:1px solid var(--border);flex-shrink:0}
+.cplay:hover{background:var(--surface2);color:var(--text)}
+
+/* ── Progress overlay ── */
+#progress-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:100;flex-direction:column;gap:14px}
+#progress-overlay.visible{display:flex}
+.progress-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 36px;text-align:center;display:flex;flex-direction:column;gap:12px}
+.progress-box h2{font-size:15px;font-weight:700}
+.progress-bar-wrap{background:var(--surface2);border-radius:6px;height:8px;width:300px;overflow:hidden}
+.progress-bar{height:100%;background:var(--fr);border-radius:6px;transition:width .1s;width:0%}
+.progress-msg{font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- Progress overlay -->
+<div id="progress-overlay">
+  <div class="progress-box">
+    <h2 id="prog-title">Traitement en cours...</h2>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="prog-bar"></div></div>
+    <div class="progress-msg" id="prog-msg">Veuillez patienter</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ECRAN 1 : HOME                                      -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="home" class="screen active">
+  <div class="home-inner">
+    <div class="home-header">
+      <h1>Xam-Xam Matcher</h1>
+      <div class="home-handles">
+        <button class="handle-btn" id="btn-repo">Selectionner dossier repo</button>
+        <button class="handle-btn" id="btn-assimil">Selectionner dossier Assimil</button>
+      </div>
+    </div>
+    <div style="display:flex;gap:16px;font-size:12px;flex-wrap:wrap">
+      <span id="repo-status" style="color:var(--muted)">Repo : non defini</span>
+      <span id="assimil-status" style="color:var(--muted)">Assimil : non defini</span>
+    </div>
+    <div class="lesson-grid" id="lesson-grid"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ECRAN 2 : SPLIT                                     -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="split" class="screen">
+  <div class="split-hdr">
+    <button class="back-btn" id="split-back">&#8592; Retour</button>
+    <h1 id="split-title"></h1>
+  </div>
+  <div class="split-body">
+    <!-- Fichier attendu -->
+    <div class="split-card">
+      <h2>Fichier Assimil</h2>
+      <div class="split-filename" id="split-expected-file">—</div>
+      <div class="split-row">
+        <button class="load-auto-btn" id="btn-load-auto" disabled>Charger automatiquement</button>
+        <span style="color:var(--muted);font-size:12px">ou</span>
+        <input type="file" class="split-file" id="split-file-input" accept="audio/*">
+      </div>
+      <div class="split-status" id="split-load-status"></div>
+    </div>
+
+    <!-- Parametres split -->
+    <div class="split-card" id="split-params-card" style="display:none">
+      <h2>Parametres de decoupe</h2>
+      <div class="slider-group">
+        <div class="slider-row">
+          <label>Seuil de silence (RMS)</label>
+          <input type="range" id="sl-thresh" min="0.005" max="0.1" step="0.001" value="0.015">
+          <span class="sv" id="sv-thresh">0.015</span>
+        </div>
+        <div class="slider-row">
+          <label>Duree min silence (ms)</label>
+          <input type="range" id="sl-minsi" min="200" max="1500" step="50" value="400">
+          <span class="sv" id="sv-minsi">400</span>
+        </div>
+        <div class="slider-row">
+          <label>Padding (ms)</label>
+          <input type="range" id="sl-pad" min="0" max="300" step="10" value="100">
+          <span class="sv" id="sv-pad">100</span>
+        </div>
+      </div>
+      <button class="split-btn" id="btn-split">Splitter</button>
+    </div>
+
+    <!-- Resultats split -->
+    <div class="split-card" id="split-results-card" style="display:none">
+      <h2>Segments detectes</h2>
+      <div class="split-status ok" id="split-seg-count"></div>
+      <div class="seg-preview-list" id="split-seg-list"></div>
+      <button class="continue-btn" id="btn-continue">Continuer vers le matching &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ECRAN 3 : MATCHER                                   -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="matcher" class="screen">
+  <div class="mhdr">
+    <div class="mhdr-left">
+      <button class="back-btn" id="matcher-back">&#8592; Retour</button>
+      <h1 id="mhdr-title"></h1>
+    </div>
+    <div class="hdr-r">
+      <span id="stats"></span>
+      <button id="export-btn">Exporter vers repo</button>
+    </div>
+  </div>
+  <div class="mbody">
+    <div class="spanel">
+      <div class="spanel-hdr">
+        <h2>Segments</h2>
+        <span id="seg-ct" style="font-size:11px;color:var(--muted)"></span>
+      </div>
+      <div id="segs"></div>
+    </div>
+    <div class="cpanel">
+      <div class="cpanel-hdr">
+        <h2>Cartes <span id="card-ct" style="font-weight:400"></span></h2>
+      </div>
+      <div id="cards"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// ETAT GLOBAL
+// ═══════════════════════════════════════════════════════
+const S = {
+  repoHandle: null,
+  assimilHandle: null,
+  currentLesson: null, // {track, id, title, done}
+  segs: [],            // [{index, file, dur, whisper, lang, text, start_ms, end_ms}]
+  segBlobs: {},        // {file: Blob WAV}
+  segUrls: {},         // {file: ObjectURL} — crees a la demande
+  id: '',
+  title: '',
+  audio: null,
+  splitAudioBuffer: null, // AudioBuffer du MP3 charge pour split
+};
+
+// ═══════════════════════════════════════════════════════
+// LESSONS MAP
+// ═══════════════════════════════════════════════════════
+const LESSONS_MAP = [
+  { track: 1,  id: 'compter',         title: 'Compter en wolof',                done: true  },
+  { track: 2,  id: 'temps',           title: 'Se reperer dans le temps',         done: true  },
+  { track: 3,  id: 'espace',          title: "Se reperer dans l'espace",         done: true  },
+  { track: 4,  id: 'questions',       title: 'Poser des questions',              done: true  },
+  { track: 5,  id: 'mots-quotidiens', title: 'Mots du quotidien',                done: true  },
+  { track: 6,  id: 'contacts',        title: 'Les contacts',                     done: false },
+  { track: 7,  id: 'langues',         title: 'Les langues',                      done: true  },
+  { track: 8,  id: 'rencontre',       title: 'La rencontre',                     done: true  },
+  { track: 9,  id: 'famille',         title: 'La famille',                       done: true  },
+  { track: 10, id: 'emploi',          title: "L'emploi",                         done: true  },
+  { track: 11, id: 'religion',        title: 'La religion',                      done: true  },
+  { track: 12, id: 'proverbes',       title: 'Les proverbes',                    done: true  },
+  { track: 13, id: 'meteo',           title: 'La meteo',                         done: true  },
+  { track: 14, id: 'sentiments',      title: 'Les sentiments',                   done: true  },
+  { track: 15, id: 'invitation',      title: "L'invitation",                     done: true  },
+  { track: 16, id: 'amour',           title: "L'amour",                          done: true  },
+  { track: 17, id: 'fetes',           title: 'Les fetes',                        done: true  },
+  { track: 18, id: 'aide',            title: "L'aide",                           done: true  },
+  { track: 19, id: 'voyager',         title: 'Voyager',                          done: true  },
+  { track: 20, id: 'change',          title: 'Le change',                        done: true  },
+  { track: 21, id: 'avion',           title: "L'avion",                          done: true  },
+  { track: 22, id: 'train',           title: 'Le train',                         done: true  },
+  { track: 23, id: 'bateau',          title: 'Le bateau',                        done: true  },
+  { track: 24, id: 'taxi',            title: 'Le taxi',                          done: true  },
+  { track: 25, id: 'voiture',         title: 'La voiture',                       done: true  },
+  { track: 26, id: 'ville',           title: 'La ville',                         done: true  },
+  { track: 27, id: 'musees',          title: 'Les musees',                       done: true  },
+  { track: 28, id: 'poste',           title: 'La poste',                         done: true  },
+  { track: 29, id: 'telephone',       title: 'Le telephone',                     done: true  },
+  { track: 30, id: 'internet',        title: 'Internet',                         done: true  },
+  { track: 31, id: 'administration',  title: "L'administration",                 done: true  },
+  { track: 32, id: 'banque',          title: 'La banque',                        done: true  },
+  { track: 33, id: 'spectacles',      title: 'Les spectacles',                   done: true  },
+  { track: 34, id: 'coiffeur',        title: 'Le coiffeur',                      done: true  },
+  { track: 35, id: 'campagne',        title: 'La campagne',                      done: true  },
+  { track: 36, id: 'camping',         title: 'Le camping',                       done: true  },
+  { track: 37, id: 'animaux',         title: 'Les animaux',                      done: true  },
+  { track: 38, id: 'hebergement',     title: "L'hebergement",                    done: true  },
+  { track: 39, id: 'restaurant',      title: 'Au restaurant',                    done: true  },
+  { track: 40, id: 'mets',            title: 'Les mets',                         done: true  },
+  { track: 41, id: 'alcool',          title: "L'alcool",                         done: true  },
+  { track: 42, id: 'boissons',        title: 'Les boissons',                     done: true  },
+  { track: 43, id: 'magasins',        title: 'Les magasins',                     done: true  },
+  { track: 44, id: 'vetements',       title: 'Les vetements',                    done: true  },
+  { track: 45, id: 'tabac',           title: 'Le tabac',                         done: true  },
+  { track: 46, id: 'photo',           title: 'La photo',                         done: true  },
+  { track: 47, id: 'provisions',      title: 'Les provisions',                   done: true  },
+  { track: 48, id: 'souvenirs',       title: 'Les souvenirs',                    done: true  },
+  { track: 49, id: 'rdv-pro',         title: 'Rendez-vous pro',                  done: true  },
+  { track: 50, id: 'sante',           title: 'La sante',                         done: true  },
+  { track: 51, id: 'lecon51',         title: 'Lecon 51',                         done: true  },
+  { track: 52, id: 'lecon52',         title: 'Lecon 52',                         done: true  },
+];
+
+// ═══════════════════════════════════════════════════════
+// NAVIGATION ENTRE ECRANS
+// ═══════════════════════════════════════════════════════
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+// ═══════════════════════════════════════════════════════
+// INDEXEDDB — persistence des handles
+// ═══════════════════════════════════════════════════════
+let db = null;
+function openDB() {
+  return new Promise((res, rej) => {
+    const req = indexedDB.open('xam-xam-matcher', 1);
+    req.onupgradeneeded = e => { e.target.result.createObjectStore('handles'); };
+    req.onsuccess = e => { db = e.target.result; res(db); };
+    req.onerror = e => rej(e);
+  });
+}
+function dbPut(key, val) {
+  if (!db) return;
+  const tx = db.transaction('handles', 'readwrite');
+  tx.objectStore('handles').put(val, key);
+}
+function dbGet(key) {
+  return new Promise((res) => {
+    if (!db) { res(null); return; }
+    const tx = db.transaction('handles', 'readonly');
+    const req = tx.objectStore('handles').get(key);
+    req.onsuccess = e => res(e.target.result || null);
+    req.onerror = () => res(null);
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// HOME — init
+// ═══════════════════════════════════════════════════════
+async function initHome() {
+  // Tenter de restaurer les handles depuis IndexedDB
+  try {
+    const rh = await dbGet('repoHandle');
+    if (rh) {
+      const perm = await rh.queryPermission({ mode: 'readwrite' });
+      if (perm === 'granted') { S.repoHandle = rh; updateRepoStatus(); }
+    }
+    const ah = await dbGet('assimilHandle');
+    if (ah) {
+      const perm = await ah.queryPermission({ mode: 'read' });
+      if (perm === 'granted') { S.assimilHandle = ah; updateAssimilStatus(); }
+    }
+  } catch(_) {}
+
+  renderLessons();
+}
+
+function updateRepoStatus() {
+  const el = document.getElementById('repo-status');
+  if (S.repoHandle) {
+    el.textContent = 'Repo : OK — ' + S.repoHandle.name;
+    el.style.color = 'var(--done)';
+    document.getElementById('btn-repo').classList.add('ok');
+    document.getElementById('btn-repo').textContent = 'Repo : ' + S.repoHandle.name + ' (changer)';
+  } else {
+    el.textContent = 'Repo : non defini';
+    el.style.color = 'var(--muted)';
+    document.getElementById('btn-repo').classList.remove('ok');
+    document.getElementById('btn-repo').textContent = 'Selectionner dossier repo';
+  }
+}
+
+function updateAssimilStatus() {
+  const el = document.getElementById('assimil-status');
+  if (S.assimilHandle) {
+    el.textContent = 'Assimil : OK — ' + S.assimilHandle.name;
+    el.style.color = 'var(--done)';
+    document.getElementById('btn-assimil').classList.add('ok');
+    document.getElementById('btn-assimil').textContent = 'Assimil : ' + S.assimilHandle.name + ' (changer)';
+    // Activer le bouton load auto sur l'ecran split si actif
+    const btn = document.getElementById('btn-load-auto');
+    if (btn) btn.disabled = false;
+  } else {
+    el.textContent = 'Assimil : non defini';
+    el.style.color = 'var(--muted)';
+    document.getElementById('btn-assimil').classList.remove('ok');
+    document.getElementById('btn-assimil').textContent = 'Selectionner dossier Assimil';
+  }
+}
+
+document.getElementById('btn-repo').addEventListener('click', async () => {
+  try {
+    const h = await window.showDirectoryPicker({ mode: 'readwrite' });
+    S.repoHandle = h;
+    dbPut('repoHandle', h);
+    updateRepoStatus();
+  } catch(e) { if (e.name !== 'AbortError') alert('Erreur : ' + e.message); }
+});
+
+document.getElementById('btn-assimil').addEventListener('click', async () => {
+  try {
+    const h = await window.showDirectoryPicker({ mode: 'read' });
+    S.assimilHandle = h;
+    dbPut('assimilHandle', h);
+    updateAssimilStatus();
+  } catch(e) { if (e.name !== 'AbortError') alert('Erreur : ' + e.message); }
+});
+
+function renderLessons() {
+  const grid = document.getElementById('lesson-grid');
+  grid.innerHTML = LESSONS_MAP.map(l => `
+    <div class="lesson-tile ${l.done ? 'done' : 'todo'}" data-id="${l.id}">
+      <div class="tile-track">Lecon ${l.track}</div>
+      <div class="tile-title">${esc(l.title)}</div>
+      <div class="tile-status">${l.done ? 'Faite' : 'A faire'}</div>
+    </div>
+  `).join('');
+
+  grid.addEventListener('click', e => {
+    const tile = e.target.closest('.lesson-tile');
+    if (!tile) return;
+    const lesson = LESSONS_MAP.find(l => l.id === tile.dataset.id);
+    if (!lesson) return;
+    if (lesson.done) {
+      if (!confirm('Cette lecon est deja faite. Refaire ?')) return;
+    }
+    goToSplit(lesson);
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// SPLIT — navigation & logique
+// ═══════════════════════════════════════════════════════
+function goToSplit(lesson) {
+  S.currentLesson = lesson;
+  S.id = lesson.id;
+  S.title = lesson.title;
+  S.segs = [];
+  S.segBlobs = {};
+  // Liberer les anciennes Object URLs
+  Object.values(S.segUrls).forEach(u => URL.revokeObjectURL(u));
+  S.segUrls = {};
+  S.splitAudioBuffer = null;
+
+  document.getElementById('split-title').textContent = `${lesson.id} — ${lesson.title}`;
+  document.getElementById('split-expected-file').textContent = `Wolof - ${lesson.track}.mp3`;
+  document.getElementById('split-load-status').textContent = '';
+  document.getElementById('split-load-status').className = 'split-status';
+  document.getElementById('split-params-card').style.display = 'none';
+  document.getElementById('split-results-card').style.display = 'none';
+  document.getElementById('split-file-input').value = '';
+
+  // Activer le bouton auto si handle dispo
+  document.getElementById('btn-load-auto').disabled = !S.assimilHandle;
+
+  showScreen('split');
+}
+
+document.getElementById('split-back').addEventListener('click', () => showScreen('home'));
+document.getElementById('matcher-back').addEventListener('click', () => {
+  autoSave();
+  showScreen('home');
+});
+
+// Sliders
+['thresh','minsi','pad'].forEach(k => {
+  document.getElementById(`sl-${k}`).addEventListener('input', e => {
+    document.getElementById(`sv-${k}`).textContent = e.target.value;
+  });
+});
+
+// Charger automatiquement depuis le dossier Assimil
+document.getElementById('btn-load-auto').addEventListener('click', async () => {
+  if (!S.assimilHandle) { alert('Dossier Assimil non defini.'); return; }
+  const fname = `Wolof - ${S.currentLesson.track}.mp3`;
+  setLoadStatus('Recherche de ' + fname + '...', '');
+  try {
+    const fh = await S.assimilHandle.getFileHandle(fname);
+    const file = await fh.getFile();
+    await loadAudioFile(file);
+  } catch(e) {
+    // Essayer aussi sans espace
+    try {
+      const fname2 = `Wolof-${S.currentLesson.track}.mp3`;
+      const fh2 = await S.assimilHandle.getFileHandle(fname2);
+      const file2 = await fh2.getFile();
+      await loadAudioFile(file2);
+    } catch(_) {
+      setLoadStatus('Fichier non trouve : ' + fname, 'err');
+    }
+  }
+});
+
+// Charger manuellement
+document.getElementById('split-file-input').addEventListener('change', async e => {
+  const f = e.target.files[0];
+  if (!f) return;
+  await loadAudioFile(f);
+});
+
+async function loadAudioFile(file) {
+  setLoadStatus('Chargement de ' + file.name + '...', '');
+  try {
+    showProgress('Decodage audio', 'Decodage du fichier MP3...', 10);
+    const arrayBuffer = await file.arrayBuffer();
+    showProgress('Decodage audio', 'Decodage en cours...', 40);
+    const audioCtx = new AudioContext();
+    S.splitAudioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
+    await audioCtx.close();
+    hideProgress();
+    setLoadStatus('OK — ' + file.name + ' (' + (file.size/1024/1024).toFixed(1) + ' Mo, ' + S.splitAudioBuffer.duration.toFixed(1) + 's)', 'ok');
+    document.getElementById('split-params-card').style.display = 'flex';
+    document.getElementById('split-results-card').style.display = 'none';
+  } catch(e) {
+    hideProgress();
+    setLoadStatus('Erreur de decodage : ' + e.message, 'err');
+  }
+}
+
+function setLoadStatus(msg, cls) {
+  const el = document.getElementById('split-load-status');
+  el.textContent = msg;
+  el.className = 'split-status' + (cls ? ' ' + cls : '');
+}
+
+// Bouton Splitter
+document.getElementById('btn-split').addEventListener('click', async () => {
+  if (!S.splitAudioBuffer) return;
+  const btn = document.getElementById('btn-split');
+  btn.disabled = true;
+  btn.textContent = 'Splitting...';
+
+  const thresh = parseFloat(document.getElementById('sl-thresh').value);
+  const minsi  = parseInt(document.getElementById('sl-minsi').value);
+  const pad    = parseInt(document.getElementById('sl-pad').value);
+
+  try {
+    showProgress('Decoupage audio', 'Analyse des silences...', 20);
+    const segments = await splitAudioBuffer(S.splitAudioBuffer, { silenceThresh: thresh, minSilenceMs: minsi, paddingMs: pad });
+    showProgress('Decoupage audio', 'Encodage WAV...', 70);
+
+    // Construire S.segs et S.segBlobs
+    S.segs = [];
+    S.segBlobs = {};
+    Object.values(S.segUrls).forEach(u => URL.revokeObjectURL(u));
+    S.segUrls = {};
+
+    segments.forEach((seg, i) => {
+      const file = `seg_${pad3(i)}`;
+      S.segs.push({
+        index: i,
+        file,
+        dur: seg.duration_ms,
+        start_ms: seg.start_ms,
+        end_ms: seg.end_ms,
+        whisper: '',
+        lang: null,
+        text: '',
+      });
+      S.segBlobs[file] = seg.blob;
+    });
+
+    hideProgress();
+    renderSplitPreview();
+    document.getElementById('split-results-card').style.display = 'flex';
+  } catch(e) {
+    hideProgress();
+    alert('Erreur split : ' + e.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Splitter';
+  }
+});
+
+function renderSplitPreview() {
+  document.getElementById('split-seg-count').textContent = `${S.segs.length} segments detectes`;
+  const list = document.getElementById('split-seg-list');
+  list.innerHTML = S.segs.map((seg, i) => `
+    <div class="seg-preview-item">
+      <span class="seg-preview-num">#${pad3(i)}</span>
+      <span class="seg-preview-dur">${(seg.dur/1000).toFixed(2)}s</span>
+      <button class="seg-preview-play" data-file="${seg.file}">&#9654;</button>
+    </div>
+  `).join('');
+
+  list.addEventListener('click', e => {
+    const btn = e.target.closest('.seg-preview-play');
+    if (!btn) return;
+    const file = btn.dataset.file;
+    const url = getSegUrl(file);
+    if (!url) return;
+    if (S.audio) S.audio.pause();
+    document.querySelectorAll('.seg-preview-play.playing').forEach(b => b.classList.remove('playing'));
+    S.audio = new Audio(url);
+    btn.classList.add('playing');
+    S.audio.play();
+    S.audio.onended = () => btn.classList.remove('playing');
+  });
+}
+
+document.getElementById('btn-continue').addEventListener('click', () => {
+  if (!S.segs.length) { alert('Aucun segment.'); return; }
+  // Charger eventuel restore
+  checkRestoreForLesson();
+  showScreen('matcher');
+  document.getElementById('mhdr-title').textContent = `${S.id} — ${S.title}`;
+  renderSegs();
+  refreshRight();
+  setTimeout(() => focusSeg(0), 100);
+});
+
+// ═══════════════════════════════════════════════════════
+// WEB AUDIO SPLITTER
+// ═══════════════════════════════════════════════════════
+async function splitAudioBuffer(audioBuffer, opts = {}) {
+  const { silenceThresh = 0.015, minSilenceMs = 400, paddingMs = 100 } = opts;
+
+  const sampleRate = audioBuffer.sampleRate;
+  const data = audioBuffer.getChannelData(0); // mono
+
+  const frameSize = Math.round(sampleRate * 0.02); // 20ms
+  const minSilenceFrames = Math.ceil(minSilenceMs / 20);
+  const paddingSamples = Math.round(paddingMs * sampleRate / 1000);
+
+  // Compute RMS per frame
+  const frames = [];
+  for (let i = 0; i < data.length; i += frameSize) {
+    let sum = 0;
+    const end = Math.min(i + frameSize, data.length);
+    for (let j = i; j < end; j++) sum += data[j] * data[j];
+    frames.push(Math.sqrt(sum / (end - i)));
+  }
+
+  // Mark speech/silence
+  const isSpeech = frames.map(rms => rms > silenceThresh);
+
+  // Find segments
+  const segments = [];
+  let inSpeech = false;
+  let speechStart = 0;
+  let silenceCount = 0;
+
+  for (let i = 0; i < frames.length; i++) {
+    if (isSpeech[i]) {
+      if (!inSpeech) { speechStart = i; inSpeech = true; }
+      silenceCount = 0;
+    } else {
+      if (inSpeech) {
+        silenceCount++;
+        if (silenceCount >= minSilenceFrames) {
+          const s = Math.max(0, (speechStart * frameSize) - paddingSamples);
+          const e = Math.min(data.length, ((i - silenceCount) * frameSize) + paddingSamples);
+          if (e - s > sampleRate * 0.2) { // >200ms
+            segments.push({ start: s, end: e });
+          }
+          inSpeech = false;
+          silenceCount = 0;
+        }
+      }
+    }
+  }
+  if (inSpeech) {
+    const s = Math.max(0, (speechStart * frameSize) - paddingSamples);
+    segments.push({ start: s, end: data.length });
+  }
+
+  // Convert to WAV Blobs
+  return segments.map(({ start, end }) => {
+    const chunk = data.slice(start, end);
+    return {
+      blob: encodeWAV(chunk, sampleRate),
+      duration_ms: Math.round((end - start) * 1000 / sampleRate),
+      start_ms: Math.round(start * 1000 / sampleRate),
+      end_ms: Math.round(end * 1000 / sampleRate),
+    };
+  });
+}
+
+function encodeWAV(samples, sampleRate) {
+  const buf = new ArrayBuffer(44 + samples.length * 2);
+  const view = new DataView(buf);
+  const w = (off, str) => { for (let i = 0; i < str.length; i++) view.setUint8(off + i, str.charCodeAt(i)); };
+  w(0, 'RIFF'); view.setUint32(4, 36 + samples.length * 2, true);
+  w(8, 'WAVE'); w(12, 'fmt '); view.setUint32(16, 16, true);
+  view.setUint16(20, 1, true); view.setUint16(22, 1, true);
+  view.setUint32(24, sampleRate, true); view.setUint32(28, sampleRate * 2, true);
+  view.setUint16(32, 2, true); view.setUint16(34, 16, true);
+  w(36, 'data'); view.setUint32(40, samples.length * 2, true);
+  let off = 44;
+  for (let i = 0; i < samples.length; i++, off += 2) {
+    const s = Math.max(-1, Math.min(1, samples[i]));
+    view.setInt16(off, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
+  }
+  return new Blob([buf], { type: 'audio/wav' });
+}
+
+function getSegUrl(file) {
+  if (!S.segUrls[file]) {
+    if (!S.segBlobs[file]) return null;
+    S.segUrls[file] = URL.createObjectURL(S.segBlobs[file]);
+  }
+  return S.segUrls[file];
+}
+
+// ═══════════════════════════════════════════════════════
+// MATCHER — Segments panel
+// ═══════════════════════════════════════════════════════
+function renderSegs() {
+  const el = document.getElementById('segs');
+  el.innerHTML = S.segs.map((seg, i) => `
+    <div class="seg-row l-none" id="sr${i}">
+      <div class="seg-idx">#${pad3(i)}</div>
+      <button class="play-btn" data-i="${i}">&#9654;</button>
+      <div class="seg-dur">${(seg.dur/1000).toFixed(1)}s</div>
+      <div class="seg-body">
+        <div class="lang-row">
+          <button class="lb" data-i="${i}" data-l="FR">FR</button>
+          <button class="lb" data-i="${i}" data-l="WO">WO</button>
+          <button class="lb" data-i="${i}" data-l="ALT">ALT</button>
+          <button class="lb" data-i="${i}" data-l="SKIP">—</button>
+        </div>
+        <input class="seg-inp" type="text" data-i="${i}"
+          value="${esc(seg.text)}"
+          placeholder="${esc(seg.whisper || 'Texte...')}">
+      </div>
+    </div>
+  `).join('');
+
+  el.addEventListener('click', ev => {
+    const row = ev.target.closest('.seg-row');
+    if (row) {
+      const idx = +row.id.replace('sr', '');
+      focusSeg(idx);
+    }
+    const pb = ev.target.closest('.play-btn');
+    if (pb) { playAt(+pb.dataset.i); return; }
+    const lb = ev.target.closest('.lb');
+    if (lb) { toggleLang(+lb.dataset.i, lb.dataset.l); return; }
+  });
+  el.addEventListener('input', ev => {
+    const inp = ev.target.closest('.seg-inp');
+    if (inp) { S.segs[+inp.dataset.i].text = inp.value; refreshRight(); }
+  });
+  document.getElementById('seg-ct').textContent = `(${S.segs.length})`;
+}
+
+function toggleLang(i, lang) {
+  const seg = S.segs[i];
+  const prev = seg.lang;
+  seg.lang = seg.lang === lang ? null : lang;
+
+  // Auto-fill depuis Whisper quand on marque FR
+  if (seg.lang === 'FR' && !seg.text && seg.whisper) {
+    seg.text = seg.whisper;
+    const inp = document.querySelector(`#sr${i} .seg-inp`);
+    if (inp) inp.value = seg.text;
+  }
+  // Effacer l'auto-fill si on demarque FR
+  if (prev === 'FR' && seg.lang !== 'FR' && seg.text === seg.whisper) {
+    seg.text = '';
+    const inp = document.querySelector(`#sr${i} .seg-inp`);
+    if (inp) inp.value = '';
+  }
+
+  updateRow(i);
+  refreshRight();
+}
+
+function updateRow(i) {
+  const seg = S.segs[i];
+  const row = document.getElementById(`sr${i}`);
+  if (!row) return;
+  const lc = seg.lang ? seg.lang.toLowerCase() : 'none';
+  row.className = `seg-row l-${lc}`;
+  row.querySelectorAll('.lb').forEach(b => {
+    b.className = 'lb';
+    if (b.dataset.l === seg.lang) b.classList.add(`a-${lc}`);
+  });
+  const inp = row.querySelector('.seg-inp');
+  if (inp) {
+    if (!seg.lang || seg.lang === 'SKIP') {
+      inp.placeholder = seg.whisper || 'Non assigne...';
+    } else if (seg.lang === 'FR') {
+      inp.placeholder = seg.whisper || 'Texte francais...';
+    } else {
+      inp.placeholder = 'Texte Wolof (CLAD)...';
+    }
+  }
+}
+
+function playAt(i) {
+  const seg = S.segs[i];
+  const url = getSegUrl(seg.file);
+  if (!url) { alert(`Fichier absent : ${seg.file}`); return; }
+  if (S.audio) S.audio.pause();
+  document.querySelectorAll('.play-btn.playing').forEach(b => b.classList.remove('playing'));
+  S.audio = new Audio(url);
+  const btn = document.querySelector(`#sr${i} .play-btn`);
+  if (btn) btn.classList.add('playing');
+  S.audio.play();
+  S.audio.onended = () => { if (btn) btn.classList.remove('playing'); };
+}
+
+// ═══════════════════════════════════════════════════════
+// MATCHER — Cards logic (PRESERVE EXACTEMENT)
+// ═══════════════════════════════════════════════════════
+function buildCards() {
+  const cards = [];
+  let last = null;
+  for (const seg of S.segs) {
+    if (!seg.lang || seg.lang === 'SKIP') continue;
+    if (seg.lang === 'FR') {
+      last = { variants: [{ fr: seg.text || '', afr: seg.file, wo: null, awo: null }] };
+      cards.push(last);
+    } else if (seg.lang === 'WO') {
+      const lastV = last ? last.variants[last.variants.length - 1] : null;
+      if (lastV && lastV.awo === null) {
+        lastV.wo = seg.text || '';
+        lastV.awo = seg.file;
+      } else {
+        const c = { variants: [{ fr: '', afr: null, wo: seg.text || '', awo: seg.file }] };
+        cards.push(c);
+        last = c;
+      }
+    } else if (seg.lang === 'ALT') {
+      if (last) {
+        const base = last.variants[0];
+        last.variants.push({ fr: base.fr, afr: base.afr, wo: seg.text || '', awo: seg.file });
+      }
+    }
+  }
+  return cards;
+}
+
+// ═══════════════════════════════════════════════════════
+// MATCHER — refreshRight + stats
+// ═══════════════════════════════════════════════════════
+function refreshRight() {
+  const cards = buildCards();
+  document.getElementById('card-ct').textContent = `(${cards.length})`;
+
+  const cl = document.getElementById('cards');
+  cl.innerHTML = cards.map((c, i) => {
+    const varRows = c.variants.map((v, vi) => {
+      const vLabel = c.variants.length > 1
+        ? `<span class="ctag" style="background:#7c3aed;color:#fff">V${vi+1}</span>`
+        : '';
+      const frUrl = v.afr ? getSegUrl(v.afr) : null;
+      const woUrl = v.awo ? getSegUrl(v.awo) : null;
+      const fpb = frUrl ? `<button class="cplay" data-url="${frUrl}">&#9654;</button>` : '';
+      const wpb = woUrl ? `<button class="cplay" data-url="${woUrl}">&#9654;</button>` : '';
+      const ft = esc(v.fr) || '<i style="color:#ef4444">manquant</i>';
+      const wt = esc(v.wo) || '<i style="color:#ef4444">manquant</i>';
+      return `
+        ${vi > 0 ? '<div style="border-top:1px solid var(--border);margin:4px 0"></div>' : ''}
+        <div class="card-row">${vLabel}<span class="ctag fr">FR</span><span class="ctext">${ft}</span>${fpb}</div>
+        <div class="card-row">${vLabel}<span class="ctag wo">WO</span><span class="ctext">${wt}</span>${wpb}</div>
+      `;
+    }).join('');
+    return `<div class="card-item"><div class="card-num">Carte ${i+1}</div>${varRows}</div>`;
+  }).join('');
+
+  cl.querySelectorAll('.cplay').forEach(b => b.addEventListener('click', () => {
+    if (S.audio) S.audio.pause();
+    S.audio = new Audio(b.dataset.url);
+    S.audio.play();
+  }));
+
+  // Stats
+  const tot  = S.segs.length;
+  const none = S.segs.filter(s => !s.lang).length;
+  const skip = S.segs.filter(s => s.lang === 'SKIP').length;
+  const inc  = cards.filter(c => !c.variants[0].wo || !c.variants[0].fr).length;
+  const warn = inc > 0 ? ` · ${inc} carte(s) incomplete(s)` : ' · OK';
+  document.getElementById('stats').textContent =
+    `${tot - none - skip} assignes · ${skip} ignores · ${none} restants${warn}`;
+
+  autoSave();
+}
+
+// ═══════════════════════════════════════════════════════
+// EXPORT vers repo (File System Access API)
+// ═══════════════════════════════════════════════════════
+async function exportToRepo() {
+  if (!S.repoHandle) {
+    alert('Selectionner le dossier repo d\'abord (ecran d\'accueil).');
+    return;
+  }
+
+  const cards = buildCards();
+  if (!cards.length) { alert('Aucune carte.'); return; }
+
+  const audioBlobs = {};
+  let fi = 0;
+
+  const cardData = cards.map((c, i) => {
+    const variants = c.variants.map(v => {
+      let audioFr = null, audioWo = null;
+      if (v.afr && S.segBlobs[v.afr]) {
+        const fn = `${pad2(fi)}_fr.wav`;
+        audioBlobs[fn] = S.segBlobs[v.afr];
+        audioFr = `/audio/${S.id}/${fn}`;
+        fi++;
+      }
+      if (v.awo && S.segBlobs[v.awo]) {
+        const fn = `${pad2(fi)}_wo.wav`;
+        audioBlobs[fn] = S.segBlobs[v.awo];
+        audioWo = `/audio/${S.id}/${fn}`;
+        fi++;
+      }
+      return { fr: v.fr || 'TODO', wo: v.wo || 'TODO', audioFr, audioWo };
+    });
+    return {
+      id: `${S.id}_${pad2(i + 1)}`,
+      lessonId: S.id,
+      position: i + 1,
+      fr: variants[0].fr,
+      wo: variants[0].wo,
+      variants,
+    };
+  });
+
+  const lessonJson = { id: S.id, title: S.title, description: 'TODO', cards: cardData };
+
+  const totalFiles = Object.keys(audioBlobs).length + 1;
+  let done = 0;
+  showProgress('Export vers repo', 'Initialisation...', 5);
+
+  try {
+    // Ecrire les fichiers audio dans public/audio/{lesson_id}/
+    let publicDir, audioDir, lessonAudioDir;
+    try {
+      publicDir = await S.repoHandle.getDirectoryHandle('public', { create: false });
+    } catch(_) {
+      publicDir = await S.repoHandle.getDirectoryHandle('public', { create: true });
+    }
+    try {
+      audioDir = await publicDir.getDirectoryHandle('audio', { create: false });
+    } catch(_) {
+      audioDir = await publicDir.getDirectoryHandle('audio', { create: true });
+    }
+    lessonAudioDir = await audioDir.getDirectoryHandle(S.id, { create: true });
+
+    for (const [fname, blob] of Object.entries(audioBlobs)) {
+      showProgress('Export vers repo', `Ecriture ${fname}...`, Math.round(5 + (done / totalFiles) * 85));
+      const fh = await lessonAudioDir.getFileHandle(fname, { create: true });
+      const w = await fh.createWritable();
+      await w.write(blob);
+      await w.close();
+      done++;
+    }
+
+    // Ecrire le JSON dans scripts/output/
+    showProgress('Export vers repo', 'Ecriture du JSON...', 95);
+    let scriptsDir, outputDir;
+    try {
+      scriptsDir = await S.repoHandle.getDirectoryHandle('scripts', { create: false });
+    } catch(_) {
+      scriptsDir = await S.repoHandle.getDirectoryHandle('scripts', { create: true });
+    }
+    outputDir = await scriptsDir.getDirectoryHandle('output', { create: true });
+    const jsonFh = await outputDir.getFileHandle(`lesson_${S.id}.json`, { create: true });
+    const jw = await jsonFh.createWritable();
+    await jw.write(JSON.stringify(lessonJson, null, 2));
+    await jw.close();
+
+    hideProgress();
+    alert(
+      `Export reussi !\n` +
+      `${Object.keys(audioBlobs).length} fichiers audio → public/audio/${S.id}/\n` +
+      `lesson_${S.id}.json → scripts/output/\n\n` +
+      `Prochaine etape :\n` +
+      `git add . && git commit -m "feat: lesson ${S.id}" && git push`
+    );
+  } catch(err) {
+    hideProgress();
+    alert('Erreur export : ' + err.message);
+  }
+}
+
+document.getElementById('export-btn').addEventListener('click', exportToRepo);
+
+// ═══════════════════════════════════════════════════════
+// KEYBOARD SHORTCUTS
+// ═══════════════════════════════════════════════════════
+let focusedIdx = -1;
+
+function focusSeg(idx) {
+  if (idx < 0 || idx >= S.segs.length) return;
+  if (focusedIdx >= 0) {
+    const prev = document.getElementById(`sr${focusedIdx}`);
+    if (prev) prev.style.outline = '';
+  }
+  focusedIdx = idx;
+  const row = document.getElementById(`sr${focusedIdx}`);
+  if (row) {
+    row.style.outline = '2px solid var(--fr)';
+    row.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') {
+    if (e.key === 'Escape') e.target.blur();
+    return;
+  }
+  if (!document.getElementById('matcher').classList.contains('active')) return;
+
+  switch (e.key) {
+    case 'ArrowDown': e.preventDefault(); focusSeg(focusedIdx + 1); break;
+    case 'ArrowUp':   e.preventDefault(); focusSeg(focusedIdx - 1); break;
+    case 'f': case 'F': if (focusedIdx >= 0) toggleLang(focusedIdx, 'FR');   break;
+    case 'w': case 'W': if (focusedIdx >= 0) toggleLang(focusedIdx, 'WO');   break;
+    case 'a': case 'A': if (focusedIdx >= 0) toggleLang(focusedIdx, 'ALT');  break;
+    case 's': case 'S': if (focusedIdx >= 0) toggleLang(focusedIdx, 'SKIP'); break;
+    case ' ':
+      e.preventDefault();
+      if (focusedIdx >= 0) playAt(focusedIdx);
+      break;
+  }
+});
+
+// ═══════════════════════════════════════════════════════
+// AUTO-SAVE localStorage
+// ═══════════════════════════════════════════════════════
+const SAVE_KEY = 'xam_matcher_save_v2';
+
+function autoSave() {
+  if (!S.id) return;
+  const save = {
+    id: S.id,
+    title: S.title,
+    segs: S.segs.map(s => ({ index: s.index, file: s.file, lang: s.lang, text: s.text }))
+  };
+  localStorage.setItem(SAVE_KEY + '_' + S.id, JSON.stringify(save));
+}
+
+function checkRestoreForLesson() {
+  const key = SAVE_KEY + '_' + S.id;
+  const raw = localStorage.getItem(key);
+  if (!raw) return;
+  try {
+    const save = JSON.parse(raw);
+    if (save.id === S.id && save.segs.length > 0) {
+      if (confirm(`Session precedente trouvee pour "${S.id}" (${save.segs.length} segments). Restaurer les annotations ?`)) {
+        save.segs.forEach(sv => {
+          const seg = S.segs.find(s => s.file === sv.file);
+          if (seg) { seg.lang = sv.lang; seg.text = sv.text; }
+        });
+      }
+    }
+  } catch(_) {}
+}
+
+setInterval(autoSave, 30000);
+
+// ═══════════════════════════════════════════════════════
+// PROGRESS OVERLAY
+// ═══════════════════════════════════════════════════════
+function showProgress(title, msg, pct) {
+  document.getElementById('prog-title').textContent = title;
+  document.getElementById('prog-msg').textContent = msg;
+  document.getElementById('prog-bar').style.width = pct + '%';
+  document.getElementById('progress-overlay').classList.add('visible');
+}
+function hideProgress() {
+  document.getElementById('progress-overlay').classList.remove('visible');
+}
+
+// ═══════════════════════════════════════════════════════
+// UTILS
+// ═══════════════════════════════════════════════════════
+function esc(s) {
+  return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function pad3(n) { return String(n).padStart(3, '0'); }
+function pad2(n) { return String(n).padStart(2, '0'); }
+
+// ═══════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════
+openDB().then(() => initHome()).catch(() => initHome());
+</script>
+</body>
+</html>

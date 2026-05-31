@@ -493,6 +493,78 @@ def build_cards_json(
 
 
 # ============================================================
+# 6b. RAW EXPORT (pour le Matcher UI)
+# ============================================================
+
+def raw_export(
+    segments: list[dict],
+    lesson_id: str,
+    raw_dir: Path,
+    json_dir: Path,
+    transcribe: bool = False,
+    whisper_model: str = "base",
+    bitrate: str = "128k",
+) -> None:
+    """
+    Exporte tous les segments individuellement en seg_NNN.mp3 + manifest.json.
+    Alimente tools/matcher/index.html pour le matching manuel.
+    """
+    raw_dir.mkdir(parents=True, exist_ok=True)
+
+    exported = []
+    for i, seg in enumerate(segments):
+        filename = f"seg_{i:03d}.mp3"
+        filepath = raw_dir / filename
+        seg["segment"].export(str(filepath), format="mp3", bitrate=bitrate)
+        exported.append({
+            "index": i,
+            "file": filename,
+            "duration_ms": seg["duration_ms"],
+            "start_ms": seg["start_ms"],
+            "end_ms": seg["end_ms"],
+            "whisper": None,
+        })
+        print(f"  Exported: {filename} ({seg['duration_ms']}ms)")
+
+    if transcribe:
+        try:
+            import whisper as _whisper
+            print(f"\n  Loading Whisper model '{whisper_model}'...")
+            model = _whisper.load_model(whisper_model, device="cpu")
+            for item in exported:
+                fp = raw_dir / item["file"]
+                print(f"  Transcribing {item['file']}...", end=" ", flush=True)
+                result = model.transcribe(str(fp), fp16=False, language="fr")
+                text = result["text"].strip()
+                item["whisper"] = text
+                print(f'"{text}"')
+        except ImportError:
+            print("  Whisper non installe — transcription ignoree.")
+
+    manifest = {
+        "lesson_id": lesson_id,
+        "total_segments": len(exported),
+        "segments": exported,
+    }
+
+    manifest_path = json_dir / f"manifest_{lesson_id}.json"
+    with open(manifest_path, "w", encoding="utf-8") as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=2)
+
+    print(f"\n{'='*50}")
+    print(f"RAW EXPORT: {len(exported)} segments")
+    print(f"  Audio:    {raw_dir}/")
+    print(f"  Manifest: {manifest_path}")
+    print(f"\nProchaine etape:")
+    print(f"  1. Ouvrir tools/matcher/index.html dans Chrome")
+    print(f"  2. Charger {manifest_path.name} + dossier {raw_dir.name}/")
+    print(f"  3. Matcher les segments → exporter lesson_{lesson_id}.json")
+    print(f"  4. Deposer le JSON dans scripts/output/")
+    print(f"  5. python3 scripts/finalize_lesson.py {lesson_id}")
+    print(f"{'='*50}")
+
+
+# ============================================================
 # 7. TRANSCRIPTION (optional, via Whisper)
 # ============================================================
 
@@ -740,6 +812,8 @@ Examples:
                          help="Output directory (default: public/audio/{lesson_id}).")
     grp_out.add_argument("--bitrate", default="128k",
                          help="MP3 export bitrate (default: 128k).")
+    grp_out.add_argument("--raw", action="store_true",
+                         help="Exporte tous les segments individuellement pour le Matcher UI (tools/matcher/index.html).")
 
     # -- Transcription --
     grp_tr = parser.add_argument_group("Transcription (optional)")
@@ -825,6 +899,20 @@ Examples:
     if not segments:
         print("Error: all segments were removed after intro skip.")
         sys.exit(1)
+
+    # Raw mode (pour le Matcher UI)
+    if args.raw:
+        raw_dir = json_dir / f"{args.lesson_id}_raw"
+        raw_export(
+            segments=segments,
+            lesson_id=args.lesson_id,
+            raw_dir=raw_dir,
+            json_dir=json_dir,
+            transcribe=args.transcribe,
+            whisper_model=args.whisper_model,
+            bitrate=args.bitrate,
+        )
+        return
 
     # Auto card-gap detection
     if args.auto_card_gap:
