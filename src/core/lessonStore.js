@@ -1,4 +1,5 @@
 import { LESSONS as SEED } from '../data/mock'
+import { IMPORTED } from '../data/imported'
 
 const KEY = 'xam-xam-lessons'
 
@@ -17,9 +18,17 @@ function persist(lessons) {
 export const lessonStore = {
   getLessons() {
     const stored = load()
-    if (stored) return stored
-    persist(SEED)
-    return SEED.map(l => ({ ...l, cards: [] }))
+    const base = stored || SEED.map(l => ({ ...l, cards: [] }))
+    // Seed empty lessons from matcher exports (scripts/sync_to_app.js)
+    let changed = false
+    for (const lesson of base) {
+      if (lesson.cards.length === 0 && IMPORTED[lesson.id]?.length > 0) {
+        lesson.cards = IMPORTED[lesson.id]
+        changed = true
+      }
+    }
+    if (!stored || changed) persist(base)
+    return base
   },
 
   addCard(lessonId, { wo = '', fr = '', audioWo = null, audioFr = null } = {}) {
