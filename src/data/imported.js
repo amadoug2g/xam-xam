@@ -1,6 +1,503 @@
 // Auto-généré par scripts/sync_to_app.js — ne pas éditer manuellement
-// 3 leçon(s) : mots-quotidiens, questions, rencontre
+// 4 leçon(s) : compter, mots-quotidiens, questions, rencontre
 export const IMPORTED = {
+  "compter": [
+    {
+      "id": "compter_01",
+      "lessonId": "compter",
+      "position": 1,
+      "fr": "TODO",
+      "wo": "Tus (0)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Tus (0)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/00_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_02",
+      "lessonId": "compter",
+      "position": 2,
+      "fr": "TODO",
+      "wo": "Benn (1)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Benn (1)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/01_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_03",
+      "lessonId": "compter",
+      "position": 3,
+      "fr": "TODO",
+      "wo": "Ñaar (2)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Ñaar (2)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/02_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_04",
+      "lessonId": "compter",
+      "position": 4,
+      "fr": "TODO",
+      "wo": "Ñett (3)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Ñett (3)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/03_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_05",
+      "lessonId": "compter",
+      "position": 5,
+      "fr": "TODO",
+      "wo": "Ñent (4)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Ñent (4)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/04_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_06",
+      "lessonId": "compter",
+      "position": 6,
+      "fr": "TODO",
+      "wo": "Juróom (5)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Juróom (5)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/05_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_07",
+      "lessonId": "compter",
+      "position": 7,
+      "fr": "TODO",
+      "wo": "Juróom Benn (6)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Juróom Benn (6)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/06_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_08",
+      "lessonId": "compter",
+      "position": 8,
+      "fr": "TODO",
+      "wo": "Juróom Ñaar (7)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Juróom Ñaar (7)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/07_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_09",
+      "lessonId": "compter",
+      "position": 9,
+      "fr": "TODO",
+      "wo": "Juróom Ñett (8)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Juróom Ñett (8)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/08_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_10",
+      "lessonId": "compter",
+      "position": 10,
+      "fr": "TODO",
+      "wo": "Juróom Ñent (9)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Juróom Ñent (9)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/09_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_11",
+      "lessonId": "compter",
+      "position": 11,
+      "fr": "TODO",
+      "wo": "Fukk (10)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Fukk (10)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/10_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_12",
+      "lessonId": "compter",
+      "position": 12,
+      "fr": "TODO",
+      "wo": "Fukk ak Benn (11)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Fukk ak Benn (11)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/11_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_13",
+      "lessonId": "compter",
+      "position": 13,
+      "fr": "TODO",
+      "wo": "Fukk ak Ñaar (12)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Fukk ak Ñaar (12)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/12_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_14",
+      "lessonId": "compter",
+      "position": 14,
+      "fr": "TODO",
+      "wo": "Fukk ak Ñett (13)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Fukk ak Ñett (13)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/13_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_15",
+      "lessonId": "compter",
+      "position": 15,
+      "fr": "TODO",
+      "wo": "Fukk ak Ñent (14)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Fukk ak Ñent (14)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/14_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_16",
+      "lessonId": "compter",
+      "position": 16,
+      "fr": "TODO",
+      "wo": "Fukk ak Juróom (15)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Fukk ak Juróom (15)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/15_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_17",
+      "lessonId": "compter",
+      "position": 17,
+      "fr": "TODO",
+      "wo": "Fukk ak Juróom Benn (16)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Fukk ak Juróom Benn (16)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/16_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_18",
+      "lessonId": "compter",
+      "position": 18,
+      "fr": "TODO",
+      "wo": "Fukk ak Juróom Ñaar (17)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Fukk ak Juróom Ñaar (17)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/17_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_19",
+      "lessonId": "compter",
+      "position": 19,
+      "fr": "TODO",
+      "wo": "Fukk ak Juróom Ñett (18)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Fukk ak Juróom Ñett (18)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/18_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_20",
+      "lessonId": "compter",
+      "position": 20,
+      "fr": "TODO",
+      "wo": "Fukk ak Juróom Ñent (19)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Fukk ak Juróom Ñent (19)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/19_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_21",
+      "lessonId": "compter",
+      "position": 21,
+      "fr": "TODO",
+      "wo": "Ñaar Fukk (20)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Ñaar Fukk (20)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/20_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_22",
+      "lessonId": "compter",
+      "position": 22,
+      "fr": "TODO",
+      "wo": "Ñaar Fukk ak Benn (21)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Ñaar Fukk ak Benn (21)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/21_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_23",
+      "lessonId": "compter",
+      "position": 23,
+      "fr": "TODO",
+      "wo": "Fanweer / Ñett Fukk (30)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Fanweer / Ñett Fukk (30)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/22_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_24",
+      "lessonId": "compter",
+      "position": 24,
+      "fr": "TODO",
+      "wo": "Ñent Fukk (40)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Ñent Fukk (40)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/23_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_25",
+      "lessonId": "compter",
+      "position": 25,
+      "fr": "TODO",
+      "wo": "Juróom Fukk (50)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Juróom Fukk (50)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/24_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_26",
+      "lessonId": "compter",
+      "position": 26,
+      "fr": "TODO",
+      "wo": "Juróom Benn Fukk (60)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Juróom Benn Fukk (60)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/25_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_27",
+      "lessonId": "compter",
+      "position": 27,
+      "fr": "TODO",
+      "wo": "Juróom Ñaar Fukk (70)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Juróom Ñaar Fukk (70)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/26_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_28",
+      "lessonId": "compter",
+      "position": 28,
+      "fr": "TODO",
+      "wo": "Juróom Ñett Fukk (80)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Juróom Ñett Fukk (80)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/27_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_29",
+      "lessonId": "compter",
+      "position": 29,
+      "fr": "TODO",
+      "wo": "Juróom Ñent Fukk (90)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Juróom Ñent Fukk (90)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/28_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_30",
+      "lessonId": "compter",
+      "position": 30,
+      "fr": "TODO",
+      "wo": "Téeméer (100)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Téeméer (100)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/29_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_31",
+      "lessonId": "compter",
+      "position": 31,
+      "fr": "TODO",
+      "wo": "Téeméer ak Benn (101)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Téeméer ak Benn (101)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/30_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_32",
+      "lessonId": "compter",
+      "position": 32,
+      "fr": "TODO",
+      "wo": "Junni (1000)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Junni (1000)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/31_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "compter_33",
+      "lessonId": "compter",
+      "position": 33,
+      "fr": "TODO",
+      "wo": "Junni ak Benn (1001)",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Junni ak Benn (1001)",
+          "audioFr": null,
+          "audioWo": "/audio/compter/32_wo.wav"
+        }
+      ]
+    }
+  ],
   "mots-quotidiens": [
     {
       "id": "mots-quotidiens_01",
