@@ -1,0 +1,774 @@
+{
+  "lesson_id": "rencontre",
+  "total_segments": 96,
+  "segments": [
+    {
+      "index": 0,
+      "file": "seg_000.mp3",
+      "duration_ms": 1840,
+      "start_ms": 0,
+      "end_ms": 1840,
+      "whisper": null
+    },
+    {
+      "index": 1,
+      "file": "seg_001.mp3",
+      "duration_ms": 910,
+      "start_ms": 4860,
+      "end_ms": 5770,
+      "whisper": null
+    },
+    {
+      "index": 2,
+      "file": "seg_002.mp3",
+      "duration_ms": 1280,
+      "start_ms": 7650,
+      "end_ms": 8930,
+      "whisper": null
+    },
+    {
+      "index": 3,
+      "file": "seg_003.mp3",
+      "duration_ms": 1760,
+      "start_ms": 9800,
+      "end_ms": 11560,
+      "whisper": null
+    },
+    {
+      "index": 4,
+      "file": "seg_004.mp3",
+      "duration_ms": 500,
+      "start_ms": 14570,
+      "end_ms": 15070,
+      "whisper": null
+    },
+    {
+      "index": 5,
+      "file": "seg_005.mp3",
+      "duration_ms": 840,
+      "start_ms": 16090,
+      "end_ms": 16930,
+      "whisper": null
+    },
+    {
+      "index": 6,
+      "file": "seg_006.mp3",
+      "duration_ms": 590,
+      "start_ms": 18860,
+      "end_ms": 19450,
+      "whisper": null
+    },
+    {
+      "index": 7,
+      "file": "seg_007.mp3",
+      "duration_ms": 1370,
+      "start_ms": 20370,
+      "end_ms": 21740,
+      "whisper": null
+    },
+    {
+      "index": 8,
+      "file": "seg_008.mp3",
+      "duration_ms": 810,
+      "start_ms": 24750,
+      "end_ms": 25560,
+      "whisper": null
+    },
+    {
+      "index": 9,
+      "file": "seg_009.mp3",
+      "duration_ms": 850,
+      "start_ms": 26500,
+      "end_ms": 27350,
+      "whisper": null
+    },
+    {
+      "index": 10,
+      "file": "seg_010.mp3",
+      "duration_ms": 960,
+      "start_ms": 29460,
+      "end_ms": 30420,
+      "whisper": null
+    },
+    {
+      "index": 11,
+      "file": "seg_011.mp3",
+      "duration_ms": 1490,
+      "start_ms": 31320,
+      "end_ms": 32810,
+      "whisper": null
+    },
+    {
+      "index": 12,
+      "file": "seg_012.mp3",
+      "duration_ms": 990,
+      "start_ms": 35710,
+      "end_ms": 36700,
+      "whisper": null
+    },
+    {
+      "index": 13,
+      "file": "seg_013.mp3",
+      "duration_ms": 1290,
+      "start_ms": 37620,
+      "end_ms": 38910,
+      "whisper": null
+    },
+    {
+      "index": 14,
+      "file": "seg_014.mp3",
+      "duration_ms": 860,
+      "start_ms": 41900,
+      "end_ms": 42760,
+      "whisper": null
+    },
+    {
+      "index": 15,
+      "file": "seg_015.mp3",
+      "duration_ms": 1220,
+      "start_ms": 43610,
+      "end_ms": 44830,
+      "whisper": null
+    },
+    {
+      "index": 16,
+      "file": "seg_016.mp3",
+      "duration_ms": 1070,
+      "start_ms": 46720,
+      "end_ms": 47790,
+      "whisper": null
+    },
+    {
+      "index": 17,
+      "file": "seg_017.mp3",
+      "duration_ms": 780,
+      "start_ms": 48890,
+      "end_ms": 49670,
+      "whisper": null
+    },
+    {
+      "index": 18,
+      "file": "seg_018.mp3",
+      "duration_ms": 2410,
+      "start_ms": 52720,
+      "end_ms": 55130,
+      "whisper": null
+    },
+    {
+      "index": 19,
+      "file": "seg_019.mp3",
+      "duration_ms": 910,
+      "start_ms": 57070,
+      "end_ms": 57980,
+      "whisper": null
+    },
+    {
+      "index": 20,
+      "file": "seg_020.mp3",
+      "duration_ms": 990,
+      "start_ms": 58870,
+      "end_ms": 59860,
+      "whisper": null
+    },
+    {
+      "index": 21,
+      "file": "seg_021.mp3",
+      "duration_ms": 1230,
+      "start_ms": 61810,
+      "end_ms": 63040,
+      "whisper": null
+    },
+    {
+      "index": 22,
+      "file": "seg_022.mp3",
+      "duration_ms": 1010,
+      "start_ms": 63970,
+      "end_ms": 64980,
+      "whisper": null
+    },
+    {
+      "index": 23,
+      "file": "seg_023.mp3",
+      "duration_ms": 1030,
+      "start_ms": 66910,
+      "end_ms": 67940,
+      "whisper": null
+    },
+    {
+      "index": 24,
+      "file": "seg_024.mp3",
+      "duration_ms": 1090,
+      "start_ms": 68850,
+      "end_ms": 69940,
+      "whisper": null
+    },
+    {
+      "index": 25,
+      "file": "seg_025.mp3",
+      "duration_ms": 1850,
+      "start_ms": 71850,
+      "end_ms": 73700,
+      "whisper": null
+    },
+    {
+      "index": 26,
+      "file": "seg_026.mp3",
+      "duration_ms": 1280,
+      "start_ms": 74570,
+      "end_ms": 75850,
+      "whisper": null
+    },
+    {
+      "index": 27,
+      "file": "seg_027.mp3",
+      "duration_ms": 1600,
+      "start_ms": 77760,
+      "end_ms": 79360,
+      "whisper": null
+    },
+    {
+      "index": 28,
+      "file": "seg_028.mp3",
+      "duration_ms": 1570,
+      "start_ms": 80180,
+      "end_ms": 81750,
+      "whisper": null
+    },
+    {
+      "index": 29,
+      "file": "seg_029.mp3",
+      "duration_ms": 510,
+      "start_ms": 84740,
+      "end_ms": 85250,
+      "whisper": null
+    },
+    {
+      "index": 30,
+      "file": "seg_030.mp3",
+      "duration_ms": 980,
+      "start_ms": 85520,
+      "end_ms": 86500,
+      "whisper": null
+    },
+    {
+      "index": 31,
+      "file": "seg_031.mp3",
+      "duration_ms": 900,
+      "start_ms": 87440,
+      "end_ms": 88340,
+      "whisper": null
+    },
+    {
+      "index": 32,
+      "file": "seg_032.mp3",
+      "duration_ms": 1340,
+      "start_ms": 88990,
+      "end_ms": 90330,
+      "whisper": null
+    },
+    {
+      "index": 33,
+      "file": "seg_033.mp3",
+      "duration_ms": 1420,
+      "start_ms": 95360,
+      "end_ms": 96780,
+      "whisper": null
+    },
+    {
+      "index": 34,
+      "file": "seg_034.mp3",
+      "duration_ms": 1290,
+      "start_ms": 97700,
+      "end_ms": 98990,
+      "whisper": null
+    },
+    {
+      "index": 35,
+      "file": "seg_035.mp3",
+      "duration_ms": 1460,
+      "start_ms": 100870,
+      "end_ms": 102330,
+      "whisper": null
+    },
+    {
+      "index": 36,
+      "file": "seg_036.mp3",
+      "duration_ms": 1320,
+      "start_ms": 103290,
+      "end_ms": 104610,
+      "whisper": null
+    },
+    {
+      "index": 37,
+      "file": "seg_037.mp3",
+      "duration_ms": 1130,
+      "start_ms": 107560,
+      "end_ms": 108690,
+      "whisper": null
+    },
+    {
+      "index": 38,
+      "file": "seg_038.mp3",
+      "duration_ms": 1380,
+      "start_ms": 109600,
+      "end_ms": 110980,
+      "whisper": null
+    },
+    {
+      "index": 39,
+      "file": "seg_039.mp3",
+      "duration_ms": 1330,
+      "start_ms": 111530,
+      "end_ms": 112860,
+      "whisper": null
+    },
+    {
+      "index": 40,
+      "file": "seg_040.mp3",
+      "duration_ms": 1830,
+      "start_ms": 118730,
+      "end_ms": 120560,
+      "whisper": null
+    },
+    {
+      "index": 41,
+      "file": "seg_041.mp3",
+      "duration_ms": 1600,
+      "start_ms": 121510,
+      "end_ms": 123110,
+      "whisper": null
+    },
+    {
+      "index": 42,
+      "file": "seg_042.mp3",
+      "duration_ms": 760,
+      "start_ms": 126090,
+      "end_ms": 126850,
+      "whisper": null
+    },
+    {
+      "index": 43,
+      "file": "seg_043.mp3",
+      "duration_ms": 910,
+      "start_ms": 127750,
+      "end_ms": 128660,
+      "whisper": null
+    },
+    {
+      "index": 44,
+      "file": "seg_044.mp3",
+      "duration_ms": 1460,
+      "start_ms": 130700,
+      "end_ms": 132160,
+      "whisper": null
+    },
+    {
+      "index": 45,
+      "file": "seg_045.mp3",
+      "duration_ms": 1990,
+      "start_ms": 133100,
+      "end_ms": 135090,
+      "whisper": null
+    },
+    {
+      "index": 46,
+      "file": "seg_046.mp3",
+      "duration_ms": 1060,
+      "start_ms": 138210,
+      "end_ms": 139270,
+      "whisper": null
+    },
+    {
+      "index": 47,
+      "file": "seg_047.mp3",
+      "duration_ms": 1310,
+      "start_ms": 141230,
+      "end_ms": 142540,
+      "whisper": null
+    },
+    {
+      "index": 48,
+      "file": "seg_048.mp3",
+      "duration_ms": 1360,
+      "start_ms": 143290,
+      "end_ms": 144650,
+      "whisper": null
+    },
+    {
+      "index": 49,
+      "file": "seg_049.mp3",
+      "duration_ms": 1000,
+      "start_ms": 145490,
+      "end_ms": 146490,
+      "whisper": null
+    },
+    {
+      "index": 50,
+      "file": "seg_050.mp3",
+      "duration_ms": 1090,
+      "start_ms": 147060,
+      "end_ms": 148150,
+      "whisper": null
+    },
+    {
+      "index": 51,
+      "file": "seg_051.mp3",
+      "duration_ms": 660,
+      "start_ms": 152090,
+      "end_ms": 152750,
+      "whisper": null
+    },
+    {
+      "index": 52,
+      "file": "seg_052.mp3",
+      "duration_ms": 740,
+      "start_ms": 153620,
+      "end_ms": 154360,
+      "whisper": null
+    },
+    {
+      "index": 53,
+      "file": "seg_053.mp3",
+      "duration_ms": 860,
+      "start_ms": 156210,
+      "end_ms": 157070,
+      "whisper": null
+    },
+    {
+      "index": 54,
+      "file": "seg_054.mp3",
+      "duration_ms": 980,
+      "start_ms": 157980,
+      "end_ms": 158960,
+      "whisper": null
+    },
+    {
+      "index": 55,
+      "file": "seg_055.mp3",
+      "duration_ms": 690,
+      "start_ms": 160910,
+      "end_ms": 161600,
+      "whisper": null
+    },
+    {
+      "index": 56,
+      "file": "seg_056.mp3",
+      "duration_ms": 1120,
+      "start_ms": 162490,
+      "end_ms": 163610,
+      "whisper": null
+    },
+    {
+      "index": 57,
+      "file": "seg_057.mp3",
+      "duration_ms": 690,
+      "start_ms": 165470,
+      "end_ms": 166160,
+      "whisper": null
+    },
+    {
+      "index": 58,
+      "file": "seg_058.mp3",
+      "duration_ms": 1140,
+      "start_ms": 167010,
+      "end_ms": 168150,
+      "whisper": null
+    },
+    {
+      "index": 59,
+      "file": "seg_059.mp3",
+      "duration_ms": 710,
+      "start_ms": 170150,
+      "end_ms": 170860,
+      "whisper": null
+    },
+    {
+      "index": 60,
+      "file": "seg_060.mp3",
+      "duration_ms": 870,
+      "start_ms": 171770,
+      "end_ms": 172640,
+      "whisper": null
+    },
+    {
+      "index": 61,
+      "file": "seg_061.mp3",
+      "duration_ms": 820,
+      "start_ms": 174570,
+      "end_ms": 175390,
+      "whisper": null
+    },
+    {
+      "index": 62,
+      "file": "seg_062.mp3",
+      "duration_ms": 830,
+      "start_ms": 176300,
+      "end_ms": 177130,
+      "whisper": null
+    },
+    {
+      "index": 63,
+      "file": "seg_063.mp3",
+      "duration_ms": 790,
+      "start_ms": 179170,
+      "end_ms": 179960,
+      "whisper": null
+    },
+    {
+      "index": 64,
+      "file": "seg_064.mp3",
+      "duration_ms": 940,
+      "start_ms": 180820,
+      "end_ms": 181760,
+      "whisper": null
+    },
+    {
+      "index": 65,
+      "file": "seg_065.mp3",
+      "duration_ms": 960,
+      "start_ms": 183750,
+      "end_ms": 184710,
+      "whisper": null
+    },
+    {
+      "index": 66,
+      "file": "seg_066.mp3",
+      "duration_ms": 990,
+      "start_ms": 185040,
+      "end_ms": 186030,
+      "whisper": null
+    },
+    {
+      "index": 67,
+      "file": "seg_067.mp3",
+      "duration_ms": 970,
+      "start_ms": 186950,
+      "end_ms": 187920,
+      "whisper": null
+    },
+    {
+      "index": 68,
+      "file": "seg_068.mp3",
+      "duration_ms": 1050,
+      "start_ms": 188180,
+      "end_ms": 189230,
+      "whisper": null
+    },
+    {
+      "index": 69,
+      "file": "seg_069.mp3",
+      "duration_ms": 1200,
+      "start_ms": 193120,
+      "end_ms": 194320,
+      "whisper": null
+    },
+    {
+      "index": 70,
+      "file": "seg_070.mp3",
+      "duration_ms": 1210,
+      "start_ms": 195280,
+      "end_ms": 196490,
+      "whisper": null
+    },
+    {
+      "index": 71,
+      "file": "seg_071.mp3",
+      "duration_ms": 770,
+      "start_ms": 198510,
+      "end_ms": 199280,
+      "whisper": null
+    },
+    {
+      "index": 72,
+      "file": "seg_072.mp3",
+      "duration_ms": 1000,
+      "start_ms": 200220,
+      "end_ms": 201220,
+      "whisper": null
+    },
+    {
+      "index": 73,
+      "file": "seg_073.mp3",
+      "duration_ms": 840,
+      "start_ms": 203090,
+      "end_ms": 203930,
+      "whisper": null
+    },
+    {
+      "index": 74,
+      "file": "seg_074.mp3",
+      "duration_ms": 1040,
+      "start_ms": 204830,
+      "end_ms": 205870,
+      "whisper": null
+    },
+    {
+      "index": 75,
+      "file": "seg_075.mp3",
+      "duration_ms": 750,
+      "start_ms": 207730,
+      "end_ms": 208480,
+      "whisper": null
+    },
+    {
+      "index": 76,
+      "file": "seg_076.mp3",
+      "duration_ms": 920,
+      "start_ms": 209450,
+      "end_ms": 210370,
+      "whisper": null
+    },
+    {
+      "index": 77,
+      "file": "seg_077.mp3",
+      "duration_ms": 830,
+      "start_ms": 212330,
+      "end_ms": 213160,
+      "whisper": null
+    },
+    {
+      "index": 78,
+      "file": "seg_078.mp3",
+      "duration_ms": 680,
+      "start_ms": 214120,
+      "end_ms": 214800,
+      "whisper": null
+    },
+    {
+      "index": 79,
+      "file": "seg_079.mp3",
+      "duration_ms": 550,
+      "start_ms": 216750,
+      "end_ms": 217300,
+      "whisper": null
+    },
+    {
+      "index": 80,
+      "file": "seg_080.mp3",
+      "duration_ms": 620,
+      "start_ms": 218300,
+      "end_ms": 218920,
+      "whisper": null
+    },
+    {
+      "index": 81,
+      "file": "seg_081.mp3",
+      "duration_ms": 500,
+      "start_ms": 220790,
+      "end_ms": 221290,
+      "whisper": null
+    },
+    {
+      "index": 82,
+      "file": "seg_082.mp3",
+      "duration_ms": 500,
+      "start_ms": 222340,
+      "end_ms": 222840,
+      "whisper": null
+    },
+    {
+      "index": 83,
+      "file": "seg_083.mp3",
+      "duration_ms": 800,
+      "start_ms": 224800,
+      "end_ms": 225600,
+      "whisper": null
+    },
+    {
+      "index": 84,
+      "file": "seg_084.mp3",
+      "duration_ms": 940,
+      "start_ms": 226510,
+      "end_ms": 227450,
+      "whisper": null
+    },
+    {
+      "index": 85,
+      "file": "seg_085.mp3",
+      "duration_ms": 960,
+      "start_ms": 229430,
+      "end_ms": 230390,
+      "whisper": null
+    },
+    {
+      "index": 86,
+      "file": "seg_086.mp3",
+      "duration_ms": 960,
+      "start_ms": 231390,
+      "end_ms": 232350,
+      "whisper": null
+    },
+    {
+      "index": 87,
+      "file": "seg_087.mp3",
+      "duration_ms": 970,
+      "start_ms": 234220,
+      "end_ms": 235190,
+      "whisper": null
+    },
+    {
+      "index": 88,
+      "file": "seg_088.mp3",
+      "duration_ms": 880,
+      "start_ms": 236150,
+      "end_ms": 237030,
+      "whisper": null
+    },
+    {
+      "index": 89,
+      "file": "seg_089.mp3",
+      "duration_ms": 1220,
+      "start_ms": 239980,
+      "end_ms": 241200,
+      "whisper": null
+    },
+    {
+      "index": 90,
+      "file": "seg_090.mp3",
+      "duration_ms": 820,
+      "start_ms": 243220,
+      "end_ms": 244040,
+      "whisper": null
+    },
+    {
+      "index": 91,
+      "file": "seg_091.mp3",
+      "duration_ms": 1080,
+      "start_ms": 244910,
+      "end_ms": 245990,
+      "whisper": null
+    },
+    {
+      "index": 92,
+      "file": "seg_092.mp3",
+      "duration_ms": 1060,
+      "start_ms": 247930,
+      "end_ms": 248990,
+      "whisper": null
+    },
+    {
+      "index": 93,
+      "file": "seg_093.mp3",
+      "duration_ms": 2070,
+      "start_ms": 249870,
+      "end_ms": 251940,
+      "whisper": null
+    },
+    {
+      "index": 94,
+      "file": "seg_094.mp3",
+      "duration_ms": 2190,
+      "start_ms": 254820,
+      "end_ms": 257010,
+      "whisper": null
+    },
+    {
+      "index": 95,
+      "file": "seg_095.mp3",
+      "duration_ms": 2220,
+      "start_ms": 258100,
+      "end_ms": 260320,
+      "whisper": null
+    }
+  ]
+}
