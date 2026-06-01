@@ -474,7 +474,7 @@ function goToSplit(lesson) {
   S.splitAudioBuffer = null;
 
   document.getElementById('split-title').textContent = `${lesson.id} — ${lesson.title}`;
-  document.getElementById('split-expected-file').textContent = `Wolof - ${lesson.track}.mp3`;
+  document.getElementById('split-expected-file').textContent = `Wolof - ${String(lesson.track).padStart(2,'0')}.mp3`;
   document.getElementById('split-load-status').textContent = '';
   document.getElementById('split-load-status').className = 'split-status';
   document.getElementById('split-params-card').style.display = 'none';
@@ -503,22 +503,28 @@ document.getElementById('matcher-back').addEventListener('click', () => {
 // Charger automatiquement depuis le dossier Assimil
 document.getElementById('btn-load-auto').addEventListener('click', async () => {
   if (!S.assimilHandle) { alert('Dossier Assimil non defini.'); return; }
-  const fname = `Wolof - ${S.currentLesson.track}.mp3`;
-  setLoadStatus('Recherche de ' + fname + '...', '');
-  try {
-    const fh = await S.assimilHandle.getFileHandle(fname);
-    const file = await fh.getFile();
-    await loadAudioFile(file);
-  } catch(e) {
-    // Essayer aussi sans espace
+  const t = S.currentLesson.track;
+  const tp = String(t).padStart(2, '0');
+  // Essayer les 4 variantes de nommage possibles
+  const candidates = [
+    `Wolof - ${tp}.mp3`,
+    `Wolof - ${t}.mp3`,
+    `Wolof-${tp}.mp3`,
+    `Wolof-${t}.mp3`,
+  ];
+  setLoadStatus('Recherche de ' + candidates[0] + '...', '');
+  let loaded = false;
+  for (const fname of candidates) {
     try {
-      const fname2 = `Wolof-${S.currentLesson.track}.mp3`;
-      const fh2 = await S.assimilHandle.getFileHandle(fname2);
-      const file2 = await fh2.getFile();
-      await loadAudioFile(file2);
-    } catch(_) {
-      setLoadStatus('Fichier non trouve : ' + fname, 'err');
-    }
+      const fh = await S.assimilHandle.getFileHandle(fname);
+      const file = await fh.getFile();
+      await loadAudioFile(file);
+      loaded = true;
+      break;
+    } catch(_) {}
+  }
+  if (!loaded) {
+    setLoadStatus('Fichier non trouve : ' + candidates[0], 'err');
   }
 });
 
