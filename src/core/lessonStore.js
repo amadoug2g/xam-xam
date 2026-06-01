@@ -3,6 +3,15 @@ import { IMPORTED } from '../data/imported'
 
 const KEY = 'xam-xam-lessons'
 
+/** Flatten v2 variants[] audio into top-level audioWo/audioFr.
+ *  If top-level values already exist (v1 / localStorage), keep them. */
+function normalizeCard(card) {
+  if (card.audioWo || card.audioFr) return card
+  if (!card.variants || card.variants.length === 0) return card
+  const v = card.variants[0]
+  return { ...card, audioWo: v.audioWo || null, audioFr: v.audioFr || null }
+}
+
 function load() {
   try {
     const raw = localStorage.getItem(KEY)
@@ -26,6 +35,11 @@ export const lessonStore = {
         lesson.cards = IMPORTED[lesson.id]
         changed = true
       }
+      lesson.cards = lesson.cards.map(c => {
+        const n = normalizeCard(c)
+        if (n !== c) changed = true
+        return n
+      })
     }
     if (!stored || changed) persist(base)
     return base
