@@ -1,6 +1,278 @@
 // Auto-généré par scripts/sync_to_app.js — ne pas éditer manuellement
-// 2 leçon(s) : questions, rencontre
+// 3 leçon(s) : mots-quotidiens, questions, rencontre
 export const IMPORTED = {
+  "mots-quotidiens": [
+    {
+      "id": "mots-quotidiens_01",
+      "lessonId": "mots-quotidiens",
+      "position": 1,
+      "fr": "Bonjour",
+      "wo": "Jàmm ma gam",
+      "variants": [
+        {
+          "fr": "Bonjour",
+          "wo": "Jàmm ma gam",
+          "audioFr": "/audio/mots-quotidiens/00_fr.wav",
+          "audioWo": "/audio/mots-quotidiens/01_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "mots-quotidiens_02",
+      "lessonId": "mots-quotidiens",
+      "position": 2,
+      "fr": "Aurevoir",
+      "wo": "Ba béneen",
+      "variants": [
+        {
+          "fr": "Aurevoir",
+          "wo": "Ba béneen",
+          "audioFr": "/audio/mots-quotidiens/02_fr.wav",
+          "audioWo": "/audio/mots-quotidiens/03_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "mots-quotidiens_03",
+      "lessonId": "mots-quotidiens",
+      "position": 3,
+      "fr": "Oui",
+      "wo": "Waaw",
+      "variants": [
+        {
+          "fr": "Oui",
+          "wo": "Waaw",
+          "audioFr": "/audio/mots-quotidiens/04_fr.wav",
+          "audioWo": "/audio/mots-quotidiens/05_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "mots-quotidiens_04",
+      "lessonId": "mots-quotidiens",
+      "position": 4,
+      "fr": "Non",
+      "wo": "Deedet",
+      "variants": [
+        {
+          "fr": "Non",
+          "wo": "Deedet",
+          "audioFr": "/audio/mots-quotidiens/06_fr.wav",
+          "audioWo": "/audio/mots-quotidiens/07_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "mots-quotidiens_05",
+      "lessonId": "mots-quotidiens",
+      "position": 5,
+      "fr": "S'il-vous-plaît",
+      "wo": "Sulanexe",
+      "variants": [
+        {
+          "fr": "S'il-vous-plaît",
+          "wo": "Sulanexe",
+          "audioFr": "/audio/mots-quotidiens/08_fr.wav",
+          "audioWo": "/audio/mots-quotidiens/09_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "mots-quotidiens_06",
+      "lessonId": "mots-quotidiens",
+      "position": 6,
+      "fr": "Merci",
+      "wo": "Jërëjëf",
+      "variants": [
+        {
+          "fr": "Merci",
+          "wo": "Jërëjëf",
+          "audioFr": "/audio/mots-quotidiens/10_fr.wav",
+          "audioWo": "/audio/mots-quotidiens/11_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "mots-quotidiens_07",
+      "lessonId": "mots-quotidiens",
+      "position": 7,
+      "fr": "Je ne sais pas",
+      "wo": "Xamuma",
+      "variants": [
+        {
+          "fr": "Je ne sais pas",
+          "wo": "Xamuma",
+          "audioFr": "/audio/mots-quotidiens/12_fr.wav",
+          "audioWo": "/audio/mots-quotidiens/13_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "mots-quotidiens_08",
+      "lessonId": "mots-quotidiens",
+      "position": 8,
+      "fr": "Je m'appelle",
+      "wo": "Maa ngi tudd / Laa tudd",
+      "variants": [
+        {
+          "fr": "Je m'appelle",
+          "wo": "Maa ngi tudd / Laa tudd",
+          "audioFr": "/audio/mots-quotidiens/14_fr.wav",
+          "audioWo": "/audio/mots-quotidiens/15_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "mots-quotidiens_09",
+      "lessonId": "mots-quotidiens",
+      "position": 9,
+      "fr": "Comment ça va ?",
+      "wo": "Naka nga def ?",
+      "variants": [
+        {
+          "fr": "Comment ça va ?",
+          "wo": "Naka nga def ?",
+          "audioFr": "/audio/mots-quotidiens/16_fr.wav",
+          "audioWo": "/audio/mots-quotidiens/17_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "mots-quotidiens_10",
+      "lessonId": "mots-quotidiens",
+      "position": 10,
+      "fr": "Désolé",
+      "wo": "Baal ma",
+      "variants": [
+        {
+          "fr": "Désolé",
+          "wo": "Baal ma",
+          "audioFr": "/audio/mots-quotidiens/18_fr.wav",
+          "audioWo": "/audio/mots-quotidiens/19_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "mots-quotidiens_11",
+      "lessonId": "mots-quotidiens",
+      "position": 11,
+      "fr": "Excusez-moi",
+      "wo": "Baal ma",
+      "variants": [
+        {
+          "fr": "Excusez-moi",
+          "wo": "Baal ma",
+          "audioFr": "/audio/mots-quotidiens/20_fr.wav",
+          "audioWo": "/audio/mots-quotidiens/21_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "mots-quotidiens_12",
+      "lessonId": "mots-quotidiens",
+      "position": 12,
+      "fr": "Je ne comprends pas",
+      "wo": "Xamuma",
+      "variants": [
+        {
+          "fr": "Je ne comprends pas",
+          "wo": "Xamuma",
+          "audioFr": "/audio/mots-quotidiens/22_fr.wav",
+          "audioWo": "/audio/mots-quotidiens/23_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "mots-quotidiens_13",
+      "lessonId": "mots-quotidiens",
+      "position": 13,
+      "fr": "Je suis perdu",
+      "wo": "Dama réer",
+      "variants": [
+        {
+          "fr": "Je suis perdu",
+          "wo": "Dama réer",
+          "audioFr": "/audio/mots-quotidiens/24_fr.wav",
+          "audioWo": "/audio/mots-quotidiens/25_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "mots-quotidiens_14",
+      "lessonId": "mots-quotidiens",
+      "position": 14,
+      "fr": "Je cherche",
+      "wo": "Damay wutt",
+      "variants": [
+        {
+          "fr": "Je cherche",
+          "wo": "Damay wutt",
+          "audioFr": "/audio/mots-quotidiens/26_fr.wav",
+          "audioWo": "/audio/mots-quotidiens/27_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "mots-quotidiens_15",
+      "lessonId": "mots-quotidiens",
+      "position": 15,
+      "fr": "J'ai faim",
+      "wo": "Dama xif",
+      "variants": [
+        {
+          "fr": "J'ai faim",
+          "wo": "Dama xif",
+          "audioFr": "/audio/mots-quotidiens/28_fr.wav",
+          "audioWo": "/audio/mots-quotidiens/29_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "mots-quotidiens_16",
+      "lessonId": "mots-quotidiens",
+      "position": 16,
+      "fr": "J'ai soif",
+      "wo": "Dama mar",
+      "variants": [
+        {
+          "fr": "J'ai soif",
+          "wo": "Dama mar",
+          "audioFr": "/audio/mots-quotidiens/30_fr.wav",
+          "audioWo": "/audio/mots-quotidiens/31_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "mots-quotidiens_17",
+      "lessonId": "mots-quotidiens",
+      "position": 17,
+      "fr": "Je vais prendre...",
+      "wo": "Lay jël",
+      "variants": [
+        {
+          "fr": "Je vais prendre...",
+          "wo": "Lay jël",
+          "audioFr": "/audio/mots-quotidiens/32_fr.wav",
+          "audioWo": "/audio/mots-quotidiens/33_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "mots-quotidiens_18",
+      "lessonId": "mots-quotidiens",
+      "position": 18,
+      "fr": "Je voudrais",
+      "wo": "TODO",
+      "variants": [
+        {
+          "fr": "Je voudrais",
+          "wo": "TODO",
+          "audioFr": "/audio/mots-quotidiens/34_fr.wav",
+          "audioWo": null
+        }
+      ]
+    }
+  ],
   "questions": [
     {
       "id": "questions_01",
