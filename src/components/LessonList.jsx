@@ -5,7 +5,7 @@ import { streak as streakStore } from '../core/streak'
 import { lessonVerified } from '../core/lessonVerified'
 import { failedStore } from '../core/failedStore'
 import { useTheme } from '../core/useTheme'
-import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon, Flame, Zap, Settings, ShieldCheck, Search, X, ListChecks, Headphones, RefreshCw } from 'lucide-react'
+import { BookOpen, Sparkles, Clock, CheckCircle2, ChevronRight, Sun, Moon, Flame, Zap, Settings, ShieldCheck, Search, X, ListChecks, Headphones, RefreshCw, Wand2 } from 'lucide-react'
 
 export default function LessonList({ onSelect, onReviewAll, onAdmin, onSelectLessons, onRetryFailed }) {
   const LESSONS = lessonStore.getLessons()
@@ -65,6 +65,18 @@ export default function LessonList({ onSelect, onReviewAll, onAdmin, onSelectLes
             >
               <Search className="w-4 h-4" />
             </button>
+
+            {import.meta.env.DEV && (
+              <a
+                href="/tools/matcher/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] text-purple-400 rounded-full transition-all duration-200 hover:scale-105 active:scale-95 flex items-center justify-center shadow-sm"
+                title="Ouvrir le Matcher"
+              >
+                <Wand2 className="w-4 h-4" />
+              </a>
+            )}
 
             <button
               onClick={onAdmin}
