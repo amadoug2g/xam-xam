@@ -1380,11 +1380,11 @@ export const IMPORTED = {
       "lessonId": "rencontre",
       "position": 1,
       "fr": "Bonjour, comment ça va ?",
-      "wo": "Dja",
+      "wo": "Jámm ma gam, naga def ?",
       "variants": [
         {
           "fr": "Bonjour, comment ça va ?",
-          "wo": "Dja",
+          "wo": "Jámm ma gam, naga def ?",
           "audioFr": "/audio/rencontre/00_fr.wav",
           "audioWo": "/audio/rencontre/01_wo.wav"
         }
@@ -1394,11 +1394,11 @@ export const IMPORTED = {
       "id": "rencontre_02",
       "lessonId": "rencontre",
       "position": 2,
-      "fr": "Bienvenue",
+      "fr": "Bien",
       "wo": "Sant yalla",
       "variants": [
         {
-          "fr": "Bienvenue",
+          "fr": "Bien",
           "wo": "Sant yalla",
           "audioFr": "/audio/rencontre/02_fr.wav",
           "audioWo": "/audio/rencontre/03_wo.wav"
@@ -1410,11 +1410,11 @@ export const IMPORTED = {
       "lessonId": "rencontre",
       "position": 3,
       "fr": "Très bien",
-      "wo": "Sant yalla bubax",
+      "wo": "Sant yalla bu bax",
       "variants": [
         {
           "fr": "Très bien",
-          "wo": "Sant yalla bubax",
+          "wo": "Sant yalla bu bax",
           "audioFr": "/audio/rencontre/04_fr.wav",
           "audioWo": "/audio/rencontre/05_wo.wav"
         }
@@ -1425,11 +1425,11 @@ export const IMPORTED = {
       "lessonId": "rencontre",
       "position": 4,
       "fr": "Pas si mal",
-      "wo": "Man ngi fi rek",
+      "wo": "Maa ngi fi rek",
       "variants": [
         {
           "fr": "Pas si mal",
-          "wo": "Man ngi fi rek",
+          "wo": "Maa ngi fi rek",
           "audioFr": "/audio/rencontre/06_fr.wav",
           "audioWo": "/audio/rencontre/07_wo.wav"
         }
@@ -1440,11 +1440,11 @@ export const IMPORTED = {
       "lessonId": "rencontre",
       "position": 5,
       "fr": "Ça ne va pas fort",
-      "wo": "N",
+      "wo": "Ly al la xam doyna",
       "variants": [
         {
           "fr": "Ça ne va pas fort",
-          "wo": "N",
+          "wo": "Ly al la xam doyna",
           "audioFr": "/audio/rencontre/08_fr.wav",
           "audioWo": "/audio/rencontre/09_wo.wav"
         }
@@ -1455,11 +1455,11 @@ export const IMPORTED = {
       "lessonId": "rencontre",
       "position": 6,
       "fr": "Ça faisait longtemps",
-      "wo": "Di yoon",
+      "wo": "Dijoon nala giss",
       "variants": [
         {
           "fr": "Ça faisait longtemps",
-          "wo": "Di yoon",
+          "wo": "Dijoon nala giss",
           "audioFr": "/audio/rencontre/10_fr.wav",
           "audioWo": "/audio/rencontre/11_wo.wav"
         }
@@ -1470,11 +1470,11 @@ export const IMPORTED = {
       "lessonId": "rencontre",
       "position": 7,
       "fr": "Tu m'as manqué",
-      "wo": "Namunala",
+      "wo": "Namunn naa la",
       "variants": [
         {
           "fr": "Tu m'as manqué",
-          "wo": "Namunala",
+          "wo": "Namunn naa la",
           "audioFr": "/audio/rencontre/12_fr.wav",
           "audioWo": "/audio/rencontre/13_wo.wav"
         }
@@ -1485,11 +1485,11 @@ export const IMPORTED = {
       "lessonId": "rencontre",
       "position": 8,
       "fr": "À moi encore plus",
-      "wo": "Malalaw",
+      "wo": "Ma la law",
       "variants": [
         {
           "fr": "À moi encore plus",
-          "wo": "Malalaw",
+          "wo": "Ma la law",
           "audioFr": "/audio/rencontre/14_fr.wav",
           "audioWo": "/audio/rencontre/15_wo.wav"
         }
@@ -1500,11 +1500,11 @@ export const IMPORTED = {
       "lessonId": "rencontre",
       "position": 9,
       "fr": "Comment t'appelles-tu ?",
-      "wo": "Nka nga tudd",
+      "wo": "Naka nga tuddu ?",
       "variants": [
         {
           "fr": "Comment t'appelles-tu ?",
-          "wo": "Nka nga tudd",
+          "wo": "Naka nga tuddu ?",
           "audioFr": "/audio/rencontre/16_fr.wav",
           "audioWo": "/audio/rencontre/17_wo.wav"
         }
@@ -1530,11 +1530,11 @@ export const IMPORTED = {
       "lessonId": "rencontre",
       "position": 11,
       "fr": "Je m'appelle...",
-      "wo": "Man ngi tudd",
+      "wo": "Maa ngi tuddu...",
       "variants": [
         {
           "fr": "Je m'appelle...",
-          "wo": "Man ngi tudd",
+          "wo": "Maa ngi tuddu...",
           "audioFr": "/audio/rencontre/20_fr.wav",
           "audioWo": "/audio/rencontre/21_wo.wav"
         }
@@ -1545,11 +1545,11 @@ export const IMPORTED = {
       "lessonId": "rencontre",
       "position": 12,
       "fr": "Mon nom de famille est...",
-      "wo": "Ma ngi sant...",
+      "wo": "Maa ngi sant...",
       "variants": [
         {
           "fr": "Mon nom de famille est...",
-          "wo": "Ma ngi sant...",
+          "wo": "Maa ngi sant...",
           "audioFr": "/audio/rencontre/22_fr.wav",
           "audioWo": "/audio/rencontre/23_wo.wav"
         }
@@ -1559,12 +1559,12 @@ export const IMPORTED = {
       "id": "rencontre_13",
       "lessonId": "rencontre",
       "position": 13,
-      "fr": "Je te présente mon épou",
-      "wo": "Nuyool ak sama jeker",
+      "fr": "Je te présente mon époux",
+      "wo": "Nuyool ak sama jëkkër",
       "variants": [
         {
-          "fr": "Je te présente mon épou",
-          "wo": "Nuyool ak sama jeker",
+          "fr": "Je te présente mon époux",
+          "wo": "Nuyool ak sama jëkkër",
           "audioFr": "/audio/rencontre/24_fr.wav",
           "audioWo": "/audio/rencontre/25_wo.wav"
         }
@@ -1575,11 +1575,11 @@ export const IMPORTED = {
       "lessonId": "rencontre",
       "position": 14,
       "fr": "Ça va ? / Je m'appelle Omar",
-      "wo": "Djam ma gam / Ma ngi tudd Omar",
+      "wo": "Jàmm ma gam / Maa ngi tuddu Omar",
       "variants": [
         {
           "fr": "Ça va ? / Je m'appelle Omar",
-          "wo": "Djam ma gam / Ma ngi tudd Omar",
+          "wo": "Jàmm ma gam / Maa ngi tuddu Omar",
           "audioFr": "/audio/rencontre/26_fr.wav",
           "audioWo": "/audio/rencontre/27_wo.wav"
         }
@@ -1589,12 +1589,12 @@ export const IMPORTED = {
       "id": "rencontre_15",
       "lessonId": "rencontre",
       "position": 15,
-      "fr": "Moi c'est Fama",
-      "wo": "Man Fama la",
+      "fr": "Dafa, comment vas-tu ?",
+      "wo": "Dafa, naka nga def ? / Dafa, jàmm ma gam ?",
       "variants": [
         {
-          "fr": "Moi c'est Fama",
-          "wo": "Man Fama la",
+          "fr": "Dafa, comment vas-tu ?",
+          "wo": "Dafa, naka nga def ? / Dafa, jàmm ma gam ?",
           "audioFr": "/audio/rencontre/28_fr.wav",
           "audioWo": "/audio/rencontre/29_wo.wav"
         }
@@ -1604,12 +1604,12 @@ export const IMPORTED = {
       "id": "rencontre_16",
       "lessonId": "rencontre",
       "position": 16,
-      "fr": "Je te présente Dafa",
-      "wo": "Nuyool ak Dafa",
+      "fr": "Enchanté de faire votre connaissance",
+      "wo": "Man ngi dege xa man tedy",
       "variants": [
         {
-          "fr": "Je te présente Dafa",
-          "wo": "Nuyool ak Dafa",
+          "fr": "Enchanté de faire votre connaissance",
+          "wo": "Man ngi dege xa man tedy",
           "audioFr": "/audio/rencontre/30_fr.wav",
           "audioWo": "/audio/rencontre/31_wo.wav"
         }
@@ -1619,12 +1619,12 @@ export const IMPORTED = {
       "id": "rencontre_17",
       "lessonId": "rencontre",
       "position": 17,
-      "fr": "Dafa, comment vas-tu ?",
-      "wo": "Dafa, naka nga def ? / Dafa, djiam ma gam ?",
+      "fr": "Pareillement",
+      "wo": "Maa ngi tan",
       "variants": [
         {
-          "fr": "Dafa, comment vas-tu ?",
-          "wo": "Dafa, naka nga def ? / Dafa, djiam ma gam ?",
+          "fr": "Pareillement",
+          "wo": "Maa ngi tan",
           "audioFr": "/audio/rencontre/32_fr.wav",
           "audioWo": "/audio/rencontre/33_wo.wav"
         }
@@ -1634,12 +1634,12 @@ export const IMPORTED = {
       "id": "rencontre_18",
       "lessonId": "rencontre",
       "position": 18,
-      "fr": "Enchanté de faire votre connaissance",
-      "wo": "Maa ngi dege xaman te bi",
+      "fr": "Bienvenue au Sénégal",
+      "wo": "Dalal ci jàmm Senegaal",
       "variants": [
         {
-          "fr": "Enchanté de faire votre connaissance",
-          "wo": "Maa ngi dege xaman te bi",
+          "fr": "Bienvenue au Sénégal",
+          "wo": "Dalal ci jàmm Senegaal",
           "audioFr": "/audio/rencontre/34_fr.wav",
           "audioWo": "/audio/rencontre/35_wo.wav"
         }
@@ -1649,12 +1649,12 @@ export const IMPORTED = {
       "id": "rencontre_19",
       "lessonId": "rencontre",
       "position": 19,
-      "fr": "Pareillement",
-      "wo": "Maa ngi tang",
+      "fr": "De quel pays viens-tu ? / De quel pays venez-vous ?",
+      "wo": "Wa fan nga ? / Wa fan ngeen ?",
       "variants": [
         {
-          "fr": "Pareillement",
-          "wo": "Maa ngi tang",
+          "fr": "De quel pays viens-tu ? / De quel pays venez-vous ?",
+          "wo": "Wa fan nga ? / Wa fan ngeen ?",
           "audioFr": "/audio/rencontre/36_fr.wav",
           "audioWo": "/audio/rencontre/37_wo.wav"
         }
@@ -1664,12 +1664,12 @@ export const IMPORTED = {
       "id": "rencontre_20",
       "lessonId": "rencontre",
       "position": 20,
-      "fr": "Bienvenue au Sénégal",
-      "wo": "Dalal ci jamma Senegal",
+      "fr": "Je suis...",
+      "wo": "Laa...",
       "variants": [
         {
-          "fr": "Bienvenue au Sénégal",
-          "wo": "Dalal ci jamma Senegal",
+          "fr": "Je suis...",
+          "wo": "Laa...",
           "audioFr": "/audio/rencontre/38_fr.wav",
           "audioWo": "/audio/rencontre/39_wo.wav"
         }
@@ -1679,12 +1679,12 @@ export const IMPORTED = {
       "id": "rencontre_21",
       "lessonId": "rencontre",
       "position": 21,
-      "fr": "De quel pays viens-tu ? / De quel pays venez-vous ?",
-      "wo": "Wa fan nga ? / Wa fan ngeen ?",
+      "fr": "Belge",
+      "wo": "Wa Belsi",
       "variants": [
         {
-          "fr": "De quel pays viens-tu ? / De quel pays venez-vous ?",
-          "wo": "Wa fan nga ? / Wa fan ngeen ?",
+          "fr": "Belge",
+          "wo": "Wa Belsi",
           "audioFr": "/audio/rencontre/40_fr.wav",
           "audioWo": "/audio/rencontre/41_wo.wav"
         }
@@ -1694,12 +1694,12 @@ export const IMPORTED = {
       "id": "rencontre_22",
       "lessonId": "rencontre",
       "position": 22,
-      "fr": "Je suis...",
-      "wo": "La...",
+      "fr": "Camerounais",
+      "wo": "Wa Cameroun",
       "variants": [
         {
-          "fr": "Je suis...",
-          "wo": "La...",
+          "fr": "Camerounais",
+          "wo": "Wa Cameroun",
           "audioFr": "/audio/rencontre/42_fr.wav",
           "audioWo": "/audio/rencontre/43_wo.wav"
         }
@@ -1709,12 +1709,12 @@ export const IMPORTED = {
       "id": "rencontre_23",
       "lessonId": "rencontre",
       "position": 23,
-      "fr": "Belge",
-      "wo": "Wa Belsi",
+      "fr": "Canadien",
+      "wo": "Wa Canada",
       "variants": [
         {
-          "fr": "Belge",
-          "wo": "Wa Belsi",
+          "fr": "Canadien",
+          "wo": "Wa Canada",
           "audioFr": "/audio/rencontre/44_fr.wav",
           "audioWo": "/audio/rencontre/45_wo.wav"
         }
@@ -1724,12 +1724,12 @@ export const IMPORTED = {
       "id": "rencontre_24",
       "lessonId": "rencontre",
       "position": 24,
-      "fr": "Camerounais",
-      "wo": "Wa Cameroun",
+      "fr": "Français",
+      "wo": "Wa France",
       "variants": [
         {
-          "fr": "Camerounais",
-          "wo": "Wa Cameroun",
+          "fr": "Français",
+          "wo": "Wa France",
           "audioFr": "/audio/rencontre/46_fr.wav",
           "audioWo": "/audio/rencontre/47_wo.wav"
         }
@@ -1739,12 +1739,12 @@ export const IMPORTED = {
       "id": "rencontre_25",
       "lessonId": "rencontre",
       "position": 25,
-      "fr": "Canadien",
-      "wo": "Wa Canada",
+      "fr": "Marocain",
+      "wo": "Wa Maroc",
       "variants": [
         {
-          "fr": "Canadien",
-          "wo": "Wa Canada",
+          "fr": "Marocain",
+          "wo": "Wa Maroc",
           "audioFr": "/audio/rencontre/48_fr.wav",
           "audioWo": "/audio/rencontre/49_wo.wav"
         }
@@ -1754,12 +1754,12 @@ export const IMPORTED = {
       "id": "rencontre_26",
       "lessonId": "rencontre",
       "position": 26,
-      "fr": "Français",
-      "wo": "Wa France",
+      "fr": "Suisse",
+      "wo": "Wa Suisse",
       "variants": [
         {
-          "fr": "Français",
-          "wo": "Wa France",
+          "fr": "Suisse",
+          "wo": "Wa Suisse",
           "audioFr": "/audio/rencontre/50_fr.wav",
           "audioWo": "/audio/rencontre/51_wo.wav"
         }
@@ -1769,12 +1769,12 @@ export const IMPORTED = {
       "id": "rencontre_27",
       "lessonId": "rencontre",
       "position": 27,
-      "fr": "Marocain",
-      "wo": "Wa Maroc",
+      "fr": "Où habites-tu ? / Où habitez-vous ?",
+      "wo": "Fan nga dëkk ? / Fan ngeen dëkk ?",
       "variants": [
         {
-          "fr": "Marocain",
-          "wo": "Wa Maroc",
+          "fr": "Où habites-tu ? / Où habitez-vous ?",
+          "wo": "Fan nga dëkk ? / Fan ngeen dëkk ?",
           "audioFr": "/audio/rencontre/52_fr.wav",
           "audioWo": "/audio/rencontre/53_wo.wav"
         }
@@ -1784,12 +1784,12 @@ export const IMPORTED = {
       "id": "rencontre_28",
       "lessonId": "rencontre",
       "position": 28,
-      "fr": "Suisse",
-      "wo": "Wa Suisse",
+      "fr": "J'habite à...",
+      "wo": "Maa ngi dëkk...",
       "variants": [
         {
-          "fr": "Suisse",
-          "wo": "Wa Suisse",
+          "fr": "J'habite à...",
+          "wo": "Maa ngi dëkk...",
           "audioFr": "/audio/rencontre/54_fr.wav",
           "audioWo": "/audio/rencontre/55_wo.wav"
         }
@@ -1799,12 +1799,12 @@ export const IMPORTED = {
       "id": "rencontre_29",
       "lessonId": "rencontre",
       "position": 29,
-      "fr": "Où habites-tu ? / Où habitez-vous ?",
-      "wo": "Fan nge deke ? / Fan ngeen deke ?",
+      "fr": "Bruxelles",
+      "wo": "Birixel",
       "variants": [
         {
-          "fr": "Où habites-tu ? / Où habitez-vous ?",
-          "wo": "Fan nge deke ? / Fan ngeen deke ?",
+          "fr": "Bruxelles",
+          "wo": "Birixel",
           "audioFr": "/audio/rencontre/56_fr.wav",
           "audioWo": "/audio/rencontre/57_wo.wav"
         }
@@ -1814,12 +1814,12 @@ export const IMPORTED = {
       "id": "rencontre_30",
       "lessonId": "rencontre",
       "position": 30,
-      "fr": "J'habite à...",
-      "wo": "Maa ngi deke...",
+      "fr": "Casablanca",
+      "wo": "Casablanca",
       "variants": [
         {
-          "fr": "J'habite à...",
-          "wo": "Maa ngi deke...",
+          "fr": "Casablanca",
+          "wo": "Casablanca",
           "audioFr": "/audio/rencontre/58_fr.wav",
           "audioWo": "/audio/rencontre/59_wo.wav"
         }
@@ -1829,12 +1829,12 @@ export const IMPORTED = {
       "id": "rencontre_31",
       "lessonId": "rencontre",
       "position": 31,
-      "fr": "Bruxelles",
-      "wo": "Bruxelles",
+      "fr": "Dakar",
+      "wo": "Ndakaruu",
       "variants": [
         {
-          "fr": "Bruxelles",
-          "wo": "Bruxelles",
+          "fr": "Dakar",
+          "wo": "Ndakaruu",
           "audioFr": "/audio/rencontre/60_fr.wav",
           "audioWo": "/audio/rencontre/61_wo.wav"
         }
@@ -1844,12 +1844,12 @@ export const IMPORTED = {
       "id": "rencontre_32",
       "lessonId": "rencontre",
       "position": 32,
-      "fr": "Casablanca",
-      "wo": "Casablanca",
+      "fr": "Genève",
+      "wo": "Sénèw",
       "variants": [
         {
-          "fr": "Casablanca",
-          "wo": "Casablanca",
+          "fr": "Genève",
+          "wo": "Sénèw",
           "audioFr": "/audio/rencontre/62_fr.wav",
           "audioWo": "/audio/rencontre/63_wo.wav"
         }
@@ -1859,12 +1859,12 @@ export const IMPORTED = {
       "id": "rencontre_33",
       "lessonId": "rencontre",
       "position": 33,
-      "fr": "Dakar",
-      "wo": "Ndakaruu",
+      "fr": "Paris",
+      "wo": "Paris",
       "variants": [
         {
-          "fr": "Dakar",
-          "wo": "Ndakaruu",
+          "fr": "Paris",
+          "wo": "Paris",
           "audioFr": "/audio/rencontre/64_fr.wav",
           "audioWo": "/audio/rencontre/65_wo.wav"
         }
@@ -1874,12 +1874,12 @@ export const IMPORTED = {
       "id": "rencontre_34",
       "lessonId": "rencontre",
       "position": 34,
-      "fr": "Genève",
-      "wo": "Genève",
+      "fr": "Québec",
+      "wo": "Québec",
       "variants": [
         {
-          "fr": "Genève",
-          "wo": "Genève",
+          "fr": "Québec",
+          "wo": "Québec",
           "audioFr": "/audio/rencontre/66_fr.wav",
           "audioWo": "/audio/rencontre/67_wo.wav"
         }
@@ -1889,12 +1889,12 @@ export const IMPORTED = {
       "id": "rencontre_35",
       "lessonId": "rencontre",
       "position": 35,
-      "fr": "Paris",
-      "wo": "Paris",
+      "fr": "Yaoundé",
+      "wo": "Yaoundé",
       "variants": [
         {
-          "fr": "Paris",
-          "wo": "Paris",
+          "fr": "Yaoundé",
+          "wo": "Yaoundé",
           "audioFr": "/audio/rencontre/68_fr.wav",
           "audioWo": "/audio/rencontre/69_wo.wav"
         }
@@ -1904,12 +1904,12 @@ export const IMPORTED = {
       "id": "rencontre_36",
       "lessonId": "rencontre",
       "position": 36,
-      "fr": "Québec",
-      "wo": "Québec",
+      "fr": "Dans un village",
+      "wo": "Ci dëkk bundaw",
       "variants": [
         {
-          "fr": "Québec",
-          "wo": "Québec",
+          "fr": "Dans un village",
+          "wo": "Ci dëkk bundaw",
           "audioFr": "/audio/rencontre/70_fr.wav",
           "audioWo": "/audio/rencontre/71_wo.wav"
         }
@@ -1919,12 +1919,12 @@ export const IMPORTED = {
       "id": "rencontre_37",
       "lessonId": "rencontre",
       "position": 37,
-      "fr": "Yaoundé",
-      "wo": "Yaoundé",
+      "fr": "À la campagne",
+      "wo": "Ci kaw bi",
       "variants": [
         {
-          "fr": "Yaoundé",
-          "wo": "Yaoundé",
+          "fr": "À la campagne",
+          "wo": "Ci kaw bi",
           "audioFr": "/audio/rencontre/72_fr.wav",
           "audioWo": "/audio/rencontre/73_wo.wav"
         }
@@ -1934,12 +1934,12 @@ export const IMPORTED = {
       "id": "rencontre_38",
       "lessonId": "rencontre",
       "position": 38,
-      "fr": "Dans un village",
-      "wo": "Ci deke bundaw",
+      "fr": "Quel âge as-tu ?",
+      "wo": "Ñaata at nga am",
       "variants": [
         {
-          "fr": "Dans un village",
-          "wo": "Ci deke bundaw",
+          "fr": "Quel âge as-tu ?",
+          "wo": "Ñaata at nga am",
           "audioFr": "/audio/rencontre/74_fr.wav",
           "audioWo": "/audio/rencontre/75_wo.wav"
         }
@@ -1949,12 +1949,12 @@ export const IMPORTED = {
       "id": "rencontre_39",
       "lessonId": "rencontre",
       "position": 39,
-      "fr": "À la campagne",
-      "wo": "Ci kaw gi",
+      "fr": "J'ai 25 ans",
+      "wo": "Am na ñaar fukki at ak juróom",
       "variants": [
         {
-          "fr": "À la campagne",
-          "wo": "Ci kaw gi",
+          "fr": "J'ai 25 ans",
+          "wo": "Am na ñaar fukki at ak juróom",
           "audioFr": "/audio/rencontre/76_fr.wav",
           "audioWo": "/audio/rencontre/77_wo.wav"
         }
@@ -1964,29 +1964,14 @@ export const IMPORTED = {
       "id": "rencontre_40",
       "lessonId": "rencontre",
       "position": 40,
-      "fr": "Quel âge as-tu ?",
-      "wo": "Ñiata an nga am ?",
+      "fr": "Je suis né en 1988",
+      "wo": "Maa ngi judd 1988",
       "variants": [
         {
-          "fr": "Quel âge as-tu ?",
-          "wo": "Ñiata an nga am ?",
+          "fr": "Je suis né en 1988",
+          "wo": "Maa ngi judd 1988",
           "audioFr": "/audio/rencontre/78_fr.wav",
           "audioWo": "/audio/rencontre/79_wo.wav"
-        }
-      ]
-    },
-    {
-      "id": "rencontre_41",
-      "lessonId": "rencontre",
-      "position": 41,
-      "fr": "J'ai 25 ans",
-      "wo": "Amna ñaar fukki ak juróom",
-      "variants": [
-        {
-          "fr": "J'ai 25 ans",
-          "wo": "Amna ñaar fukki ak juróom",
-          "audioFr": "/audio/rencontre/80_fr.wav",
-          "audioWo": "/audio/rencontre/81_wo.wav"
         }
       ]
     }
