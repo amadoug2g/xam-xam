@@ -1,0 +1,142 @@
+{
+  "id": "langues",
+  "title": "Les langues",
+  "description": "TODO",
+  "cards": [
+    {
+      "id": "langues_01",
+      "lessonId": "langues",
+      "position": 1,
+      "fr": "Parlez-vous français ?",
+      "wo": "Maa nga la ko toubab ?",
+      "variants": [
+        {
+          "fr": "Parlez-vous français ?",
+          "wo": "Maa nga la ko toubab ?",
+          "audioFr": "/audio/langues/00_fr.wav",
+          "audioWo": "/audio/langues/01_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "langues_02",
+      "lessonId": "langues",
+      "position": 2,
+      "fr": "Je ne comprends pas français",
+      "wo": "Deguma touba",
+      "variants": [
+        {
+          "fr": "Je ne comprends pas français",
+          "wo": "Deguma touba",
+          "audioFr": "/audio/langues/02_fr.wav",
+          "audioWo": "/audio/langues/03_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "langues_03",
+      "lessonId": "langues",
+      "position": 3,
+      "fr": "Je suis désolé, je ne connais que quelques mots en Wolof",
+      "wo": "Baal ma, / Baat yu néew laa xam ci wolof",
+      "variants": [
+        {
+          "fr": "Je suis désolé, je ne connais que quelques mots en Wolof",
+          "wo": "Baal ma, / Baat yu néew laa xam ci wolof",
+          "audioFr": "/audio/langues/04_fr.wav",
+          "audioWo": "/audio/langues/05_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "langues_04",
+      "lessonId": "langues",
+      "position": 4,
+      "fr": "Je viens de commencer à apprendre le Wolof",
+      "wo": "Leegi la tàmbali jàng wolof",
+      "variants": [
+        {
+          "fr": "Je viens de commencer à apprendre le Wolof",
+          "wo": "Leegi la tàmbali jàng wolof",
+          "audioFr": "/audio/langues/06_fr.wav",
+          "audioWo": "/audio/langues/07_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "langues_05",
+      "lessonId": "langues",
+      "position": 5,
+      "fr": "Qu'est-ce qui est écrit là ?",
+      "wo": "Lan lañu bind fi ?",
+      "variants": [
+        {
+          "fr": "Qu'est-ce qui est écrit là ?",
+          "wo": "Lan lañu bind fi ?",
+          "audioFr": "/audio/langues/08_fr.wav",
+          "audioWo": "/audio/langues/09_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "langues_06",
+      "lessonId": "langues",
+      "position": 6,
+      "fr": "Traduisez cela en français s'il vous plaît",
+      "wo": "Soti ko ti fa xan ne su laa nexe",
+      "variants": [
+        {
+          "fr": "Traduisez cela en français s'il vous plaît",
+          "wo": "Soti ko ti fa xan ne su laa nexe",
+          "audioFr": "/audio/langues/10_fr.wav",
+          "audioWo": "/audio/langues/11_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "langues_07",
+      "lessonId": "langues",
+      "position": 7,
+      "fr": "Qu'est-ce que ça signifie ?",
+      "wo": "Lan la tekki ?",
+      "variants": [
+        {
+          "fr": "Qu'est-ce que ça signifie ?",
+          "wo": "Lan la tekki ?",
+          "audioFr": "/audio/langues/12_fr.wav",
+          "audioWo": "/audio/langues/13_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "langues_08",
+      "lessonId": "langues",
+      "position": 8,
+      "fr": "Comment dit-on cela en Wolof ? / en français ?",
+      "wo": "Naka lañu koy wa xe ci wolof ? / ci toubab ?",
+      "variants": [
+        {
+          "fr": "Comment dit-on cela en Wolof ? / en français ?",
+          "wo": "Naka lañu koy wa xe ci wolof ? / ci toubab ?",
+          "audioFr": "/audio/langues/14_fr.wav",
+          "audioWo": "/audio/langues/15_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "langues_09",
+      "lessonId": "langues",
+      "position": 9,
+      "fr": "Pouvez-vous parler plus lentement ?",
+      "wo": "Mën nga gënaw wax ndànk ?",
+      "variants": [
+        {
+          "fr": "Pouvez-vous parler plus lentement ?",
+          "wo": "Mën nga gënaw wax ndànk ?",
+          "audioFr": "/audio/langues/16_fr.wav",
+          "audioWo": "/audio/langues/17_wo.wav"
+        }
+      ]
+    }
+  ]
+}

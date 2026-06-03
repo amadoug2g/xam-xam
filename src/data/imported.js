@@ -1,5 +1,5 @@
 // Auto-généré par scripts/sync_to_app.js — ne pas éditer manuellement
-// 6 leçon(s) : compter, famille, mots-quotidiens, questions, rencontre, temps
+// 7 leçon(s) : compter, espace, famille, mots-quotidiens, questions, rencontre, temps
 export const IMPORTED = {
   "compter": [
     {
@@ -494,6 +494,173 @@ export const IMPORTED = {
           "wo": "Junni ak Benn (1001)",
           "audioFr": null,
           "audioWo": "/audio/compter/32_wo.wav"
+        }
+      ]
+    }
+  ],
+  "espace": [
+    {
+      "id": "espace_01",
+      "lessonId": "espace",
+      "position": 1,
+      "fr": "En haut / En bas",
+      "wo": "Ci kaw / Ci suuf",
+      "variants": [
+        {
+          "fr": "En haut / En bas",
+          "wo": "Ci kaw / Ci suuf",
+          "audioFr": "/audio/espace/00_fr.wav",
+          "audioWo": "/audio/espace/01_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "espace_02",
+      "lessonId": "espace",
+      "position": 2,
+      "fr": "À côté",
+      "wo": "Ci wett",
+      "variants": [
+        {
+          "fr": "À côté",
+          "wo": "Ci wett",
+          "audioFr": "/audio/espace/02_fr.wav",
+          "audioWo": "/audio/espace/03_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "espace_03",
+      "lessonId": "espace",
+      "position": 3,
+      "fr": "Devant / Derrière",
+      "wo": "Ci kanam / Ci gannaw",
+      "variants": [
+        {
+          "fr": "Devant / Derrière",
+          "wo": "Ci kanam / Ci gannaw",
+          "audioFr": "/audio/espace/04_fr.wav",
+          "audioWo": "/audio/espace/05_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "espace_04",
+      "lessonId": "espace",
+      "position": 4,
+      "fr": "Au milieu",
+      "wo": "Ci digg",
+      "variants": [
+        {
+          "fr": "Au milieu",
+          "wo": "Ci digg",
+          "audioFr": "/audio/espace/06_fr.wav",
+          "audioWo": "/audio/espace/07_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "espace_05",
+      "lessonId": "espace",
+      "position": 5,
+      "fr": "À droite / À gauche",
+      "wo": "Ci ndeyjoor / Ci càmmon",
+      "variants": [
+        {
+          "fr": "À droite / À gauche",
+          "wo": "Ci ndeyjoor / Ci càmmon",
+          "audioFr": "/audio/espace/08_fr.wav",
+          "audioWo": "/audio/espace/09_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "espace_06",
+      "lessonId": "espace",
+      "position": 6,
+      "fr": "À l'intérieur",
+      "wo": "Ci biir",
+      "variants": [
+        {
+          "fr": "À l'intérieur",
+          "wo": "Ci biir",
+          "audioFr": "/audio/espace/10_fr.wav",
+          "audioWo": "/audio/espace/11_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "espace_07",
+      "lessonId": "espace",
+      "position": 7,
+      "fr": "Entre",
+      "wo": "Ci diggante",
+      "variants": [
+        {
+          "fr": "Entre",
+          "wo": "Ci diggante",
+          "audioFr": "/audio/espace/12_fr.wav",
+          "audioWo": "/audio/espace/13_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "espace_08",
+      "lessonId": "espace",
+      "position": 8,
+      "fr": "Ici",
+      "wo": "Fi",
+      "variants": [
+        {
+          "fr": "Ici",
+          "wo": "Fi",
+          "audioFr": "/audio/espace/14_fr.wav",
+          "audioWo": "/audio/espace/15_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "espace_09",
+      "lessonId": "espace",
+      "position": 9,
+      "fr": "Là-bas",
+      "wo": "Fallé",
+      "variants": [
+        {
+          "fr": "Là-bas",
+          "wo": "Fallé",
+          "audioFr": "/audio/espace/16_fr.wav",
+          "audioWo": "/audio/espace/17_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "espace_10",
+      "lessonId": "espace",
+      "position": 10,
+      "fr": "Loin",
+      "wo": "Sori / Sore",
+      "variants": [
+        {
+          "fr": "Loin",
+          "wo": "Sori / Sore",
+          "audioFr": "/audio/espace/18_fr.wav",
+          "audioWo": "/audio/espace/19_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "espace_11",
+      "lessonId": "espace",
+      "position": 11,
+      "fr": "Près",
+      "wo": "Jege",
+      "variants": [
+        {
+          "fr": "Près",
+          "wo": "Jege",
+          "audioFr": "/audio/espace/20_fr.wav",
+          "audioWo": "/audio/espace/21_wo.wav"
         }
       ]
     }
