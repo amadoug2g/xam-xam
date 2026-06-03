@@ -1,5 +1,5 @@
 // Auto-généré par scripts/sync_to_app.js — ne pas éditer manuellement
-// 5 leçon(s) : compter, famille, mots-quotidiens, questions, rencontre
+// 6 leçon(s) : compter, famille, mots-quotidiens, questions, rencontre, temps
 export const IMPORTED = {
   "compter": [
     {
@@ -1972,6 +1972,233 @@ export const IMPORTED = {
           "wo": "Maa ngi judd 1988",
           "audioFr": "/audio/rencontre/78_fr.wav",
           "audioWo": "/audio/rencontre/79_wo.wav"
+        }
+      ]
+    }
+  ],
+  "temps": [
+    {
+      "id": "temps_01",
+      "lessonId": "temps",
+      "position": 1,
+      "fr": "Avant-hier",
+      "wo": "Belki Dèmb",
+      "variants": [
+        {
+          "fr": "Avant-hier",
+          "wo": "Belki Dèmb",
+          "audioFr": "/audio/temps/00_fr.wav",
+          "audioWo": "/audio/temps/01_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "temps_02",
+      "lessonId": "temps",
+      "position": 2,
+      "fr": "Hier",
+      "wo": "Dèmb",
+      "variants": [
+        {
+          "fr": "Hier",
+          "wo": "Dèmb",
+          "audioFr": "/audio/temps/02_fr.wav",
+          "audioWo": "/audio/temps/03_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "temps_03",
+      "lessonId": "temps",
+      "position": 3,
+      "fr": "Aujourd'hui",
+      "wo": "Tey",
+      "variants": [
+        {
+          "fr": "Aujourd'hui",
+          "wo": "Tey",
+          "audioFr": "/audio/temps/04_fr.wav",
+          "audioWo": "/audio/temps/05_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "temps_04",
+      "lessonId": "temps",
+      "position": 4,
+      "fr": "Demain",
+      "wo": "Ëllëg",
+      "variants": [
+        {
+          "fr": "Demain",
+          "wo": "Ëllëg",
+          "audioFr": "/audio/temps/06_fr.wav",
+          "audioWo": "/audio/temps/07_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "temps_05",
+      "lessonId": "temps",
+      "position": 5,
+      "fr": "Après-demain",
+      "wo": "Gannaw ëllëg",
+      "variants": [
+        {
+          "fr": "Après-demain",
+          "wo": "Gannaw ëllëg",
+          "audioFr": "/audio/temps/08_fr.wav",
+          "audioWo": "/audio/temps/09_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "temps_06",
+      "lessonId": "temps",
+      "position": 6,
+      "fr": "Au petit matin",
+      "wo": "Ci suba teel",
+      "variants": [
+        {
+          "fr": "Au petit matin",
+          "wo": "Ci suba teel",
+          "audioFr": "/audio/temps/10_fr.wav",
+          "audioWo": "/audio/temps/11_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "temps_07",
+      "lessonId": "temps",
+      "position": 7,
+      "fr": "Le matin",
+      "wo": "Ci suba",
+      "variants": [
+        {
+          "fr": "Le matin",
+          "wo": "Ci suba",
+          "audioFr": "/audio/temps/12_fr.wav",
+          "audioWo": "/audio/temps/13_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "temps_08",
+      "lessonId": "temps",
+      "position": 8,
+      "fr": "À la mi-journée",
+      "wo": "Ci digi bëccëg",
+      "variants": [
+        {
+          "fr": "À la mi-journée",
+          "wo": "Ci digi bëccëg",
+          "audioFr": "/audio/temps/14_fr.wav",
+          "audioWo": "/audio/temps/15_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "temps_09",
+      "lessonId": "temps",
+      "position": 9,
+      "fr": "L'après-midi",
+      "wo": "Le soir",
+      "variants": [
+        {
+          "fr": "L'après-midi",
+          "wo": "Le soir",
+          "audioFr": "/audio/temps/16_fr.wav",
+          "audioWo": "/audio/temps/17_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "temps_10",
+      "lessonId": "temps",
+      "position": 10,
+      "fr": "TODO",
+      "wo": "Ci ngoon",
+      "variants": [
+        {
+          "fr": "TODO",
+          "wo": "Ci ngoon",
+          "audioFr": null,
+          "audioWo": "/audio/temps/18_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "temps_11",
+      "lessonId": "temps",
+      "position": 11,
+      "fr": "La nuit",
+      "wo": "Ci guddi",
+      "variants": [
+        {
+          "fr": "La nuit",
+          "wo": "Ci guddi",
+          "audioFr": "/audio/temps/19_fr.wav",
+          "audioWo": "/audio/temps/20_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "temps_12",
+      "lessonId": "temps",
+      "position": 12,
+      "fr": "Avant",
+      "wo": "Balla",
+      "variants": [
+        {
+          "fr": "Avant",
+          "wo": "Balla",
+          "audioFr": "/audio/temps/21_fr.wav",
+          "audioWo": "/audio/temps/22_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "temps_13",
+      "lessonId": "temps",
+      "position": 13,
+      "fr": "Après",
+      "wo": "Gannaw",
+      "variants": [
+        {
+          "fr": "Après",
+          "wo": "Gannaw",
+          "audioFr": "/audio/temps/23_fr.wav",
+          "audioWo": "/audio/temps/24_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "temps_14",
+      "lessonId": "temps",
+      "position": 14,
+      "fr": "Bientôt",
+      "wo": "Leegi",
+      "variants": [
+        {
+          "fr": "Bientôt",
+          "wo": "Leegi",
+          "audioFr": "/audio/temps/25_fr.wav",
+          "audioWo": "/audio/temps/26_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "temps_15",
+      "lessonId": "temps",
+      "position": 15,
+      "fr": "Tout de suite",
+      "wo": "Leegi leegi",
+      "variants": [
+        {
+          "fr": "Tout de suite",
+          "wo": "Leegi leegi",
+          "audioFr": "/audio/temps/27_fr.wav",
+          "audioWo": "/audio/temps/28_wo.wav"
         }
       ]
     }
