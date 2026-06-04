@@ -1,5 +1,5 @@
 // Auto-généré par scripts/sync_to_app.js — ne pas éditer manuellement
-// 8 leçon(s) : compter, espace, famille, langues, mots-quotidiens, questions, rencontre, temps
+// 9 leçon(s) : compter, espace, famille, langues, mots-quotidiens, questions, rencontre, sentiments, temps
 export const IMPORTED = {
   "compter": [
     {
@@ -2276,6 +2276,338 @@ export const IMPORTED = {
           "wo": "Maa ngi judd 1988",
           "audioFr": "/audio/rencontre/78_fr.wav",
           "audioWo": "/audio/rencontre/79_wo.wav"
+        }
+      ]
+    }
+  ],
+  "sentiments": [
+    {
+      "id": "sentiments_01",
+      "lessonId": "sentiments",
+      "position": 1,
+      "fr": "Tu aimes la lutte ?",
+      "wo": "Sopp nga lamb?",
+      "variants": [
+        {
+          "fr": "Tu aimes la lutte ?",
+          "wo": "Sopp nga lamb?",
+          "audioFr": "/audio/sentiments/00_fr.wav",
+          "audioWo": "/audio/sentiments/01_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_02",
+      "lessonId": "sentiments",
+      "position": 2,
+      "fr": "Oui j'adore !",
+      "wo": "Waaw, bax !",
+      "variants": [
+        {
+          "fr": "Oui j'adore !",
+          "wo": "Waaw, bax !",
+          "audioFr": "/audio/sentiments/02_fr.wav",
+          "audioWo": "/audio/sentiments/03_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_03",
+      "lessonId": "sentiments",
+      "position": 3,
+      "fr": "Moi aussi",
+      "wo": "Man itam",
+      "variants": [
+        {
+          "fr": "Moi aussi",
+          "wo": "Man itam",
+          "audioFr": "/audio/sentiments/04_fr.wav",
+          "audioWo": "/audio/sentiments/05_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_04",
+      "lessonId": "sentiments",
+      "position": 4,
+      "fr": "Non je n'aime pas la lutte",
+      "wo": "Dedéet, soppuma lamb",
+      "variants": [
+        {
+          "fr": "Non je n'aime pas la lutte",
+          "wo": "Dedéet, soppuma lamb",
+          "audioFr": "/audio/sentiments/06_fr.wav",
+          "audioWo": "/audio/sentiments/07_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_05",
+      "lessonId": "sentiments",
+      "position": 5,
+      "fr": "Moi non plus",
+      "wo": "Man itam",
+      "variants": [
+        {
+          "fr": "Moi non plus",
+          "wo": "Man itam",
+          "audioFr": "/audio/sentiments/08_fr.wav",
+          "audioWo": "/audio/sentiments/09_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_06",
+      "lessonId": "sentiments",
+      "position": 6,
+      "fr": "Est-ce que ça t'a plu ?",
+      "wo": "Ndax neex xo na la ?",
+      "variants": [
+        {
+          "fr": "Est-ce que ça t'a plu ?",
+          "wo": "Ndax neex xo na la ?",
+          "audioFr": "/audio/sentiments/10_fr.wav",
+          "audioWo": "/audio/sentiments/11_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_07",
+      "lessonId": "sentiments",
+      "position": 7,
+      "fr": "J'ai a-do-ré !",
+      "wo": "Neexona lool !",
+      "variants": [
+        {
+          "fr": "J'ai a-do-ré !",
+          "wo": "Neexona lool !",
+          "audioFr": "/audio/sentiments/12_fr.wav",
+          "audioWo": "/audio/sentiments/13_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_08",
+      "lessonId": "sentiments",
+      "position": 8,
+      "fr": "Ça ne m'a pas plu",
+      "wo": "Neexuma",
+      "variants": [
+        {
+          "fr": "Ça ne m'a pas plu",
+          "wo": "Neexuma",
+          "audioFr": "/audio/sentiments/14_fr.wav",
+          "audioWo": "/audio/sentiments/15_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_09",
+      "lessonId": "sentiments",
+      "position": 9,
+      "fr": "C'est amusant",
+      "wo": "Neex na",
+      "variants": [
+        {
+          "fr": "C'est amusant",
+          "wo": "Neex na",
+          "audioFr": "/audio/sentiments/16_fr.wav",
+          "audioWo": "/audio/sentiments/17_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_10",
+      "lessonId": "sentiments",
+      "position": 10,
+      "fr": "C'est beau",
+      "wo": "Rafet na",
+      "variants": [
+        {
+          "fr": "C'est beau",
+          "wo": "Rafet na",
+          "audioFr": "/audio/sentiments/18_fr.wav",
+          "audioWo": "/audio/sentiments/19_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_11",
+      "lessonId": "sentiments",
+      "position": 11,
+      "fr": "C'est bon",
+      "wo": "Baax na",
+      "variants": [
+        {
+          "fr": "C'est bon",
+          "wo": "Baax na",
+          "audioFr": "/audio/sentiments/20_fr.wav",
+          "audioWo": "/audio/sentiments/21_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_12",
+      "lessonId": "sentiments",
+      "position": 12,
+      "fr": "C'est intéressant",
+      "wo": "Amna solo",
+      "variants": [
+        {
+          "fr": "C'est intéressant",
+          "wo": "Amna solo",
+          "audioFr": "/audio/sentiments/22_fr.wav",
+          "audioWo": "/audio/sentiments/23_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_13",
+      "lessonId": "sentiments",
+      "position": 13,
+      "fr": "C'est surprenant",
+      "wo": "Doy na wax",
+      "variants": [
+        {
+          "fr": "C'est surprenant",
+          "wo": "Doy na wax",
+          "audioFr": "/audio/sentiments/24_fr.wav",
+          "audioWo": "/audio/sentiments/25_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_14",
+      "lessonId": "sentiments",
+      "position": 14,
+      "fr": "C'est magnifique",
+      "wo": "Rafet na lool",
+      "variants": [
+        {
+          "fr": "C'est magnifique",
+          "wo": "Rafet na lool",
+          "audioFr": "/audio/sentiments/26_fr.wav",
+          "audioWo": "/audio/sentiments/27_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_15",
+      "lessonId": "sentiments",
+      "position": 15,
+      "fr": "C'est succulent",
+      "wo": "Neex na",
+      "variants": [
+        {
+          "fr": "C'est succulent",
+          "wo": "Neex na",
+          "audioFr": "/audio/sentiments/28_fr.wav",
+          "audioWo": "/audio/sentiments/29_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_16",
+      "lessonId": "sentiments",
+      "position": 16,
+      "fr": "C'est désagréable",
+      "wo": "Neeexul",
+      "variants": [
+        {
+          "fr": "C'est désagréable",
+          "wo": "Neeexul",
+          "audioFr": "/audio/sentiments/30_fr.wav",
+          "audioWo": "/audio/sentiments/31_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_17",
+      "lessonId": "sentiments",
+      "position": 17,
+      "fr": "C'est effrayant",
+      "wo": "Dafa raglu",
+      "variants": [
+        {
+          "fr": "C'est effrayant",
+          "wo": "Dafa raglu",
+          "audioFr": "/audio/sentiments/32_fr.wav",
+          "audioWo": "/audio/sentiments/33_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_18",
+      "lessonId": "sentiments",
+      "position": 18,
+      "fr": "C'est ennuyant",
+      "wo": "Tiss na",
+      "variants": [
+        {
+          "fr": "C'est ennuyant",
+          "wo": "Tiss na",
+          "audioFr": "/audio/sentiments/34_fr.wav",
+          "audioWo": "/audio/sentiments/35_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_19",
+      "lessonId": "sentiments",
+      "position": 19,
+      "fr": "C'est mauvais",
+      "wo": "Baxul",
+      "variants": [
+        {
+          "fr": "C'est mauvais",
+          "wo": "Baxul",
+          "audioFr": "/audio/sentiments/36_fr.wav",
+          "audioWo": "/audio/sentiments/37_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_20",
+      "lessonId": "sentiments",
+      "position": 20,
+      "fr": "Je pense que...",
+      "wo": "Dafa na nee...",
+      "variants": [
+        {
+          "fr": "Je pense que...",
+          "wo": "Dafa na nee...",
+          "audioFr": "/audio/sentiments/38_fr.wav",
+          "audioWo": "/audio/sentiments/39_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_21",
+      "lessonId": "sentiments",
+      "position": 21,
+      "fr": "Je crois que...",
+      "wo": "Fog na nee...",
+      "variants": [
+        {
+          "fr": "Je crois que...",
+          "wo": "Fog na nee...",
+          "audioFr": "/audio/sentiments/40_fr.wav",
+          "audioWo": "/audio/sentiments/41_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "sentiments_22",
+      "lessonId": "sentiments",
+      "position": 22,
+      "fr": "J'ai l'impression que...",
+      "wo": "Ci man, dafa mën ni...",
+      "variants": [
+        {
+          "fr": "J'ai l'impression que...",
+          "wo": "Ci man, dafa mën ni...",
+          "audioFr": "/audio/sentiments/42_fr.wav",
+          "audioWo": "/audio/sentiments/43_wo.wav"
         }
       ]
     }
