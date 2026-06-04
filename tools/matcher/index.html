@@ -10,7 +10,7 @@
   --bg:#0f1117;--surface:#1a1d26;--surface2:#242736;
   --fr:#3b82f6;--wo:#22c55e;--alt:#f59e0b;--skip:#4b5563;
   --danger:#ef4444;--text:#e5e7eb;--muted:#9ca3af;--border:#2d3148;
-  --done:#22c55e;--todo:#f59e0b;
+  --done:#22c55e;--todo:#f59e0b;--link:#a855f7;
 }
 body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;font-size:14px;height:100vh;display:flex;flex-direction:column;overflow:hidden}
 button{cursor:pointer;border:none;border-radius:6px;font-size:13px;font-weight:500}
@@ -108,6 +108,8 @@ input[type=file].split-file{color:var(--muted);font-size:13px;cursor:pointer}
 .lb.a-wo{background:var(--wo)!important;color:#000!important;border-color:var(--wo)!important}
 .lb.a-alt{background:var(--alt)!important;color:#000!important;border-color:var(--alt)!important}
 .lb.a-skip{background:var(--skip)!important;color:#fff!important;border-color:var(--skip)!important}
+.lb.a-link{background:var(--link)!important;color:#fff!important;border-color:var(--link)!important}
+.seg-row.l-link{border-left-color:var(--link)}
 .seg-inp{background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);font-size:13px;padding:2px 0;width:100%;outline:none;font-family:inherit}
 .seg-inp:focus{border-bottom-color:var(--fr)}
 .seg-inp::placeholder{color:var(--skip);font-style:italic;font-size:12px}
@@ -274,58 +276,58 @@ const S = {
 // LESSONS MAP
 // ═══════════════════════════════════════════════════════
 const LESSONS_MAP = [
-  { track: 1,  id: 'compter',         title: 'Compter en wolof',                done: true  },
-  { track: 2,  id: 'temps',           title: 'Se reperer dans le temps',         done: true  },
-  { track: 3,  id: 'espace',          title: "Se reperer dans l'espace",         done: true  },
-  { track: 4,  id: 'questions',       title: 'Poser des questions',              done: true  },
-  { track: 5,  id: 'mots-quotidiens', title: 'Mots du quotidien',                done: true  },
-  { track: 6,  id: 'contacts',        title: 'Les contacts',                     done: false },
-  { track: 7,  id: 'langues',         title: 'Les langues',                      done: true  },
-  { track: 8,  id: 'rencontre',       title: 'La rencontre',                     done: true  },
-  { track: 9,  id: 'famille',         title: 'La famille',                       done: true  },
-  { track: 10, id: 'emploi',          title: "L'emploi",                         done: true  },
-  { track: 11, id: 'religion',        title: 'La religion',                      done: true  },
-  { track: 12, id: 'proverbes',       title: 'Les proverbes',                    done: true  },
-  { track: 13, id: 'meteo',           title: 'La meteo',                         done: true  },
+  { track: 1, id: 'compter',         title: 'Compter en wolof',                done: true  },
+  { track: 2, id: 'temps',           title: 'Se reperer dans le temps',         done: true  },
+  { track: 3, id: 'espace',          title: "Se reperer dans l'espace",         done: true  },
+  { track: 4, id: 'questions',       title: 'Poser des questions',              done: true  },
+  { track: 5, id: 'mots-quotidiens', title: 'Mots du quotidien',                done: true  },
+  { track: 6, id: 'contacts',        title: 'Les contacts',                     done: false  },
+  { track: 7, id: 'langues',         title: 'Les langues',                      done: true  },
+  { track: 8, id: 'rencontre',       title: 'La rencontre',                     done: true  },
+  { track: 9, id: 'famille',         title: 'La famille',                       done: true  },
+  { track: 10, id: 'emploi',          title: "L'emploi",                         done: false  },
+  { track: 11, id: 'religion',        title: 'La religion',                      done: false  },
+  { track: 12, id: 'proverbes',       title: 'Les proverbes',                    done: false  },
+  { track: 13, id: 'meteo',           title: 'La meteo',                         done: false  },
   { track: 14, id: 'sentiments',      title: 'Les sentiments',                   done: true  },
-  { track: 15, id: 'invitation',      title: "L'invitation",                     done: true  },
-  { track: 16, id: 'amour',           title: "L'amour",                          done: true  },
-  { track: 17, id: 'fetes',           title: 'Les fetes',                        done: true  },
-  { track: 18, id: 'aide',            title: "L'aide",                           done: true  },
-  { track: 19, id: 'voyager',         title: 'Voyager',                          done: true  },
-  { track: 20, id: 'change',          title: 'Le change',                        done: true  },
-  { track: 21, id: 'avion',           title: "L'avion",                          done: true  },
-  { track: 22, id: 'train',           title: 'Le train',                         done: true  },
-  { track: 23, id: 'bateau',          title: 'Le bateau',                        done: true  },
-  { track: 24, id: 'taxi',            title: 'Le taxi',                          done: true  },
-  { track: 25, id: 'voiture',         title: 'La voiture',                       done: true  },
-  { track: 26, id: 'ville',           title: 'La ville',                         done: true  },
-  { track: 27, id: 'musees',          title: 'Les musees',                       done: true  },
-  { track: 28, id: 'poste',           title: 'La poste',                         done: true  },
-  { track: 29, id: 'telephone',       title: 'Le telephone',                     done: true  },
-  { track: 30, id: 'internet',        title: 'Internet',                         done: true  },
-  { track: 31, id: 'administration',  title: "L'administration",                 done: true  },
-  { track: 32, id: 'banque',          title: 'La banque',                        done: true  },
-  { track: 33, id: 'spectacles',      title: 'Les spectacles',                   done: true  },
-  { track: 34, id: 'coiffeur',        title: 'Le coiffeur',                      done: true  },
-  { track: 35, id: 'campagne',        title: 'La campagne',                      done: true  },
-  { track: 36, id: 'camping',         title: 'Le camping',                       done: true  },
-  { track: 37, id: 'animaux',         title: 'Les animaux',                      done: true  },
-  { track: 38, id: 'hebergement',     title: "L'hebergement",                    done: true  },
-  { track: 39, id: 'restaurant',      title: 'Au restaurant',                    done: true  },
-  { track: 40, id: 'mets',            title: 'Les mets',                         done: true  },
-  { track: 41, id: 'alcool',          title: "L'alcool",                         done: true  },
-  { track: 42, id: 'boissons',        title: 'Les boissons',                     done: true  },
-  { track: 43, id: 'magasins',        title: 'Les magasins',                     done: true  },
-  { track: 44, id: 'vetements',       title: 'Les vetements',                    done: true  },
-  { track: 45, id: 'tabac',           title: 'Le tabac',                         done: true  },
-  { track: 46, id: 'photo',           title: 'La photo',                         done: true  },
-  { track: 47, id: 'provisions',      title: 'Les provisions',                   done: true  },
-  { track: 48, id: 'souvenirs',       title: 'Les souvenirs',                    done: true  },
-  { track: 49, id: 'rdv-pro',         title: 'Rendez-vous pro',                  done: true  },
-  { track: 50, id: 'sante',           title: 'La sante',                         done: true  },
-  { track: 51, id: 'lecon51',         title: 'Lecon 51',                         done: true  },
-  { track: 52, id: 'lecon52',         title: 'Lecon 52',                         done: true  },
+  { track: 15, id: 'invitation',      title: "L'invitation",                     done: false  },
+  { track: 16, id: 'amour',           title: "L'amour",                          done: false  },
+  { track: 17, id: 'fetes',           title: 'Les fetes',                        done: false  },
+  { track: 18, id: 'aide',            title: "L'aide",                           done: false  },
+  { track: 19, id: 'voyager',         title: 'Voyager',                          done: false  },
+  { track: 20, id: 'change',          title: 'Le change',                        done: false  },
+  { track: 21, id: 'avion',           title: "L'avion",                          done: false  },
+  { track: 22, id: 'train',           title: 'Le train',                         done: false  },
+  { track: 23, id: 'bateau',          title: 'Le bateau',                        done: false  },
+  { track: 24, id: 'taxi',            title: 'Le taxi',                          done: false  },
+  { track: 25, id: 'voiture',         title: 'La voiture',                       done: false  },
+  { track: 26, id: 'ville',           title: 'La ville',                         done: false  },
+  { track: 27, id: 'musees',          title: 'Les musees',                       done: false  },
+  { track: 28, id: 'poste',           title: 'La poste',                         done: false  },
+  { track: 29, id: 'telephone',       title: 'Le telephone',                     done: false  },
+  { track: 30, id: 'internet',        title: 'Internet',                         done: false  },
+  { track: 31, id: 'administration',  title: "L'administration",                 done: false  },
+  { track: 32, id: 'banque',          title: 'La banque',                        done: false  },
+  { track: 33, id: 'spectacles',      title: 'Les spectacles',                   done: false  },
+  { track: 34, id: 'coiffeur',        title: 'Le coiffeur',                      done: false  },
+  { track: 35, id: 'campagne',        title: 'La campagne',                      done: false  },
+  { track: 36, id: 'camping',         title: 'Le camping',                       done: false  },
+  { track: 37, id: 'animaux',         title: 'Les animaux',                      done: false  },
+  { track: 38, id: 'hebergement',     title: "L'hebergement",                    done: false  },
+  { track: 39, id: 'restaurant',      title: 'Au restaurant',                    done: false  },
+  { track: 40, id: 'mets',           title: 'Les mets',                         done: false  },
+  { track: 41, id: 'alcool',          title: "L'alcool",                         done: false  },
+  { track: 42, id: 'boissons',        title: 'Les boissons',                     done: false  },
+  { track: 43, id: 'magasins',        title: 'Les magasins',                     done: false  },
+  { track: 44, id: 'vetements',       title: 'Les vetements',                    done: false  },
+  { track: 45, id: 'tabac',           title: 'Le tabac',                         done: false  },
+  { track: 46, id: 'photo',           title: 'La photo',                         done: false  },
+  { track: 47, id: 'provisions',      title: 'Les provisions',                   done: false  },
+  { track: 48, id: 'souvenirs',       title: 'Les souvenirs',                    done: false  },
+  { track: 49, id: 'rdv-pro',         title: 'Rendez-vous pro',                  done: false  },
+  { track: 50, id: 'sante',           title: 'La sante',                         done: false  },
+  { track: 51, id: 'lecon51',         title: 'Lecon 51',                         done: false  },
+  { track: 52, id: 'lecon52',         title: 'Lecon 52',                         done: false  },
 ];
 
 // ═══════════════════════════════════════════════════════
@@ -472,7 +474,7 @@ function goToSplit(lesson) {
   S.splitAudioBuffer = null;
 
   document.getElementById('split-title').textContent = `${lesson.id} — ${lesson.title}`;
-  document.getElementById('split-expected-file').textContent = `Wolof - ${lesson.track}.mp3`;
+  document.getElementById('split-expected-file').textContent = `Wolof - ${String(lesson.track).padStart(2,'0')}.mp3`;
   document.getElementById('split-load-status').textContent = '';
   document.getElementById('split-load-status').className = 'split-status';
   document.getElementById('split-params-card').style.display = 'none';
@@ -501,22 +503,28 @@ document.getElementById('matcher-back').addEventListener('click', () => {
 // Charger automatiquement depuis le dossier Assimil
 document.getElementById('btn-load-auto').addEventListener('click', async () => {
   if (!S.assimilHandle) { alert('Dossier Assimil non defini.'); return; }
-  const fname = `Wolof - ${S.currentLesson.track}.mp3`;
-  setLoadStatus('Recherche de ' + fname + '...', '');
-  try {
-    const fh = await S.assimilHandle.getFileHandle(fname);
-    const file = await fh.getFile();
-    await loadAudioFile(file);
-  } catch(e) {
-    // Essayer aussi sans espace
+  const t = S.currentLesson.track;
+  const tp = String(t).padStart(2, '0');
+  // Essayer les 4 variantes de nommage possibles
+  const candidates = [
+    `Wolof - ${tp}.mp3`,
+    `Wolof - ${t}.mp3`,
+    `Wolof-${tp}.mp3`,
+    `Wolof-${t}.mp3`,
+  ];
+  setLoadStatus('Recherche de ' + candidates[0] + '...', '');
+  let loaded = false;
+  for (const fname of candidates) {
     try {
-      const fname2 = `Wolof-${S.currentLesson.track}.mp3`;
-      const fh2 = await S.assimilHandle.getFileHandle(fname2);
-      const file2 = await fh2.getFile();
-      await loadAudioFile(file2);
-    } catch(_) {
-      setLoadStatus('Fichier non trouve : ' + fname, 'err');
-    }
+      const fh = await S.assimilHandle.getFileHandle(fname);
+      const file = await fh.getFile();
+      await loadAudioFile(file);
+      loaded = true;
+      break;
+    } catch(_) {}
+  }
+  if (!loaded) {
+    setLoadStatus('Fichier non trouve : ' + candidates[0], 'err');
   }
 });
 
@@ -585,6 +593,7 @@ document.getElementById('btn-split').addEventListener('click', async () => {
         whisper: '',
         lang: null,
         text: '',
+        linked: false,
       });
       S.segBlobs[file] = seg.blob;
     });
@@ -747,6 +756,7 @@ function renderSegs() {
           <button class="lb" data-i="${i}" data-l="WO">WO</button>
           <button class="lb" data-i="${i}" data-l="ALT">ALT</button>
           <button class="lb" data-i="${i}" data-l="SKIP">—</button>
+          <button class="lb" data-i="${i}" data-l="LINK">⛓</button>
         </div>
         <input class="seg-inp" type="text" data-i="${i}"
           value="${esc(seg.text)}"
@@ -775,6 +785,15 @@ function renderSegs() {
 
 function toggleLang(i, lang) {
   const seg = S.segs[i];
+
+  // Handle LINK toggle
+  if (lang === 'LINK') {
+    seg.linked = !seg.linked;
+    updateRow(i);
+    refreshRight();
+    return;
+  }
+
   const prev = seg.lang;
   seg.lang = seg.lang === lang ? null : lang;
 
@@ -804,6 +823,7 @@ function updateRow(i) {
   row.querySelectorAll('.lb').forEach(b => {
     b.className = 'lb';
     if (b.dataset.l === seg.lang) b.classList.add(`a-${lc}`);
+    if (b.dataset.l === 'LINK' && seg.linked) b.classList.add('a-link');
   });
   const inp = row.querySelector('.seg-inp');
   if (inp) {
@@ -831,25 +851,47 @@ function playAt(i) {
 }
 
 // ═══════════════════════════════════════════════════════
-// MATCHER — Cards logic (PRESERVE EXACTEMENT)
+// MATCHER — Cards logic with linked segment support
 // ═══════════════════════════════════════════════════════
 function buildCards() {
   const cards = [];
   let last = null;
+
   for (const seg of S.segs) {
     if (!seg.lang || seg.lang === 'SKIP') continue;
+
     if (seg.lang === 'FR') {
-      last = { variants: [{ fr: seg.text || '', afr: seg.file, wo: null, awo: null }] };
-      cards.push(last);
-    } else if (seg.lang === 'WO') {
-      const lastV = last ? last.variants[last.variants.length - 1] : null;
-      if (lastV && lastV.awo === null) {
-        lastV.wo = seg.text || '';
-        lastV.awo = seg.file;
+      if (seg.linked && last) {
+        // Merge into last card's FR side
+        const v = last.variants[0];
+        v.fr = v.fr ? v.fr + ' / ' + (seg.text || '') : (seg.text || '');
+        v.afr = v.afr ? [].concat(v.afr, seg.file) : [seg.file];
       } else {
-        const c = { variants: [{ fr: '', afr: null, wo: seg.text || '', awo: seg.file }] };
-        cards.push(c);
-        last = c;
+        last = { variants: [{ fr: seg.text || '', afr: seg.file, wo: null, awo: null }] };
+        cards.push(last);
+      }
+    } else if (seg.lang === 'WO') {
+      if (seg.linked && last) {
+        // Merge into last card's WO side
+        const v = last.variants[last.variants.length - 1];
+        if (v.awo !== null) {
+          // WO already filled — merge into it
+          v.wo = v.wo ? v.wo + ' / ' + (seg.text || '') : (seg.text || '');
+          v.awo = v.awo ? [].concat(v.awo, seg.file) : [seg.file];
+        } else {
+          v.wo = seg.text || '';
+          v.awo = seg.file;
+        }
+      } else {
+        const lastV = last ? last.variants[last.variants.length - 1] : null;
+        if (lastV && lastV.awo === null) {
+          lastV.wo = seg.text || '';
+          lastV.awo = seg.file;
+        } else {
+          const c = { variants: [{ fr: '', afr: null, wo: seg.text || '', awo: seg.file }] };
+          cards.push(c);
+          last = c;
+        }
       }
     } else if (seg.lang === 'ALT') {
       if (last) {
@@ -908,6 +950,51 @@ function refreshRight() {
 }
 
 // ═══════════════════════════════════════════════════════
+// AUDIO CONCATENATION HELPER
+// ═══════════════════════════════════════════════════════
+async function concatBlobs(files) {
+  // files is string or array of strings
+  const arr = [].concat(files).filter(Boolean);
+  if (arr.length === 1) return S.segBlobs[arr[0]];
+  if (arr.length === 0) return null;
+  // Decode all, concatenate float32 samples, re-encode
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  const decoded = await Promise.all(arr.map(async f => {
+    const blob = S.segBlobs[f];
+    const ab = await blob.arrayBuffer();
+    return audioCtx.decodeAudioData(ab);
+  }));
+  const sr = decoded[0].sampleRate;
+  const totalLen = decoded.reduce((s, d) => s + d.length, 0);
+  const combined = new Float32Array(totalLen);
+  let offset = 0;
+  for (const d of decoded) {
+    combined.set(d.getChannelData(0), offset);
+    offset += d.length;
+  }
+  audioCtx.close();
+  return float32ToWav(combined, sr);
+}
+
+function float32ToWav(samples, sampleRate) {
+  const buf = new ArrayBuffer(44 + samples.length * 2);
+  const view = new DataView(buf);
+  const w = (off, str) => { for (let i = 0; i < str.length; i++) view.setUint8(off + i, str.charCodeAt(i)); };
+  w(0, 'RIFF'); view.setUint32(4, 36 + samples.length * 2, true);
+  w(8, 'WAVE'); w(12, 'fmt '); view.setUint32(16, 16, true);
+  view.setUint16(20, 1, true); view.setUint16(22, 1, true);
+  view.setUint32(24, sampleRate, true); view.setUint32(28, sampleRate * 2, true);
+  view.setUint16(32, 2, true); view.setUint16(34, 16, true);
+  w(36, 'data'); view.setUint32(40, samples.length * 2, true);
+  let off = 44;
+  for (let i = 0; i < samples.length; i++, off += 2) {
+    const s = Math.max(-1, Math.min(1, samples[i]));
+    view.setInt16(off, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
+  }
+  return new Blob([buf], { type: 'audio/wav' });
+}
+
+// ═══════════════════════════════════════════════════════
 // EXPORT vers repo (File System Access API)
 // ═══════════════════════════════════════════════════════
 async function exportToRepo() {
@@ -925,15 +1012,17 @@ async function exportToRepo() {
   const cardData = cards.map((c, i) => {
     const variants = c.variants.map(v => {
       let audioFr = null, audioWo = null;
-      if (v.afr && S.segBlobs[v.afr]) {
+      const afrFiles = [].concat(v.afr || []).filter(Boolean);
+      if (afrFiles.length > 0 && afrFiles.every(f => S.segBlobs[f])) {
         const fn = `${pad2(fi)}_fr.wav`;
-        audioBlobs[fn] = S.segBlobs[v.afr];
+        audioBlobs[fn] = afrFiles.length === 1 ? S.segBlobs[afrFiles[0]] : { isConcat: true, files: afrFiles };
         audioFr = `/audio/${S.id}/${fn}`;
         fi++;
       }
-      if (v.awo && S.segBlobs[v.awo]) {
+      const awoFiles = [].concat(v.awo || []).filter(Boolean);
+      if (awoFiles.length > 0 && awoFiles.every(f => S.segBlobs[f])) {
         const fn = `${pad2(fi)}_wo.wav`;
-        audioBlobs[fn] = S.segBlobs[v.awo];
+        audioBlobs[fn] = awoFiles.length === 1 ? S.segBlobs[awoFiles[0]] : { isConcat: true, files: awoFiles };
         audioWo = `/audio/${S.id}/${fn}`;
         fi++;
       }
@@ -970,11 +1059,15 @@ async function exportToRepo() {
     }
     lessonAudioDir = await audioDir.getDirectoryHandle(S.id, { create: true });
 
-    for (const [fname, blob] of Object.entries(audioBlobs)) {
+    for (const [fname, data] of Object.entries(audioBlobs)) {
       showProgress('Export vers repo', `Ecriture ${fname}...`, Math.round(5 + (done / totalFiles) * 85));
       const fh = await lessonAudioDir.getFileHandle(fname, { create: true });
       const w = await fh.createWritable();
-      await w.write(blob);
+      let finalBlob = data;
+      if (data.isConcat) {
+        finalBlob = await concatBlobs(data.files);
+      }
+      await w.write(finalBlob);
       await w.close();
       done++;
     }
@@ -1042,6 +1135,7 @@ document.addEventListener('keydown', e => {
     case 'w': case 'W': if (focusedIdx >= 0) toggleLang(focusedIdx, 'WO');   break;
     case 'a': case 'A': if (focusedIdx >= 0) toggleLang(focusedIdx, 'ALT');  break;
     case 's': case 'S': if (focusedIdx >= 0) toggleLang(focusedIdx, 'SKIP'); break;
+    case 'l': case 'L': if (focusedIdx >= 0) toggleLang(focusedIdx, 'LINK'); break;
     case ' ':
       e.preventDefault();
       if (focusedIdx >= 0) playAt(focusedIdx);
@@ -1059,7 +1153,7 @@ function autoSave() {
   const save = {
     id: S.id,
     title: S.title,
-    segs: S.segs.map(s => ({ index: s.index, file: s.file, lang: s.lang, text: s.text }))
+    segs: S.segs.map(s => ({ index: s.index, file: s.file, lang: s.lang, text: s.text, linked: s.linked }))
   };
   localStorage.setItem(SAVE_KEY + '_' + S.id, JSON.stringify(save));
 }
@@ -1074,7 +1168,7 @@ function checkRestoreForLesson() {
       if (confirm(`Session precedente trouvee pour "${S.id}" (${save.segs.length} segments). Restaurer les annotations ?`)) {
         save.segs.forEach(sv => {
           const seg = S.segs.find(s => s.file === sv.file);
-          if (seg) { seg.lang = sv.lang; seg.text = sv.text; }
+          if (seg) { seg.lang = sv.lang; seg.text = sv.text; seg.linked = sv.linked || false; }
         });
       }
     }
@@ -1104,6 +1198,77 @@ function esc(s) {
 }
 function pad3(n) { return String(n).padStart(3, '0'); }
 function pad2(n) { return String(n).padStart(2, '0'); }
+
+// ═══════════════════════════════════════════════════════
+// SELF-TESTS
+// ═══════════════════════════════════════════════════════
+window.runTests = function() {
+  const orig = S.segs;
+  const pass = [], fail = [];
+
+  function check(name, got, expected) {
+    const ok = JSON.stringify(got) === JSON.stringify(expected);
+    (ok ? pass : fail).push({ name, got, expected });
+  }
+
+  // Test 1: 2 FR → 1 WO (L'après-midi + Le soir → Ci ngoon)
+  S.segs = [
+    { lang: 'FR', text: "L'après-midi", file: 'seg_017.mp3', linked: false },
+    { lang: 'FR', text: 'Le soir', file: 'seg_018.mp3', linked: true },
+    { lang: 'WO', text: 'Ci ngoon', file: 'seg_019.mp3', linked: false },
+  ];
+  let cards = buildCards();
+  check('T1 count', cards.length, 1);
+  check('T1 fr text', cards[0].variants[0].fr, "L'après-midi / Le soir");
+  check('T1 afr is array', Array.isArray(cards[0].variants[0].afr), true);
+  check('T1 wo text', cards[0].variants[0].wo, 'Ci ngoon');
+  check('T1 awo is string', typeof cards[0].variants[0].awo, 'string');
+
+  // Test 2: 1 FR → 2 WO
+  S.segs = [
+    { lang: 'FR', text: 'Bonjour', file: 'seg_001.mp3', linked: false },
+    { lang: 'WO', text: 'Mangi dem', file: 'seg_002.mp3', linked: false },
+    { lang: 'WO', text: 'Salaam aleekum', file: 'seg_003.mp3', linked: true },
+  ];
+  cards = buildCards();
+  check('T2 count', cards.length, 1);
+  check('T2 fr text', cards[0].variants[0].fr, 'Bonjour');
+  check('T2 wo text', cards[0].variants[0].wo, 'Mangi dem / Salaam aleekum');
+
+  // Test 3: 2 FR + 2 WO (devant/derrière → kanam/ginnaaw)
+  S.segs = [
+    { lang: 'FR', text: 'Devant', file: 'seg_010.mp3', linked: false },
+    { lang: 'FR', text: 'Derrière', file: 'seg_011.mp3', linked: true },
+    { lang: 'WO', text: 'Kanam', file: 'seg_012.mp3', linked: false },
+    { lang: 'WO', text: 'Ginnaaw', file: 'seg_013.mp3', linked: true },
+  ];
+  cards = buildCards();
+  check('T3 count', cards.length, 1);
+  check('T3 fr text', cards[0].variants[0].fr, 'Devant / Derrière');
+  check('T3 wo text', cards[0].variants[0].wo, 'Kanam / Ginnaaw');
+
+  // Test 4: normal unlinked cards still work
+  S.segs = [
+    { lang: 'FR', text: 'Hier', file: 'seg_001.mp3', linked: false },
+    { lang: 'WO', text: 'Démb', file: 'seg_002.mp3', linked: false },
+    { lang: 'FR', text: "Aujourd'hui", file: 'seg_003.mp3', linked: false },
+    { lang: 'WO', text: 'Tey', file: 'seg_004.mp3', linked: false },
+  ];
+  cards = buildCards();
+  check('T4 count', cards.length, 2);
+  check('T4 card1 fr', cards[0].variants[0].fr, 'Hier');
+  check('T4 card2 fr', cards[1].variants[0].fr, "Aujourd'hui");
+
+  S.segs = orig;
+
+  console.log(`Tests: ${pass.length} passed, ${fail.length} failed`);
+  if (fail.length) {
+    fail.forEach(f => console.error('FAIL', f.name, '\n  got:', JSON.stringify(f.got), '\n  expected:', JSON.stringify(f.expected)));
+  } else {
+    console.log('All tests passed ✓');
+  }
+  return { pass, fail };
+};
 
 // ═══════════════════════════════════════════════════════
 // INIT

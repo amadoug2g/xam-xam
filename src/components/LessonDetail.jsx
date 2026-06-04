@@ -1,20 +1,19 @@
 import { useState } from 'react'
-import { LESSONS } from '../data/mock'
+import { lessonStore } from '../core/lessonStore'
 import { srs } from '../core/srs'
-import { cardOverrides } from '../core/cardOverrides'
 import { useTheme } from '../core/useTheme'
 import { ArrowLeft, Play, BookOpen, CheckCircle2, Clock, Volume2, Sun, Moon, Eye, EyeOff, Settings } from 'lucide-react'
 
 export default function LessonDetail({ lessonId, onStart, onBack, onAdmin }) {
   const { theme, toggleTheme } = useTheme()
 
+  const LESSONS = lessonStore.getLessons()
   const lesson = LESSONS.find(l => l.id === lessonId)
   if (!lesson) return null
 
-  const [overrides, setOverrides] = useState(() => cardOverrides.getAll())
   const [showTranslation, setShowTranslation] = useState(false)
 
-  const cards = (lesson.cards || []).map(c => overrides[c.id] ? { ...c, ...overrides[c.id] } : c)
+  const cards = lesson.cards || []
   const total = cards.length
 
   // Calculate precise stats specifically for this lesson's card set
@@ -156,9 +155,6 @@ export default function LessonDetail({ lessonId, onStart, onBack, onAdmin }) {
                       <p className="text-sm font-semibold text-[var(--text-wolof)] tracking-wide transition-colors duration-300 truncate">
                         {c.wo}
                       </p>
-                      {overrides[c.id] && (
-                        <span className="text-[9px] text-[var(--text-muted)] bg-[var(--btn-secondary-bg)] border border-[var(--btn-secondary-border)] px-1.5 rounded shrink-0">modifié</span>
-                      )}
                     </div>
                     {showTranslation && (
                       <p className="text-xs text-[var(--text-muted)] mt-0.5 transition-colors duration-300">

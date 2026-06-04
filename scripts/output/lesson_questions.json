@@ -1,0 +1,262 @@
+{
+  "id": "questions",
+  "title": "Poser des questions",
+  "description": "TODO",
+  "cards": [
+    {
+      "id": "questions_01",
+      "lessonId": "questions",
+      "position": 1,
+      "fr": "Quand",
+      "wo": "Kañ",
+      "variants": [
+        {
+          "fr": "Quand",
+          "wo": "Kañ",
+          "audioFr": "/audio/questions/00_fr.wav",
+          "audioWo": "/audio/questions/01_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "questions_02",
+      "lessonId": "questions",
+      "position": 2,
+      "fr": "Où",
+      "wo": "Fan",
+      "variants": [
+        {
+          "fr": "Où",
+          "wo": "Fan",
+          "audioFr": "/audio/questions/02_fr.wav",
+          "audioWo": "/audio/questions/03_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "questions_03",
+      "lessonId": "questions",
+      "position": 3,
+      "fr": "Comment",
+      "wo": "Naka",
+      "variants": [
+        {
+          "fr": "Comment",
+          "wo": "Naka",
+          "audioFr": "/audio/questions/04_fr.wav",
+          "audioWo": "/audio/questions/05_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "questions_04",
+      "lessonId": "questions",
+      "position": 4,
+      "fr": "Pourquoi",
+      "wo": "Lutax",
+      "variants": [
+        {
+          "fr": "Pourquoi",
+          "wo": "Lutax",
+          "audioFr": "/audio/questions/06_fr.wav",
+          "audioWo": "/audio/questions/07_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "questions_05",
+      "lessonId": "questions",
+      "position": 5,
+      "fr": "Qui",
+      "wo": "Kan",
+      "variants": [
+        {
+          "fr": "Qui",
+          "wo": "Kan",
+          "audioFr": "/audio/questions/08_fr.wav",
+          "audioWo": "/audio/questions/09_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "questions_06",
+      "lessonId": "questions",
+      "position": 6,
+      "fr": "Combien",
+      "wo": "Ñaata",
+      "variants": [
+        {
+          "fr": "Combien",
+          "wo": "Ñaata",
+          "audioFr": "/audio/questions/10_fr.wav",
+          "audioWo": "/audio/questions/11_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "questions_07",
+      "lessonId": "questions",
+      "position": 7,
+      "fr": "Combien ça coûte ?",
+      "wo": "Ñaate lay njar",
+      "variants": [
+        {
+          "fr": "Combien ça coûte ?",
+          "wo": "Ñaate lay njar",
+          "audioFr": "/audio/questions/12_fr.wav",
+          "audioWo": "/audio/questions/13_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "questions_08",
+      "lessonId": "questions",
+      "position": 8,
+      "fr": "Dans combien de temps ?",
+      "wo": "Fi ak ñaata wax tu la ?",
+      "variants": [
+        {
+          "fr": "Dans combien de temps ?",
+          "wo": "Fi ak ñaata wax tu la ?",
+          "audioFr": "/audio/questions/14_fr.wav",
+          "audioWo": "/audio/questions/15_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "questions_09",
+      "lessonId": "questions",
+      "position": 9,
+      "fr": "Avez-vous... ?",
+      "wo": "Am nga ?",
+      "variants": [
+        {
+          "fr": "Avez-vous... ?",
+          "wo": "Am nga ?",
+          "audioFr": "/audio/questions/16_fr.wav",
+          "audioWo": "/audio/questions/17_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "questions_10",
+      "lessonId": "questions",
+      "position": 10,
+      "fr": "Qu'est-ce que c'est ?",
+      "wo": "Lan la ?",
+      "variants": [
+        {
+          "fr": "Qu'est-ce que c'est ?",
+          "wo": "Lan la ?",
+          "audioFr": "/audio/questions/18_fr.wav",
+          "audioWo": "/audio/questions/19_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "questions_11",
+      "lessonId": "questions",
+      "position": 11,
+      "fr": "Qu'est-ce que ça signifie ?",
+      "wo": "Lan lay tekki ?",
+      "variants": [
+        {
+          "fr": "Qu'est-ce que ça signifie ?",
+          "wo": "Lan lay tekki ?",
+          "audioFr": "/audio/questions/20_fr.wav",
+          "audioWo": "/audio/questions/21_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "questions_12",
+      "lessonId": "questions",
+      "position": 12,
+      "fr": "Où puis-je trouver... ?",
+      "wo": "Fan laa mëna ame... ?",
+      "variants": [
+        {
+          "fr": "Où puis-je trouver... ?",
+          "wo": "Fan laa mëna ame... ?",
+          "audioFr": "/audio/questions/22_fr.wav",
+          "audioWo": "/audio/questions/23_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "questions_13",
+      "lessonId": "questions",
+      "position": 13,
+      "fr": "Parlez-vous français ?",
+      "wo": "Denge français ?",
+      "variants": [
+        {
+          "fr": "Parlez-vous français ?",
+          "wo": "Denge français ?",
+          "audioFr": "/audio/questions/24_fr.wav",
+          "audioWo": "/audio/questions/25_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "questions_14",
+      "lessonId": "questions",
+      "position": 14,
+      "fr": "Pouvez-vous parler plus lentement ?",
+      "wo": "Mën nga wax ndank ?",
+      "variants": [
+        {
+          "fr": "Pouvez-vous parler plus lentement ?",
+          "wo": "Mën nga wax ndank ?",
+          "audioFr": "/audio/questions/26_fr.wav",
+          "audioWo": "/audio/questions/27_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "questions_15",
+      "lessonId": "questions",
+      "position": 15,
+      "fr": "Où sont les toilettes ?",
+      "wo": "Ana wanak wi ?",
+      "variants": [
+        {
+          "fr": "Où sont les toilettes ?",
+          "wo": "Ana wanak wi ?",
+          "audioFr": "/audio/questions/28_fr.wav",
+          "audioWo": "/audio/questions/29_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "questions_16",
+      "lessonId": "questions",
+      "position": 16,
+      "fr": "À quelle heure ?",
+      "wo": "Ci ban wax tu ?",
+      "variants": [
+        {
+          "fr": "À quelle heure ?",
+          "wo": "Ci ban wax tu ?",
+          "audioFr": "/audio/questions/30_fr.wav",
+          "audioWo": "/audio/questions/31_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "questions_17",
+      "lessonId": "questions",
+      "position": 17,
+      "fr": "Pouvez-vous me montrer sur la carte ?",
+      "wo": "Ndox mën ngama wane ci kàrt bi?",
+      "variants": [
+        {
+          "fr": "Pouvez-vous me montrer sur la carte ?",
+          "wo": "Ndox mën ngama wane ci kàrt bi?",
+          "audioFr": "/audio/questions/32_fr.wav",
+          "audioWo": "/audio/questions/33_wo.wav"
+        }
+      ]
+    }
+  ]
+}

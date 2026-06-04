@@ -1,97 +1,352 @@
 {
   "id": "famille",
-  "title": "Leçon : famille",
+  "title": "La famille",
   "description": "TODO",
   "cards": [
     {
       "id": "famille_01",
       "lessonId": "famille",
       "position": 1,
-      "wo": "...",
-      "fr": "Je suis marié.",
-      "audioWo": "/audio/famille/01_wo.mp3",
-      "audioFr": "/audio/famille/00_fr.mp3"
+      "fr": "Je suis marié",
+      "wo": "Am na jabar / Am na jëkkër",
+      "variants": [
+        {
+          "fr": "Je suis marié",
+          "wo": "Am na jabar / Am na jëkkër",
+          "audioFr": "/audio/famille/00_fr.wav",
+          "audioWo": "/audio/famille/01_wo.wav"
+        }
+      ]
     },
     {
       "id": "famille_02",
       "lessonId": "famille",
       "position": 2,
-      "wo": "...",
-      "fr": "Je ne suis pas marié.",
-      "audioWo": "/audio/famille/03_wo.mp3",
-      "audioFr": "/audio/famille/02_fr.mp3"
+      "fr": "Je ne suis pas marié",
+      "wo": "Amuma jabar / Amuma jëkkër",
+      "variants": [
+        {
+          "fr": "Je ne suis pas marié",
+          "wo": "Amuma jabar / Amuma jëkkër",
+          "audioFr": "/audio/famille/02_fr.wav",
+          "audioWo": "/audio/famille/03_wo.wav"
+        }
+      ]
     },
     {
       "id": "famille_03",
       "lessonId": "famille",
       "position": 3,
-      "wo": "...",
-      "fr": "Je suis divorcé.",
-      "audioWo": "/audio/famille/05_wo.mp3",
-      "audioFr": "/audio/famille/04_fr.mp3"
+      "fr": "Je suis divorcé",
+      "wo": "Dama fase",
+      "variants": [
+        {
+          "fr": "Je suis divorcé",
+          "wo": "Dama fase",
+          "audioFr": "/audio/famille/04_fr.wav",
+          "audioWo": "/audio/famille/05_wo.wav"
+        }
+      ]
     },
     {
       "id": "famille_04",
       "lessonId": "famille",
       "position": 4,
-      "wo": "...",
-      "fr": "Je suis veuve.",
-      "audioWo": "/audio/famille/07_wo.mp3",
-      "audioFr": "/audio/famille/06_fr.mp3"
+      "fr": "Je suis veuf",
+      "wo": "Sama jabar gaañu na",
+      "variants": [
+        {
+          "fr": "Je suis veuf",
+          "wo": "Sama jabar gaañu na",
+          "audioFr": "/audio/famille/06_fr.wav",
+          "audioWo": "/audio/famille/07_wo.wav"
+        }
+      ]
     },
     {
       "id": "famille_05",
       "lessonId": "famille",
       "position": 5,
-      "wo": "...",
-      "fr": "les membres de la famille.",
-      "audioWo": "/audio/famille/09_wo.mp3",
-      "audioFr": "/audio/famille/08_fr.mp3"
+      "fr": "Je suis veuve",
+      "wo": "Je tux la",
+      "variants": [
+        {
+          "fr": "Je suis veuve",
+          "wo": "Je tux la",
+          "audioFr": "/audio/famille/08_fr.wav",
+          "audioWo": "/audio/famille/09_wo.wav"
+        }
+      ]
     },
     {
       "id": "famille_06",
       "lessonId": "famille",
       "position": 6,
-      "wo": "...",
-      "fr": "Frérénée",
-      "audioWo": "/audio/famille/11_wo.mp3",
-      "audioFr": "/audio/famille/10_fr.mp3"
+      "fr": "J'ai des enfants",
+      "wo": "Am na ay doom",
+      "variants": [
+        {
+          "fr": "J'ai des enfants",
+          "wo": "Am na ay doom",
+          "audioFr": "/audio/famille/10_fr.wav",
+          "audioWo": "/audio/famille/11_wo.wav"
+        }
+      ]
     },
     {
       "id": "famille_07",
       "lessonId": "famille",
       "position": 7,
-      "wo": "...",
-      "fr": "serrônaré",
-      "audioWo": "/audio/famille/13_wo.mp3",
-      "audioFr": "/audio/famille/12_fr.mp3"
+      "fr": "Je n'ai pas d'enfants",
+      "wo": "Amuma doom",
+      "variants": [
+        {
+          "fr": "Je n'ai pas d'enfants",
+          "wo": "Amuma doom",
+          "audioFr": "/audio/famille/12_fr.wav",
+          "audioWo": "/audio/famille/13_wo.wav"
+        }
+      ]
     },
     {
       "id": "famille_08",
       "lessonId": "famille",
       "position": 8,
-      "wo": "...",
-      "fr": "Oncle maternel",
-      "audioWo": "/audio/famille/15_wo.mp3",
-      "audioFr": "/audio/famille/14_fr.mp3"
+      "fr": "Vous avez des enfants ?",
+      "wo": "Am ngeen ay doom ?",
+      "variants": [
+        {
+          "fr": "Vous avez des enfants ?",
+          "wo": "Am ngeen ay doom ?",
+          "audioFr": "/audio/famille/14_fr.wav",
+          "audioWo": "/audio/famille/15_wo.wav"
+        }
+      ]
     },
     {
       "id": "famille_09",
       "lessonId": "famille",
       "position": 9,
-      "wo": "...",
-      "fr": "Petit fils.",
-      "audioWo": "/audio/famille/17_wo.mp3",
-      "audioFr": "/audio/famille/16_fr.mp3"
+      "fr": "Nous avons deux filles et deux garçons",
+      "wo": "Am nanu ñaari doom yu jigéen ak ñaari doom yu góor",
+      "variants": [
+        {
+          "fr": "Nous avons deux filles et deux garçons",
+          "wo": "Am nanu ñaari doom yu jigéen ak ñaari doom yu góor",
+          "audioFr": "/audio/famille/16_fr.wav",
+          "audioWo": "/audio/famille/17_wo.wav"
+        }
+      ]
     },
     {
       "id": "famille_10",
       "lessonId": "famille",
       "position": 10,
-      "wo": "...",
-      "fr": "Belle famille.",
-      "audioWo": "/audio/famille/19_wo.mp3",
-      "audioFr": "/audio/famille/18_fr.mp3"
+      "fr": "Famille",
+      "wo": "Mbok",
+      "variants": [
+        {
+          "fr": "Famille",
+          "wo": "Mbok",
+          "audioFr": "/audio/famille/18_fr.wav",
+          "audioWo": "/audio/famille/19_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "famille_11",
+      "lessonId": "famille",
+      "position": 11,
+      "fr": "Parent",
+      "wo": "Waajur",
+      "variants": [
+        {
+          "fr": "Parent",
+          "wo": "Waajur",
+          "audioFr": "/audio/famille/20_fr.wav",
+          "audioWo": "/audio/famille/21_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "famille_12",
+      "lessonId": "famille",
+      "position": 12,
+      "fr": "Père / Mère",
+      "wo": "Baay / Yaay",
+      "variants": [
+        {
+          "fr": "Père / Mère",
+          "wo": "Baay / Yaay",
+          "audioFr": "/audio/famille/22_fr.wav",
+          "audioWo": "/audio/famille/23_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "famille_13",
+      "lessonId": "famille",
+      "position": 13,
+      "fr": "Frère aîné / Frère cadet",
+      "wo": "Mag ju goor / Raku ju goor",
+      "variants": [
+        {
+          "fr": "Frère aîné / Frère cadet",
+          "wo": "Mag ju goor / Raku ju goor",
+          "audioFr": "/audio/famille/24_fr.wav",
+          "audioWo": "/audio/famille/25_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "famille_14",
+      "lessonId": "famille",
+      "position": 14,
+      "fr": "Sœur aînée / Sœur cadette",
+      "wo": "Mag ju jigéen / Raku ju jigéen",
+      "variants": [
+        {
+          "fr": "Sœur aînée / Sœur cadette",
+          "wo": "Mag ju jigéen / Raku ju jigéen",
+          "audioFr": "/audio/famille/26_fr.wav",
+          "audioWo": "/audio/famille/27_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "famille_15",
+      "lessonId": "famille",
+      "position": 15,
+      "fr": "Oncle maternel",
+      "wo": "Nijaay",
+      "variants": [
+        {
+          "fr": "Oncle maternel",
+          "wo": "Nijaay",
+          "audioFr": "/audio/famille/28_fr.wav",
+          "audioWo": "/audio/famille/29_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "famille_16",
+      "lessonId": "famille",
+      "position": 16,
+      "fr": "Oncle paternel",
+      "wo": "Baay",
+      "variants": [
+        {
+          "fr": "Oncle paternel",
+          "wo": "Baay",
+          "audioFr": "/audio/famille/30_fr.wav",
+          "audioWo": "/audio/famille/31_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "famille_17",
+      "lessonId": "famille",
+      "position": 17,
+      "fr": "Tante maternelle",
+      "wo": "Tanta",
+      "variants": [
+        {
+          "fr": "Tante maternelle",
+          "wo": "Tanta",
+          "audioFr": "/audio/famille/32_fr.wav",
+          "audioWo": "/audio/famille/33_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "famille_18",
+      "lessonId": "famille",
+      "position": 18,
+      "fr": "Tante paternelle",
+      "wo": "Ba djeen",
+      "variants": [
+        {
+          "fr": "Tante paternelle",
+          "wo": "Ba djeen",
+          "audioFr": "/audio/famille/34_fr.wav",
+          "audioWo": "/audio/famille/35_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "famille_19",
+      "lessonId": "famille",
+      "position": 19,
+      "fr": "Neveu / Nièce",
+      "wo": "Jarbaat",
+      "variants": [
+        {
+          "fr": "Neveu / Nièce",
+          "wo": "Jarbaat",
+          "audioFr": "/audio/famille/36_fr.wav",
+          "audioWo": "/audio/famille/37_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "famille_20",
+      "lessonId": "famille",
+      "position": 20,
+      "fr": "Grand-parents",
+      "wo": "Maam",
+      "variants": [
+        {
+          "fr": "Grand-parents",
+          "wo": "Maam",
+          "audioFr": "/audio/famille/38_fr.wav",
+          "audioWo": "/audio/famille/39_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "famille_21",
+      "lessonId": "famille",
+      "position": 21,
+      "fr": "Grand-père / Grand-mère",
+      "wo": "Maam ju góor / Maam ju jigéen",
+      "variants": [
+        {
+          "fr": "Grand-père / Grand-mère",
+          "wo": "Maam ju góor / Maam ju jigéen",
+          "audioFr": "/audio/famille/40_fr.wav",
+          "audioWo": "/audio/famille/41_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "famille_22",
+      "lessonId": "famille",
+      "position": 22,
+      "fr": "Petit-fils / Petite-fille",
+      "wo": "Sët bu góor / Sët bu jigéen",
+      "variants": [
+        {
+          "fr": "Petit-fils / Petite-fille",
+          "wo": "Sët bu góor / Sët bu jigéen",
+          "audioFr": "/audio/famille/42_fr.wav",
+          "audioWo": "/audio/famille/43_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "famille_23",
+      "lessonId": "famille",
+      "position": 23,
+      "fr": "Belle famille",
+      "wo": "Gooro",
+      "variants": [
+        {
+          "fr": "Belle famille",
+          "wo": "Gooro",
+          "audioFr": "/audio/famille/44_fr.wav",
+          "audioWo": "/audio/famille/45_wo.wav"
+        }
+      ]
     }
   ]
 }

@@ -1,151 +1,607 @@
 {
   "id": "rencontre",
-  "title": "Leçon : rencontre",
+  "title": "La rencontre",
   "description": "TODO",
   "cards": [
     {
       "id": "rencontre_01",
       "lessonId": "rencontre",
       "position": 1,
-      "wo": "...",
-      "fr": "se rencontrer.",
-      "audioWo": "/audio/rencontre/01_wo.mp3",
-      "audioFr": "/audio/rencontre/00_fr.mp3"
+      "fr": "Bonjour, comment ça va ?",
+      "wo": "Jámm ma gam, naga def ?",
+      "variants": [
+        {
+          "fr": "Bonjour, comment ça va ?",
+          "wo": "Jámm ma gam, naga def ?",
+          "audioFr": "/audio/rencontre/00_fr.wav",
+          "audioWo": "/audio/rencontre/01_wo.wav"
+        }
+      ]
     },
     {
       "id": "rencontre_02",
       "lessonId": "rencontre",
       "position": 2,
-      "wo": "...",
-      "fr": "Bien !",
-      "audioWo": "/audio/rencontre/03_wo.mp3",
-      "audioFr": "/audio/rencontre/02_fr.mp3"
+      "fr": "Bien",
+      "wo": "Sant yalla",
+      "variants": [
+        {
+          "fr": "Bien",
+          "wo": "Sant yalla",
+          "audioFr": "/audio/rencontre/02_fr.wav",
+          "audioWo": "/audio/rencontre/03_wo.wav"
+        }
+      ]
     },
     {
       "id": "rencontre_03",
       "lessonId": "rencontre",
       "position": 3,
-      "wo": "...",
-      "fr": "Pas si mal.",
-      "audioWo": "/audio/rencontre/05_wo.mp3",
-      "audioFr": "/audio/rencontre/04_fr.mp3"
+      "fr": "Très bien",
+      "wo": "Sant yalla bu bax",
+      "variants": [
+        {
+          "fr": "Très bien",
+          "wo": "Sant yalla bu bax",
+          "audioFr": "/audio/rencontre/04_fr.wav",
+          "audioWo": "/audio/rencontre/05_wo.wav"
+        }
+      ]
     },
     {
       "id": "rencontre_04",
       "lessonId": "rencontre",
       "position": 4,
-      "wo": "...",
-      "fr": "Ça faisait longtemps.",
-      "audioWo": "/audio/rencontre/07_wo.mp3",
-      "audioFr": "/audio/rencontre/06_fr.mp3"
+      "fr": "Pas si mal",
+      "wo": "Maa ngi fi rek",
+      "variants": [
+        {
+          "fr": "Pas si mal",
+          "wo": "Maa ngi fi rek",
+          "audioFr": "/audio/rencontre/06_fr.wav",
+          "audioWo": "/audio/rencontre/07_wo.wav"
+        }
+      ]
     },
     {
       "id": "rencontre_05",
       "lessonId": "rencontre",
       "position": 5,
-      "wo": "...",
-      "fr": "Tu m'as manqué.",
-      "audioWo": "/audio/rencontre/09_wo.mp3",
-      "audioFr": "/audio/rencontre/08_fr.mp3"
+      "fr": "Ça ne va pas fort",
+      "wo": "Ly al la xam doyna",
+      "variants": [
+        {
+          "fr": "Ça ne va pas fort",
+          "wo": "Ly al la xam doyna",
+          "audioFr": "/audio/rencontre/08_fr.wav",
+          "audioWo": "/audio/rencontre/09_wo.wav"
+        }
+      ]
     },
     {
       "id": "rencontre_06",
       "lessonId": "rencontre",
       "position": 6,
-      "wo": "...",
-      "fr": "se présenter ou présenter quelqu'un.",
-      "audioWo": "/audio/rencontre/11_wo.mp3",
-      "audioFr": "/audio/rencontre/10_fr.mp3"
+      "fr": "Ça faisait longtemps",
+      "wo": "Dijoon nala giss",
+      "variants": [
+        {
+          "fr": "Ça faisait longtemps",
+          "wo": "Dijoon nala giss",
+          "audioFr": "/audio/rencontre/10_fr.wav",
+          "audioWo": "/audio/rencontre/11_wo.wav"
+        }
+      ]
     },
     {
       "id": "rencontre_07",
       "lessonId": "rencontre",
       "position": 7,
-      "wo": "...",
-      "fr": "Ça va ?",
-      "audioWo": "/audio/rencontre/13_wo.mp3",
-      "audioFr": "/audio/rencontre/12_fr.mp3"
+      "fr": "Tu m'as manqué",
+      "wo": "Namunn naa la",
+      "variants": [
+        {
+          "fr": "Tu m'as manqué",
+          "wo": "Namunn naa la",
+          "audioFr": "/audio/rencontre/12_fr.wav",
+          "audioWo": "/audio/rencontre/13_wo.wav"
+        }
+      ]
     },
     {
       "id": "rencontre_08",
       "lessonId": "rencontre",
       "position": 8,
-      "wo": "...",
-      "fr": "Moi, c'est Fama.",
-      "audioWo": "/audio/rencontre/15_wo.mp3",
-      "audioFr": "/audio/rencontre/14_fr.mp3"
+      "fr": "À moi encore plus",
+      "wo": "Ma la law",
+      "variants": [
+        {
+          "fr": "À moi encore plus",
+          "wo": "Ma la law",
+          "audioFr": "/audio/rencontre/14_fr.wav",
+          "audioWo": "/audio/rencontre/15_wo.wav"
+        }
+      ]
     },
     {
       "id": "rencontre_09",
       "lessonId": "rencontre",
       "position": 9,
-      "wo": "...",
-      "fr": "Taffa, comment vas-tu ?",
-      "audioWo": "/audio/rencontre/17_wo.mp3",
-      "audioFr": "/audio/rencontre/16_fr.mp3"
+      "fr": "Comment t'appelles-tu ?",
+      "wo": "Naka nga tuddu ?",
+      "variants": [
+        {
+          "fr": "Comment t'appelles-tu ?",
+          "wo": "Naka nga tuddu ?",
+          "audioFr": "/audio/rencontre/16_fr.wav",
+          "audioWo": "/audio/rencontre/17_wo.wav"
+        }
+      ]
     },
     {
       "id": "rencontre_10",
       "lessonId": "rencontre",
       "position": 10,
-      "wo": "...",
-      "fr": "Enchanté de faire votre connaissance.",
-      "audioWo": "/audio/rencontre/19_wo.mp3",
-      "audioFr": "/audio/rencontre/18_fr.mp3"
+      "fr": "Quel est ton nom de famille ?",
+      "wo": "Naka nga sant ?",
+      "variants": [
+        {
+          "fr": "Quel est ton nom de famille ?",
+          "wo": "Naka nga sant ?",
+          "audioFr": "/audio/rencontre/18_fr.wav",
+          "audioWo": "/audio/rencontre/19_wo.wav"
+        }
+      ]
     },
     {
       "id": "rencontre_11",
       "lessonId": "rencontre",
       "position": 11,
-      "wo": "...",
-      "fr": "Pareillement.",
-      "audioWo": "/audio/rencontre/21_wo.mp3",
-      "audioFr": "/audio/rencontre/20_fr.mp3"
+      "fr": "Je m'appelle...",
+      "wo": "Maa ngi tuddu...",
+      "variants": [
+        {
+          "fr": "Je m'appelle...",
+          "wo": "Maa ngi tuddu...",
+          "audioFr": "/audio/rencontre/20_fr.wav",
+          "audioWo": "/audio/rencontre/21_wo.wav"
+        }
+      ]
     },
     {
       "id": "rencontre_12",
       "lessonId": "rencontre",
       "position": 12,
-      "wo": "...",
-      "fr": "Dire doulons fier.",
-      "audioWo": "/audio/rencontre/23_wo.mp3",
-      "audioFr": "/audio/rencontre/22_fr.mp3"
+      "fr": "Mon nom de famille est...",
+      "wo": "Maa ngi sant...",
+      "variants": [
+        {
+          "fr": "Mon nom de famille est...",
+          "wo": "Maa ngi sant...",
+          "audioFr": "/audio/rencontre/22_fr.wav",
+          "audioWo": "/audio/rencontre/23_wo.wav"
+        }
+      ]
     },
     {
       "id": "rencontre_13",
       "lessonId": "rencontre",
       "position": 13,
-      "wo": "...",
-      "fr": "Je suis...",
-      "audioWo": "/audio/rencontre/25_wo.mp3",
-      "audioFr": "/audio/rencontre/24_fr.mp3"
+      "fr": "Je te présente mon époux",
+      "wo": "Nuyool ak sama jëkkër",
+      "variants": [
+        {
+          "fr": "Je te présente mon époux",
+          "wo": "Nuyool ak sama jëkkër",
+          "audioFr": "/audio/rencontre/24_fr.wav",
+          "audioWo": "/audio/rencontre/25_wo.wav"
+        }
+      ]
     },
     {
       "id": "rencontre_14",
       "lessonId": "rencontre",
       "position": 14,
-      "wo": "...",
-      "fr": "J'habite à...",
-      "audioWo": "/audio/rencontre/27_wo.mp3",
-      "audioFr": "/audio/rencontre/26_fr.mp3"
+      "fr": "Ça va ? / Je m'appelle Omar",
+      "wo": "Jàmm ma gam / Maa ngi tuddu Omar",
+      "variants": [
+        {
+          "fr": "Ça va ? / Je m'appelle Omar",
+          "wo": "Jàmm ma gam / Maa ngi tuddu Omar",
+          "audioFr": "/audio/rencontre/26_fr.wav",
+          "audioWo": "/audio/rencontre/27_wo.wav"
+        }
+      ]
     },
     {
       "id": "rencontre_15",
       "lessonId": "rencontre",
       "position": 15,
-      "wo": "...",
-      "fr": "Dire son âge",
-      "audioWo": "/audio/rencontre/29_wo.mp3",
-      "audioFr": "/audio/rencontre/28_fr.mp3"
+      "fr": "Dafa, comment vas-tu ?",
+      "wo": "Dafa, naka nga def ? / Dafa, jàmm ma gam ?",
+      "variants": [
+        {
+          "fr": "Dafa, comment vas-tu ?",
+          "wo": "Dafa, naka nga def ? / Dafa, jàmm ma gam ?",
+          "audioFr": "/audio/rencontre/28_fr.wav",
+          "audioWo": "/audio/rencontre/29_wo.wav"
+        }
+      ]
     },
     {
       "id": "rencontre_16",
       "lessonId": "rencontre",
       "position": 16,
-      "wo": "...",
-      "fr": "Je suis né en 1988.",
-      "audioWo": "/audio/rencontre/31_wo.mp3",
-      "audioFr": "/audio/rencontre/30_fr.mp3"
+      "fr": "Enchanté de faire votre connaissance",
+      "wo": "Man ngi dege xa man tedy",
+      "variants": [
+        {
+          "fr": "Enchanté de faire votre connaissance",
+          "wo": "Man ngi dege xa man tedy",
+          "audioFr": "/audio/rencontre/30_fr.wav",
+          "audioWo": "/audio/rencontre/31_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_17",
+      "lessonId": "rencontre",
+      "position": 17,
+      "fr": "Pareillement",
+      "wo": "Maa ngi tan",
+      "variants": [
+        {
+          "fr": "Pareillement",
+          "wo": "Maa ngi tan",
+          "audioFr": "/audio/rencontre/32_fr.wav",
+          "audioWo": "/audio/rencontre/33_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_18",
+      "lessonId": "rencontre",
+      "position": 18,
+      "fr": "Bienvenue au Sénégal",
+      "wo": "Dalal ci jàmm Senegaal",
+      "variants": [
+        {
+          "fr": "Bienvenue au Sénégal",
+          "wo": "Dalal ci jàmm Senegaal",
+          "audioFr": "/audio/rencontre/34_fr.wav",
+          "audioWo": "/audio/rencontre/35_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_19",
+      "lessonId": "rencontre",
+      "position": 19,
+      "fr": "De quel pays viens-tu ? / De quel pays venez-vous ?",
+      "wo": "Wa fan nga ? / Wa fan ngeen ?",
+      "variants": [
+        {
+          "fr": "De quel pays viens-tu ? / De quel pays venez-vous ?",
+          "wo": "Wa fan nga ? / Wa fan ngeen ?",
+          "audioFr": "/audio/rencontre/36_fr.wav",
+          "audioWo": "/audio/rencontre/37_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_20",
+      "lessonId": "rencontre",
+      "position": 20,
+      "fr": "Je suis...",
+      "wo": "Laa...",
+      "variants": [
+        {
+          "fr": "Je suis...",
+          "wo": "Laa...",
+          "audioFr": "/audio/rencontre/38_fr.wav",
+          "audioWo": "/audio/rencontre/39_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_21",
+      "lessonId": "rencontre",
+      "position": 21,
+      "fr": "Belge",
+      "wo": "Wa Belsi",
+      "variants": [
+        {
+          "fr": "Belge",
+          "wo": "Wa Belsi",
+          "audioFr": "/audio/rencontre/40_fr.wav",
+          "audioWo": "/audio/rencontre/41_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_22",
+      "lessonId": "rencontre",
+      "position": 22,
+      "fr": "Camerounais",
+      "wo": "Wa Cameroun",
+      "variants": [
+        {
+          "fr": "Camerounais",
+          "wo": "Wa Cameroun",
+          "audioFr": "/audio/rencontre/42_fr.wav",
+          "audioWo": "/audio/rencontre/43_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_23",
+      "lessonId": "rencontre",
+      "position": 23,
+      "fr": "Canadien",
+      "wo": "Wa Canada",
+      "variants": [
+        {
+          "fr": "Canadien",
+          "wo": "Wa Canada",
+          "audioFr": "/audio/rencontre/44_fr.wav",
+          "audioWo": "/audio/rencontre/45_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_24",
+      "lessonId": "rencontre",
+      "position": 24,
+      "fr": "Français",
+      "wo": "Wa France",
+      "variants": [
+        {
+          "fr": "Français",
+          "wo": "Wa France",
+          "audioFr": "/audio/rencontre/46_fr.wav",
+          "audioWo": "/audio/rencontre/47_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_25",
+      "lessonId": "rencontre",
+      "position": 25,
+      "fr": "Marocain",
+      "wo": "Wa Maroc",
+      "variants": [
+        {
+          "fr": "Marocain",
+          "wo": "Wa Maroc",
+          "audioFr": "/audio/rencontre/48_fr.wav",
+          "audioWo": "/audio/rencontre/49_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_26",
+      "lessonId": "rencontre",
+      "position": 26,
+      "fr": "Suisse",
+      "wo": "Wa Suisse",
+      "variants": [
+        {
+          "fr": "Suisse",
+          "wo": "Wa Suisse",
+          "audioFr": "/audio/rencontre/50_fr.wav",
+          "audioWo": "/audio/rencontre/51_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_27",
+      "lessonId": "rencontre",
+      "position": 27,
+      "fr": "Où habites-tu ? / Où habitez-vous ?",
+      "wo": "Fan nga dëkk ? / Fan ngeen dëkk ?",
+      "variants": [
+        {
+          "fr": "Où habites-tu ? / Où habitez-vous ?",
+          "wo": "Fan nga dëkk ? / Fan ngeen dëkk ?",
+          "audioFr": "/audio/rencontre/52_fr.wav",
+          "audioWo": "/audio/rencontre/53_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_28",
+      "lessonId": "rencontre",
+      "position": 28,
+      "fr": "J'habite à...",
+      "wo": "Maa ngi dëkk...",
+      "variants": [
+        {
+          "fr": "J'habite à...",
+          "wo": "Maa ngi dëkk...",
+          "audioFr": "/audio/rencontre/54_fr.wav",
+          "audioWo": "/audio/rencontre/55_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_29",
+      "lessonId": "rencontre",
+      "position": 29,
+      "fr": "Bruxelles",
+      "wo": "Birixel",
+      "variants": [
+        {
+          "fr": "Bruxelles",
+          "wo": "Birixel",
+          "audioFr": "/audio/rencontre/56_fr.wav",
+          "audioWo": "/audio/rencontre/57_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_30",
+      "lessonId": "rencontre",
+      "position": 30,
+      "fr": "Casablanca",
+      "wo": "Casablanca",
+      "variants": [
+        {
+          "fr": "Casablanca",
+          "wo": "Casablanca",
+          "audioFr": "/audio/rencontre/58_fr.wav",
+          "audioWo": "/audio/rencontre/59_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_31",
+      "lessonId": "rencontre",
+      "position": 31,
+      "fr": "Dakar",
+      "wo": "Ndakaruu",
+      "variants": [
+        {
+          "fr": "Dakar",
+          "wo": "Ndakaruu",
+          "audioFr": "/audio/rencontre/60_fr.wav",
+          "audioWo": "/audio/rencontre/61_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_32",
+      "lessonId": "rencontre",
+      "position": 32,
+      "fr": "Genève",
+      "wo": "Sénèw",
+      "variants": [
+        {
+          "fr": "Genève",
+          "wo": "Sénèw",
+          "audioFr": "/audio/rencontre/62_fr.wav",
+          "audioWo": "/audio/rencontre/63_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_33",
+      "lessonId": "rencontre",
+      "position": 33,
+      "fr": "Paris",
+      "wo": "Paris",
+      "variants": [
+        {
+          "fr": "Paris",
+          "wo": "Paris",
+          "audioFr": "/audio/rencontre/64_fr.wav",
+          "audioWo": "/audio/rencontre/65_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_34",
+      "lessonId": "rencontre",
+      "position": 34,
+      "fr": "Québec",
+      "wo": "Québec",
+      "variants": [
+        {
+          "fr": "Québec",
+          "wo": "Québec",
+          "audioFr": "/audio/rencontre/66_fr.wav",
+          "audioWo": "/audio/rencontre/67_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_35",
+      "lessonId": "rencontre",
+      "position": 35,
+      "fr": "Yaoundé",
+      "wo": "Yaoundé",
+      "variants": [
+        {
+          "fr": "Yaoundé",
+          "wo": "Yaoundé",
+          "audioFr": "/audio/rencontre/68_fr.wav",
+          "audioWo": "/audio/rencontre/69_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_36",
+      "lessonId": "rencontre",
+      "position": 36,
+      "fr": "Dans un village",
+      "wo": "Ci dëkk bundaw",
+      "variants": [
+        {
+          "fr": "Dans un village",
+          "wo": "Ci dëkk bundaw",
+          "audioFr": "/audio/rencontre/70_fr.wav",
+          "audioWo": "/audio/rencontre/71_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_37",
+      "lessonId": "rencontre",
+      "position": 37,
+      "fr": "À la campagne",
+      "wo": "Ci kaw bi",
+      "variants": [
+        {
+          "fr": "À la campagne",
+          "wo": "Ci kaw bi",
+          "audioFr": "/audio/rencontre/72_fr.wav",
+          "audioWo": "/audio/rencontre/73_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_38",
+      "lessonId": "rencontre",
+      "position": 38,
+      "fr": "Quel âge as-tu ?",
+      "wo": "Ñaata at nga am",
+      "variants": [
+        {
+          "fr": "Quel âge as-tu ?",
+          "wo": "Ñaata at nga am",
+          "audioFr": "/audio/rencontre/74_fr.wav",
+          "audioWo": "/audio/rencontre/75_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_39",
+      "lessonId": "rencontre",
+      "position": 39,
+      "fr": "J'ai 25 ans",
+      "wo": "Am na ñaar fukki at ak juróom",
+      "variants": [
+        {
+          "fr": "J'ai 25 ans",
+          "wo": "Am na ñaar fukki at ak juróom",
+          "audioFr": "/audio/rencontre/76_fr.wav",
+          "audioWo": "/audio/rencontre/77_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "rencontre_40",
+      "lessonId": "rencontre",
+      "position": 40,
+      "fr": "Je suis né en 1988",
+      "wo": "Maa ngi judd 1988",
+      "variants": [
+        {
+          "fr": "Je suis né en 1988",
+          "wo": "Maa ngi judd 1988",
+          "audioFr": "/audio/rencontre/78_fr.wav",
+          "audioWo": "/audio/rencontre/79_wo.wav"
+        }
+      ]
     }
   ]
 }

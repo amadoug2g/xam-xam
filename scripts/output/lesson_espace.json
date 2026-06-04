@@ -1,111 +1,172 @@
 {
   "id": "espace",
-  "title": "Lesson: espace",
+  "title": "Se reperer dans l'espace",
   "description": "TODO",
   "cards": [
     {
       "id": "espace_01",
       "lessonId": "espace",
       "position": 1,
-      "wo": "TODO",
-      "fr": "TODO",
-      "audioWo": "/audio/espace/01_wo.mp3",
-      "audioFr": "/audio/espace/00_fr.mp3"
+      "fr": "En haut / En bas",
+      "wo": "Ci kaw / Ci suuf",
+      "variants": [
+        {
+          "fr": "En haut / En bas",
+          "wo": "Ci kaw / Ci suuf",
+          "audioFr": "/audio/espace/00_fr.wav",
+          "audioWo": "/audio/espace/01_wo.wav"
+        }
+      ]
     },
     {
       "id": "espace_02",
       "lessonId": "espace",
       "position": 2,
-      "wo": "TODO",
-      "fr": "TODO",
-      "audioWo": "/audio/espace/03_wo.mp3",
-      "audioFr": "/audio/espace/02_fr.mp3"
+      "fr": "À côté",
+      "wo": "Ci wett",
+      "variants": [
+        {
+          "fr": "À côté",
+          "wo": "Ci wett",
+          "audioFr": "/audio/espace/02_fr.wav",
+          "audioWo": "/audio/espace/03_wo.wav"
+        }
+      ]
     },
     {
       "id": "espace_03",
       "lessonId": "espace",
       "position": 3,
-      "wo": "TODO",
-      "fr": "TODO",
-      "audioWo": "/audio/espace/05_wo.mp3",
-      "audioFr": "/audio/espace/04_fr.mp3"
+      "fr": "Devant / Derrière",
+      "wo": "Ci kanam / Ci gannaw",
+      "variants": [
+        {
+          "fr": "Devant / Derrière",
+          "wo": "Ci kanam / Ci gannaw",
+          "audioFr": "/audio/espace/04_fr.wav",
+          "audioWo": "/audio/espace/05_wo.wav"
+        }
+      ]
     },
     {
       "id": "espace_04",
       "lessonId": "espace",
       "position": 4,
-      "wo": "TODO",
-      "fr": "TODO",
-      "audioWo": "/audio/espace/07_wo.mp3",
-      "audioFr": "/audio/espace/06_fr.mp3"
+      "fr": "Au milieu",
+      "wo": "Ci digg",
+      "variants": [
+        {
+          "fr": "Au milieu",
+          "wo": "Ci digg",
+          "audioFr": "/audio/espace/06_fr.wav",
+          "audioWo": "/audio/espace/07_wo.wav"
+        }
+      ]
     },
     {
       "id": "espace_05",
       "lessonId": "espace",
       "position": 5,
-      "wo": "TODO",
-      "fr": "TODO",
-      "audioWo": "/audio/espace/09_wo.mp3",
-      "audioFr": "/audio/espace/08_fr.mp3"
+      "fr": "À droite / À gauche",
+      "wo": "Ci ndeyjoor / Ci càmmon",
+      "variants": [
+        {
+          "fr": "À droite / À gauche",
+          "wo": "Ci ndeyjoor / Ci càmmon",
+          "audioFr": "/audio/espace/08_fr.wav",
+          "audioWo": "/audio/espace/09_wo.wav"
+        }
+      ]
     },
     {
       "id": "espace_06",
       "lessonId": "espace",
       "position": 6,
-      "wo": "TODO",
-      "fr": "TODO",
-      "audioWo": "/audio/espace/11_wo.mp3",
-      "audioFr": "/audio/espace/10_fr.mp3"
+      "fr": "À l'intérieur",
+      "wo": "Ci biir",
+      "variants": [
+        {
+          "fr": "À l'intérieur",
+          "wo": "Ci biir",
+          "audioFr": "/audio/espace/10_fr.wav",
+          "audioWo": "/audio/espace/11_wo.wav"
+        }
+      ]
     },
     {
       "id": "espace_07",
       "lessonId": "espace",
       "position": 7,
-      "wo": "TODO",
-      "fr": "TODO",
-      "audioWo": "/audio/espace/13_wo.mp3",
-      "audioFr": "/audio/espace/12_fr.mp3"
+      "fr": "Entre",
+      "wo": "Ci diggante",
+      "variants": [
+        {
+          "fr": "Entre",
+          "wo": "Ci diggante",
+          "audioFr": "/audio/espace/12_fr.wav",
+          "audioWo": "/audio/espace/13_wo.wav"
+        }
+      ]
     },
     {
       "id": "espace_08",
       "lessonId": "espace",
       "position": 8,
-      "wo": "TODO",
-      "fr": "TODO",
-      "audioWo": "/audio/espace/15_wo.mp3",
-      "audioFr": "/audio/espace/14_fr.mp3"
+      "fr": "Ici",
+      "wo": "Fi",
+      "variants": [
+        {
+          "fr": "Ici",
+          "wo": "Fi",
+          "audioFr": "/audio/espace/14_fr.wav",
+          "audioWo": "/audio/espace/15_wo.wav"
+        }
+      ]
     },
     {
       "id": "espace_09",
       "lessonId": "espace",
       "position": 9,
-      "wo": "TODO",
-      "fr": "TODO",
-      "audioWo": "/audio/espace/17_wo.mp3",
-      "audioFr": "/audio/espace/16_fr.mp3"
+      "fr": "Là-bas",
+      "wo": "Fallé",
+      "variants": [
+        {
+          "fr": "Là-bas",
+          "wo": "Fallé",
+          "audioFr": "/audio/espace/16_fr.wav",
+          "audioWo": "/audio/espace/17_wo.wav"
+        }
+      ]
     },
     {
       "id": "espace_10",
       "lessonId": "espace",
       "position": 10,
-      "wo": "TODO",
-      "fr": "TODO",
-      "audioWo": "/audio/espace/19_wo.mp3",
-      "audioFr": "/audio/espace/18_fr.mp3"
+      "fr": "Loin",
+      "wo": "Sori / Sore",
+      "variants": [
+        {
+          "fr": "Loin",
+          "wo": "Sori / Sore",
+          "audioFr": "/audio/espace/18_fr.wav",
+          "audioWo": "/audio/espace/19_wo.wav"
+        }
+      ]
+    },
+    {
+      "id": "espace_11",
+      "lessonId": "espace",
+      "position": 11,
+      "fr": "Près",
+      "wo": "Jege",
+      "variants": [
+        {
+          "fr": "Près",
+          "wo": "Jege",
+          "audioFr": "/audio/espace/20_fr.wav",
+          "audioWo": "/audio/espace/21_wo.wav"
+        }
+      ]
     }
-  ],
-  "meta": {
-    "source": "1779986840149-1509598912732991619.mp3",
-    "total_raw_segments": 27,
-    "total_cards": 10,
-    "params": {
-      "silence_thresh": -40,
-      "min_silence": 500,
-      "padding": 150,
-      "card_gap": 1200,
-      "first_lang": "fr",
-      "wo_strategy": "last",
-      "skip_intro": 0
-    }
-  }
+  ]
 }
