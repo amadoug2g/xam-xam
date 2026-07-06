@@ -27,7 +27,11 @@ for (const f of files) {
   try {
     const data = JSON.parse(readFileSync(join(outputDir, f), 'utf8'))
     if (data.id && Array.isArray(data.cards) && data.cards.length > 0) {
-      imported[data.id] = data.cards
+      imported[data.id] = data.cards.map(card => ({
+        ...card,
+        audioFr: card.audioFr || card.variants?.[0]?.audioFr || null,
+        audioWo: card.audioWo || card.variants?.[0]?.audioWo || null,
+      }))
       doneIds.add(data.id)
     }
   } catch (e) {

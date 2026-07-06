@@ -1,5 +1,5 @@
 // Auto-généré par scripts/sync_to_app.js — ne pas éditer manuellement
-// 9 leçon(s) : compter, espace, famille, langues, mots-quotidiens, questions, rencontre, sentiments, temps
+// 10 leçon(s) : compter, espace, famille, invitation, langues, mots-quotidiens, questions, rencontre, sentiments, temps
 export const IMPORTED = {
   "compter": [
     {
@@ -15,7 +15,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/00_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/00_wo.wav"
     },
     {
       "id": "compter_02",
@@ -30,7 +32,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/01_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/01_wo.wav"
     },
     {
       "id": "compter_03",
@@ -45,7 +49,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/02_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/02_wo.wav"
     },
     {
       "id": "compter_04",
@@ -60,7 +66,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/03_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/03_wo.wav"
     },
     {
       "id": "compter_05",
@@ -75,7 +83,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/04_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/04_wo.wav"
     },
     {
       "id": "compter_06",
@@ -90,7 +100,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/05_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/05_wo.wav"
     },
     {
       "id": "compter_07",
@@ -105,7 +117,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/06_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/06_wo.wav"
     },
     {
       "id": "compter_08",
@@ -120,7 +134,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/07_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/07_wo.wav"
     },
     {
       "id": "compter_09",
@@ -135,7 +151,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/08_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/08_wo.wav"
     },
     {
       "id": "compter_10",
@@ -150,7 +168,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/09_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/09_wo.wav"
     },
     {
       "id": "compter_11",
@@ -165,7 +185,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/10_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/10_wo.wav"
     },
     {
       "id": "compter_12",
@@ -180,7 +202,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/11_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/11_wo.wav"
     },
     {
       "id": "compter_13",
@@ -195,7 +219,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/12_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/12_wo.wav"
     },
     {
       "id": "compter_14",
@@ -210,7 +236,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/13_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/13_wo.wav"
     },
     {
       "id": "compter_15",
@@ -225,7 +253,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/14_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/14_wo.wav"
     },
     {
       "id": "compter_16",
@@ -240,7 +270,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/15_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/15_wo.wav"
     },
     {
       "id": "compter_17",
@@ -255,7 +287,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/16_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/16_wo.wav"
     },
     {
       "id": "compter_18",
@@ -270,7 +304,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/17_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/17_wo.wav"
     },
     {
       "id": "compter_19",
@@ -285,7 +321,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/18_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/18_wo.wav"
     },
     {
       "id": "compter_20",
@@ -300,7 +338,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/19_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/19_wo.wav"
     },
     {
       "id": "compter_21",
@@ -315,7 +355,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/20_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/20_wo.wav"
     },
     {
       "id": "compter_22",
@@ -330,7 +372,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/21_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/21_wo.wav"
     },
     {
       "id": "compter_23",
@@ -345,7 +389,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/22_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/22_wo.wav"
     },
     {
       "id": "compter_24",
@@ -360,7 +406,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/23_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/23_wo.wav"
     },
     {
       "id": "compter_25",
@@ -375,7 +423,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/24_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/24_wo.wav"
     },
     {
       "id": "compter_26",
@@ -390,7 +440,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/25_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/25_wo.wav"
     },
     {
       "id": "compter_27",
@@ -405,7 +457,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/26_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/26_wo.wav"
     },
     {
       "id": "compter_28",
@@ -420,7 +474,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/27_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/27_wo.wav"
     },
     {
       "id": "compter_29",
@@ -435,7 +491,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/28_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/28_wo.wav"
     },
     {
       "id": "compter_30",
@@ -450,7 +508,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/29_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/29_wo.wav"
     },
     {
       "id": "compter_31",
@@ -465,7 +525,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/30_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/30_wo.wav"
     },
     {
       "id": "compter_32",
@@ -480,7 +542,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/31_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/31_wo.wav"
     },
     {
       "id": "compter_33",
@@ -495,7 +559,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/compter/32_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/compter/32_wo.wav"
     }
   ],
   "espace": [
@@ -512,7 +578,9 @@ export const IMPORTED = {
           "audioFr": "/audio/espace/00_fr.wav",
           "audioWo": "/audio/espace/01_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/espace/00_fr.wav",
+      "audioWo": "/audio/espace/01_wo.wav"
     },
     {
       "id": "espace_02",
@@ -527,7 +595,9 @@ export const IMPORTED = {
           "audioFr": "/audio/espace/02_fr.wav",
           "audioWo": "/audio/espace/03_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/espace/02_fr.wav",
+      "audioWo": "/audio/espace/03_wo.wav"
     },
     {
       "id": "espace_03",
@@ -542,7 +612,9 @@ export const IMPORTED = {
           "audioFr": "/audio/espace/04_fr.wav",
           "audioWo": "/audio/espace/05_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/espace/04_fr.wav",
+      "audioWo": "/audio/espace/05_wo.wav"
     },
     {
       "id": "espace_04",
@@ -557,7 +629,9 @@ export const IMPORTED = {
           "audioFr": "/audio/espace/06_fr.wav",
           "audioWo": "/audio/espace/07_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/espace/06_fr.wav",
+      "audioWo": "/audio/espace/07_wo.wav"
     },
     {
       "id": "espace_05",
@@ -572,7 +646,9 @@ export const IMPORTED = {
           "audioFr": "/audio/espace/08_fr.wav",
           "audioWo": "/audio/espace/09_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/espace/08_fr.wav",
+      "audioWo": "/audio/espace/09_wo.wav"
     },
     {
       "id": "espace_06",
@@ -587,7 +663,9 @@ export const IMPORTED = {
           "audioFr": "/audio/espace/10_fr.wav",
           "audioWo": "/audio/espace/11_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/espace/10_fr.wav",
+      "audioWo": "/audio/espace/11_wo.wav"
     },
     {
       "id": "espace_07",
@@ -602,7 +680,9 @@ export const IMPORTED = {
           "audioFr": "/audio/espace/12_fr.wav",
           "audioWo": "/audio/espace/13_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/espace/12_fr.wav",
+      "audioWo": "/audio/espace/13_wo.wav"
     },
     {
       "id": "espace_08",
@@ -617,7 +697,9 @@ export const IMPORTED = {
           "audioFr": "/audio/espace/14_fr.wav",
           "audioWo": "/audio/espace/15_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/espace/14_fr.wav",
+      "audioWo": "/audio/espace/15_wo.wav"
     },
     {
       "id": "espace_09",
@@ -632,7 +714,9 @@ export const IMPORTED = {
           "audioFr": "/audio/espace/16_fr.wav",
           "audioWo": "/audio/espace/17_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/espace/16_fr.wav",
+      "audioWo": "/audio/espace/17_wo.wav"
     },
     {
       "id": "espace_10",
@@ -647,7 +731,9 @@ export const IMPORTED = {
           "audioFr": "/audio/espace/18_fr.wav",
           "audioWo": "/audio/espace/19_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/espace/18_fr.wav",
+      "audioWo": "/audio/espace/19_wo.wav"
     },
     {
       "id": "espace_11",
@@ -662,7 +748,9 @@ export const IMPORTED = {
           "audioFr": "/audio/espace/20_fr.wav",
           "audioWo": "/audio/espace/21_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/espace/20_fr.wav",
+      "audioWo": "/audio/espace/21_wo.wav"
     }
   ],
   "famille": [
@@ -679,7 +767,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/00_fr.wav",
           "audioWo": "/audio/famille/01_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/00_fr.wav",
+      "audioWo": "/audio/famille/01_wo.wav"
     },
     {
       "id": "famille_02",
@@ -694,7 +784,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/02_fr.wav",
           "audioWo": "/audio/famille/03_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/02_fr.wav",
+      "audioWo": "/audio/famille/03_wo.wav"
     },
     {
       "id": "famille_03",
@@ -709,7 +801,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/04_fr.wav",
           "audioWo": "/audio/famille/05_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/04_fr.wav",
+      "audioWo": "/audio/famille/05_wo.wav"
     },
     {
       "id": "famille_04",
@@ -724,7 +818,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/06_fr.wav",
           "audioWo": "/audio/famille/07_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/06_fr.wav",
+      "audioWo": "/audio/famille/07_wo.wav"
     },
     {
       "id": "famille_05",
@@ -739,7 +835,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/08_fr.wav",
           "audioWo": "/audio/famille/09_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/08_fr.wav",
+      "audioWo": "/audio/famille/09_wo.wav"
     },
     {
       "id": "famille_06",
@@ -754,7 +852,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/10_fr.wav",
           "audioWo": "/audio/famille/11_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/10_fr.wav",
+      "audioWo": "/audio/famille/11_wo.wav"
     },
     {
       "id": "famille_07",
@@ -769,7 +869,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/12_fr.wav",
           "audioWo": "/audio/famille/13_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/12_fr.wav",
+      "audioWo": "/audio/famille/13_wo.wav"
     },
     {
       "id": "famille_08",
@@ -784,7 +886,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/14_fr.wav",
           "audioWo": "/audio/famille/15_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/14_fr.wav",
+      "audioWo": "/audio/famille/15_wo.wav"
     },
     {
       "id": "famille_09",
@@ -799,7 +903,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/16_fr.wav",
           "audioWo": "/audio/famille/17_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/16_fr.wav",
+      "audioWo": "/audio/famille/17_wo.wav"
     },
     {
       "id": "famille_10",
@@ -814,7 +920,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/18_fr.wav",
           "audioWo": "/audio/famille/19_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/18_fr.wav",
+      "audioWo": "/audio/famille/19_wo.wav"
     },
     {
       "id": "famille_11",
@@ -829,7 +937,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/20_fr.wav",
           "audioWo": "/audio/famille/21_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/20_fr.wav",
+      "audioWo": "/audio/famille/21_wo.wav"
     },
     {
       "id": "famille_12",
@@ -844,7 +954,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/22_fr.wav",
           "audioWo": "/audio/famille/23_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/22_fr.wav",
+      "audioWo": "/audio/famille/23_wo.wav"
     },
     {
       "id": "famille_13",
@@ -859,7 +971,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/24_fr.wav",
           "audioWo": "/audio/famille/25_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/24_fr.wav",
+      "audioWo": "/audio/famille/25_wo.wav"
     },
     {
       "id": "famille_14",
@@ -874,7 +988,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/26_fr.wav",
           "audioWo": "/audio/famille/27_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/26_fr.wav",
+      "audioWo": "/audio/famille/27_wo.wav"
     },
     {
       "id": "famille_15",
@@ -889,7 +1005,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/28_fr.wav",
           "audioWo": "/audio/famille/29_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/28_fr.wav",
+      "audioWo": "/audio/famille/29_wo.wav"
     },
     {
       "id": "famille_16",
@@ -904,7 +1022,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/30_fr.wav",
           "audioWo": "/audio/famille/31_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/30_fr.wav",
+      "audioWo": "/audio/famille/31_wo.wav"
     },
     {
       "id": "famille_17",
@@ -919,7 +1039,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/32_fr.wav",
           "audioWo": "/audio/famille/33_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/32_fr.wav",
+      "audioWo": "/audio/famille/33_wo.wav"
     },
     {
       "id": "famille_18",
@@ -934,7 +1056,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/34_fr.wav",
           "audioWo": "/audio/famille/35_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/34_fr.wav",
+      "audioWo": "/audio/famille/35_wo.wav"
     },
     {
       "id": "famille_19",
@@ -949,7 +1073,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/36_fr.wav",
           "audioWo": "/audio/famille/37_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/36_fr.wav",
+      "audioWo": "/audio/famille/37_wo.wav"
     },
     {
       "id": "famille_20",
@@ -964,7 +1090,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/38_fr.wav",
           "audioWo": "/audio/famille/39_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/38_fr.wav",
+      "audioWo": "/audio/famille/39_wo.wav"
     },
     {
       "id": "famille_21",
@@ -979,7 +1107,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/40_fr.wav",
           "audioWo": "/audio/famille/41_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/40_fr.wav",
+      "audioWo": "/audio/famille/41_wo.wav"
     },
     {
       "id": "famille_22",
@@ -994,7 +1124,9 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/42_fr.wav",
           "audioWo": "/audio/famille/43_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/42_fr.wav",
+      "audioWo": "/audio/famille/43_wo.wav"
     },
     {
       "id": "famille_23",
@@ -1009,7 +1141,436 @@ export const IMPORTED = {
           "audioFr": "/audio/famille/44_fr.wav",
           "audioWo": "/audio/famille/45_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/famille/44_fr.wav",
+      "audioWo": "/audio/famille/45_wo.wav"
+    }
+  ],
+  "invitation": [
+    {
+      "id": "invitation_01",
+      "lessonId": "invitation",
+      "position": 1,
+      "fr": "Je voudrais t'inviter / Je voudrais vous inviter",
+      "wo": "Dame bëgg inviter / Dame leen bëgg inviter",
+      "variants": [
+        {
+          "fr": "Je voudrais t'inviter / Je voudrais vous inviter",
+          "wo": "Dame bëgg inviter / Dame leen bëgg inviter",
+          "audioFr": "/audio/invitation/00_fr.wav",
+          "audioWo": "/audio/invitation/01_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/00_fr.wav",
+      "audioWo": "/audio/invitation/01_wo.wav"
+    },
+    {
+      "id": "invitation_02",
+      "lessonId": "invitation",
+      "position": 2,
+      "fr": "À déjeuner chez moi",
+      "wo": "Añ sama kër",
+      "variants": [
+        {
+          "fr": "À déjeuner chez moi",
+          "wo": "Añ sama kër",
+          "audioFr": "/audio/invitation/02_fr.wav",
+          "audioWo": "/audio/invitation/03_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/02_fr.wav",
+      "audioWo": "/audio/invitation/03_wo.wav"
+    },
+    {
+      "id": "invitation_03",
+      "lessonId": "invitation",
+      "position": 3,
+      "fr": "À diner au restaurant",
+      "wo": "Reer restaurant",
+      "variants": [
+        {
+          "fr": "À diner au restaurant",
+          "wo": "Reer restaurant",
+          "audioFr": "/audio/invitation/04_fr.wav",
+          "audioWo": "/audio/invitation/05_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/04_fr.wav",
+      "audioWo": "/audio/invitation/05_wo.wav"
+    },
+    {
+      "id": "invitation_04",
+      "lessonId": "invitation",
+      "position": 4,
+      "fr": "Pour mon anniversaire",
+      "wo": "Sama aniwersaire",
+      "variants": [
+        {
+          "fr": "Pour mon anniversaire",
+          "wo": "Sama aniwersaire",
+          "audioFr": "/audio/invitation/06_fr.wav",
+          "audioWo": "/audio/invitation/07_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/06_fr.wav",
+      "audioWo": "/audio/invitation/07_wo.wav"
+    },
+    {
+      "id": "invitation_05",
+      "lessonId": "invitation",
+      "position": 5,
+      "fr": "Pour mon mariage",
+      "wo": "Sama tak",
+      "variants": [
+        {
+          "fr": "Pour mon mariage",
+          "wo": "Sama tak",
+          "audioFr": "/audio/invitation/08_fr.wav",
+          "audioWo": "/audio/invitation/09_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/08_fr.wav",
+      "audioWo": "/audio/invitation/09_wo.wav"
+    },
+    {
+      "id": "invitation_06",
+      "lessonId": "invitation",
+      "position": 6,
+      "fr": "Tu viendras ?",
+      "wo": "Baa ti nga ñëw ?",
+      "variants": [
+        {
+          "fr": "Tu viendras ?",
+          "wo": "Baa ti nga ñëw ?",
+          "audioFr": "/audio/invitation/10_fr.wav",
+          "audioWo": "/audio/invitation/11_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/10_fr.wav",
+      "audioWo": "/audio/invitation/11_wo.wav"
+    },
+    {
+      "id": "invitation_07",
+      "lessonId": "invitation",
+      "position": 7,
+      "fr": "Plutôt deux fois qu'une",
+      "wo": "Como fatt dëgg nema masa",
+      "variants": [
+        {
+          "fr": "Plutôt deux fois qu'une",
+          "wo": "Como fatt dëgg nema masa",
+          "audioFr": "/audio/invitation/12_fr.wav",
+          "audioWo": "/audio/invitation/13_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/12_fr.wav",
+      "audioWo": "/audio/invitation/13_wo.wav"
+    },
+    {
+      "id": "invitation_08",
+      "lessonId": "invitation",
+      "position": 8,
+      "fr": "Je suis désolé, je ne peux pas ce jour là",
+      "wo": "Baal ma, du mo co mën bis boobu",
+      "variants": [
+        {
+          "fr": "Je suis désolé, je ne peux pas ce jour là",
+          "wo": "Baal ma, du mo co mën bis boobu",
+          "audioFr": "/audio/invitation/14_fr.wav",
+          "audioWo": "/audio/invitation/15_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/14_fr.wav",
+      "audioWo": "/audio/invitation/15_wo.wav"
+    },
+    {
+      "id": "invitation_09",
+      "lessonId": "invitation",
+      "position": 9,
+      "fr": "À quelle heure faut-il venir ?",
+      "wo": "Ban waxtu la wara ñaw ?",
+      "variants": [
+        {
+          "fr": "À quelle heure faut-il venir ?",
+          "wo": "Ban waxtu la wara ñaw ?",
+          "audioFr": "/audio/invitation/16_fr.wav",
+          "audioWo": "/audio/invitation/17_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/16_fr.wav",
+      "audioWo": "/audio/invitation/17_wo.wav"
+    },
+    {
+      "id": "invitation_10",
+      "lessonId": "invitation",
+      "position": 10,
+      "fr": "On se retrouve à 20h chez moi ?",
+      "wo": "Neñul dagi 8h ci guddi sama kër ?",
+      "variants": [
+        {
+          "fr": "On se retrouve à 20h chez moi ?",
+          "wo": "Neñul dagi 8h ci guddi sama kër ?",
+          "audioFr": "/audio/invitation/18_fr.wav",
+          "audioWo": "/audio/invitation/19_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/18_fr.wav",
+      "audioWo": "/audio/invitation/19_wo.wav"
+    },
+    {
+      "id": "invitation_11",
+      "lessonId": "invitation",
+      "position": 11,
+      "fr": "Merci pour le repas",
+      "wo": "Jeraw lak",
+      "variants": [
+        {
+          "fr": "Merci pour le repas",
+          "wo": "Jeraw lak",
+          "audioFr": "/audio/invitation/20_fr.wav",
+          "audioWo": "/audio/invitation/21_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/20_fr.wav",
+      "audioWo": "/audio/invitation/21_wo.wav"
+    },
+    {
+      "id": "invitation_12",
+      "lessonId": "invitation",
+      "position": 12,
+      "fr": "Nous avons bien fait la fête",
+      "wo": "Fo nanu busunu xool sed",
+      "variants": [
+        {
+          "fr": "Nous avons bien fait la fête",
+          "wo": "Fo nanu busunu xool sed",
+          "audioFr": "/audio/invitation/22_fr.wav",
+          "audioWo": "/audio/invitation/23_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/22_fr.wav",
+      "audioWo": "/audio/invitation/23_wo.wav"
+    },
+    {
+      "id": "invitation_13",
+      "lessonId": "invitation",
+      "position": 13,
+      "fr": "Merci beaucoup pour votre invitation",
+      "wo": "Jërëjëf ci habitation bi",
+      "variants": [
+        {
+          "fr": "Merci beaucoup pour votre invitation",
+          "wo": "Jërëjëf ci habitation bi",
+          "audioFr": "/audio/invitation/24_fr.wav",
+          "audioWo": "/audio/invitation/25_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/24_fr.wav",
+      "audioWo": "/audio/invitation/25_wo.wav"
+    },
+    {
+      "id": "invitation_14",
+      "lessonId": "invitation",
+      "position": 14,
+      "fr": "C'était délicieux !",
+      "wo": "Neexna lool",
+      "variants": [
+        {
+          "fr": "C'était délicieux !",
+          "wo": "Neexna lool",
+          "audioFr": "/audio/invitation/26_fr.wav",
+          "audioWo": "/audio/invitation/27_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/26_fr.wav",
+      "audioWo": "/audio/invitation/27_wo.wav"
+    },
+    {
+      "id": "invitation_15",
+      "lessonId": "invitation",
+      "position": 15,
+      "fr": "Nous avons passé un très bon moment",
+      "wo": "Nu gi bege bende bi",
+      "variants": [
+        {
+          "fr": "Nous avons passé un très bon moment",
+          "wo": "Nu gi bege bende bi",
+          "audioFr": "/audio/invitation/28_fr.wav",
+          "audioWo": "/audio/invitation/29_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/28_fr.wav",
+      "audioWo": "/audio/invitation/29_wo.wav"
+    },
+    {
+      "id": "invitation_16",
+      "lessonId": "invitation",
+      "position": 16,
+      "fr": "Bonne digestion",
+      "wo": "Naresak jàmm",
+      "variants": [
+        {
+          "fr": "Bonne digestion",
+          "wo": "Naresak jàmm",
+          "audioFr": "/audio/invitation/30_fr.wav",
+          "audioWo": "/audio/invitation/31_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/30_fr.wav",
+      "audioWo": "/audio/invitation/31_wo.wav"
+    },
+    {
+      "id": "invitation_17",
+      "lessonId": "invitation",
+      "position": 17,
+      "fr": "Quand as-tu rendez-vous avec Astou ?",
+      "wo": "Kañ ga am digg daje ak Astou ?",
+      "variants": [
+        {
+          "fr": "Quand as-tu rendez-vous avec Astou ?",
+          "wo": "Kañ ga am digg daje ak Astou ?",
+          "audioFr": "/audio/invitation/32_fr.wav",
+          "audioWo": "/audio/invitation/33_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/32_fr.wav",
+      "audioWo": "/audio/invitation/33_wo.wav"
+    },
+    {
+      "id": "invitation_18",
+      "lessonId": "invitation",
+      "position": 18,
+      "fr": "J'ai rendez-vous ce soir",
+      "wo": "Dama am digg daje ngoon",
+      "variants": [
+        {
+          "fr": "J'ai rendez-vous ce soir",
+          "wo": "Dama am digg daje ngoon",
+          "audioFr": "/audio/invitation/34_fr.wav",
+          "audioWo": "/audio/invitation/35_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/34_fr.wav",
+      "audioWo": "/audio/invitation/35_wo.wav"
+    },
+    {
+      "id": "invitation_19",
+      "lessonId": "invitation",
+      "position": 19,
+      "fr": "On se voit demain ?",
+      "wo": "Suba lañu gise ?",
+      "variants": [
+        {
+          "fr": "On se voit demain ?",
+          "wo": "Suba lañu gise ?",
+          "audioFr": "/audio/invitation/36_fr.wav",
+          "audioWo": "/audio/invitation/37_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/36_fr.wav",
+      "audioWo": "/audio/invitation/37_wo.wav"
+    },
+    {
+      "id": "invitation_20",
+      "lessonId": "invitation",
+      "position": 20,
+      "fr": "Avec plaisir",
+      "wo": "Ak mbekte",
+      "variants": [
+        {
+          "fr": "Avec plaisir",
+          "wo": "Ak mbekte",
+          "audioFr": "/audio/invitation/38_fr.wav",
+          "audioWo": "/audio/invitation/39_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/38_fr.wav",
+      "audioWo": "/audio/invitation/39_wo.wav"
+    },
+    {
+      "id": "invitation_21",
+      "lessonId": "invitation",
+      "position": 21,
+      "fr": "Non, demain j'ai rendez-vous avec Omar",
+      "wo": "Dédeet, ëllëg dama digg deje ak Omar",
+      "variants": [
+        {
+          "fr": "Non, demain j'ai rendez-vous avec Omar",
+          "wo": "Dédeet, ëllëg dama digg deje ak Omar",
+          "audioFr": "/audio/invitation/40_fr.wav",
+          "audioWo": "/audio/invitation/41_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/40_fr.wav",
+      "audioWo": "/audio/invitation/41_wo.wav"
+    },
+    {
+      "id": "invitation_22",
+      "lessonId": "invitation",
+      "position": 22,
+      "fr": "On peut se voir pour...",
+      "wo": "Man lanu dajinn ngiir",
+      "variants": [
+        {
+          "fr": "On peut se voir pour...",
+          "wo": "Man lanu dajinn ngiir",
+          "audioFr": "/audio/invitation/42_fr.wav",
+          "audioWo": "/audio/invitation/43_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/42_fr.wav",
+      "audioWo": "/audio/invitation/43_wo.wav"
+    },
+    {
+      "id": "invitation_23",
+      "lessonId": "invitation",
+      "position": 23,
+      "fr": "Discuter ?",
+      "wo": "Waxtaan ?",
+      "variants": [
+        {
+          "fr": "Discuter ?",
+          "wo": "Waxtaan ?",
+          "audioFr": "/audio/invitation/44_fr.wav",
+          "audioWo": "/audio/invitation/45_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/44_fr.wav",
+      "audioWo": "/audio/invitation/45_wo.wav"
+    },
+    {
+      "id": "invitation_24",
+      "lessonId": "invitation",
+      "position": 24,
+      "fr": "Aller au cinéma ?",
+      "wo": "Dem Cinéma ?",
+      "variants": [
+        {
+          "fr": "Aller au cinéma ?",
+          "wo": "Dem Cinéma ?",
+          "audioFr": "/audio/invitation/46_fr.wav",
+          "audioWo": "/audio/invitation/47_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/46_fr.wav",
+      "audioWo": "/audio/invitation/47_wo.wav"
+    },
+    {
+      "id": "invitation_25",
+      "lessonId": "invitation",
+      "position": 25,
+      "fr": "Boire un thé ?",
+      "wo": "Naan ataaya ?",
+      "variants": [
+        {
+          "fr": "Boire un thé ?",
+          "wo": "Naan ataaya ?",
+          "audioFr": "/audio/invitation/48_fr.wav",
+          "audioWo": "/audio/invitation/49_wo.wav"
+        }
+      ],
+      "audioFr": "/audio/invitation/48_fr.wav",
+      "audioWo": "/audio/invitation/49_wo.wav"
     }
   ],
   "langues": [
@@ -1026,7 +1587,9 @@ export const IMPORTED = {
           "audioFr": "/audio/langues/00_fr.wav",
           "audioWo": "/audio/langues/01_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/langues/00_fr.wav",
+      "audioWo": "/audio/langues/01_wo.wav"
     },
     {
       "id": "langues_02",
@@ -1041,7 +1604,9 @@ export const IMPORTED = {
           "audioFr": "/audio/langues/02_fr.wav",
           "audioWo": "/audio/langues/03_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/langues/02_fr.wav",
+      "audioWo": "/audio/langues/03_wo.wav"
     },
     {
       "id": "langues_03",
@@ -1056,7 +1621,9 @@ export const IMPORTED = {
           "audioFr": "/audio/langues/04_fr.wav",
           "audioWo": "/audio/langues/05_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/langues/04_fr.wav",
+      "audioWo": "/audio/langues/05_wo.wav"
     },
     {
       "id": "langues_04",
@@ -1071,7 +1638,9 @@ export const IMPORTED = {
           "audioFr": "/audio/langues/06_fr.wav",
           "audioWo": "/audio/langues/07_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/langues/06_fr.wav",
+      "audioWo": "/audio/langues/07_wo.wav"
     },
     {
       "id": "langues_05",
@@ -1086,7 +1655,9 @@ export const IMPORTED = {
           "audioFr": "/audio/langues/08_fr.wav",
           "audioWo": "/audio/langues/09_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/langues/08_fr.wav",
+      "audioWo": "/audio/langues/09_wo.wav"
     },
     {
       "id": "langues_06",
@@ -1101,7 +1672,9 @@ export const IMPORTED = {
           "audioFr": "/audio/langues/10_fr.wav",
           "audioWo": "/audio/langues/11_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/langues/10_fr.wav",
+      "audioWo": "/audio/langues/11_wo.wav"
     },
     {
       "id": "langues_07",
@@ -1116,7 +1689,9 @@ export const IMPORTED = {
           "audioFr": "/audio/langues/12_fr.wav",
           "audioWo": "/audio/langues/13_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/langues/12_fr.wav",
+      "audioWo": "/audio/langues/13_wo.wav"
     },
     {
       "id": "langues_08",
@@ -1131,7 +1706,9 @@ export const IMPORTED = {
           "audioFr": "/audio/langues/14_fr.wav",
           "audioWo": "/audio/langues/15_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/langues/14_fr.wav",
+      "audioWo": "/audio/langues/15_wo.wav"
     },
     {
       "id": "langues_09",
@@ -1146,7 +1723,9 @@ export const IMPORTED = {
           "audioFr": "/audio/langues/16_fr.wav",
           "audioWo": "/audio/langues/17_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/langues/16_fr.wav",
+      "audioWo": "/audio/langues/17_wo.wav"
     }
   ],
   "mots-quotidiens": [
@@ -1163,7 +1742,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/00_fr.wav",
           "audioWo": "/audio/mots-quotidiens/01_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/00_fr.wav",
+      "audioWo": "/audio/mots-quotidiens/01_wo.wav"
     },
     {
       "id": "mots-quotidiens_02",
@@ -1178,7 +1759,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/02_fr.wav",
           "audioWo": "/audio/mots-quotidiens/03_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/02_fr.wav",
+      "audioWo": "/audio/mots-quotidiens/03_wo.wav"
     },
     {
       "id": "mots-quotidiens_03",
@@ -1193,7 +1776,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/04_fr.wav",
           "audioWo": "/audio/mots-quotidiens/05_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/04_fr.wav",
+      "audioWo": "/audio/mots-quotidiens/05_wo.wav"
     },
     {
       "id": "mots-quotidiens_04",
@@ -1208,7 +1793,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/06_fr.wav",
           "audioWo": "/audio/mots-quotidiens/07_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/06_fr.wav",
+      "audioWo": "/audio/mots-quotidiens/07_wo.wav"
     },
     {
       "id": "mots-quotidiens_05",
@@ -1223,7 +1810,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/08_fr.wav",
           "audioWo": "/audio/mots-quotidiens/09_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/08_fr.wav",
+      "audioWo": "/audio/mots-quotidiens/09_wo.wav"
     },
     {
       "id": "mots-quotidiens_06",
@@ -1238,7 +1827,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/10_fr.wav",
           "audioWo": "/audio/mots-quotidiens/11_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/10_fr.wav",
+      "audioWo": "/audio/mots-quotidiens/11_wo.wav"
     },
     {
       "id": "mots-quotidiens_07",
@@ -1253,7 +1844,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/12_fr.wav",
           "audioWo": "/audio/mots-quotidiens/13_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/12_fr.wav",
+      "audioWo": "/audio/mots-quotidiens/13_wo.wav"
     },
     {
       "id": "mots-quotidiens_08",
@@ -1268,7 +1861,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/14_fr.wav",
           "audioWo": "/audio/mots-quotidiens/15_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/14_fr.wav",
+      "audioWo": "/audio/mots-quotidiens/15_wo.wav"
     },
     {
       "id": "mots-quotidiens_09",
@@ -1283,7 +1878,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/16_fr.wav",
           "audioWo": "/audio/mots-quotidiens/17_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/16_fr.wav",
+      "audioWo": "/audio/mots-quotidiens/17_wo.wav"
     },
     {
       "id": "mots-quotidiens_10",
@@ -1298,7 +1895,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/18_fr.wav",
           "audioWo": "/audio/mots-quotidiens/19_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/18_fr.wav",
+      "audioWo": "/audio/mots-quotidiens/19_wo.wav"
     },
     {
       "id": "mots-quotidiens_11",
@@ -1313,7 +1912,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/20_fr.wav",
           "audioWo": "/audio/mots-quotidiens/21_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/20_fr.wav",
+      "audioWo": "/audio/mots-quotidiens/21_wo.wav"
     },
     {
       "id": "mots-quotidiens_12",
@@ -1328,7 +1929,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/22_fr.wav",
           "audioWo": "/audio/mots-quotidiens/23_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/22_fr.wav",
+      "audioWo": "/audio/mots-quotidiens/23_wo.wav"
     },
     {
       "id": "mots-quotidiens_13",
@@ -1343,7 +1946,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/24_fr.wav",
           "audioWo": "/audio/mots-quotidiens/25_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/24_fr.wav",
+      "audioWo": "/audio/mots-quotidiens/25_wo.wav"
     },
     {
       "id": "mots-quotidiens_14",
@@ -1358,7 +1963,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/26_fr.wav",
           "audioWo": "/audio/mots-quotidiens/27_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/26_fr.wav",
+      "audioWo": "/audio/mots-quotidiens/27_wo.wav"
     },
     {
       "id": "mots-quotidiens_15",
@@ -1373,7 +1980,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/28_fr.wav",
           "audioWo": "/audio/mots-quotidiens/29_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/28_fr.wav",
+      "audioWo": "/audio/mots-quotidiens/29_wo.wav"
     },
     {
       "id": "mots-quotidiens_16",
@@ -1388,7 +1997,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/30_fr.wav",
           "audioWo": "/audio/mots-quotidiens/31_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/30_fr.wav",
+      "audioWo": "/audio/mots-quotidiens/31_wo.wav"
     },
     {
       "id": "mots-quotidiens_17",
@@ -1403,7 +2014,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/32_fr.wav",
           "audioWo": "/audio/mots-quotidiens/33_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/32_fr.wav",
+      "audioWo": "/audio/mots-quotidiens/33_wo.wav"
     },
     {
       "id": "mots-quotidiens_18",
@@ -1418,7 +2031,9 @@ export const IMPORTED = {
           "audioFr": "/audio/mots-quotidiens/34_fr.wav",
           "audioWo": null
         }
-      ]
+      ],
+      "audioFr": "/audio/mots-quotidiens/34_fr.wav",
+      "audioWo": null
     }
   ],
   "questions": [
@@ -1435,7 +2050,9 @@ export const IMPORTED = {
           "audioFr": "/audio/questions/00_fr.wav",
           "audioWo": "/audio/questions/01_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/questions/00_fr.wav",
+      "audioWo": "/audio/questions/01_wo.wav"
     },
     {
       "id": "questions_02",
@@ -1450,7 +2067,9 @@ export const IMPORTED = {
           "audioFr": "/audio/questions/02_fr.wav",
           "audioWo": "/audio/questions/03_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/questions/02_fr.wav",
+      "audioWo": "/audio/questions/03_wo.wav"
     },
     {
       "id": "questions_03",
@@ -1465,7 +2084,9 @@ export const IMPORTED = {
           "audioFr": "/audio/questions/04_fr.wav",
           "audioWo": "/audio/questions/05_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/questions/04_fr.wav",
+      "audioWo": "/audio/questions/05_wo.wav"
     },
     {
       "id": "questions_04",
@@ -1480,7 +2101,9 @@ export const IMPORTED = {
           "audioFr": "/audio/questions/06_fr.wav",
           "audioWo": "/audio/questions/07_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/questions/06_fr.wav",
+      "audioWo": "/audio/questions/07_wo.wav"
     },
     {
       "id": "questions_05",
@@ -1495,7 +2118,9 @@ export const IMPORTED = {
           "audioFr": "/audio/questions/08_fr.wav",
           "audioWo": "/audio/questions/09_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/questions/08_fr.wav",
+      "audioWo": "/audio/questions/09_wo.wav"
     },
     {
       "id": "questions_06",
@@ -1510,7 +2135,9 @@ export const IMPORTED = {
           "audioFr": "/audio/questions/10_fr.wav",
           "audioWo": "/audio/questions/11_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/questions/10_fr.wav",
+      "audioWo": "/audio/questions/11_wo.wav"
     },
     {
       "id": "questions_07",
@@ -1525,7 +2152,9 @@ export const IMPORTED = {
           "audioFr": "/audio/questions/12_fr.wav",
           "audioWo": "/audio/questions/13_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/questions/12_fr.wav",
+      "audioWo": "/audio/questions/13_wo.wav"
     },
     {
       "id": "questions_08",
@@ -1540,7 +2169,9 @@ export const IMPORTED = {
           "audioFr": "/audio/questions/14_fr.wav",
           "audioWo": "/audio/questions/15_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/questions/14_fr.wav",
+      "audioWo": "/audio/questions/15_wo.wav"
     },
     {
       "id": "questions_09",
@@ -1555,7 +2186,9 @@ export const IMPORTED = {
           "audioFr": "/audio/questions/16_fr.wav",
           "audioWo": "/audio/questions/17_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/questions/16_fr.wav",
+      "audioWo": "/audio/questions/17_wo.wav"
     },
     {
       "id": "questions_10",
@@ -1570,7 +2203,9 @@ export const IMPORTED = {
           "audioFr": "/audio/questions/18_fr.wav",
           "audioWo": "/audio/questions/19_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/questions/18_fr.wav",
+      "audioWo": "/audio/questions/19_wo.wav"
     },
     {
       "id": "questions_11",
@@ -1585,7 +2220,9 @@ export const IMPORTED = {
           "audioFr": "/audio/questions/20_fr.wav",
           "audioWo": "/audio/questions/21_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/questions/20_fr.wav",
+      "audioWo": "/audio/questions/21_wo.wav"
     },
     {
       "id": "questions_12",
@@ -1600,7 +2237,9 @@ export const IMPORTED = {
           "audioFr": "/audio/questions/22_fr.wav",
           "audioWo": "/audio/questions/23_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/questions/22_fr.wav",
+      "audioWo": "/audio/questions/23_wo.wav"
     },
     {
       "id": "questions_13",
@@ -1615,7 +2254,9 @@ export const IMPORTED = {
           "audioFr": "/audio/questions/24_fr.wav",
           "audioWo": "/audio/questions/25_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/questions/24_fr.wav",
+      "audioWo": "/audio/questions/25_wo.wav"
     },
     {
       "id": "questions_14",
@@ -1630,7 +2271,9 @@ export const IMPORTED = {
           "audioFr": "/audio/questions/26_fr.wav",
           "audioWo": "/audio/questions/27_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/questions/26_fr.wav",
+      "audioWo": "/audio/questions/27_wo.wav"
     },
     {
       "id": "questions_15",
@@ -1645,7 +2288,9 @@ export const IMPORTED = {
           "audioFr": "/audio/questions/28_fr.wav",
           "audioWo": "/audio/questions/29_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/questions/28_fr.wav",
+      "audioWo": "/audio/questions/29_wo.wav"
     },
     {
       "id": "questions_16",
@@ -1660,7 +2305,9 @@ export const IMPORTED = {
           "audioFr": "/audio/questions/30_fr.wav",
           "audioWo": "/audio/questions/31_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/questions/30_fr.wav",
+      "audioWo": "/audio/questions/31_wo.wav"
     },
     {
       "id": "questions_17",
@@ -1675,7 +2322,9 @@ export const IMPORTED = {
           "audioFr": "/audio/questions/32_fr.wav",
           "audioWo": "/audio/questions/33_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/questions/32_fr.wav",
+      "audioWo": "/audio/questions/33_wo.wav"
     }
   ],
   "rencontre": [
@@ -1692,7 +2341,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/00_fr.wav",
           "audioWo": "/audio/rencontre/01_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/00_fr.wav",
+      "audioWo": "/audio/rencontre/01_wo.wav"
     },
     {
       "id": "rencontre_02",
@@ -1707,7 +2358,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/02_fr.wav",
           "audioWo": "/audio/rencontre/03_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/02_fr.wav",
+      "audioWo": "/audio/rencontre/03_wo.wav"
     },
     {
       "id": "rencontre_03",
@@ -1722,7 +2375,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/04_fr.wav",
           "audioWo": "/audio/rencontre/05_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/04_fr.wav",
+      "audioWo": "/audio/rencontre/05_wo.wav"
     },
     {
       "id": "rencontre_04",
@@ -1737,7 +2392,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/06_fr.wav",
           "audioWo": "/audio/rencontre/07_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/06_fr.wav",
+      "audioWo": "/audio/rencontre/07_wo.wav"
     },
     {
       "id": "rencontre_05",
@@ -1752,7 +2409,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/08_fr.wav",
           "audioWo": "/audio/rencontre/09_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/08_fr.wav",
+      "audioWo": "/audio/rencontre/09_wo.wav"
     },
     {
       "id": "rencontre_06",
@@ -1767,7 +2426,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/10_fr.wav",
           "audioWo": "/audio/rencontre/11_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/10_fr.wav",
+      "audioWo": "/audio/rencontre/11_wo.wav"
     },
     {
       "id": "rencontre_07",
@@ -1782,7 +2443,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/12_fr.wav",
           "audioWo": "/audio/rencontre/13_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/12_fr.wav",
+      "audioWo": "/audio/rencontre/13_wo.wav"
     },
     {
       "id": "rencontre_08",
@@ -1797,7 +2460,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/14_fr.wav",
           "audioWo": "/audio/rencontre/15_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/14_fr.wav",
+      "audioWo": "/audio/rencontre/15_wo.wav"
     },
     {
       "id": "rencontre_09",
@@ -1812,7 +2477,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/16_fr.wav",
           "audioWo": "/audio/rencontre/17_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/16_fr.wav",
+      "audioWo": "/audio/rencontre/17_wo.wav"
     },
     {
       "id": "rencontre_10",
@@ -1827,7 +2494,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/18_fr.wav",
           "audioWo": "/audio/rencontre/19_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/18_fr.wav",
+      "audioWo": "/audio/rencontre/19_wo.wav"
     },
     {
       "id": "rencontre_11",
@@ -1842,7 +2511,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/20_fr.wav",
           "audioWo": "/audio/rencontre/21_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/20_fr.wav",
+      "audioWo": "/audio/rencontre/21_wo.wav"
     },
     {
       "id": "rencontre_12",
@@ -1857,7 +2528,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/22_fr.wav",
           "audioWo": "/audio/rencontre/23_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/22_fr.wav",
+      "audioWo": "/audio/rencontre/23_wo.wav"
     },
     {
       "id": "rencontre_13",
@@ -1872,7 +2545,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/24_fr.wav",
           "audioWo": "/audio/rencontre/25_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/24_fr.wav",
+      "audioWo": "/audio/rencontre/25_wo.wav"
     },
     {
       "id": "rencontre_14",
@@ -1887,7 +2562,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/26_fr.wav",
           "audioWo": "/audio/rencontre/27_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/26_fr.wav",
+      "audioWo": "/audio/rencontre/27_wo.wav"
     },
     {
       "id": "rencontre_15",
@@ -1902,7 +2579,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/28_fr.wav",
           "audioWo": "/audio/rencontre/29_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/28_fr.wav",
+      "audioWo": "/audio/rencontre/29_wo.wav"
     },
     {
       "id": "rencontre_16",
@@ -1917,7 +2596,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/30_fr.wav",
           "audioWo": "/audio/rencontre/31_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/30_fr.wav",
+      "audioWo": "/audio/rencontre/31_wo.wav"
     },
     {
       "id": "rencontre_17",
@@ -1932,7 +2613,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/32_fr.wav",
           "audioWo": "/audio/rencontre/33_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/32_fr.wav",
+      "audioWo": "/audio/rencontre/33_wo.wav"
     },
     {
       "id": "rencontre_18",
@@ -1947,7 +2630,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/34_fr.wav",
           "audioWo": "/audio/rencontre/35_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/34_fr.wav",
+      "audioWo": "/audio/rencontre/35_wo.wav"
     },
     {
       "id": "rencontre_19",
@@ -1962,7 +2647,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/36_fr.wav",
           "audioWo": "/audio/rencontre/37_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/36_fr.wav",
+      "audioWo": "/audio/rencontre/37_wo.wav"
     },
     {
       "id": "rencontre_20",
@@ -1977,7 +2664,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/38_fr.wav",
           "audioWo": "/audio/rencontre/39_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/38_fr.wav",
+      "audioWo": "/audio/rencontre/39_wo.wav"
     },
     {
       "id": "rencontre_21",
@@ -1992,7 +2681,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/40_fr.wav",
           "audioWo": "/audio/rencontre/41_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/40_fr.wav",
+      "audioWo": "/audio/rencontre/41_wo.wav"
     },
     {
       "id": "rencontre_22",
@@ -2007,7 +2698,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/42_fr.wav",
           "audioWo": "/audio/rencontre/43_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/42_fr.wav",
+      "audioWo": "/audio/rencontre/43_wo.wav"
     },
     {
       "id": "rencontre_23",
@@ -2022,7 +2715,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/44_fr.wav",
           "audioWo": "/audio/rencontre/45_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/44_fr.wav",
+      "audioWo": "/audio/rencontre/45_wo.wav"
     },
     {
       "id": "rencontre_24",
@@ -2037,7 +2732,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/46_fr.wav",
           "audioWo": "/audio/rencontre/47_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/46_fr.wav",
+      "audioWo": "/audio/rencontre/47_wo.wav"
     },
     {
       "id": "rencontre_25",
@@ -2052,7 +2749,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/48_fr.wav",
           "audioWo": "/audio/rencontre/49_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/48_fr.wav",
+      "audioWo": "/audio/rencontre/49_wo.wav"
     },
     {
       "id": "rencontre_26",
@@ -2067,7 +2766,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/50_fr.wav",
           "audioWo": "/audio/rencontre/51_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/50_fr.wav",
+      "audioWo": "/audio/rencontre/51_wo.wav"
     },
     {
       "id": "rencontre_27",
@@ -2082,7 +2783,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/52_fr.wav",
           "audioWo": "/audio/rencontre/53_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/52_fr.wav",
+      "audioWo": "/audio/rencontre/53_wo.wav"
     },
     {
       "id": "rencontre_28",
@@ -2097,7 +2800,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/54_fr.wav",
           "audioWo": "/audio/rencontre/55_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/54_fr.wav",
+      "audioWo": "/audio/rencontre/55_wo.wav"
     },
     {
       "id": "rencontre_29",
@@ -2112,7 +2817,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/56_fr.wav",
           "audioWo": "/audio/rencontre/57_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/56_fr.wav",
+      "audioWo": "/audio/rencontre/57_wo.wav"
     },
     {
       "id": "rencontre_30",
@@ -2127,7 +2834,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/58_fr.wav",
           "audioWo": "/audio/rencontre/59_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/58_fr.wav",
+      "audioWo": "/audio/rencontre/59_wo.wav"
     },
     {
       "id": "rencontre_31",
@@ -2142,7 +2851,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/60_fr.wav",
           "audioWo": "/audio/rencontre/61_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/60_fr.wav",
+      "audioWo": "/audio/rencontre/61_wo.wav"
     },
     {
       "id": "rencontre_32",
@@ -2157,7 +2868,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/62_fr.wav",
           "audioWo": "/audio/rencontre/63_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/62_fr.wav",
+      "audioWo": "/audio/rencontre/63_wo.wav"
     },
     {
       "id": "rencontre_33",
@@ -2172,7 +2885,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/64_fr.wav",
           "audioWo": "/audio/rencontre/65_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/64_fr.wav",
+      "audioWo": "/audio/rencontre/65_wo.wav"
     },
     {
       "id": "rencontre_34",
@@ -2187,7 +2902,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/66_fr.wav",
           "audioWo": "/audio/rencontre/67_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/66_fr.wav",
+      "audioWo": "/audio/rencontre/67_wo.wav"
     },
     {
       "id": "rencontre_35",
@@ -2202,7 +2919,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/68_fr.wav",
           "audioWo": "/audio/rencontre/69_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/68_fr.wav",
+      "audioWo": "/audio/rencontre/69_wo.wav"
     },
     {
       "id": "rencontre_36",
@@ -2217,7 +2936,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/70_fr.wav",
           "audioWo": "/audio/rencontre/71_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/70_fr.wav",
+      "audioWo": "/audio/rencontre/71_wo.wav"
     },
     {
       "id": "rencontre_37",
@@ -2232,7 +2953,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/72_fr.wav",
           "audioWo": "/audio/rencontre/73_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/72_fr.wav",
+      "audioWo": "/audio/rencontre/73_wo.wav"
     },
     {
       "id": "rencontre_38",
@@ -2247,7 +2970,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/74_fr.wav",
           "audioWo": "/audio/rencontre/75_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/74_fr.wav",
+      "audioWo": "/audio/rencontre/75_wo.wav"
     },
     {
       "id": "rencontre_39",
@@ -2262,7 +2987,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/76_fr.wav",
           "audioWo": "/audio/rencontre/77_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/76_fr.wav",
+      "audioWo": "/audio/rencontre/77_wo.wav"
     },
     {
       "id": "rencontre_40",
@@ -2277,7 +3004,9 @@ export const IMPORTED = {
           "audioFr": "/audio/rencontre/78_fr.wav",
           "audioWo": "/audio/rencontre/79_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/rencontre/78_fr.wav",
+      "audioWo": "/audio/rencontre/79_wo.wav"
     }
   ],
   "sentiments": [
@@ -2294,7 +3023,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/00_fr.wav",
           "audioWo": "/audio/sentiments/01_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/00_fr.wav",
+      "audioWo": "/audio/sentiments/01_wo.wav"
     },
     {
       "id": "sentiments_02",
@@ -2309,7 +3040,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/02_fr.wav",
           "audioWo": "/audio/sentiments/03_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/02_fr.wav",
+      "audioWo": "/audio/sentiments/03_wo.wav"
     },
     {
       "id": "sentiments_03",
@@ -2324,7 +3057,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/04_fr.wav",
           "audioWo": "/audio/sentiments/05_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/04_fr.wav",
+      "audioWo": "/audio/sentiments/05_wo.wav"
     },
     {
       "id": "sentiments_04",
@@ -2339,7 +3074,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/06_fr.wav",
           "audioWo": "/audio/sentiments/07_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/06_fr.wav",
+      "audioWo": "/audio/sentiments/07_wo.wav"
     },
     {
       "id": "sentiments_05",
@@ -2354,7 +3091,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/08_fr.wav",
           "audioWo": "/audio/sentiments/09_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/08_fr.wav",
+      "audioWo": "/audio/sentiments/09_wo.wav"
     },
     {
       "id": "sentiments_06",
@@ -2369,7 +3108,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/10_fr.wav",
           "audioWo": "/audio/sentiments/11_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/10_fr.wav",
+      "audioWo": "/audio/sentiments/11_wo.wav"
     },
     {
       "id": "sentiments_07",
@@ -2384,7 +3125,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/12_fr.wav",
           "audioWo": "/audio/sentiments/13_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/12_fr.wav",
+      "audioWo": "/audio/sentiments/13_wo.wav"
     },
     {
       "id": "sentiments_08",
@@ -2399,7 +3142,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/14_fr.wav",
           "audioWo": "/audio/sentiments/15_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/14_fr.wav",
+      "audioWo": "/audio/sentiments/15_wo.wav"
     },
     {
       "id": "sentiments_09",
@@ -2414,7 +3159,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/16_fr.wav",
           "audioWo": "/audio/sentiments/17_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/16_fr.wav",
+      "audioWo": "/audio/sentiments/17_wo.wav"
     },
     {
       "id": "sentiments_10",
@@ -2429,7 +3176,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/18_fr.wav",
           "audioWo": "/audio/sentiments/19_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/18_fr.wav",
+      "audioWo": "/audio/sentiments/19_wo.wav"
     },
     {
       "id": "sentiments_11",
@@ -2444,7 +3193,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/20_fr.wav",
           "audioWo": "/audio/sentiments/21_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/20_fr.wav",
+      "audioWo": "/audio/sentiments/21_wo.wav"
     },
     {
       "id": "sentiments_12",
@@ -2459,7 +3210,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/22_fr.wav",
           "audioWo": "/audio/sentiments/23_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/22_fr.wav",
+      "audioWo": "/audio/sentiments/23_wo.wav"
     },
     {
       "id": "sentiments_13",
@@ -2474,7 +3227,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/24_fr.wav",
           "audioWo": "/audio/sentiments/25_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/24_fr.wav",
+      "audioWo": "/audio/sentiments/25_wo.wav"
     },
     {
       "id": "sentiments_14",
@@ -2489,7 +3244,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/26_fr.wav",
           "audioWo": "/audio/sentiments/27_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/26_fr.wav",
+      "audioWo": "/audio/sentiments/27_wo.wav"
     },
     {
       "id": "sentiments_15",
@@ -2504,7 +3261,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/28_fr.wav",
           "audioWo": "/audio/sentiments/29_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/28_fr.wav",
+      "audioWo": "/audio/sentiments/29_wo.wav"
     },
     {
       "id": "sentiments_16",
@@ -2519,7 +3278,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/30_fr.wav",
           "audioWo": "/audio/sentiments/31_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/30_fr.wav",
+      "audioWo": "/audio/sentiments/31_wo.wav"
     },
     {
       "id": "sentiments_17",
@@ -2534,7 +3295,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/32_fr.wav",
           "audioWo": "/audio/sentiments/33_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/32_fr.wav",
+      "audioWo": "/audio/sentiments/33_wo.wav"
     },
     {
       "id": "sentiments_18",
@@ -2549,7 +3312,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/34_fr.wav",
           "audioWo": "/audio/sentiments/35_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/34_fr.wav",
+      "audioWo": "/audio/sentiments/35_wo.wav"
     },
     {
       "id": "sentiments_19",
@@ -2564,7 +3329,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/36_fr.wav",
           "audioWo": "/audio/sentiments/37_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/36_fr.wav",
+      "audioWo": "/audio/sentiments/37_wo.wav"
     },
     {
       "id": "sentiments_20",
@@ -2579,7 +3346,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/38_fr.wav",
           "audioWo": "/audio/sentiments/39_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/38_fr.wav",
+      "audioWo": "/audio/sentiments/39_wo.wav"
     },
     {
       "id": "sentiments_21",
@@ -2594,7 +3363,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/40_fr.wav",
           "audioWo": "/audio/sentiments/41_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/40_fr.wav",
+      "audioWo": "/audio/sentiments/41_wo.wav"
     },
     {
       "id": "sentiments_22",
@@ -2609,7 +3380,9 @@ export const IMPORTED = {
           "audioFr": "/audio/sentiments/42_fr.wav",
           "audioWo": "/audio/sentiments/43_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/sentiments/42_fr.wav",
+      "audioWo": "/audio/sentiments/43_wo.wav"
     }
   ],
   "temps": [
@@ -2626,7 +3399,9 @@ export const IMPORTED = {
           "audioFr": "/audio/temps/00_fr.wav",
           "audioWo": "/audio/temps/01_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/temps/00_fr.wav",
+      "audioWo": "/audio/temps/01_wo.wav"
     },
     {
       "id": "temps_02",
@@ -2641,7 +3416,9 @@ export const IMPORTED = {
           "audioFr": "/audio/temps/02_fr.wav",
           "audioWo": "/audio/temps/03_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/temps/02_fr.wav",
+      "audioWo": "/audio/temps/03_wo.wav"
     },
     {
       "id": "temps_03",
@@ -2656,7 +3433,9 @@ export const IMPORTED = {
           "audioFr": "/audio/temps/04_fr.wav",
           "audioWo": "/audio/temps/05_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/temps/04_fr.wav",
+      "audioWo": "/audio/temps/05_wo.wav"
     },
     {
       "id": "temps_04",
@@ -2671,7 +3450,9 @@ export const IMPORTED = {
           "audioFr": "/audio/temps/06_fr.wav",
           "audioWo": "/audio/temps/07_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/temps/06_fr.wav",
+      "audioWo": "/audio/temps/07_wo.wav"
     },
     {
       "id": "temps_05",
@@ -2686,7 +3467,9 @@ export const IMPORTED = {
           "audioFr": "/audio/temps/08_fr.wav",
           "audioWo": "/audio/temps/09_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/temps/08_fr.wav",
+      "audioWo": "/audio/temps/09_wo.wav"
     },
     {
       "id": "temps_06",
@@ -2701,7 +3484,9 @@ export const IMPORTED = {
           "audioFr": "/audio/temps/10_fr.wav",
           "audioWo": "/audio/temps/11_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/temps/10_fr.wav",
+      "audioWo": "/audio/temps/11_wo.wav"
     },
     {
       "id": "temps_07",
@@ -2716,7 +3501,9 @@ export const IMPORTED = {
           "audioFr": "/audio/temps/12_fr.wav",
           "audioWo": "/audio/temps/13_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/temps/12_fr.wav",
+      "audioWo": "/audio/temps/13_wo.wav"
     },
     {
       "id": "temps_08",
@@ -2731,7 +3518,9 @@ export const IMPORTED = {
           "audioFr": "/audio/temps/14_fr.wav",
           "audioWo": "/audio/temps/15_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/temps/14_fr.wav",
+      "audioWo": "/audio/temps/15_wo.wav"
     },
     {
       "id": "temps_09",
@@ -2746,7 +3535,9 @@ export const IMPORTED = {
           "audioFr": "/audio/temps/16_fr.wav",
           "audioWo": "/audio/temps/17_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/temps/16_fr.wav",
+      "audioWo": "/audio/temps/17_wo.wav"
     },
     {
       "id": "temps_10",
@@ -2761,7 +3552,9 @@ export const IMPORTED = {
           "audioFr": null,
           "audioWo": "/audio/temps/18_wo.wav"
         }
-      ]
+      ],
+      "audioFr": null,
+      "audioWo": "/audio/temps/18_wo.wav"
     },
     {
       "id": "temps_11",
@@ -2776,7 +3569,9 @@ export const IMPORTED = {
           "audioFr": "/audio/temps/19_fr.wav",
           "audioWo": "/audio/temps/20_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/temps/19_fr.wav",
+      "audioWo": "/audio/temps/20_wo.wav"
     },
     {
       "id": "temps_12",
@@ -2791,7 +3586,9 @@ export const IMPORTED = {
           "audioFr": "/audio/temps/21_fr.wav",
           "audioWo": "/audio/temps/22_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/temps/21_fr.wav",
+      "audioWo": "/audio/temps/22_wo.wav"
     },
     {
       "id": "temps_13",
@@ -2806,7 +3603,9 @@ export const IMPORTED = {
           "audioFr": "/audio/temps/23_fr.wav",
           "audioWo": "/audio/temps/24_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/temps/23_fr.wav",
+      "audioWo": "/audio/temps/24_wo.wav"
     },
     {
       "id": "temps_14",
@@ -2821,7 +3620,9 @@ export const IMPORTED = {
           "audioFr": "/audio/temps/25_fr.wav",
           "audioWo": "/audio/temps/26_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/temps/25_fr.wav",
+      "audioWo": "/audio/temps/26_wo.wav"
     },
     {
       "id": "temps_15",
@@ -2836,7 +3637,9 @@ export const IMPORTED = {
           "audioFr": "/audio/temps/27_fr.wav",
           "audioWo": "/audio/temps/28_wo.wav"
         }
-      ]
+      ],
+      "audioFr": "/audio/temps/27_fr.wav",
+      "audioWo": "/audio/temps/28_wo.wav"
     }
   ]
 }
