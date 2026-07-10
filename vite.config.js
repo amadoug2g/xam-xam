@@ -24,7 +24,7 @@ function serveTools() {
 
 export default defineConfig({
   plugins: [react(), serveTools()],
-  base: '/',
+  base: '/xam-xam/',
   publicDir: 'public',
   define: {
     __APP_VERSION__: JSON.stringify(pkg.version),
