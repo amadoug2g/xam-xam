@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { Volume2, Sparkles, Languages, Eye } from 'lucide-react'
+import { audioUrl } from '../core/audioUrl'
 
 export default function FlipCard({ card, flipped, onFlip, reversed = false, audioOnly = false }) {
   const audioRef = useRef(null)
@@ -8,7 +9,7 @@ export default function FlipCard({ card, flipped, onFlip, reversed = false, audi
     if (audioRef.current) { audioRef.current.pause(); audioRef.current = null }
     const src = reversed ? card?.audioFr : card?.audioWo
     if (src) {
-      const a = new Audio(src)
+      const a = new Audio(audioUrl(src))
       audioRef.current = a
       a.play().catch(() => {})
     }

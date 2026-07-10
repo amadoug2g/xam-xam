@@ -7,6 +7,7 @@ import { useTheme } from '../core/useTheme'
 import { failedStore } from '../core/failedStore'
 import FlipCard from './FlipCard'
 import GradeBar from './GradeBar'
+import { audioUrl } from '../core/audioUrl'
 
 export default function Session({ lessonId, cards: cardsProp, onDone, onRepeat, onRepeatFailed, initialAudioOnly = false, initialReversed = false }) {
   const LESSONS = lessonStore.getLessons()
@@ -48,7 +49,7 @@ export default function Session({ lessonId, cards: cardsProp, onDone, onRepeat, 
     const frontCard = queue[0]
     const src = reversed ? frontCard?.audioFr : frontCard?.audioWo
     if (src) {
-      const a = new Audio(src)
+      const a = new Audio(audioUrl(src))
       audioRef.current = a
       a.play().catch(() => {})
     }
@@ -78,7 +79,7 @@ export default function Session({ lessonId, cards: cardsProp, onDone, onRepeat, 
     if (audioRef.current) { audioRef.current.pause(); audioRef.current = null }
     const src = reversed ? card?.audioWo : card?.audioFr
     if (src) {
-      const a = new Audio(src)
+      const a = new Audio(audioUrl(src))
       audioRef.current = a
       a.play().catch(() => {})
     }

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { lessonStore } from '../core/lessonStore'
+import { audioUrl } from '../core/audioUrl'
 import { srs } from '../core/srs'
 import { useTheme } from '../core/useTheme'
 import { ArrowLeft, Play, BookOpen, CheckCircle2, Clock, Volume2, Sun, Moon, Eye, EyeOff, Settings } from 'lucide-react'
@@ -26,7 +27,7 @@ export default function LessonDetail({ lessonId, onStart, onBack, onAdmin }) {
   const playPreviewAudio = (card, e) => {
     e.stopPropagation()
     if (card?.audioWo) {
-      new Audio(card.audioWo).play().catch(() => {})
+      new Audio(audioUrl(card.audioWo)).play().catch(() => {})
     }
   }
 
